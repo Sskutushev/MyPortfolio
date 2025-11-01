@@ -30,7 +30,7 @@ export const HeroSection = () => {
                 initial={{ width: 0 }}
                 animate={{ width: '100%' }}
                 transition={{ duration: 2, ease: 'easeInOut' }}
-                className="overflow-x-auto whitespace-nowrap"
+                className="break-words"
               >
                 <span className="text-c-accent-cyan">&gt;</span> npm create vite@latest portfolio -- --template react-ts
               </motion.div>
