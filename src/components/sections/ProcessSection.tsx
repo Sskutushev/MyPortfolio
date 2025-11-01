@@ -62,28 +62,34 @@ export const ProcessSection = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="mt-16 p-8 rounded-2xl bg-c-bg-primary border border-c-border"
+          className="mt-16 p-4 md:p-8 rounded-2xl bg-c-bg-primary border border-c-border"
         >
-          <div className="flex flex-wrap items-center justify-center gap-4 text-center">
-            <div className="px-6 py-3 rounded-xl bg-gradient-primary text-white font-semibold">
-              Идея
-            </div>
+          {/* Desktop Flow */}
+          <div className="hidden md:flex flex-wrap items-center justify-center gap-4 text-center">
+            <div className="px-6 py-3 rounded-xl bg-gradient-primary text-white font-semibold">Идея</div>
             <div className="text-c-accent-blue">→</div>
-            <div className="px-6 py-3 rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">
-              Архитектура
-            </div>
+            <div className="px-6 py-3 rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">Архитектура</div>
             <div className="text-c-accent-blue">→</div>
-            <div className="px-6 py-3 rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">
-              Разработка
-            </div>
+            <div className="px-6 py-3 rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">Разработка</div>
             <div className="text-c-accent-blue">→</div>
-            <div className="px-6 py-3 rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">
-              Тестирование
-            </div>
+            <div className="px-6 py-3 rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">Тестирование</div>
             <div className="text-c-accent-blue">→</div>
-            <div className="px-6 py-3 rounded-xl bg-gradient-primary text-white font-semibold">
-              Релиз
+            <div className="px-6 py-3 rounded-xl bg-gradient-primary text-white font-semibold">Релиз</div>
+          </div>
+
+          {/* Mobile Flow */}
+          <div className="flex flex-col items-center gap-4 md:hidden">
+            <div className="flex items-center gap-2">
+              <div className="px-4 py-2 text-sm rounded-xl bg-gradient-primary text-white font-semibold">Идея</div>
+              <div className="text-c-accent-blue">→</div>
+              <div className="px-4 py-2 text-sm rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">Архитектура</div>
             </div>
+            <div className="flex items-center gap-2">
+              <div className="px-4 py-2 text-sm rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">Разработка</div>
+              <div className="text-c-accent-blue">→</div>
+              <div className="px-4 py-2 text-sm rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">Тестирование</div>
+            </div>
+            <div className="px-6 py-3 rounded-xl bg-gradient-primary text-white font-semibold">Релиз</div>
           </div>
         </motion.div>
       </div>

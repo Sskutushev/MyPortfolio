@@ -22,6 +22,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
+            className="w-full max-w-full overflow-hidden"
           >
             {/* CLI Command with Typewriter Effect */}
             <div className="mb-6 p-4 rounded-xl bg-c-bg-tertiary border border-c-border font-mono text-sm">
@@ -29,7 +30,7 @@ export const HeroSection = () => {
                 initial={{ width: 0 }}
                 animate={{ width: '100%' }}
                 transition={{ duration: 2, ease: 'easeInOut' }}
-                className="overflow-hidden whitespace-nowrap"
+                className="overflow-x-auto whitespace-nowrap"
               >
                 <span className="text-c-accent-cyan">&gt;</span> npm create vite@latest portfolio -- --template react-ts
               </motion.div>
@@ -84,7 +85,7 @@ export const HeroSection = () => {
                 loop
                 muted
                 playsInline
-                className="w-[calc(100%+100px)] max-w-[calc(100%+100px)] h-auto"
+                className="w-full h-auto"
               >
                 <source src="/images/photo-hero.mp4" type="video/mp4" />
               </video>
