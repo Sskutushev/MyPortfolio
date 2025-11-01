@@ -89,15 +89,40 @@
     "stacks": {
       "react": {
         "name": "React",
-        "icon": "/images/react.png"
+        "icon": "/images/react.png",
+        "description": "Для динамичных, state-heavy SPA и полнофункциональных решений с Next.js. Моя основная экосистема.",
+        "useCases": [
+          "Сложные дашборды с real-time данными",
+          "E-commerce платформы",
+          "Web3 приложения (кошельки, DeFi)",
+          "Telegram Mini Apps",
+          "SSR-приложения (Next.js)"
+        ],
+        "tools": "React 18, Redux Toolkit, Zustand, TanStack Query, Next.js, Framer Motion"
       },
       "vue": {
         "name": "Vue",
-        "icon": "/images/Vue.png"
+        "icon": "/images/Vue.png",
+        "description": "Для структурированных, прогрессивных фреймворков и быстрой разработки. Силен в Composition API и Pinia.",
+        "useCases": [
+          "Корпоративные панели управления",
+          "CRM и ERP системы",
+          "Прогрессивные веб-приложения (PWA)",
+          "SSR с Nuxt.js"
+        ],
+        "tools": "Vue 3, Composition API, Pinia, Vue Router, Nuxt.js"
       },
       "vanilla": {
         "name": "Vanilla Stack",
-        "icon": "/images/vanila.png"
+        "icon": "/images/vanila.png",
+        "description": "HTML5 + CSS3 + JavaScript. Для критически важных по производительности лендингов, Web Components или проектов, где легковесность — ключ к успеху.",
+        "useCases": [
+          "Высокопроизводительные лендинги",
+          "Легковесные виджеты и встраиваемые элементы",
+          "Web Components для переиспользования",
+          "Проекты с жесткими требованиями к размеру бандла"
+        ],
+        "tools": "ES6+, Web APIs, CSS Grid/Flexbox, CSS Variables, GSAP"
       }
     }
   },
