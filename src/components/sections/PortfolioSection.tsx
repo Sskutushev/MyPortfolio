@@ -192,7 +192,7 @@ export const PortfolioSection = () => {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.5 }}
-        className="absolute top-1/3 right-0 w-1/3 max-w-md hidden xl:block"
+        className="absolute top-1/3 right-8 w-1/4 max-w-xs hidden xl:block"
       >
         <div className="relative rounded-3xl overflow-hidden border-2 border-c-accent-blue/30 shadow-2xl m-8">
           <video
