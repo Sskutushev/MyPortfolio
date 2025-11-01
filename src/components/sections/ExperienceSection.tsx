@@ -20,7 +20,7 @@ export const ExperienceSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Work Experience */}
+          {/* Left Column: New Text */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -28,14 +28,28 @@ export const ExperienceSection = () => {
             className="p-8 rounded-2xl bg-c-bg-secondary border border-c-border"
           >
             <h3 className="text-2xl font-bold mb-4 text-c-accent-blue">
-              {t('experience.workExperience.title')}
+              Мой опыт и подход к работе
             </h3>
-            <p className="text-c-text-secondary leading-relaxed">
-              {t('experience.workExperience.description')}
+            <p className="text-c-text-secondary leading-relaxed mb-6">
+              За последний год я активно работал на фрилансе и реализовал самые разные проекты: от презентационных лендингов до сложных Web3-приложений (DeFi, крипто-кошельки) и Telegram Mini Apps.
             </p>
+            <h3 className="text-2xl font-bold mb-4 text-c-accent-purple">
+              Моя философия — я практик
+            </h3>
+            <div className="space-y-4 text-c-text-secondary leading-relaxed">
+              <p>
+                Я могу не вспомнить термин из учебника, но я всегда понимаю, как и почему код работает. Я не начну писать код, пока не продумаю архитектуру будущего проекта. Это мой способ сразу заложить надежный фундамент и избежать проблем в будущем.
+              </p>
+              <p>
+                Я (в хорошем смысле) дотошный и педантичный. Я искренне люблю чистый, понятный код, который легко поддерживать. Я не сдаю работу, пока лично не буду уверен на 100%, что всё протестировано и работает как часы.
+              </p>
+              <p>
+                Хотя мой фокус — фронтенд, я понимаю, как устроен бэкенд (работал с Next.js и Node.js), что помогает мне видеть всю картину проекта целиком. Я каждый день продолжаю практиковаться, чтобы делать свою работу быстрее и качественнее.
+              </p>
+            </div>
           </motion.div>
 
-          {/* Stack */}
+          {/* Right Column: Stack */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
