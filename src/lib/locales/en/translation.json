@@ -1,0 +1,206 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "portfolio": "Portfolio",
+    "stack": "Stack",
+    "contact": "Contact"
+  },
+  "hero": {
+    "subtitle": "Frontend Architect. Building fast, component-based and scalable web solutions with React, Vue, and Vanilla JS.",
+    "cta": "Start Session"
+  },
+  "about": {
+    "title": "The Architect's Blueprint",
+    "subtitle": "Who I am and what I offer",
+    "description": "I'm not just a coder — I'm a Solution Architect. My work is transforming design into living, responsive, and performant products. Focus on component architecture (CDD), clean state management, and creating the perfect UX. In one year of frontend development, I have implemented projects from landing pages to Web3 wallets, always following principles of clean code and scalability.",
+    "points": {
+      "flexibility": {
+        "title": "Stack Flexibility",
+        "description": "React, Vue, Vanilla JS — choosing the right tool for the task, not limiting myself to one framework."
+      },
+      "performance": {
+        "title": "Speed and Performance",
+        "description": "Vite for instant builds, Code Splitting for load optimization, Web Vitals as a quality benchmark."
+      },
+      "scalability": {
+        "title": "Clean Code and Scalability",
+        "description": "TypeScript, modular architecture, tests (Vitest), documentation, and clear commits — the key to long-term support."
+      }
+    }
+  },
+  "experience": {
+    "title": "My Experience: Deep Dive",
+    "workExperience": {
+      "title": "Work Experience",
+      "description": "1 year in frontend development. Implemented projects from presentation landing pages to complex Web3 applications (wallets, DeFi platforms, token generators). Worked with e-commerce integrations, SPA applications, and Telegram Mini Apps."
+    },
+    "stack": {
+      "title": "Specialization",
+      "categories": {
+        "react": {
+          "name": "React Ecosystem",
+          "items": "React 18+ (Hooks, Context), Redux Toolkit, Zustand, TanStack Query, React Hook Form, Framer Motion"
+        },
+        "vue": {
+          "name": "Vue Ecosystem",
+          "items": "Vue 3, Composition API, Pinia, Vuex, Vue Router"
+        },
+        "ssr": {
+          "name": "SSR/SSG",
+          "items": "Next.js (App Router, API Routes), Nuxt.js"
+        },
+        "styling": {
+          "name": "Styling",
+          "items": "Tailwind CSS (expert), Styled Components, SCSS, CSS Modules, responsive design"
+        },
+        "build": {
+          "name": "Build and Tools",
+          "items": "Vite (preferred), Webpack, TypeScript, ESLint, Prettier"
+        },
+        "web3": {
+          "name": "Web3 and Blockchain",
+          "items": "Ethers.js, Web3 integrations, smart contracts (basic), wallets"
+        },
+        "backend": {
+          "name": "Backend (basic)",
+          "items": "Node.js, Express, REST API, database work (SQL), Docker, CI/CD"
+        },
+        "testing": {
+          "name": "Testing",
+          "items": "Vitest, React Testing Library, Cypress, Jest"
+        }
+      }
+    }
+  },
+  "portfolio": {
+    "title": "Code Manifest: Selected Solutions",
+    "subtitle": "Completed projects demonstrating my development approach",
+    "input": "INPUT → Task",
+    "process": "PROCESS → Stack and Implementation", 
+    "output": "OUTPUT → Result",
+    "processTab": "The Flow",
+    "codeTab": "Code Highlight"
+  },
+  "stack": {
+    "title": "Technology Matrix: Stack for Specific Tasks",
+    "subtitle": "Technology choice depends on project requirements",
+    "stacks": {
+      "react": {
+        "name": "React",
+        "icon": "⚛️",
+        "description": "For dynamic, state-heavy SPAs and full-featured solutions with Next.js. My main ecosystem.",
+        "useCases": [
+          "Complex dashboards with real-time data",
+          "E-commerce platforms",
+          "Web3 applications (wallets, DeFi)",
+          "Telegram Mini Apps",
+          "SSR applications (Next.js)"
+        ],
+        "tools": "React 18, Redux Toolkit, Zustand, TanStack Query, Next.js, Framer Motion"
+      },
+      "vue": {
+        "name": "Vue",
+        "icon": "💚",
+        "description": "For structured, progressive frameworks and rapid development. Strong in Composition API and Pinia.",
+        "useCases": [
+          "Corporate dashboards",
+          "CRM and ERP systems",
+          "Progressive web applications (PWA)",
+          "SSR with Nuxt.js"
+        ],
+        "tools": "Vue 3, Composition API, Pinia, Vue Router, Nuxt.js"
+      },
+      "vanilla": {
+        "name": "Vanilla Stack",
+        "icon": "🎯",
+        "description": "HTML5 + CSS3 + JavaScript. For performance-critical landing pages, Web Components, or projects where lightweight is key to success.",
+        "useCases": [
+          "High-performance landing pages",
+          "Lightweight widgets and embeddable elements",
+          "Web Components for reusability",
+          "Projects with strict bundle size requirements"
+        ],
+        "tools": "ES6+, Web APIs, CSS Grid/Flexbox, CSS Variables, GSAP"
+      }
+    }
+  },
+  "process": {
+    "title": "From Idea to Release: My Process",
+    "steps": {
+      "0": {
+        "number": "01",
+        "title": "Architecture and Design",
+        "description": "Working from Figma/Sketch mockups or proposing my own design solutions. Planning component architecture, data flow, and interaction logic. Determining the optimal stack for the task."
+      },
+      "1": {
+        "number": "02",
+        "title": "Development",
+        "description": "Fast and clean coding using modern tools (Vite, TypeScript). Modular structure, reusable components, clear commits. Code Splitting for optimization."
+      },
+      "2": {
+        "number": "03",
+        "title": "AI Acceleration",
+        "description": "Using AI assistants to speed up routine tasks (boilerplate, testing, documentation) under full personal control. AI is a tool, but architectural decisions are always made by me."
+      },
+      "3": {
+        "number": "04",
+        "title": "QA and Deploy",
+        "description": "Full responsiveness (mobile-first), cross-browser compatibility, testing (Vitest, Cypress). SEO optimization, Web Vitals. Setting up CI/CD, deployment to Vercel/Netlify, documentation."
+      }
+    }
+  },
+  "advantages": {
+    "title": "Why we'll work well together? Your benefits.",
+    "subtitle": "Key advantages of working with me",
+    "items": {
+      "0": {
+        "code": "// Multi-Stack Versatility",
+        "title": "Stack Flexibility",
+        "description": "I'm fluent in React, Vue, and Vanilla JS. I choose the right tool for the job, not limiting myself to one framework. This allows creating optimal solutions for each project."
+      },
+      "1": {
+        "code": "// AI-Optimized Delivery",
+        "title": "AI-Accelerated Development",
+        "description": "Reducing development time through intelligent application of AI tools. Speed without sacrificing quality — routine is automated, I focus on architecture and business logic."
+      },
+      "2": {
+        "code": "// Modern & Fast",
+        "title": "Modern & Fast",
+        "description": "Expertise in Vite, React, and Tailwind means your project will be created with maximum development speed and runtime performance. Load optimization, Code Splitting, Web Vitals."
+      }
+    }
+  },
+  "contact": {
+    "title": "Deploy & Connect",
+    "subtitle": "Let's start working",
+    "info": {
+      "title": "Contact Information"
+    },
+    "botInfo": {
+      "title": "Instant Response",
+      "description": "Your request will be sent to my Telegram bot for a quick response."
+    },
+    "form": {
+      "name": {
+        "label": "Your Name",
+        "placeholder": "John Doe",
+        "required": "Name is required"
+      },
+      "contact": {
+        "label": "Email or Telegram",
+        "placeholder": "@username or email@example.com",
+        "required": "Contact is required"
+      },
+      "message": {
+        "label": "Project Description",
+        "placeholder": "Tell me about your project...",
+        "required": "Message is required"
+      },
+      "submit": "Start Project",
+      "sending": "Sending...",
+      "success": "Message sent! I'll contact you soon.",
+      "error": "Sending error. Try writing directly to Telegram."
+    }
+  }
+}
