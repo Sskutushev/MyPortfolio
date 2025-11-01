@@ -33,7 +33,9 @@ export const StackSection = () => {
             >
               <div className="h-full p-8 rounded-2xl bg-c-bg-secondary border border-c-border hover:border-c-accent-blue transition-all hover:shadow-2xl hover:shadow-c-accent-blue/10">
                 {/* Icon */}
-                <div className="text-6xl mb-6">{t(`stack.stacks.${stack}.icon`)}</div>
+                <div className="mb-6 w-16 h-16 flex items-center justify-center">
+                  <img src={t(`stack.stacks.${stack}.icon`)} alt={stack} className="w-full h-full object-contain" />
+                </div>
 
                 {/* Name */}
                 <h3 className="text-2xl font-bold mb-4 group-hover:text-c-accent-blue transition">

@@ -369,7 +369,7 @@ const ProjectModal = ({ project, onClose, t }: { project: Project; onClose: () =
         ) : (
           <div>
             <h4 className="text-lg font-semibold mb-4">{project.codeHighlight.title}</h4>
-            <pre className="p-6 rounded-xl bg-c-bg-tertiary border border-c-border overflow-x-auto">
+            <pre className="block w-full p-6 rounded-xl bg-c-bg-tertiary border border-c-border overflow-x-auto">
               <code className="text-sm text-c-text-secondary font-mono">
                 {project.codeHighlight.code}
               </code>
