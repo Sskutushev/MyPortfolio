@@ -1,73 +1,106 @@
-# React + TypeScript + Vite
+# Проект "Reactive Velocity" - Сайт-портфолио
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Это подробная документация для современного сайта-портфолио, разработанного на стеке React, Vite, TypeScript и Tailwind CSS.
 
-Currently, two official plugins are available:
+## 1. Технологический стек
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Проект построен на современных и производительных технологиях, обеспечивающих быструю разработку, надежность и отличный пользовательский опыт.
 
-## React Compiler
+### Основные технологии:
+- **React 19:** Новейшая версия библиотеки для построения пользовательских интерфейсов.
+- **Vite:** Сверхбыстрый сборщик проектов, обеспечивающий мгновенный запуск сервера для разработки и оптимизированную сборку для продакшена.
+- **TypeScript:** Строгая типизация для повышения надежности и масштабируемости кода.
+- **Tailwind CSS:** Утилитарный CSS-фреймворк для быстрой и кастомной стилизации.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Ключевые библиотеки:
+- **Framer Motion:** Для создания плавных и сложных анимаций.
+- **react-i18next:** Для реализации мультиязычности (RU/EN).
+- **React Hook Form:** Для управления формами и их валидации.
+- **Lucide React:** Набор легковесных иконок.
+- **React Scroll:** Для плавной прокрутки по секциям сайта.
 
-## Expanding the ESLint configuration
+### Инструменты разработки:
+- **ESLint & TypeScript-ESLint:** Для статического анализа кода и поддержания его чистоты.
+- **PostCSS & Autoprefixer:** Для обработки CSS и обеспечения кросс-браузерной совместимости.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 2. Архитектура и структура проекта
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Проект имеет компонентно-ориентированную архитектуру (Component-Based Architecture). Весь интерфейс разбит на переиспользуемые компоненты, что упрощает разработку, тестирование и поддержку.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Структура папок:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+portfolio-project/
+├── .env                # (ВАЖНО!) Локальные переменные окружения (ключи API). Не должен быть в Git.
+├── .gitignore          # Файлы и папки, игнорируемые Git.
+├── index.html          # Точка входа, куда монтируется React-приложение.
+├── package.json        # Список зависимостей и скриптов проекта.
+├── tailwind.config.js  # Конфигурация Tailwind CSS.
+├── vite.config.ts      # Конфигурация сборщика Vite.
+├── tsconfig.json       # Конфигурация TypeScript.
+├── public/             # Статические файлы (изображения, видео, шрифты).
+│   └── images/
+└── src/                # Основная папка с исходным кодом.
+    ├── assets/         # Статические ассеты, импортируемые в код (например, SVG).
+    ├── components/     # React-компоненты.
+    │   ├── common/     # Общие, переиспользуемые компоненты (Button, Card, Modal).
+    │   └── sections/   # Компоненты-секции, из которых состоит главная страница.
+    ├── contexts/       # Контексты React (например, для управления темой).
+    │   └── ThemeContext.tsx
+    ├── lib/            # Вспомогательные модули и конфигурации.
+    │   ├── i18n.ts     # Конфигурация react-i18next.
+    │   └── locales/    # Файлы переводов (JSON).
+    ├── App.tsx         # Главный компонент, собирающий все секции.
+    ├── main.tsx        # Точка входа JavaScript, где React монтируется в DOM.
+    └── index.css       # Глобальные стили, переменные CSS и директивы Tailwind.
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 3. Принципы работы
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Рендеринг и навигация
+- Сайт представляет собой **одностраничное приложение (SPA)**.
+- Навигация по сайту осуществляется с помощью плавной прокрутки к соответствующим секциям, реализованной через `react-scroll`.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Стилизация
+- Стилизация основана на **Tailwind CSS**.
+- Глобальные цветовые схемы для темной и светлой тем заданы через CSS-переменные в `src/index.css`. Это позволяет легко менять тему на лету.
+- Компоненты стилизуются напрямую в JSX с помощью классов Tailwind.
+
+### Управление состоянием
+- Для глобального состояния (например, текущая тема) используется **React Context API** (`ThemeContext`).
+- Локальное состояние компонентов управляется с помощью хуков `useState`.
+
+### Форма обратной связи
+1.  Пользователь заполняет форму в `ContactSection`.
+2.  `React Hook Form` управляет состоянием полей и валидацией.
+3.  При отправке, функция `onSubmit` делает `fetch`-запрос к **Telegram Bot API**.
+4.  Для этого используются **переменные окружения** `VITE_TELEGRAM_BOT_TOKEN` и `VITE_TELEGRAM_CHAT_ID` из файла `.env`.
+5.  Бот отправляет отформатированное сообщение в указанный чат.
+
+## 4. Безопасность
+
+### Переменные окружения
+- **Ключи API** (токен Telegram-бота) хранятся в файле `.env`. Этот файл **не должен** попадать в систему контроля версий (Git). Я добавлю `.env` в `.gitignore`, чтобы предотвратить случайную утечку данных.
+
+### Внешние ссылки
+- Все внешние ссылки (`<a>` с `target="_blank"`) используют атрибут `rel="noopener noreferrer"`, чтобы предотвратить уязвимости безопасности.
+
+### Защита от спама и ботов
+- **В настоящее время явная защита от спама (например, Google reCAPTCHA) на форме обратной связи отсутствует.** Это потенциальная точка для улучшения. На данный момент защита ограничивается тем, что форма отправляет данные только через клиентский код, но это легко обойти.
+
+## 5. SEO (Поисковая оптимизация)
+
+Базовая поисковая оптимизация реализована через мета-теги в `index.html`:
+- `<title>`: Заголовок страницы.
+- `<meta name="description">`: Описание сайта для поисковых систем.
+- `<meta name="keywords">`: Ключевые слова.
+- **Open Graph теги** (`og:*`): Для корректного отображения превью сайта в социальных сетях (Facebook, Telegram и др.).
+- **Twitter Card теги** (`twitter:*`): Для корректного отображения превью в Twitter.
+
+## 6. Скрипты для запуска
+
+Все скрипты определены в `package.json`:
+- `npm run dev`: Запуск сервера для разработки с помощью Vite.
+- `npm run build`: Сборка продакшн-версии проекта.
+- `npm run lint`: Запуск статического анализатора кода ESLint.
+- `npm run preview`: Локальный запуск продакшн-сборки для проверки.
