@@ -202,7 +202,7 @@ export const PortfolioSection = () => {
             playsInline
             className="w-full h-auto"
           >
-            <source src="/images/photo-projects.mp4" type="video/mp4" />
+            <source src="/images/photo-project.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-tr from-c-accent-blue/20 to-transparent" />
         </div>
@@ -214,9 +214,9 @@ export const PortfolioSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16 text-center"
+          className="relative z-10 mb-16 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+          <h2 className="pb-2 text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
             {t('portfolio.title')}
           </h2>
           <p className="text-xl text-c-text-secondary max-w-3xl mx-auto">{t('portfolio.subtitle')}</p>

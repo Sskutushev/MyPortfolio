@@ -20,9 +20,9 @@ export const AboutSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="relative z-10 text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+          <h2 className="pb-2 text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
             {t('about.title')}
           </h2>
           <p className="text-xl text-c-text-secondary">{t('about.subtitle')}</p>
@@ -72,7 +72,7 @@ export const AboutSection = () => {
                       <Icon size={24} className="text-white" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-1">{t(`about.points.${key}.title`)}</h3>
+                      <h3 className="text-lg font-bold mb-1">{t(`about.points.${key}.title`)}</h3>
                       <p className="text-c-text-secondary">{t(`about.points.${key}.description`)}</p>
                     </div>
                   </motion.div>
