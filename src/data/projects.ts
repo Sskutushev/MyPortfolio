@@ -95,5 +95,28 @@ export const portfolioProjects: Project[] = [
       value: "95+",
       description: "Lighthouse Score (Performance + Accessibility)"
     }
+  },
+  {
+    id: 4,
+    title: "DexFlow",
+    category: "Web3 / SocialFi / DEX",
+    tech: "React, TypeScript, Tailwind CSS, Framer Motion, React Router",
+    imageDark: "/images/Dexdark.jpg",
+    imageLight: "/images/dexwhite.jpg",
+    link: "https://sskutushev.github.io/DexFlow",
+    flow: {
+      input: "Децентрализованная биржа с социальными функциями для трейдеров. Гибридная платформа, объединяющая торговлю криптовалютой (спот/фьючерсы/опционы) с социальной сетью: лента постов, профили, копи-трейдинг.",
+      process: "React + TypeScript для типобезопасности. Tailwind CSS для utility-first стилизации с темизацией через CSS-переменные. Framer Motion для анимаций. React Router для SPA-навигации. Централизованные mock-данные в src/mock/ с единой системой категоризации контента (popular/hot/trending). Разделение компонентов по фичам (exchange/feed/profile/copytrading).",
+      output: "Полнофункциональный прототип с 8 страницами: лендинг, торговый интерфейс с графиками, социальная лента (3 категории постов), профили с портфелем, 15 стратегий копи-трейдинга с метриками. Адаптивный дизайн, система тематизации dark/light, готовая структура для Web3-интеграции."
+    },
+    codeHighlight: {
+      title: "Умная категоризация контента (единый источник для 3 лент)",
+      code: "// src/mock/mock-api.js\nconst mockPosts = [\n  {\n    id: 1, \n    type: 'popular',\n    author: { name: 'CryptoBull', address: '0x123...abc' },\n    timestamp: '2 часа назад',\n    content: 'BTC готовится к новому рывку! 🚀',\n    likes: 125, \n    views: 1200,\n  },\n  {\n    id: 4, \n    type: 'hot',\n    author: { name: 'Blockchain_Dev', address: '0xabc...jkl' },\n    timestamp: '30 минут назад',\n    content: 'Развернул новый смарт-контракт на Polygon.',\n    likes: 50, \n    views: 300,\n  },\n  {\n    id: 6, \n    type: 'trending',\n    author: { name: 'Web3_Innovator', address: '0xfgh...pqr' },\n    timestamp: '10 минут назад',\n    content: 'Обсуждаем будущее DAO.',\n    likes: 20, \n    views: 150,\n  },\n];\n\nexport const getPosts = (type = 'popular') => {\n  if (type === 'all') return mockPosts;\n  return mockPosts.filter(post => post.type === type);\n};\n\n// Использование\nconst FeedPage = () => {\n  const [activeTab, setActiveTab] = useState('popular');\n  const posts = getPosts(activeTab); // Автоматическая фильтрация!\n  \n  return posts.map(post => <PostCard key={post.id} {...post} />);\n};"
+    },
+    metrics: {
+      label: "Функционал",
+      value: "8 страниц",
+      description: "Полнофункциональный прототип"
+    }
   }
 ];
