@@ -2,15 +2,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { ArrowLeft, ExternalLink, Code } from 'lucide-react';
-import { Modal } from '@/components/common/Modal';
+import { ArrowLeft } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
-import { portfolioProjects, Project } from '@/data/projects';
+import { portfolioProjects } from '@/data/projects';
 
 import { ProjectModal } from '@/components/common/ProjectModal';
 
 export const PortfolioPage = () => {
-  const { t } = useTranslation();
   const { theme } = useTheme();
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 

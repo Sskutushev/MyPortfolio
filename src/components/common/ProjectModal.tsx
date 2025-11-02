@@ -1,7 +1,7 @@
 // src/components/common/ProjectModal.tsx
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Code } from 'lucide-react';
 import { Modal } from '@/components/common/Modal';
 import { Project } from '@/data/projects';
 

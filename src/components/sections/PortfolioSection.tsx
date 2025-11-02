@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { ExternalLink, Code, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { ProjectModal } from '@/components/common/ProjectModal';
 import { useTheme } from '@/contexts/ThemeContext';
-import { portfolioProjects, Project } from '@/data/projects';
+import { portfolioProjects } from '@/data/projects';
 
 export const PortfolioSection = () => {
   const { t } = useTranslation();
