@@ -68,12 +68,13 @@ export const ContactSection = () => {
           <p className="text-xl text-c-text-secondary">{t('contact.subtitle')}</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-12 gap-8 max-w-7xl mx-auto items-center">
+          {/* Contact Info - теперь 4/12 ширины */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="md:col-span-4 space-y-6"
           >
             <h3 className="text-2xl font-bold mb-6">{t('contact.info.title')}</h3>
             <div className="p-6 rounded-xl bg-c-bg-primary border border-c-border font-mono text-sm space-y-3">
@@ -112,10 +113,58 @@ export const ContactSection = () => {
             </div>
           </motion.div>
 
+          {/* Смартфон с видео - 4/12 ширины */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="md:col-span-4 flex justify-center"
+          >
+            <div className="relative w-full max-w-xs">
+              {/* Контейнер смартфона */}
+              <div className="relative bg-gray-900 rounded-[40px] p-5 shadow-2xl border-[12px] border-gray-800">
+                {/* Камера */}
+                <div className="absolute top-6 left-1/2 transform -translate-x-1/2 w-10 h-5 bg-gray-800 rounded-full flex justify-center items-center">
+                  <div className="w-6 h-6 bg-gray-700 rounded-full"></div>
+                </div>
+                
+                {/* Экран смартфона */}
+                <div className="relative rounded-2xl overflow-hidden bg-black">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover rounded-2xl video-smartphone"
+                  >
+                    <source src="/images/Contact.MP4" type="video/mp4" />
+                    Ваш браузер не поддерживает видео.
+                  </video>
+                  
+                  {/* Индикаторы уведомлений */}
+                  <div className="absolute top-4 right-4 w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                </div>
+                
+                {/* Кнопки боковые */}
+                <div className="absolute top-1/4 -left-3 w-1 h-16 bg-gray-700 rounded-l-lg"></div>
+                <div className="absolute top-1/3 -left-3 w-1 h-8 bg-gray-700 rounded-l-lg"></div>
+                <div className="absolute top-1/2 -right-3 w-1 h-20 bg-gray-700 rounded-r-lg"></div>
+              </div>
+              
+              {/* Подпись */}
+              <div className="mt-4 text-center text-c-text-secondary text-sm">
+                {t('contact.demo.title', 'Демонстрация отправки сообщения')}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Форма - 4/12 ширины */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="md:col-span-4"
           >
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>

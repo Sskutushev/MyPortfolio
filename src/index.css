@@ -271,6 +271,14 @@ video {
   height: auto;
 }
 
+.video-smartphone {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-default);
+  background: black;
+}
+
 /* ===== SMOOTH TRANSITIONS ===== */
 * {
   transition-property: background-color, border-color, color, fill, stroke;

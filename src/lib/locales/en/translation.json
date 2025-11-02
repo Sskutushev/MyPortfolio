@@ -177,6 +177,9 @@
     "info": {
       "title": "Contact Information"
     },
+    "demo": {
+      "title": "Message Sending Demo"
+    },
     "botInfo": {
       "title": "Instant Response",
       "description": "Your request will be sent to my Telegram bot for a quick response."
