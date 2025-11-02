@@ -42,7 +42,7 @@ export const portfolioProjects: Project[] = [
     },
     codeHighlight: {
       title: "Custom Hook: useWallet (безопасное управление кошельком)",
-      code: "// src/hooks/useWallet.ts\nimport { create } from 'zustand';\n// ..."
+      code: "// src/hooks/useWallet.ts\nimport { create } from 'zustand';\nimport { Wallet } from 'ethers';\nimport { secureStorage } from '@/lib/security/secureStorage';\n\ninterface WalletStore {\n  address: string | null;\n  isLocked: boolean;\n  createWallet: (password: string) => Promise<void>;\n  unlockWallet: (password: string) => Promise<void>;\n  lockWallet: () => void;\n}\n\nexport const useWallet = create<WalletStore>((set) => ({\n  address: null,\n  isLocked: true,\n  \n  createWallet: async (password) => {\n    const wallet = Wallet.createRandom();\n    await secureStorage.setItem(\n      'encrypted_wallet',\n      await wallet.encrypt(password)\n    );\n    set({ address: wallet.address, isLocked: false });\n  },\n  \n  unlockWallet: async (password) => {\n    const encrypted = await secureStorage.getItem('encrypted_wallet');\n    const wallet = await Wallet.fromEncryptedJson(encrypted, password);\n    set({ address: wallet.address, isLocked: false });\n  },\n  \n  lockWallet: () => set({ isLocked: true }),\n}));"
     },
     metrics: {
       label: "Безопасность",
@@ -65,7 +65,7 @@ export const portfolioProjects: Project[] = [
     },
     codeHighlight: {
       title: "API Integration Pattern",
-      code: "// src/lib/api/client.ts\nimport axios from 'axios';\n// ..."
+      code: "// src/lib/api/client.ts\nimport axios from 'axios';\n\nconst apiClient = axios.create({\n  baseURL: import.meta.env.VITE_API_URL,\n  timeout: 10000,\n});\n\nexport const tokenAPI = {\n  getTokens: () => apiClient.get('/tokens'),\n  \n  createToken: (data: CreateTokenDTO) => \n    apiClient.post('/tokens', data),\n  \n  addLiquidity: (id: string, data: LiquidityDTO) =>\n    apiClient.post(`/tokens/${id}/liquidity`, data),\n};\n\n// Usage in component\nconst { data, isLoading } = useQuery({\n  queryKey: ['tokens'],\n  queryFn: tokenAPI.getTokens,\n});"
     },
     metrics: {
       label: "Готовность",
@@ -88,7 +88,7 @@ export const portfolioProjects: Project[] = [
     },
     codeHighlight: {
       title: "Advanced Animation Pattern",
-      code: "// src/lib/motionPresets.ts\nexport const motionPresets = {\n  // ...\n};"
+      code: "// src/lib/motionPresets.ts\nexport const motionPresets = {\n  fadeInUp: {\n    initial: { opacity: 0, y: 60 },\n    whileInView: { opacity: 1, y: 0 },\n    viewport: { once: true },\n    transition: { duration: 0.6, ease: 'easeOut' }\n  },\n  \n  staggerContainer: {\n    initial: {},\n    whileInView: { transition: { staggerChildren: 0.1 } }\n  },\n  \n  scaleIn: {\n    initial: { opacity: 0, scale: 0.8 },\n    whileInView: { opacity: 1, scale: 1 },\n    transition: { duration: 0.5 }\n  }\n};\n\n// Usage\n<motion.div {...motionPresets.fadeInUp}>\n  <h2>Animated Content</h2>\n</motion.div>"
     },
     metrics: {
       label: "Performance",
