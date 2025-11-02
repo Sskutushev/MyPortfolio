@@ -1,4 +1,5 @@
 // src/components/common/ProjectModal.tsx
+// Trivial change to force Vercel re-evaluation
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ExternalLink, Code } from 'lucide-react';
