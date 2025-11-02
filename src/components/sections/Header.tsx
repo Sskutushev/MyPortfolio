@@ -78,22 +78,37 @@ export const Header = () => {
 
         {/* Mobile Menu Overlay */}
         {isMenuOpen && (
-          <div className="fixed inset-0 top-16 bg-c-bg-primary z-40 md:hidden rounded-2xl backdrop-blur-sm">
-            <div className="flex flex-col items-center gap-6 py-8">
-              {['about', 'experience', 'portfolio', 'stack', 'contact'].map((section) => (
-                <ScrollLink
-                  key={section}
-                  to={section}
-                  smooth
-                  duration={500}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-xl cursor-pointer hover:text-c-accent-blue transition"
-                >
-                  {t(`nav.${section}`)}
-                </ScrollLink>
-              ))}
-            </div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 top-16 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <motion.div
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -50, opacity: 0 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-c-bg-secondary/95 rounded-b-2xl shadow-lg mx-4 p-8"
+            >
+              <div className="flex flex-col items-center gap-6">
+                {['about', 'experience', 'portfolio', 'stack', 'contact'].map((section) => (
+                  <ScrollLink
+                    key={section}
+                    to={section}
+                    smooth
+                    duration={500}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-xl cursor-pointer hover:text-c-accent-blue transition"
+                  >
+                    {t(`nav.${section}`)}
+                  </ScrollLink>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
         )}
       </nav>
     </header>
