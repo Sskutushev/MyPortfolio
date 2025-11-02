@@ -136,7 +136,7 @@ export const ContactSection = () => {
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-cover rounded-2xl video-smartphone"
+                    className="w-full h-full object-fill rounded-2xl"
                   >
                     <source src="/images/Contact.MP4" type="video/mp4" />
                     Ваш браузер не поддерживает видео.
