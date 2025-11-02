@@ -2,7 +2,7 @@ import { useState, useRef, lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
-import { Send, Mail, MessageSquare, Github, CheckCircle, AlertCircle } from 'lucide-react';
+import { Send, Mail, MessageSquare, Github, CheckCircle, AlertCircle, MessageCircle } from 'lucide-react';
 
 const ReCAPTCHAComponent = lazy(() => import('react-google-recaptcha'));
 
@@ -78,11 +78,11 @@ export const ContactSection = () => {
           >
             <h3 className="text-2xl font-bold mb-6">{t('contact.info.title')}</h3>
             <div className="p-6 rounded-xl bg-c-bg-primary border border-c-border font-mono text-sm space-y-3">
-              <div><span className="text-c-accent-purple">const</span> <span className="text-c-accent-cyan">telegram</span> <span className="text-c-text-secondary">=</span> <span className="text-c-accent-green">'@sskutushev'</span><span className="text-c-text-secondary">;</span></div>
-              <div><span className="text-c-accent-purple">const</span> <span className="text-c-accent-cyan">email</span> <span className="text-c-text-secondary">=</span> <span className="text-c-accent-green">'Sskutushev@gmail.com'</span><span className="text-c-text-secondary">;</span></div>
+              <div className="flex items-center gap-2"><MessageCircle className="text-c-accent-green" size={16} /><span><span className="text-c-accent-purple">const</span> <span className="text-c-accent-cyan">telegram</span> <span className="text-c-text-secondary">=</span> <span className="text-c-accent-green">'@sskutushev'</span><span className="text-c-text-secondary">;</span></span></div>
+              <div className="flex items-center gap-2"><Mail className="text-c-accent-green" size={16} /><span><span className="text-c-accent-purple">const</span> <span className="text-c-accent-cyan">email</span> <span className="text-c-text-secondary">=</span> <span className="text-c-accent-green">'Sskutushev@gmail.com'</span><span className="text-c-text-secondary">;</span></span></div>
             </div>
             <a href="https://t.me/sskutushev" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 rounded-xl bg-c-bg-primary border border-c-border hover:border-c-accent-blue transition group">
-              <MessageSquare className="text-c-accent-blue" />
+              <MessageCircle className="text-c-accent-blue" />
               <div>
                 <div className="font-semibold group-hover:text-c-accent-blue transition">Telegram</div>
                 <div className="text-sm text-c-text-secondary">@sskutushev</div>
