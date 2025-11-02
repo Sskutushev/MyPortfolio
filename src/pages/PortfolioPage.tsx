@@ -1,8 +1,7 @@
 // src/pages/PortfolioPage.tsx
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Code } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import { portfolioProjects } from '@/data/projects';
 

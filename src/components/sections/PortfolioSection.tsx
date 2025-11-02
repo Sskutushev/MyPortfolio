@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { Code, ArrowRight } from 'lucide-react';
 import { ProjectModal } from '@/components/common/ProjectModal';
 import { useTheme } from '@/contexts/ThemeContext';
 import { portfolioProjects } from '@/data/projects';
