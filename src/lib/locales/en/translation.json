@@ -80,7 +80,11 @@
     "process": "PROCESS → Stack and Implementation", 
     "output": "OUTPUT → Result",
     "processTab": "The Flow",
-    "codeTab": "Code Highlight"
+    "codeTab": "Code Highlight",
+    "projectsTab": "Commercial Projects",
+    "componentsTab": "UI Components and Interactive Elements",
+    "allProjects": "View All Projects",
+    "allComponents": "View All Components"
   },
   "stack": {
     "title": "Technology Matrix: Stack for Specific Tasks",

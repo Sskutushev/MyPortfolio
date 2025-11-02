@@ -9,6 +9,7 @@ import { ProcessSection } from './components/sections/ProcessSection';
 import { AdvantagesSection } from './components/sections/AdvantagesSection';
 import { ContactSection } from './components/sections/ContactSection';
 import { PortfolioPage } from './pages/PortfolioPage';
+import { UIComponentsPage } from './pages/UIComponentsPage';
 
 const MainLayout = () => (
   <main>
@@ -25,14 +26,15 @@ const MainLayout = () => (
 
 function App() {
   const location = useLocation();
-  const isPortfolioPage = location.pathname === '/portfolio';
+  const isMainPage = location.pathname === '/';
 
   return (
     <div className="min-h-screen bg-c-bg-primary text-c-text-primary">
-      {!isPortfolioPage && <Header />}
+      {isMainPage && <Header />}
       <Routes>
         <Route path="/" element={<MainLayout />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/ui-components" element={<UIComponentsPage />} />
       </Routes>
     </div>
   );

@@ -81,7 +81,11 @@
     "process": "PROCESS → Стек и Реализация",
     "output": "OUTPUT → Результат",
     "processTab": "The Flow",
-    "codeTab": "Code Highlight"
+    "codeTab": "Code Highlight",
+    "projectsTab": "Коммерческие проекты",
+    "componentsTab": "UI-Компоненты и Интерактивные Элементы",
+    "allProjects": "Смотреть все проекты",
+    "allComponents": "Смотреть все компоненты"
   },
   "stack": {
     "title": "Матрица технологий: стек под конкретные задачи",

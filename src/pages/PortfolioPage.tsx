@@ -1,15 +1,24 @@
 // src/pages/PortfolioPage.tsx
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Code } from 'lucide-react';
+import { ArrowLeft, Code, Package, Palette } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import { portfolioProjects } from '@/data/projects';
-
+import { uiComponents } from '@/data/ui-components';
 import { ProjectModal } from '@/components/common/ProjectModal';
+import { useTranslation } from 'react-i18next';
 
 export const PortfolioPage = () => {
   const { theme } = useTheme();
+  const { t } = useTranslation();
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [activeTab, setActiveTab] = useState<'projects' | 'components'>('projects');
+
+  // Определяем, какие проекты отображать в зависимости от выбранной вкладки
+  const projects = activeTab === 'projects' ? portfolioProjects : uiComponents;
+  const title = activeTab === 'projects' 
+    ? t('portfolio.title', 'Code manifest: избранные решения') 
+    : t('portfolio.componentsTab', 'UI-Компоненты и Интерактивные Элементы');
 
   return (
     <div className="min-h-screen bg-c-bg-primary text-c-text-primary py-12 px-4">
@@ -22,9 +31,54 @@ export const PortfolioPage = () => {
           </a>
         </motion.div>
 
+        {/* Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ delay: 0.3 }}
+          className="text-center mb-16"
+        >
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+            {title}
+          </h1>
+          <p className="text-xl text-c-text-secondary max-w-3xl mx-auto">
+            {activeTab === 'projects' 
+              ? t('portfolio.subtitle', 'Реализованные проекты, демонстрирующие мой подход к разработке') 
+              : 'Интерактивные UI-компоненты и решения, созданные с использованием современных технологий'}
+          </p>
+
+          {/* Вкладки */}
+          <div className="mt-12 flex justify-center">
+            <div className="inline-flex p-1 bg-c-bg-tertiary rounded-xl border border-c-border">
+              <button
+                onClick={() => setActiveTab('projects')}
+                className={`px-6 py-3 rounded-lg font-semibold transition-all flex items-center gap-2 ${
+                  activeTab === 'projects'
+                    ? 'bg-gradient-primary text-white shadow-lg'
+                    : 'text-c-text-secondary hover:text-c-text-primary'
+                }`}
+              >
+                <Package size={18} />
+                {t('portfolio.projectsTab', 'Коммерческие проекты')}
+              </button>
+              <button
+                onClick={() => setActiveTab('components')}
+                className={`px-6 py-3 rounded-lg font-semibold transition-all flex items-center gap-2 ${
+                  activeTab === 'components'
+                    ? 'bg-gradient-primary text-white shadow-lg'
+                    : 'text-c-text-secondary hover:text-c-text-primary'
+                }`}
+              >
+                <Palette size={18} />
+                {t('portfolio.componentsTab', 'UI-Компоненты и Интерактивные Элементы')}
+              </button>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {portfolioProjects.map((project, index) => {
+          {projects.map((project, index) => {
             const imageSrc = theme === 'light' ? project.imageLight : project.imageDark;
             return (
               <motion.div
@@ -61,11 +115,27 @@ export const PortfolioPage = () => {
           })}
         </div>
 
+        {/* Back to portfolio button */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ delay: 0.5 }}
+          className="text-center mt-16"
+        >
+          <a 
+            href="/#portfolio" 
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-primary text-white font-semibold hover:scale-105 hover:bg-gradient-accent hover:text-black hover:fill-black transition-all"
+          >
+            <Palette size={20} className="transition-all" />
+            Вернуться к портфолио
+          </a>
+        </motion.div>
+
         {/* Modal */}
         <AnimatePresence>
           {selectedProject && (
             <ProjectModal
-              project={portfolioProjects.find(p => p.id === selectedProject)!}
+              project={projects.find(p => p.id === selectedProject)!}
               onClose={() => setSelectedProject(null)}
             />
           )}
