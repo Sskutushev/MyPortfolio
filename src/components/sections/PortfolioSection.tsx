@@ -140,6 +140,7 @@ const { data, isLoading } = useQuery({
     tech: "React, TypeScript, Tailwind CSS, Framer Motion, GSAP",
     imageDark: "/images/project-aispetsnaz.jpg",
     imageLight: "/images/project-aispetsnaz.jpg",
+    link: "https://ai-spetsnaz1-0.vercel.app/",
     flow: {
       input: "Презентационный лендинг для AI-компании в тяжелой промышленности с акцентом на визуальную привлекательность",
       process: "React Router для навигации. Framer Motion + GSAP для комплексных анимаций. Tailwind CSS для быстрой стилизации. Модальные окна для детальной информации. Telegram-бот для формы обратной связи.",

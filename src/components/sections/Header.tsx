@@ -78,7 +78,7 @@ export const Header = () => {
 
         {/* Mobile Menu Overlay */}
         {isMenuOpen && (
-          <div className="fixed inset-0 top-16 bg-c-bg-primary z-40 md:hidden rounded-b-3xl">
+          <div className="fixed inset-0 top-16 bg-c-bg-primary z-40 md:hidden rounded-2xl backdrop-blur-sm">
             <div className="flex flex-col items-center gap-6 py-8">
               {['about', 'experience', 'portfolio', 'stack', 'contact'].map((section) => (
                 <ScrollLink
