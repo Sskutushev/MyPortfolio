@@ -1,9 +1,9 @@
-// src/components/sections/PortfolioSection.tsx
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { ExternalLink, Code, ArrowRight } from 'lucide-react';
 import { Modal } from '@/components/common/Modal';
+import { useTheme } from '@/contexts/ThemeContext';
 
 // Define the project type
 interface Project {
@@ -11,7 +11,8 @@ interface Project {
   title: string;
   category: string;
   tech: string;
-  image: string;
+  imageDark: string;
+  imageLight: string;
   link?: string;
   flow: {
     input: string;
@@ -36,7 +37,8 @@ const portfolioProjects: Project[] = [
     title: "DexSafe Wallet Pro",
     category: "Web3 / Telegram Mini App",
     tech: "React, TypeScript, Ethers.js, Zustand, Framer Motion",
-    image: "/images/project-dexsafe.jpg",
+    imageDark: "/images/project-dexsafe.jpg",
+    imageLight: "/images/project-dexsafe.jpg", // Placeholder, to be updated
     link: "https://presentation-site-landing.vercel.app/",
     flow: {
       input: "Некастодиальный кошелек с интеллектуальной маршрутизацией транзакций (UPA Engine) для X1 EcoChain",
@@ -91,7 +93,8 @@ export const useWallet = create<WalletStore>((set) => ({
     title: "EcoChain Token Platform",
     category: "Web3 / DeFi",
     tech: "React, TypeScript, Vite, Zustand, i18next",
-    image: "/images/project-ecochain.jpg",
+    imageDark: "/images/project-ecochain.jpg",
+    imageLight: "/images/project-ecochain-light.jpg",
     link: "https://1-xecochain.vercel.app/",
     flow: {
       input: "Платформа для создания и управления токенами на X1 EcoChain без знания программирования",
@@ -135,7 +138,8 @@ const { data, isLoading } = useQuery({
     title: "AI-Spetsnaz Landing",
     category: "Landing Page / B2B",
     tech: "React, TypeScript, Tailwind CSS, Framer Motion, GSAP",
-    image: "/images/project-aispetsnaz.jpg",
+    imageDark: "/images/project-aispetsnaz.jpg",
+    imageLight: "/images/project-aispetsnaz.jpg",
     flow: {
       input: "Презентационный лендинг для AI-компании в тяжелой промышленности с акцентом на визуальную привлекательность",
       process: "React Router для навигации. Framer Motion + GSAP для комплексных анимаций. Tailwind CSS для быстрой стилизации. Модальные окна для детальной информации. Telegram-бот для формы обратной связи.",
@@ -179,6 +183,7 @@ export const motionPresets = {
 
 export const PortfolioSection = () => {
   const { t } = useTranslation();
+  const { theme } = useTheme();
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
   return (
@@ -224,65 +229,68 @@ export const PortfolioSection = () => {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {portfolioProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              whileHover={{ y: -10 }}
-              onClick={() => setSelectedProject(project.id)}
-              className="group cursor-pointer"
-            >
-              <div className="relative h-full rounded-2xl bg-c-bg-primary border border-c-border overflow-hidden transition-all hover:border-c-accent-blue hover:shadow-2xl hover:shadow-c-accent-blue/20">
-                {/* Project Image */}
-                <div className="relative h-48 overflow-hidden bg-c-bg-tertiary">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-c-bg-primary to-transparent opacity-60" />
-                  
-                  {/* 3D Flip Indicator */}
-                  <motion.div
-                    className="absolute top-4 right-4 p-2 rounded-full bg-c-bg-primary/80 backdrop-blur-sm"
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <Code size={20} className="text-c-accent-blue" />
-                  </motion.div>
-                </div>
-
-                {/* Project Info */}
-                <div className="p-6">
-                  <div className="mb-3">
-                    <span className="text-xs px-3 py-1 rounded-full bg-gradient-primary text-white font-semibold">
-                      {project.category}
-                    </span>
+          {portfolioProjects.map((project, index) => {
+            const imageSrc = theme === 'light' ? project.imageLight : project.imageDark;
+            return (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+                whileHover={{ y: -10 }}
+                onClick={() => setSelectedProject(project.id)}
+                className="group cursor-pointer"
+              >
+                <div className="relative h-full rounded-2xl bg-c-bg-primary border border-c-border overflow-hidden transition-all hover:border-c-accent-blue hover:shadow-2xl hover:shadow-c-accent-blue/20">
+                  {/* Project Image */}
+                  <div className="relative h-48 overflow-hidden bg-c-bg-tertiary">
+                    <img 
+                      src={imageSrc} 
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-c-bg-primary to-transparent opacity-60" />
+                    
+                    {/* 3D Flip Indicator */}
+                    <motion.div
+                      className="absolute top-4 right-4 p-2 rounded-full bg-c-bg-primary/80 backdrop-blur-sm"
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Code size={20} className="text-c-accent-blue" />
+                    </motion.div>
                   </div>
-                  
-                  <h3 className="text-2xl font-bold mb-2 group-hover:text-c-accent-blue transition">
-                    {project.title}
-                  </h3>
-                  
-                  <p className="text-sm text-c-text-secondary mb-4">
-                    {project.tech}
-                  </p>
 
-                  {/* Metrics */}
-                  <div className="flex items-center justify-between pt-4 border-t border-c-border">
-                    <div>
-                      <div className="text-xs text-c-text-tertiary">{project.metrics.label}</div>
-                      <div className="text-2xl font-bold text-c-accent-blue">{project.metrics.value}</div>
+                  {/* Project Info */}
+                  <div className="p-6">
+                    <div className="mb-3">
+                      <span className="text-xs px-3 py-1 rounded-full bg-gradient-primary text-white font-semibold">
+                        {project.category}
+                      </span>
                     </div>
-                    <ArrowRight className="text-c-accent-blue group-hover:translate-x-2 transition" />
+                    
+                    <h3 className="text-2xl font-bold mb-2 group-hover:text-c-accent-blue transition">
+                      {project.title}
+                    </h3>
+                    
+                    <p className="text-sm text-c-text-secondary mb-4">
+                      {project.tech}
+                    </p>
+
+                    {/* Metrics */}
+                    <div className="flex items-center justify-between pt-4 border-t border-c-border">
+                      <div>
+                        <div className="text-xs text-c-text-tertiary">{project.metrics.label}</div>
+                        <div className="text-2xl font-bold text-c-accent-blue">{project.metrics.value}</div>
+                      </div>
+                      <ArrowRight className="text-c-accent-blue group-hover:translate-x-2 transition" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Project Modal */}
