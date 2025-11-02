@@ -82,7 +82,7 @@ export const Header = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 top-16 bg-black/60 backdrop-blur-sm z-40 md:hidden"
+            className="fixed inset-0 bg-black/70 z-40 md:hidden"
             onClick={() => setIsMenuOpen(false)}
           >
             <motion.div
@@ -91,7 +91,7 @@ export const Header = () => {
               exit={{ y: -50, opacity: 0 }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
               onClick={(e: React.MouseEvent) => e.stopPropagation()}
-              className="bg-c-bg-secondary/95 rounded-b-2xl shadow-lg mx-4 p-8"
+              className="mt-16 bg-c-bg-primary rounded-b-2xl shadow-lg mx-4 p-8"
             >
               <div className="flex flex-col items-center gap-6">
                 {['about', 'experience', 'portfolio', 'stack', 'contact'].map((section) => (
