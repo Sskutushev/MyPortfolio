@@ -1,6 +1,6 @@
-// src/components/sections/Header.tsx
 import { useState } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
+import { motion } from 'framer-motion';
 import { Menu, X, Sun, Moon, Github } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useTranslation } from 'react-i18next';
@@ -90,7 +90,7 @@ export const Header = () => {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -50, opacity: 0 }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e: React.MouseEvent) => e.stopPropagation()}
               className="bg-c-bg-secondary/95 rounded-b-2xl shadow-lg mx-4 p-8"
             >
               <div className="flex flex-col items-center gap-6">
