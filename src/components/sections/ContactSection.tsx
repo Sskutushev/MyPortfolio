@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { Send, Mail, MessageSquare, Github, CheckCircle, AlertCircle } from 'lucide-react';
-import type ReCAPTCHA from 'react-google-recaptcha';
 
 const ReCAPTCHAComponent = lazy(() => import('react-google-recaptcha'));
 
@@ -18,7 +17,7 @@ export const ContactSection = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>();
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const recaptchaRef = useRef<any>(null);
 
   const onSubmit = async (data: FormData) => {
     if (!recaptchaToken) {
