@@ -7,27 +7,7 @@ import { Modal } from '@/components/common/Modal';
 import { useTheme } from '@/contexts/ThemeContext';
 import { portfolioProjects, Project } from '@/data/projects';
 
-// Re-define the Modal component locally for this page, as it's not exported from PortfolioSection
-const ProjectModal = ({ project, onClose, t }: { project: Project; onClose: () => void; t: any }) => {
-  const [activeTab, setActiveTab] = useState<'flow' | 'code'>('flow');
-  return (
-    <Modal isOpen={!!project} onClose={onClose}>
-      <div className="sticky top-0 z-10 p-6 border-b border-c-border bg-c-bg-primary/95 backdrop-blur-sm">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <h3 className="text-3xl font-bold mb-2">{project.title}</h3>
-            {project.link && (<a href={project.link} target="_blank" rel="noopener noreferrer" className="text-c-accent-blue hover:underline"><ExternalLink size={24} /></a>)}
-          </div>
-          <button onClick={onClose} className="p-2 rounded-full hover:bg-c-bg-tertiary transition">✕</button>
-        </div>
-        <div className="flex gap-4 mt-6">
-          {['flow', 'code'].map((tab) => (<button key={tab} onClick={() => setActiveTab(tab as any)} className={`px-6 py-2 rounded-lg font-semibold transition ${activeTab === tab ? 'bg-gradient-primary text-white' : 'bg-c-bg-tertiary text-c-text-secondary hover:text-c-text-primary'}`}>{tab === 'flow' ? t('portfolio.processTab') || 'The Flow' : t('portfolio.codeTab') || 'Code Highlight'}</button>))}
-        </div>
-      </div>
-      <div className="p-6">{/* ... Modal content ... */}</div>
-    </Modal>
-  );
-};
+import { ProjectModal } from '@/components/common/ProjectModal';
 
 export const PortfolioPage = () => {
   const { t } = useTranslation();
@@ -90,7 +70,6 @@ export const PortfolioPage = () => {
             <ProjectModal
               project={portfolioProjects.find(p => p.id === selectedProject)!}
               onClose={() => setSelectedProject(null)}
-              t={t}
             />
           )}
         </AnimatePresence>
