@@ -45,7 +45,7 @@ export const PortfolioSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {portfolioProjects.map((project, index) => {
+          {portfolioProjects.slice(0, 3).map((project, index) => {
             const imageSrc = theme === 'light' ? project.imageLight : project.imageDark;
             return (
               <motion.div
