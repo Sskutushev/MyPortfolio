@@ -1,6 +1,6 @@
 // src/components/common/LazyImage.tsx
-import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 interface LazyImageProps {
   src: string;
@@ -14,10 +14,10 @@ interface LazyImageProps {
 export const LazyImage = ({
   src,
   alt,
-  className = '',
+  className = "",
   width,
   height,
-  placeholder = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"%3E%3Crect fill="%23f3f4f6" width="400" height="300"/%3E%3C/svg%3E'
+  placeholder = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"%3E%3Crect fill="%23f3f4f6" width="400" height="300"/%3E%3C/svg%3E',
 }: LazyImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
@@ -32,8 +32,8 @@ export const LazyImage = ({
         }
       },
       {
-        rootMargin: '50px',
-      }
+        rootMargin: "50px",
+      },
     );
 
     if (imgRef.current) {
@@ -41,7 +41,6 @@ export const LazyImage = ({
     }
 
     return () => observer.disconnect();
-
   }, []);
 
   return (

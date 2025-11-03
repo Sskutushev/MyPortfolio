@@ -1,28 +1,32 @@
 // src/components/sections/ProcessSection.tsx
-import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
-import { fadeInUp, staggerContainer } from '@/lib/motion-config';
+import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import { fadeInUp, staggerContainer } from "@/lib/motion-config";
 
 export const ProcessSection = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="process" className="py-24 bg-c-bg-secondary relative overflow-hidden">
+    <section
+      id="process"
+      className="py-24 bg-c-bg-secondary relative overflow-hidden"
+    >
       {/* Background Grid */}
       <div className="absolute inset-0 opacity-5">
-        <div className="h-full w-full" style={{
-          backgroundImage: 'linear-gradient(var(--border-default) 1px, transparent 1px), linear-gradient(90deg, var(--border-default) 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
-        }} />
+        <div
+          className="h-full w-full"
+          style={{
+            backgroundImage:
+              "linear-gradient(var(--border-default) 1px, transparent 1px), linear-gradient(90deg, var(--border-default) 1px, transparent 1px)",
+            backgroundSize: "50px 50px",
+          }}
+        />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          {...fadeInUp}
-          className="relative z-10 text-center mb-16"
-        >
+        <motion.div {...fadeInUp} className="relative z-10 text-center mb-16">
           <h2 className="pb-2 text-4xl md:text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-            {t('process.title')}
+            {t("process.title")}
           </h2>
         </motion.div>
 
@@ -61,30 +65,50 @@ export const ProcessSection = () => {
         >
           {/* Desktop Flow */}
           <div className="hidden md:flex flex-wrap items-center justify-center gap-4 text-center">
-            <div className="px-6 py-3 rounded-xl bg-gradient-primary text-white font-semibold">Идея</div>
+            <div className="px-6 py-3 rounded-xl bg-gradient-primary text-white font-semibold">
+              Идея
+            </div>
             <div className="text-c-accent-blue">→</div>
-            <div className="px-6 py-3 rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">Архитектура</div>
+            <div className="px-6 py-3 rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">
+              Архитектура
+            </div>
             <div className="text-c-accent-blue">→</div>
-            <div className="px-6 py-3 rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">Разработка</div>
+            <div className="px-6 py-3 rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">
+              Разработка
+            </div>
             <div className="text-c-accent-blue">→</div>
-            <div className="px-6 py-3 rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">Тестирование</div>
+            <div className="px-6 py-3 rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">
+              Тестирование
+            </div>
             <div className="text-c-accent-blue">→</div>
-            <div className="px-6 py-3 rounded-xl bg-gradient-primary text-white font-semibold">Релиз</div>
+            <div className="px-6 py-3 rounded-xl bg-gradient-primary text-white font-semibold">
+              Релиз
+            </div>
           </div>
 
           {/* Mobile Flow */}
           <div className="flex flex-col items-center gap-4 md:hidden">
             <div className="flex items-center gap-2">
-              <div className="px-4 py-2 text-sm rounded-xl bg-gradient-primary text-white font-semibold">Идея</div>
+              <div className="px-4 py-2 text-sm rounded-xl bg-gradient-primary text-white font-semibold">
+                Идея
+              </div>
               <div className="text-c-accent-blue">→</div>
-              <div className="px-4 py-2 text-sm rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">Архитектура</div>
+              <div className="px-4 py-2 text-sm rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">
+                Архитектура
+              </div>
             </div>
             <div className="flex items-center gap-2">
-              <div className="px-4 py-2 text-sm rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">Разработка</div>
+              <div className="px-4 py-2 text-sm rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">
+                Разработка
+              </div>
               <div className="text-c-accent-blue">→</div>
-              <div className="px-4 py-2 text-sm rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">Тестирование</div>
+              <div className="px-4 py-2 text-sm rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">
+                Тестирование
+              </div>
             </div>
-            <div className="px-6 py-3 rounded-xl bg-gradient-primary text-white font-semibold">Релиз</div>
+            <div className="px-6 py-3 rounded-xl bg-gradient-primary text-white font-semibold">
+              Релиз
+            </div>
           </div>
         </motion.div>
       </div>

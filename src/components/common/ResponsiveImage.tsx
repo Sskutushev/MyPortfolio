@@ -9,11 +9,11 @@ interface ResponsiveImageProps {
 export const ResponsiveImage = ({
   src,
   alt,
-  className = '',
-  sizes = '100vw'
+  className = "",
+  sizes = "100vw",
 }: ResponsiveImageProps) => {
-  const basePath = src.replace(/\.(jpg|jpeg|png)$/i, '');
-  const extension = src.match(/\.(jpg|jpeg|png)$/i)?.[1] || 'jpg';
+  const basePath = src.replace(/\.(jpg|jpeg|png)$/i, "");
+  const extension = src.match(/\.(jpg|jpeg|png)$/i)?.[1] || "jpg";
 
   return (
     <picture>
@@ -44,6 +44,5 @@ export const ResponsiveImage = ({
         sizes={sizes}
       />
     </picture>
-
   );
 };

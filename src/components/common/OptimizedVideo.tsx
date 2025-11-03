@@ -1,5 +1,5 @@
 // src/components/common/OptimizedVideo.tsx
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 interface OptimizedVideoProps {
   src: string;
@@ -14,7 +14,7 @@ interface OptimizedVideoProps {
 export const OptimizedVideo = ({
   src,
   poster,
-  className = '',
+  className = "",
   autoPlay = true,
   loop = true,
   muted = true,
@@ -39,8 +39,8 @@ export const OptimizedVideo = ({
       },
       {
         threshold: 0.25,
-        rootMargin: '50px',
-      }
+        rootMargin: "50px",
+      },
     );
 
     if (videoRef.current) {
@@ -48,7 +48,6 @@ export const OptimizedVideo = ({
     }
 
     return () => observer.disconnect();
-
   }, []);
 
   useEffect(() => {
@@ -68,9 +67,10 @@ export const OptimizedVideo = ({
       muted={muted}
       playsInline={playsInline}
       preload="none"
-      onLoadedData={() => setIsLoaded(true)} >
-      {lowerCaseSrc.endsWith('.webm') && <source src={src} type="video/webm" />}
-      {lowerCaseSrc.endsWith('.mp4') && <source src={src} type="video/mp4" />}
+      onLoadedData={() => setIsLoaded(true)}
+    >
+      {lowerCaseSrc.endsWith(".webm") && <source src={src} type="video/webm" />}
+      {lowerCaseSrc.endsWith(".mp4") && <source src={src} type="video/mp4" />}
       Your browser does not support the video tag.
     </video>
   );

@@ -1,6 +1,6 @@
 // src/components/common/AnimatedSection.tsx
-import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -8,7 +8,11 @@ interface AnimatedSectionProps {
   delay?: number;
 }
 
-export const AnimatedSection = ({ children, className = '', delay = 0 }: AnimatedSectionProps) => {
+export const AnimatedSection = ({
+  children,
+  className = "",
+  delay = 0,
+}: AnimatedSectionProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}

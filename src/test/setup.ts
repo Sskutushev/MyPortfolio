@@ -1,7 +1,7 @@
 // src/test/setup.ts
-import { expect, afterEach } from 'vitest';
-import { cleanup } from '@testing-library/react';
-import * as matchers from '@testing-library/jest-dom/matchers';
+import { expect, afterEach } from "vitest";
+import { cleanup } from "@testing-library/react";
+import * as matchers from "@testing-library/jest-dom/matchers";
 
 expect.extend(matchers);
 
@@ -11,7 +11,7 @@ afterEach(() => {
 });
 
 // Mock для window.matchMedia (для responsive компонентов)
-Object.defineProperty(window, 'matchMedia', {
+Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: (query: string) => ({
     matches: false,
@@ -40,9 +40,13 @@ global.IntersectionObserver = class IntersectionObserver {
 window.scrollTo = () => {};
 
 // Mock для requestIdleCallback (для axe-core)
-window.requestIdleCallback = window.requestIdleCallback || ((callback) => {
-  setTimeout(callback, 1);
-});
-window.cancelIdleCallback = window.cancelIdleCallback || ((id) => {
-  clearTimeout(id);
-});
+window.requestIdleCallback =
+  window.requestIdleCallback ||
+  ((callback) => {
+    setTimeout(callback, 1);
+  });
+window.cancelIdleCallback =
+  window.cancelIdleCallback ||
+  ((id) => {
+    clearTimeout(id);
+  });

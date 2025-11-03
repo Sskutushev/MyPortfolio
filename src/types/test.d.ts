@@ -1,6 +1,6 @@
 // src/types/test.d.ts
 
-import('@testing-library/jest-dom');
+import("@testing-library/jest-dom");
 
 // Extend Jest/Vitest matchers with Testing Library ones
 // This file is needed because of the way we're using jest-dom matchers with Vitest

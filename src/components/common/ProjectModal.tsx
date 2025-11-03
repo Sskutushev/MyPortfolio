@@ -1,10 +1,10 @@
 // src/components/common/ProjectModal.tsx
 // Trivial change to force Vercel re-evaluation
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { ExternalLink, Code } from 'lucide-react';
-import { Modal } from '@/components/common/Modal';
-import { Project } from '@/data/projects';
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { ExternalLink, Code } from "lucide-react";
+import { Modal } from "@/components/common/Modal";
+import { Project } from "@/data/projects";
 
 interface ProjectModalProps {
   project: Project;
@@ -13,10 +13,7 @@ interface ProjectModalProps {
 
 export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
   const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState<'flow' | 'code'>('flow');
-
-
-
+  const [activeTab, setActiveTab] = useState<"flow" | "code">("flow");
 
   return (
     <Modal isOpen={!!project} onClose={onClose}>
@@ -25,38 +22,72 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           <div className="flex items-center gap-4">
             <h3 className="text-3xl font-bold mb-2">{project.title}</h3>
             {project.link && (
-              <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-c-accent-blue hover:underline">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-c-accent-blue hover:underline"
+              >
                 <ExternalLink size={24} />
               </a>
             )}
           </div>
-          <button onClick={onClose} className="p-2 rounded-full hover:bg-c-bg-tertiary transition">✕</button>
+          <button
+            onClick={onClose}
+            className="p-2 rounded-full hover:bg-c-bg-tertiary transition"
+          >
+            ✕
+          </button>
         </div>
         <div className="flex gap-4 mt-6">
-          {['flow', 'code'].map((tab) => (
+          {["flow", "code"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab as any)}
-              className={`px-6 py-2 rounded-lg font-semibold transition ${activeTab === tab ? 'bg-gradient-primary text-white' : 'bg-c-bg-tertiary text-c-text-secondary hover:text-c-text-primary'}`}>
-              {tab === 'flow' ? t('portfolio.processTab') || 'The Flow' : t('portfolio.codeTab') || 'Code Highlight'}
+              className={`px-6 py-2 rounded-lg font-semibold transition ${activeTab === tab ? "bg-gradient-primary text-white" : "bg-c-bg-tertiary text-c-text-secondary hover:text-c-text-primary"}`}
+            >
+              {tab === "flow"
+                ? t("portfolio.processTab") || "The Flow"
+                : t("portfolio.codeTab") || "Code Highlight"}
             </button>
           ))}
         </div>
       </div>
       <div className="p-6">
-        {activeTab === 'flow' ? (
+        {activeTab === "flow" ? (
           <div className="space-y-6">
-            <div className="p-6 rounded-xl bg-c-bg-secondary border border-c-border"><h4 className="text-sm font-semibold text-c-accent-blue mb-2">{t('portfolio.input')}</h4><p className="text-c-text-secondary">{project.flow.input}</p></div>
-            <div className="p-6 rounded-xl bg-c-bg-secondary border border-c-border"><h4 className="text-sm font-semibold text-c-accent-purple mb-2">{t('portfolio.process')}</h4><p className="text-c-text-secondary">{project.flow.process}</p></div>
-            <div className="p-6 rounded-xl bg-c-bg-secondary border border-c-border"><h4 className="text-sm font-semibold text-c-accent-green mb-2">{t('portfolio.output')}</h4><p className="text-c-text-secondary">{project.flow.output}</p></div>
+            <div className="p-6 rounded-xl bg-c-bg-secondary border border-c-border">
+              <h4 className="text-sm font-semibold text-c-accent-blue mb-2">
+                {t("portfolio.input")}
+              </h4>
+              <p className="text-c-text-secondary">{project.flow.input}</p>
+            </div>
+            <div className="p-6 rounded-xl bg-c-bg-secondary border border-c-border">
+              <h4 className="text-sm font-semibold text-c-accent-purple mb-2">
+                {t("portfolio.process")}
+              </h4>
+              <p className="text-c-text-secondary">{project.flow.process}</p>
+            </div>
+            <div className="p-6 rounded-xl bg-c-bg-secondary border border-c-border">
+              <h4 className="text-sm font-semibold text-c-accent-green mb-2">
+                {t("portfolio.output")}
+              </h4>
+              <p className="text-c-text-secondary">{project.flow.output}</p>
+            </div>
           </div>
         ) : (
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Code size={24} className="text-c-accent-blue" />
-              <h4 className="text-lg font-semibold">{project.codeHighlight.title}</h4>
+              <h4 className="text-lg font-semibold">
+                {project.codeHighlight.title}
+              </h4>
             </div>
-            <pre className="block w-full p-6 rounded-xl bg-c-bg-tertiary border border-c-border overflow-x-auto"><code className="text-sm text-c-text-secondary font-mono">{project.codeHighlight.code}</code></pre>
+            <pre className="block w-full p-6 rounded-xl bg-c-bg-tertiary border border-c-border overflow-x-auto">
+              <code className="text-sm text-c-text-secondary font-mono">
+                {project.codeHighlight.code}
+              </code>
+            </pre>
           </div>
         )}
       </div>

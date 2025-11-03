@@ -1,7 +1,7 @@
 // e2e/keyboard-navigation.spec.ts
-import { test, expect, describe } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
-describe('Keyboard Navigation', () => {
+test.describe('Keyboard Navigation', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('http://localhost:4173');
   });
@@ -95,7 +95,7 @@ describe('Keyboard Navigation', () => {
   });
 });
 
-describe('Screen Reader Announcements', () => {
+test.describe('Screen Reader Announcements', () => {
   test('should have proper ARIA labels', async ({ page }) => {
     await page.goto('http://localhost:4173');
 

@@ -1,8 +1,8 @@
 // src/components/sections/AdvantagesSection.tsx
-import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
-import { Zap, Layers, Rocket } from 'lucide-react';
-import { fadeInUp, staggerContainer } from '@/lib/motion-config';
+import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import { Zap, Layers, Rocket } from "lucide-react";
+import { fadeInUp, staggerContainer } from "@/lib/motion-config";
 
 const icons = [Layers, Zap, Rocket];
 
@@ -12,14 +12,13 @@ export const AdvantagesSection = () => {
   return (
     <section id="advantages" className="py-24 bg-c-bg-primary">
       <div className="container mx-auto px-4">
-        <motion.div
-          {...fadeInUp}
-          className="relative z-10 text-center mb-16"
-        >
+        <motion.div {...fadeInUp} className="relative z-10 text-center mb-16">
           <h2 className="pb-2 text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
-            {t('advantages.title')}
+            {t("advantages.title")}
           </h2>
-          <p className="text-xl text-c-text-secondary">{t('advantages.subtitle')}</p>
+          <p className="text-xl text-c-text-secondary">
+            {t("advantages.subtitle")}
+          </p>
         </motion.div>
 
         <motion.div {...staggerContainer} className="grid md:grid-cols-3 gap-8">
@@ -75,10 +74,10 @@ export const AdvantagesSection = () => {
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {[
-            { label: 'Опыт', value: '1+ год' },
-            { label: 'Проектов', value: '15+' },
-            { label: 'Технологий', value: '20+' },
-            { label: 'Код-ревью', value: '100+' }
+            { label: "Опыт", value: "1+ год" },
+            { label: "Проектов", value: "15+" },
+            { label: "Технологий", value: "20+" },
+            { label: "Код-ревью", value: "100+" },
           ].map((stat, i) => (
             <motion.div
               key={i}
