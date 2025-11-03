@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Zap, Layers, Rocket } from 'lucide-react';
+import { fadeInUp, staggerContainer } from '@/lib/motion-config';
 
 const icons = [Layers, Zap, Rocket];
 
@@ -12,9 +13,7 @@ export const AdvantagesSection = () => {
     <section id="advantages" className="py-24 bg-c-bg-primary">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          {...fadeInUp}
           className="relative z-10 text-center mb-16"
         >
           <h2 className="pb-2 text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
@@ -23,16 +22,14 @@ export const AdvantagesSection = () => {
           <p className="text-xl text-c-text-secondary">{t('advantages.subtitle')}</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <motion.div {...staggerContainer} className="grid md:grid-cols-3 gap-8">
           {[0, 1, 2].map((index) => {
             const Icon = icons[index];
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
+                {...fadeInUp}
+                transition={{ delay: index * 0.2 }} // Keep specific delay
                 className="relative group"
               >
                 <div className="h-full p-8 rounded-2xl bg-c-bg-secondary border border-c-border hover:border-c-accent-blue transition-all hover:shadow-2xl hover:shadow-c-accent-blue/10">
@@ -69,14 +66,12 @@ export const AdvantagesSection = () => {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* Bottom Stats */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
+          {...fadeInUp}
+          transition={{ delay: 0.6 }} // Keep specific delay
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {[
@@ -87,10 +82,8 @@ export const AdvantagesSection = () => {
           ].map((stat, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.7 + i * 0.1 }}
+              {...fadeInUp}
+              transition={{ delay: 0.7 + i * 0.1 }} // Keep specific delay
               className="text-center p-6 rounded-xl bg-c-bg-secondary border border-c-border"
             >
               <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">

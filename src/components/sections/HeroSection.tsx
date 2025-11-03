@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
 import { Link as ScrollLink } from 'react-scroll';
+import { OptimizedVideo } from '@/components/common/OptimizedVideo';
+import { fadeInUp } from '@/lib/motion-config';
 
 export const HeroSection = () => {
   const { t } = useTranslation();
@@ -19,9 +21,7 @@ export const HeroSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            {...fadeInUp}
             className="w-full max-w-full overflow-hidden"
           >
             {/* CLI Command with Typewriter Effect */}
@@ -74,21 +74,16 @@ export const HeroSection = () => {
 
           {/* Animated Video */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            {...fadeInUp}
+            transition={{ duration: 0.8, delay: 0.3 }} // Keep specific delay
             className="relative"
           >
             <div className="relative rounded-3xl overflow-hidden border-2 border-c-accent-blue/30 shadow-2xl">
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
+              <OptimizedVideo 
+                src="/images/photo-hero.mp4"
+                poster="/images/photo-hero-poster.jpg"
                 className="w-full h-auto"
-              >
-                <source src="/images/photo-hero.mp4" type="video/mp4" />
-              </video>
+              />
               <div className="absolute inset-0 bg-gradient-to-tr from-c-accent-blue/20 to-transparent" />
             </div>
           </motion.div>

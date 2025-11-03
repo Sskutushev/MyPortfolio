@@ -1,6 +1,7 @@
 // src/components/sections/ExperienceSection.tsx
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { fadeInUp, staggerContainer } from '@/lib/motion-config';
 
 export const ExperienceSection = () => {
   const { t } = useTranslation();
@@ -9,9 +10,7 @@ export const ExperienceSection = () => {
     <section id="experience" className="py-24 bg-c-bg-primary">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          {...fadeInUp}
           className="relative z-10 text-center mb-16"
         >
           <h2 className="pb-2 text-4xl md:text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent">
@@ -19,12 +18,10 @@ export const ExperienceSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <motion.div {...staggerContainer} className="grid md:grid-cols-2 gap-8">
           {/* Left Column: New Text */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            {...fadeInUp}
             className="p-8 rounded-2xl bg-c-bg-secondary border border-c-border"
           >
             <h3 className="text-2xl font-bold mb-4 text-c-accent-blue">
@@ -51,9 +48,8 @@ export const ExperienceSection = () => {
 
           {/* Right Column: Stack */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            {...fadeInUp}
+            transition={{ delay: 0.2 }} // Keep specific delay
             className="p-8 rounded-2xl bg-c-bg-secondary border border-c-border"
           >
             <h3 className="text-2xl font-bold mb-6 text-c-accent-blue">
@@ -63,10 +59,8 @@ export const ExperienceSection = () => {
               {['react', 'vue', 'ssr', 'styling', 'build', 'web3', 'backend', 'testing'].map((category, index) => (
                 <motion.div
                   key={category}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+                  {...fadeInUp}
+                  transition={{ delay: index * 0.1 }} // Keep specific delay
                   className="pb-4 border-b border-c-border last:border-0"
                 >
                   <h4 className="text-sm font-semibold text-c-accent-purple mb-2">
@@ -79,7 +73,7 @@ export const ExperienceSection = () => {
               ))}
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

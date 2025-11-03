@@ -1,0 +1,101 @@
+name: Performance Regression Check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  performance:
+    name: Check Performance Regression
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout base branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.base_ref }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies (base)
+        run: npm ci
+
+      - name: Build base
+        run: npm run build
+
+      - name: Get base bundle size
+        id: base-size
+        run: |
+          BASE_SIZE=$(du -sb dist | cut -f1)
+          echo "size=$BASE_SIZE" >> $GITHUB_OUTPUT
+          echo "Base bundle size: $BASE_SIZE bytes"
+
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          clean: false
+
+      - name: Install dependencies (PR)
+        run: npm ci
+
+      - name: Build PR
+        run: npm run build
+
+      - name: Get PR bundle size
+        id: pr-size
+        run: |
+          PR_SIZE=$(du -sb dist | cut -f1)
+          echo "size=$PR_SIZE" >> $GITHUB_OUTPUT
+          echo "PR bundle size: $PR_SIZE bytes"
+
+      - name: Compare bundle sizes
+        run: |
+          BASE_SIZE=${{ steps.base-size.outputs.size }}
+          PR_SIZE=${{ steps.pr-size.outputs.size }}
+          DIFF=$((PR_SIZE - BASE_SIZE))
+          PERCENT=$(echo "scale=2; ($DIFF / $BASE_SIZE) * 100" | bc)
+
+          echo "Bundle size difference: $DIFF bytes ($PERCENT%)"
+
+          if [ $DIFF -gt 102400 ]; then
+            echo "::error::Bundle size increased by more than 100KB!"
+            exit 1
+          fi
+
+      - name: Run Lighthouse CI (base)
+        run: |
+          npm install -g @lhci/cli
+          lhci autorun --config=lighthouserc-base.json || true
+
+      - name: Run Lighthouse CI (PR)
+        run: |
+          lhci autorun --config=lighthouserc-pr.json || true
+
+      - name: Comment PR
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const baseSize = ${{ steps.base-size.outputs.size }};
+            const prSize = ${{ steps.pr-size.outputs.size }};
+            const diff = prSize - baseSize;
+            const percent = ((diff / baseSize) * 100).toFixed(2);
+
+            const message = `## 📊 Performance Report
+
+            | Metric | Base | PR | Diff |
+            |--------|------|----|----- |
+            | Bundle Size | ${(baseSize / 1024).toFixed(2)} KB | ${(prSize / 1024).toFixed(2)} KB | ${diff > 0 ? '+' : ''}${(diff / 1024).toFixed(2)} KB (${percent}%) |
+
+            ${diff > 102400 ? '⚠️ **Warning**: Bundle size increased by more than 100KB!' : '✅ Bundle size is within acceptable limits.'}
+            `;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: message
+            });

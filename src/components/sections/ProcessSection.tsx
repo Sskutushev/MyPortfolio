@@ -1,6 +1,7 @@
 // src/components/sections/ProcessSection.tsx
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { fadeInUp, staggerContainer } from '@/lib/motion-config';
 
 export const ProcessSection = () => {
   const { t } = useTranslation();
@@ -17,9 +18,7 @@ export const ProcessSection = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          {...fadeInUp}
           className="relative z-10 text-center mb-16"
         >
           <h2 className="pb-2 text-4xl md:text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent">
@@ -27,14 +26,12 @@ export const ProcessSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <motion.div {...staggerContainer} className="grid md:grid-cols-2 gap-8">
           {[0, 1, 2, 3].map((index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              {...fadeInUp}
+              transition={{ delay: index * 0.1 }} // Keep specific delay
               className="relative group"
             >
               <div className="p-8 rounded-2xl bg-c-bg-primary border border-c-border hover:border-c-accent-blue transition-all">
@@ -54,14 +51,12 @@ export const ProcessSection = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Flow Visualization */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
+          {...fadeInUp}
+          transition={{ delay: 0.6 }} // Keep specific delay
           className="mt-16 p-4 md:p-8 rounded-2xl bg-c-bg-primary border border-c-border"
         >
           {/* Desktop Flow */}

@@ -1,6 +1,6 @@
 // src/components/common/Card.tsx
 import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
+import { ReactNode, memo } from 'react';
 
 interface CardProps {
   children: ReactNode;
@@ -8,7 +8,7 @@ interface CardProps {
   hoverable?: boolean;
 }
 
-export const Card = ({ children, className = '', hoverable = true }: CardProps) => {
+export const Card = memo(({ children, className = '', hoverable = true }: CardProps) => {
   return (
     <motion.div
       whileHover={hoverable ? { y: -5 } : {}}
@@ -19,4 +19,6 @@ export const Card = ({ children, className = '', hoverable = true }: CardProps) 
       {children}
     </motion.div>
   );
-};
+});
+
+Card.displayName = 'Card';

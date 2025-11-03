@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Check } from 'lucide-react';
+import { fadeInUp, staggerContainer } from '@/lib/motion-config';
 
 export const StackSection = () => {
   const { t } = useTranslation();
@@ -10,9 +11,7 @@ export const StackSection = () => {
     <section id="stack" className="py-24 bg-c-bg-primary">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          {...fadeInUp}
           className="relative z-10 text-center mb-16"
         >
           <h2 className="pb-2 text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
@@ -21,14 +20,12 @@ export const StackSection = () => {
           <p className="text-xl text-c-text-secondary">{t('stack.subtitle')}</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <motion.div {...staggerContainer} className="grid md:grid-cols-3 gap-8">
           {['react', 'vue', 'vanilla'].map((stack, index) => (
             <motion.div
               key={stack}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
+              {...fadeInUp}
+              transition={{ delay: index * 0.2 }} // Keep specific delay
               className="group relative"
             >
               <div className="h-full p-8 rounded-2xl bg-c-bg-secondary border border-c-border hover:border-c-accent-blue transition-all hover:shadow-2xl hover:shadow-c-accent-blue/10">
@@ -68,7 +65,7 @@ export const StackSection = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

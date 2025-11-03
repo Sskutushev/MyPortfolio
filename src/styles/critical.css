@@ -1,0 +1,24 @@
+/* src/styles/critical.css - загружается инлайн в HTML */
+
+/* Минимальные стили для первого рендера */
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Предотвращаем FOUC (Flash of Unstyled Content) */
+.loading {
+  opacity: 0;
+}
+
+/* Скелетон для hero секции */
+.hero-skeleton {
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0b0d 0%, #12141a 100%);
+}

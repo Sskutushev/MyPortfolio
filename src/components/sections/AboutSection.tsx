@@ -2,6 +2,8 @@
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Code2, Zap, Database } from 'lucide-react';
+import { OptimizedVideo } from '@/components/common/OptimizedVideo';
+import { fadeInUp, staggerContainer } from '@/lib/motion-config';
 
 const icons = {
   flexibility: Code2,
@@ -16,10 +18,7 @@ export const AboutSection = () => {
     <section id="about" className="py-24 bg-c-bg-secondary">
       <div className="container mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          {...fadeInUp}
           className="relative z-10 text-center mb-16"
         >
           <h2 className="pb-2 text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
@@ -28,28 +27,25 @@ export const AboutSection = () => {
           <p className="text-xl text-c-text-secondary">{t('about.subtitle')}</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <motion.div {...staggerContainer} className="grid md:grid-cols-2 gap-12 items-center">
           {/* Video */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            {...fadeInUp}
             className="relative"
           >
             <div className="relative rounded-2xl overflow-hidden border border-c-border shadow-xl">
-              <video autoPlay loop muted playsInline className="w-full h-auto">
-                <source src="/images/photo-about.mp4" type="video/mp4" />
-              </video>
+              <OptimizedVideo 
+                src="/images/photo-about.mp4"
+                poster="/images/photo-about-poster.jpg"
+                className="w-full h-auto"
+              />
             </div>
           </motion.div>
 
           {/* Description */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            {...fadeInUp}
+            transition={{ delay: 0.2 }} // Keep specific delay
           >
             <p className="text-lg text-c-text-secondary mb-8 leading-relaxed">
               {t('about.description')}
@@ -62,10 +58,8 @@ export const AboutSection = () => {
                 return (
                   <motion.div
                     key={key}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                    {...fadeInUp}
+                    transition={{ delay: 0.3 + index * 0.1 }} // Keep specific delay
                     className="flex gap-4 p-4 rounded-xl bg-c-bg-tertiary border border-c-border hover:border-c-accent-blue transition"
                   >
                     <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center">
@@ -80,7 +74,7 @@ export const AboutSection = () => {
               })}
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
