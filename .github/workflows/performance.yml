@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout base branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: ${{ github.base_ref }}
 
@@ -35,7 +35,7 @@ jobs:
           echo "Base bundle size: $BASE_SIZE bytes"
 
       - name: Checkout PR branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           clean: false
 
