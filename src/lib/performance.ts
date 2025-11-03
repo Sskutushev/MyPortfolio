@@ -1,17 +1,5 @@
 // src/lib/performance.ts
 
-export const reportWebVitals = (onPerfEntry?: (metric: any) => void) => {
-  if (onPerfEntry && onPerfEntry instanceof Function) {
-    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
-      getCLS(onPerfEntry);
-      getFID(onPerfEntry);
-      getFCP(onPerfEntry);
-      getLCP(onPerfEntry);
-      getTTFB(onPerfEntry);
-    });
-  }
-};
-
 // Функция для отправки метрик в аналитику
 export const sendToAnalytics = (metric: any) => {
   // В production можно отправлять в Google Analytics, Vercel Analytics и т.д.
@@ -69,5 +57,20 @@ export const observeLayoutShifts = () => {
     } catch (e) {
       console.error('Layout shift observer failed:', e);
     }
+  }
+};
+
+export const reportWebVitals = (onPerfEntry?: (metric: any) => void) => {
+  if (onPerfEntry && typeof onPerfEntry === 'function') {
+    import('web-vitals').then((webVitalsModule) => {
+      // Используем новые функции из web-vitals v5
+      webVitalsModule.onCLS(onPerfEntry);
+      webVitalsModule.onFCP(onPerfEntry);
+      webVitalsModule.onINP(onPerfEntry);
+      webVitalsModule.onLCP(onPerfEntry);
+      webVitalsModule.onTTFB(onPerfEntry);
+    }).catch(err => {
+      console.error('Failed to load web-vitals:', err);
+    });
   }
 };

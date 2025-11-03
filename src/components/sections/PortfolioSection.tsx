@@ -90,7 +90,8 @@ export const PortfolioSection = () => {
             return (
               <motion.div
                 key={project.id}
-                variants={fadeInUp} // Use variants for staggered animation
+                {...fadeInUp}
+                transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
                 onClick={() => setSelectedProject(project.id)}
                 className="group cursor-pointer"

@@ -1,14 +1,4 @@
 // src/lib/motion-config.ts
-import { MotionConfig } from 'framer-motion';
-
-// Глобальная конфигурация для всех анимаций
-export const motionConfig = {
-  transition: {
-    duration: 0.3,
-    ease: 'easeOut'
-  },
-  reducedMotion: 'user', // Учитывает prefers-reduced-motion
-};
 
 // Переиспользуемые варианты анимаций
 export const fadeInUp = {
@@ -19,8 +9,8 @@ export const fadeInUp = {
 };
 
 export const staggerContainer = {
-  hidden: { opacity: 0 },
-  show: {
+  initial: { opacity: 0 },
+  animate: { 
     opacity: 1,
     transition: {
       staggerChildren: 0.1
@@ -29,6 +19,6 @@ export const staggerContainer = {
 };
 
 export const fadeIn = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1 }
+  initial: { opacity: 0 },
+  animate: { opacity: 1 }
 };
