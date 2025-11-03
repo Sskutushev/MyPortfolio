@@ -6,16 +6,20 @@ import tseslint from 'typescript-eslint'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 
 export default tseslint.config(
-  { ignores: ['dist'] },
+  { 
+    files: ['**/*.{js,ts,tsx}'],
+    ignores: ['dist/**', 'node_modules/**', 'dist/', '*.min.js', 'coverage/', 'build/'] 
+  },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
   {
-    extends: [
-      js.configs.recommended,
-      ...tseslint.configs.recommended,
-    ],
-    files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
-      globals: globals.browser,
+      sourceType: 'module',
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
     },
     plugins: {
       'react-hooks': reactHooks,
@@ -35,6 +39,9 @@ export default tseslint.config(
       'jsx-a11y/heading-has-content': 'error',
       'jsx-a11y/label-has-associated-control': 'error',
       'jsx-a11y/no-autofocus': 'warn',
+    },
+    linterOptions: {
+      reportUnusedDisableDirectives: true,
     },
   }
 );
