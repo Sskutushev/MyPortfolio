@@ -81,11 +81,11 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
+      "npx eslint --fix",
+      "npx prettier --write"
     ],
     "*.{css,md,json}": [
-      "prettier --write"
+      "npx prettier --write"
     ]
   }
 }

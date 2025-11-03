@@ -73,7 +73,6 @@ describe("Accessibility Tests", () => {
       // Skip problematic rules that may be environment-specific
       rules: {
         "duplicate-id-aria": { enabled: false }, // Temporarily disable this rule if it's causing issues
-        "preload": { enabled: false },
       },
     });
     expect(results).toHaveNoViolations();

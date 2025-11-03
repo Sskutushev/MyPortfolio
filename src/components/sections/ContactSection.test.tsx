@@ -88,7 +88,7 @@ describe("ContactSection", () => {
     });
 
     render(<ContactSection />);
-    
+
     // Wait for the form and the mock reCAPTCHA to be ready
     await waitFor(
       () => {

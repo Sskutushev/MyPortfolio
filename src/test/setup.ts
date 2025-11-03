@@ -39,6 +39,38 @@ global.IntersectionObserver = class IntersectionObserver {
 // Mock для window.scrollTo
 window.scrollTo = () => {};
 
+// Mock for HTMLCanvasElement.prototype.getContext (for tests involving canvas)
+Object.defineProperty(HTMLCanvasElement.prototype, "getContext", {
+  value: () => ({
+    fillRect: () => {},
+    clearRect: () => {},
+    getImageData: (x: any, y: any, w: any, h: any) => ({
+      data: new Array(w * h * 4).fill(0),
+    }),
+    putImageData: () => {},
+    createImageData: () => [],
+    setTransform: () => {},
+    drawImage: () => {},
+    save: () => {},
+    fillText: () => {},
+    restore: () => {},
+    beginPath: () => {},
+    moveTo: () => {},
+    lineTo: () => {},
+    closePath: () => {},
+    stroke: () => {},
+    translate: () => {},
+    scale: () => {},
+    rotate: () => {},
+    arc: () => {},
+    fill: () => {},
+    measureText: () => ({ width: 0 }),
+    transform: () => {},
+    rect: () => {},
+    clip: () => {},
+  }),
+});
+
 // Mock для requestIdleCallback (для axe-core)
 window.requestIdleCallback =
   window.requestIdleCallback ||
