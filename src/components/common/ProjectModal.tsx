@@ -15,9 +15,8 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'flow' | 'code'>('flow');
 
-  // Workaround for Vercel build error: TS6133 'Code' is declared but its value is never read.
-  // This forces the TypeScript compiler to acknowledge the 'Code' component's usage.
-  {false && <Code />}
+
+
 
   return (
     <Modal isOpen={!!project} onClose={onClose}>
@@ -53,7 +52,10 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
           </div>
         ) : (
           <div>
-            <h4 className="text-lg font-semibold mb-4">{project.codeHighlight.title}</h4>
+            <div className="flex items-center gap-2 mb-4">
+              <Code size={24} className="text-c-accent-blue" />
+              <h4 className="text-lg font-semibold">{project.codeHighlight.title}</h4>
+            </div>
             <pre className="block w-full p-6 rounded-xl bg-c-bg-tertiary border border-c-border overflow-x-auto"><code className="text-sm text-c-text-secondary font-mono">{project.codeHighlight.code}</code></pre>
           </div>
         )}

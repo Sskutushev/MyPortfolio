@@ -68,6 +68,6 @@
   ],
 
   "env": {
-    "VITE_RECAPTCHA_SITE_KEY": "@vite_recaptcha_site_key"
+    "VITE_RECAPTCHA_SITE_KEY": "@recaptcha_site_key"
   }
 }

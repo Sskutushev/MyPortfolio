@@ -1,7 +1,7 @@
 // e2e/keyboard-navigation.spec.ts
-import { test, expect } from '@playwright/test';
+import { test, expect, describe } from '@playwright/test';
 
-test.describe('Keyboard Navigation', () => {
+describe('Keyboard Navigation', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('http://localhost:4173');
   });
@@ -66,9 +66,6 @@ test.describe('Keyboard Navigation', () => {
     // Modal должен быть открыт
     await expect(page.locator('[role="dialog"]')).toBeVisible();
 
-    // Проверяем что Tab циклится внутри modal
-    const initialFocus = await page.locator(':focus').textContent();
-
     // Много Tab нажатий
     for (let i = 0; i < 10; i++) {
       await page.keyboard.press('Tab');
@@ -98,7 +95,7 @@ test.describe('Keyboard Navigation', () => {
   });
 });
 
-test.describe('Screen Reader Announcements', () => {
+describe('Screen Reader Announcements', () => {
   test('should have proper ARIA labels', async ({ page }) => {
     await page.goto('http://localhost:4173');
 

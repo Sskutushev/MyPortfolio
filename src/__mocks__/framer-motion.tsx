@@ -5,7 +5,7 @@ export const motion = {
   form: ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) => <form {...props}>{children}</form>,
   section: ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) => <section {...props}>{children}</section>,
   span: ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) => <span {...props}>{children}</span>,
-  img: ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) => <img {...props} />,
+  img: ({ alt, ...props }: { alt?: string; [key: string]: any }) => <img alt={alt || ''} {...props} />,
 
   // Заглушка для анимаций
   animate: () => {},
