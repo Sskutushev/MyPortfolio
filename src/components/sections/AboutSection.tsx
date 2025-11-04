@@ -31,13 +31,11 @@ export const AboutSection = () => {
           {/* Video */}
           <motion.div {...fadeInUp} className="relative">
             <div className="relative rounded-2xl overflow-hidden border border-c-border shadow-xl">
-              <div style={{ width: "600px", height: "400px" }}>
-                <OptimizedVideo
-                  src="/images/photo-about.mp4"
-                  poster="/images/photo-about-poster.jpg"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <OptimizedVideo
+                src="/images/photo-about.mp4"
+                poster="/images/photo-about-poster.jpg"
+                className="w-full h-auto"
+              />
             </div>
           </motion.div>
 

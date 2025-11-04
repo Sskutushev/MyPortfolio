@@ -38,14 +38,12 @@ export const PortfolioSection = () => {
         className="absolute top-1/3 right-8 w-1/4 max-w-xs hidden xl:block"
       >
         <div className="relative rounded-3xl overflow-hidden border-2 border-c-accent-blue/30 shadow-2xl m-8">
-          <div style={{ width: "600px", height: "400px" }}>
-            <OptimizedVideo
-              src="/images/photo-project.mp4"
-              poster="/images/photo-project-poster.jpg"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-c-accent-blue/20 to-transparent" />
-          </div>
+          <OptimizedVideo
+            src="/images/photo-project.mp4"
+            poster="/images/photo-project-poster.jpg"
+            className="w-full h-auto"
+          />
+          <div className="absolute inset-0 bg-gradient-to-tr from-c-accent-blue/20 to-transparent" />
         </div>
       </motion.div>
 

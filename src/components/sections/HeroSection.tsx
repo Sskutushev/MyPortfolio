@@ -89,13 +89,11 @@ export const HeroSection = () => {
             className="relative"
           >
             <div className="relative rounded-3xl overflow-hidden border-2 border-c-accent-blue/30 shadow-2xl">
-              <div style={{ width: "600px", height: "400px" }}>
-                <OptimizedVideo
-                  src="/images/photo-hero.mp4"
-                  poster="/images/photo-hero-poster.jpg"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <OptimizedVideo
+                src="/images/photo-hero.mp4"
+                poster="/images/photo-hero-poster.jpg"
+                className="w-full h-auto"
+              />
               <div className="absolute inset-0 bg-gradient-to-tr from-c-accent-blue/20 to-transparent" />
             </div>
           </motion.div>
