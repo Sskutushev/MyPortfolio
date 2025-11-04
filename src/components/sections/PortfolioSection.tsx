@@ -103,7 +103,7 @@ export const PortfolioSection = () => {
             return (
               <motion.a
                 key={project.id}
-                href="#"
+                href={`#project-${project.id}`}
                 {...fadeInUp}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}

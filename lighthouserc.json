@@ -17,7 +17,8 @@
         "errors-in-console": ["warn", { "minScore": 0 }],
         "image-delivery-insight": ["warn", { "minScore": 0 }],
         "network-dependency-tree-insight": ["warn", { "minScore": 0 }],
-        "unused-javascript": ["warn", { "maxLength": 1000000 }]
+        "unused-javascript": ["warn", { "maxLength": 1000000 }],
+        "uses-responsive-images": ["warn", { "maxLength": 10 }]
       }
     },
     "upload": {
