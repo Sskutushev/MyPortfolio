@@ -65,9 +65,5 @@
       "destination": "/",
       "permanent": true
     }
-  ],
-
-  "env": {
-    "VITE_RECAPTCHA_SITE_KEY": "@recaptcha_site_key"
-  }
+  ]
 }
