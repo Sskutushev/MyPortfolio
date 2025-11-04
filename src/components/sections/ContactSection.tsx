@@ -208,13 +208,14 @@ export const ContactSection = () => {
                 </div>
 
                 {/* Экран смартфона */}
-                <div className="relative rounded-2xl overflow-hidden bg-black">
+                <div
+                  className="relative rounded-2xl overflow-hidden bg-black"
+                  style={{ width: "300px", height: "500px" }}
+                >
                   <OptimizedVideo
                     src="/images/Contact.MP4"
                     poster="/images/Contact-poster.jpg"
-                    className="w-full h-full object-fill rounded-2xl"
-                    width={300}
-                    height={500}
+                    className="w-full h-full object-cover rounded-2xl"
                   />
 
                   {/* Индикаторы уведомлений */}
