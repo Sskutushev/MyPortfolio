@@ -160,6 +160,6 @@ test.describe("Screen Reader Announcements", () => {
 
     // Проверяем наличие сообщений об ошибках - используем query для избежания ошибки ожидания
     const alerts = page.locator('[role="alert"]');
-    await expect(alerts).toHaveCount(2); // ожидаем 2 сообщения об ошибках (для имени и сообщения)
+    await expect(alerts).toHaveCount(3); // ожидаем 3 сообщения об ошибках (для имени, контакта и сообщения)
   });
 });
