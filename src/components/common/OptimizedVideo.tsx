@@ -64,15 +64,18 @@ export const OptimizedVideo = ({
 
   return (
     <div
-      className="relative overflow-hidden rounded-2xl"
       style={{
+        position: "relative",
         width: width ? `${width}px` : "100%",
         height: height ? `${height}px` : "auto",
+        // Устанавливаем минимальные размеры, чтобы избежать CLS до загрузки видео
+        minWidth: width ? `${width}px` : "100%",
+        minHeight: height ? `${height}px` : "200px", // минимальная высота как fallback
       }}
     >
       <video
         ref={videoRef}
-        className={`${className} absolute inset-0 w-full h-full`}
+        className={className}
         poster={poster}
         loop={loop}
         muted={muted}
@@ -80,7 +83,7 @@ export const OptimizedVideo = ({
         preload="metadata"
         width={width}
         height={height}
-        style={{ objectFit: "cover" }} // ИСПОЛЬЗУЕМ COVER для заполнения контейнера
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
         onLoadedData={() => setIsLoaded(true)}
       >
         {lowerCaseSrc.endsWith(".webm") && (
