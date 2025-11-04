@@ -64,11 +64,10 @@ export const OptimizedVideo = ({
 
   return (
     <div
-      className="relative overflow-hidden"
+      className="relative overflow-hidden rounded-2xl"
       style={{
         width: width ? `${width}px` : "100%",
         height: height ? `${height}px` : "auto",
-        aspectRatio: width && height ? `${width}/${height}` : undefined,
       }}
     >
       <video
@@ -81,7 +80,7 @@ export const OptimizedVideo = ({
         preload="metadata"
         width={width}
         height={height}
-        style={{ objectFit: "contain" }}
+        style={{ objectFit: "cover" }} // ИСПОЛЬЗУЕМ COVER для заполнения контейнера
         onLoadedData={() => setIsLoaded(true)}
       >
         {lowerCaseSrc.endsWith(".webm") && (
