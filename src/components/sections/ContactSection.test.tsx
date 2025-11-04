@@ -73,19 +73,13 @@ describe("ContactSection", () => {
     );
     await user.click(submitButton);
 
-    // Wait for validation errors to appear - increased timeout
+    // Wait for validation errors to appear - use queryAllByText to handle multiple error elements
     await waitFor(
       () => {
-        const nameError = screen.queryByText(
-          /обязательно|required|необходимо|must not be empty|введите|заполните/i,
+        const errors = screen.queryAllByText(
+          /обязательно|must not be empty|required|необходимо|введите|заполните/i,
         );
-        const contactError = screen.queryByText(
-          /обязательно|required|необходимо|must not be empty|введите|заполните/i,
-        );
-        const messageError = screen.queryByText(
-          /обязательно|required|необходимо|must not be empty|введите|заполните/i,
-        );
-        expect(nameError || contactError || messageError).toBeTruthy();
+        expect(errors.length).toBeGreaterThanOrEqual(1); // Check that at least one error message exists
       },
       { timeout: 15000 },
     );

@@ -26,19 +26,18 @@ test.describe("Keyboard Navigation", () => {
 
     // Ждем появления кнопки мобильного меню и кликаем
     const menuButton = page
-      .getByRole("button", { name: /menu|бургер/i })
+      .getByRole("button", { name: /menu|меню|burger|бургер/i })
       .first();
     await expect(menuButton).toBeVisible();
     await menuButton.focus();
     await page.keyboard.press("Enter");
 
     // Проверяем что меню открылось
-    const mobileMenu = page.locator("#mobile-menu");
-    await expect(mobileMenu).toBeVisible({ timeout: 15000 });
+    await expect(page.locator("#mobile-menu")).toBeVisible({ timeout: 15000 });
 
     // Закрываем с помощью Escape
     await page.keyboard.press("Escape");
-    await expect(mobileMenu).not.toBeVisible();
+    await expect(page.locator("#mobile-menu")).not.toBeVisible();
   });
 
   test("should toggle theme with keyboard", async ({ page }) => {
@@ -64,11 +63,10 @@ test.describe("Keyboard Navigation", () => {
 
   test("should submit form with keyboard", async ({ page }) => {
     // Ждем секцию контактов
-    const contactSection = page.locator("section#contact");
-    await expect(contactSection).toBeVisible();
+    await expect(page.locator("section#contact")).toBeVisible();
 
     // Скроллим к форме
-    await contactSection.scrollIntoViewIfNeeded();
+    await page.locator("section#contact").scrollIntoViewIfNeeded();
     await page.waitForTimeout(1000); // Даем время для анимации скролла
 
     // Ждем поля имени и фокусируемся на нем
@@ -91,8 +89,9 @@ test.describe("Keyboard Navigation", () => {
     await projectCard.click();
 
     // Modal должен быть открыт
-    const modal = page.locator('[role="dialog"]');
-    await expect(modal).toBeVisible({ timeout: 15000 });
+    await expect(page.locator('[role="dialog"]')).toBeVisible({
+      timeout: 15000,
+    });
 
     // Делаем несколько нажатий Tab и проверяем фокус
     for (let i = 0; i < 3; i++) {
@@ -121,8 +120,7 @@ test.describe("Keyboard Navigation", () => {
     await page.waitForTimeout(500);
 
     // Проверяем что focus на main content
-    const mainContent = page.locator("#main-content");
-    await expect(mainContent).toBeVisible();
+    await expect(page.locator("#main-content")).toBeVisible();
   });
 });
 
@@ -132,18 +130,18 @@ test.describe("Screen Reader Announcements", () => {
     await page.waitForLoadState("networkidle");
 
     // Проверяем navigation
-    const nav = page.locator("nav").first();
-    await expect(nav).toHaveAttribute("aria-label", "Main navigation");
+    await expect(page.locator("nav").first()).toHaveAttribute(
+      "aria-label",
+      "Main navigation",
+    );
 
     // Ждем появления секции контактов
-    const contactSection = page.locator("section#contact");
-    await expect(contactSection).toBeVisible();
+    await expect(page.locator("section#contact")).toBeVisible();
 
     // Проверяем наличие submit кнопки
-    const submitButton = page
-      .getByRole("button", { name: /submit|отправить/i })
-      .first();
-    await expect(submitButton).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: /submit|отправить/i }).first(),
+    ).toBeVisible();
   });
 
   test("should announce form errors", async ({ page }) => {
@@ -158,11 +156,8 @@ test.describe("Screen Reader Announcements", () => {
     await page.waitForTimeout(1000);
     await submitButton.click();
 
-    // Проверяем наличие сообщений об ошибках или успешной отправке
-    const alert = page.locator('[role="alert"]').first();
-    // Ожидаем, что появится либо сообщение об ошибке, либо ожидаем какое-то изменение
-    await expect(alert)
-      .not.toHaveCount(0)
-      .or(() => {});
+    // Проверяем наличие сообщений об ошибках - используем query для избежания ошибки ожидания
+    const alerts = page.locator('[role="alert"]');
+    await expect(alerts).toHaveCount(2); // ожидаем 2 сообщения об ошибках (для имени и сообщения)
   });
 });

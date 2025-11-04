@@ -93,6 +93,8 @@ export const HeroSection = () => {
                 src="/images/photo-hero.mp4"
                 poster="/images/photo-hero-poster.jpg"
                 className="w-full h-auto"
+                width={600}
+                height={400}
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-c-accent-blue/20 to-transparent" />
             </div>

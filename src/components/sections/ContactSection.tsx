@@ -213,6 +213,8 @@ export const ContactSection = () => {
                     src="/images/Contact.MP4"
                     poster="/images/Contact-poster.jpg"
                     className="w-full h-full object-fill rounded-2xl"
+                    width={300}
+                    height={500}
                   />
 
                   {/* Индикаторы уведомлений */}

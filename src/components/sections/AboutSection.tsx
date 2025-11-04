@@ -35,6 +35,8 @@ export const AboutSection = () => {
                 src="/images/photo-about.mp4"
                 poster="/images/photo-about-poster.jpg"
                 className="w-full h-auto"
+                width={600}
+                height={400}
               />
             </div>
           </motion.div>

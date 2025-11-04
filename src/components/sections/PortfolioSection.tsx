@@ -42,6 +42,8 @@ export const PortfolioSection = () => {
             src="/images/photo-project.mp4"
             poster="/images/photo-project-poster.jpg"
             className="w-full h-auto"
+            width={600}
+            height={400}
           />
           <div className="absolute inset-0 bg-gradient-to-tr from-c-accent-blue/20 to-transparent" />
         </div>

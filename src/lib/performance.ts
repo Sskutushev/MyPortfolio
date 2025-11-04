@@ -3,7 +3,7 @@
 // Функция для отправки метрик в аналитику
 export const sendToAnalytics = (metric: any) => {
   // В production можно отправлять в Google Analytics, Vercel Analytics и т.д.
-  if (import.meta.env.PROD) {
+  if (typeof window !== "undefined" && navigator.sendBeacon) {
     const body = JSON.stringify(metric);
     const url = "/api/analytics";
 
@@ -11,11 +11,15 @@ export const sendToAnalytics = (metric: any) => {
     if (navigator.sendBeacon) {
       navigator.sendBeacon(url, body);
     } else {
-      fetch(url, { body, method: "POST", keepalive: true });
+      // В случае отсутствия sendBeacon, делаем обычный fetch, но без выброса ошибки
+      fetch(url, { body, method: "POST", keepalive: true }).catch((err) => {
+        // Игнорируем ошибки отправки метрик, они не критичны для работы приложения
+        console.debug("Failed to send analytics:", err);
+      });
     }
   } else {
     // В dev режиме просто логируем
-    console.log("Web Vital:", metric);
+    console.debug("Web Vital:", metric);
   }
 };
 

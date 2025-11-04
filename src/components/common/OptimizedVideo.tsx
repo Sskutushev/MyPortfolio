@@ -9,6 +9,8 @@ interface OptimizedVideoProps {
   loop?: boolean;
   muted?: boolean;
   playsInline?: boolean;
+  width?: number;
+  height?: number;
 }
 
 export const OptimizedVideo = ({
@@ -19,6 +21,8 @@ export const OptimizedVideo = ({
   loop = true,
   muted = true,
   playsInline = true,
+  width,
+  height,
 }: OptimizedVideoProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isInView, setIsInView] = useState(false);
@@ -59,19 +63,32 @@ export const OptimizedVideo = ({
   const lowerCaseSrc = src.toLowerCase();
 
   return (
-    <video
-      ref={videoRef}
-      className={className}
-      poster={poster}
-      loop={loop}
-      muted={muted}
-      playsInline={playsInline}
-      preload="none"
-      onLoadedData={() => setIsLoaded(true)}
+    <div
+      style={{
+        position: "relative",
+        width: width ? `${width}px` : "100%",
+        height: height ? `${height}px` : "auto",
+      }}
     >
-      {lowerCaseSrc.endsWith(".webm") && <source src={src} type="video/webm" />}
-      {lowerCaseSrc.endsWith(".mp4") && <source src={src} type="video/mp4" />}
-      Your browser does not support the video tag.
-    </video>
+      <video
+        ref={videoRef}
+        className={className}
+        poster={poster}
+        loop={loop}
+        muted={muted}
+        playsInline={playsInline}
+        preload="metadata"
+        width={width}
+        height={height}
+        style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        onLoadedData={() => setIsLoaded(true)}
+      >
+        {lowerCaseSrc.endsWith(".webm") && (
+          <source src={src} type="video/webm" />
+        )}
+        {lowerCaseSrc.endsWith(".mp4") && <source src={src} type="video/mp4" />}
+        Your browser does not support the video tag.
+      </video>
+    </div>
   );
 };
