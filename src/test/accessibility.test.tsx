@@ -14,6 +14,12 @@ vi.mock("react-google-recaptcha", () => {
   };
 });
 
+vi.mock("@/components/common/OptimizedVideo", () => {
+  return {
+    OptimizedVideo: () => <div data-testid="video-mock">Video</div>,
+  };
+});
+
 // Mock requestIdleCallback for axe-core compatibility in test environment
 Object.defineProperty(window, "requestIdleCallback", {
   writable: true,

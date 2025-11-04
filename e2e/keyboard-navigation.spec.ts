@@ -140,7 +140,9 @@ test.describe("Screen Reader Announcements", () => {
 
     // Проверяем наличие submit кнопки
     await expect(
-      page.getByRole("button", { name: /submit|отправить/i }).first(),
+      page
+        .getByRole("button", { name: /Start Project|Начать Проект/i })
+        .first(),
     ).toBeVisible();
   });
 
@@ -150,7 +152,7 @@ test.describe("Screen Reader Announcements", () => {
 
     // Ждем кнопку отправки и кликаем (попытка отправки пустой формы)
     const submitButton = page
-      .getByRole("button", { name: /submit|отправить/i })
+      .getByRole("button", { name: /Start Project|Начать Проект/i })
       .first();
     await expect(submitButton).toBeVisible();
     await page.waitForTimeout(1000);

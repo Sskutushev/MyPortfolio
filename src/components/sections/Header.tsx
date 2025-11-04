@@ -14,6 +14,22 @@ export const Header = () => {
   const menuRef = useFocusTrap(isMenuOpen);
   useSkipNavigation();
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isMenuOpen]);
+
   const toggleLanguage = () => {
     i18n.changeLanguage(i18n.language === "ru" ? "en" : "ru");
   };
@@ -84,7 +100,7 @@ export const Header = () => {
               <button
                 onClick={toggleLanguage}
                 className="px-3 py-1 rounded-lg border border-c-border hover:border-c-accent-blue transition focus:outline-none focus:ring-2 focus:ring-c-accent-blue"
-                aria-label={`Switch language to ${i18n.language === "ru" ? "English" : "Russian"}`}
+                aria-label={`Switch language to ${i18n.language === "ru" ? "English" : "Russian"}. Current: ${i18n.language.toUpperCase()}`}
               >
                 {i18n.language.toUpperCase()}
               </button>
@@ -139,7 +155,7 @@ export const Header = () => {
               <button
                 onClick={toggleLanguage}
                 className="px-2 py-1 text-sm rounded border border-c-border focus:outline-none focus:ring-2 focus:ring-c-accent-blue"
-                aria-label={`Switch language to ${i18n.language === "ru" ? "English" : "Russian"}`}
+                aria-label={`Switch language to ${i18n.language === "ru" ? "English" : "Russian"}. Current: ${i18n.language.toUpperCase()}`}
               >
                 {i18n.language.toUpperCase()}
               </button>

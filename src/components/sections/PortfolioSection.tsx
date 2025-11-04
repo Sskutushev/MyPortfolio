@@ -101,13 +101,14 @@ export const PortfolioSection = () => {
             const imageSrc =
               theme === "light" ? project.imageLight : project.imageDark;
             return (
-              <motion.div
+              <motion.button
                 key={project.id}
                 {...fadeInUp}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
                 onClick={() => setSelectedProject(project.id)}
-                className="group cursor-pointer"
+                className="group cursor-pointer text-left"
+                data-testid="project-card"
               >
                 <div className="relative h-full rounded-2xl bg-c-bg-primary border border-c-border overflow-hidden transition-all hover:border-c-accent-blue hover:shadow-2xl hover:shadow-c-accent-blue/20">
                   <div className="relative h-48 overflow-hidden bg-c-bg-tertiary">
@@ -150,7 +151,7 @@ export const PortfolioSection = () => {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </motion.button>
             );
           })}
         </motion.div>

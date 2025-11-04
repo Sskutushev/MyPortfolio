@@ -17,5 +17,6 @@ export default defineConfig({
     testTimeout: 20000, // Увеличиваем таймаут тестов
     hookTimeout: 20000,
     restoreMocks: true,
+    exclude: ["**/node_modules/**", "**/dist/**", "**/e2e/**"],
   },
 });
