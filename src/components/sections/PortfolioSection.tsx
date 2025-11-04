@@ -113,7 +113,6 @@ export const PortfolioSection = () => {
                 }}
                 className="group cursor-pointer"
                 data-testid="project-card"
-                role="button"
               >
                 <div className="relative h-full rounded-2xl bg-c-bg-primary border border-c-border overflow-hidden transition-all hover:border-c-accent-blue hover:shadow-2xl hover:shadow-c-accent-blue/20">
                   <div className="relative h-48 overflow-hidden bg-c-bg-tertiary">
