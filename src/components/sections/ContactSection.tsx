@@ -241,16 +241,17 @@ export const ContactSection = () => {
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="space-y-6"
-              aria-label="Contact form"
-              noValidate
+              aria-labelledby="contact-heading"
+              role="form"
             >
               <div>
                 <label
                   htmlFor="name"
                   className="block text-sm font-semibold mb-2"
+                  id="name-label"
                 >
                   {t("contact.form.name.label")}
-                  <span className="text-red-500" aria-label="required">
+                  <span className="text-red-500" aria-label="(required)">
                     *
                   </span>
                 </label>
@@ -264,6 +265,7 @@ export const ContactSection = () => {
                   className="w-full px-4 py-3 rounded-xl bg-c-bg-primary border border-c-border focus:border-c-accent-blue focus:ring-2 focus:ring-c-accent-blue focus:ring-offset-2 outline-none transition"
                   placeholder={t("contact.form.name.placeholder")}
                   aria-invalid={errors.name ? "true" : "false"}
+                  aria-labelledby="name-label"
                   aria-describedby={errors.name ? "name-error" : undefined}
                 />
                 {errors.name && (
@@ -282,9 +284,10 @@ export const ContactSection = () => {
                 <label
                   htmlFor="contact"
                   className="block text-sm font-semibold mb-2"
+                  id="contact-label"
                 >
                   {t("contact.form.contact.label")}
-                  <span className="text-red-500" aria-label="required">
+                  <span className="text-red-500" aria-label="(required)">
                     *
                   </span>
                 </label>
@@ -298,6 +301,7 @@ export const ContactSection = () => {
                   className="w-full px-4 py-3 rounded-xl bg-c-bg-primary border border-c-border focus:border-c-accent-blue focus:ring-2 focus:ring-c-accent-blue focus:ring-offset-2 outline-none transition"
                   placeholder={t("contact.form.contact.placeholder")}
                   aria-invalid={errors.contact ? "true" : "false"}
+                  aria-labelledby="contact-label"
                   aria-describedby={
                     errors.contact ? "contact-error" : undefined
                   }
@@ -318,9 +322,10 @@ export const ContactSection = () => {
                 <label
                   htmlFor="message"
                   className="block text-sm font-semibold mb-2"
+                  id="message-label"
                 >
                   {t("contact.form.message.label")}
-                  <span className="text-red-500" aria-label="required">
+                  <span className="text-red-500" aria-label="(required)">
                     *
                   </span>
                 </label>
@@ -334,6 +339,7 @@ export const ContactSection = () => {
                   className="w-full px-4 py-3 rounded-xl bg-c-bg-primary border border-c-border focus:border-c-accent-blue focus:ring-2 focus:ring-c-accent-blue focus:ring-offset-2 outline-none transition resize-none"
                   placeholder={t("contact.form.message.placeholder")}
                   aria-invalid={errors.message ? "true" : "false"}
+                  aria-labelledby="message-label"
                   aria-describedby={
                     errors.message ? "message-error" : undefined
                   }

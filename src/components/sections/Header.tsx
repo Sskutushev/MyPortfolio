@@ -62,7 +62,8 @@ export const Header = () => {
                   smooth
                   duration={500}
                   className="cursor-pointer hover:text-c-accent-blue transition focus:outline-none focus:ring-2 focus:ring-c-accent-blue focus:ring-offset-2 rounded"
-                  aria-label={`Navigate to ${label} section`}
+                  aria-label={`${label}`}
+                  title={label}
                   tabIndex={0}
                 >
                   {label}
@@ -191,7 +192,8 @@ export const Header = () => {
                           onClick={() => setIsMenuOpen(false)}
                           className="text-xl cursor-pointer hover:text-c-accent-blue transition focus:outline-none focus:ring-2 focus:ring-c-accent-blue rounded px-2"
                           tabIndex={0}
-                          aria-label={`Navigate to ${label} section`}
+                          aria-label={`${label}`}
+                          title={label}
                         >
                           {label}
                         </ScrollLink>
