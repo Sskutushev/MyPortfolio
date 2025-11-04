@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import compression from 'vite-plugin-compression';
-import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
-import path from 'path';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import compression from "vite-plugin-compression";
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
+import path from "path";
 
 export default defineConfig({
   plugins: [
@@ -10,14 +10,14 @@ export default defineConfig({
 
     // Gzip compression
     compression({
-      algorithm: 'gzip',
-      ext: '.gz',
+      algorithm: "gzip",
+      ext: ".gz",
     }),
 
     // Brotli compression
     compression({
-      algorithm: 'brotliCompress',
-      ext: '.br',
+      algorithm: "brotliCompress",
+      ext: ".br",
     }),
 
     // Image optimization
@@ -35,12 +35,11 @@ export default defineConfig({
         quality: 80,
       },
     }),
-
   ],
 
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      "@": path.resolve(__dirname, "./src"),
     },
   },
 
@@ -49,10 +48,11 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'animation-vendor': ['framer-motion'],
-          'form-vendor': ['react-hook-form', 'react-google-recaptcha'],
-          'i18n-vendor': ['react-i18next', 'i18next'],
+          "react-vendor": ["react", "react-dom", "react-router-dom"],
+          "animation-vendor": ["framer-motion"],
+          "form-vendor": ["react-hook-form", "react-google-recaptcha"],
+          "i18n-vendor": ["react-i18next", "i18next"],
+          "ui-vendor": ["lucide-react"],
         },
       },
     },
@@ -63,6 +63,8 @@ export default defineConfig({
     // Source maps для production (можно отключить)
     sourcemap: false,
 
+    // Оптимизация для лучшей производительности
+    cssCodeSplit: true,
   },
 
   // Оптимизация dev сервера
@@ -70,5 +72,13 @@ export default defineConfig({
     hmr: {
       overlay: true,
     },
+  },
+
+  // Оптимизация для тестирования
+  test: {
+    environment: "jsdom",
+    setupFiles: "./src/test/setup.ts",
+    globals: true,
+    restoreMocks: true,
   },
 });
