@@ -5,17 +5,20 @@
 ### Локальная разработка
 
 1. Клонирование репозитория:
+
 ```bash
 git clone https://github.com/Sskutushev/portfolio.git
 cd portfolio
 ```
 
 2. Установка зависимостей:
+
 ```bash
 npm install
 ```
 
 3. Запуск в режиме разработки:
+
 ```bash
 npm run dev
 ```
@@ -43,10 +46,11 @@ src/
 ### Импорты
 
 Используем алиас `@` для импортов из `src`:
+
 ```typescript
-import { Button } from '@/components/common/Button';
-import { useTheme } from '@/contexts/ThemeContext';
-import { fadeInUp } from '@/lib/motion-config';
+import { Button } from "@/components/common/Button";
+import { useTheme } from "@/contexts/ThemeContext";
+import { fadeInUp } from "@/lib/motion-config";
 ```
 
 ## Стиль кода
@@ -82,6 +86,7 @@ import { fadeInUp } from '@/lib/motion-config';
 4. Напишите тесты
 
 Пример:
+
 ```typescript
 interface ButtonProps {
   children: React.ReactNode;
@@ -145,6 +150,7 @@ export const Button = ({ children, variant = 'primary', onClick }: ButtonProps) 
 - Используйте `LazyImage` для изображений вне viewport
 - Оптимизируйте изображения перед добавлением
 - Используйте WebP формат с fallback
+- Убедитесь, что у изображений заданы размеры для предотвращения сдвига макета (CLS)
 
 ### Видео
 
@@ -180,6 +186,7 @@ export const Button = ({ children, variant = 'primary', onClick }: ButtonProps) 
 ```
 
 Примеры:
+
 - `feat: add new feature`
 - `fix: resolve bug in component`
 - `docs: update README`
@@ -188,6 +195,7 @@ export const Button = ({ children, variant = 'primary', onClick }: ButtonProps) 
 ## Код-ревью
 
 Перед созданием Pull Request:
+
 1. Убедитесь, что все тесты проходят
 2. Проверьте локально сборку проекта
 3. Обновите документацию при необходимости

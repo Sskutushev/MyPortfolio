@@ -47,6 +47,42 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enhanced security practices with automated scanning
 - Improved CI/CD with comprehensive checks
 - Better code organization and architecture
+- Fixed E2E test stability issues with improved selectors and timeouts
+- Made reCAPTCHA component optional to prevent build errors when environment variable is not set
+- Updated video components to use original simpler implementation to fix deployment issues
+- Improved CLS (Cumulative Layout Shift) by maintaining original video component behavior
+- Enhanced error handling for analytics API endpoints
+- Standardized test timeouts and async operations for better reliability
+
+### Fixed
+
+- Focus trap in modals and mobile menu
+- Keyboard navigation issues across all components
+- Mobile menu accessibility
+- Form accessibility and error handling
+- Color contrast issues
+- Screen reader announcements
+- Bundle size and loading performance
+- Test flakiness and timeouts
+- CLS issues related to video components
+- Vercel deployment errors related to environment variables
+- E2E test failures with multiple matching elements
+- ReCAPTCHA initialization errors when environment variable is not present
+- API analytics route 405 errors
+- Video component performance and layout shifting issues
+
+### Changed
+
+- Improved performance (Lighthouse score 95+ across all metrics)
+- Enhanced accessibility (WCAG 2.1 AA compliant)
+- Updated documentation to be comprehensive
+- Improved test coverage to 30%+
+- Optimized bundle size to ~165KB (gzipped)
+- Modernized development workflow with Vite 7
+- Upgraded to React 19 with proper patterns
+- Enhanced security practices with automated scanning
+- Improved CI/CD with comprehensive checks
+- Better code organization and architecture
 
 ### Fixed
 
