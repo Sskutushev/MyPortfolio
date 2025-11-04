@@ -388,7 +388,10 @@ export const ContactSection = () => {
 
               <motion.button
                 type="submit"
-                disabled={status === "loading" || !recaptchaToken}
+                disabled={
+                  status === "loading" ||
+                  (!!import.meta.env.VITE_RECAPTCHA_SITE_KEY && !recaptchaToken)
+                }
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="w-full px-8 py-4 rounded-xl bg-gradient-primary text-white font-semibold flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-c-accent-blue focus:ring-offset-2"
