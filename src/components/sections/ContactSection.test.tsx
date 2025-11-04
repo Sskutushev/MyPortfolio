@@ -76,16 +76,17 @@ describe("ContactSection", () => {
     // Wait for validation errors to appear - increased timeout
     await waitFor(
       () => {
-        const nameError = screen.queryByText(
-          /обязательно|required|необходимо|must not be empty|введите|заполните/i,
-        );
-        const contactError = screen.queryByText(
-          /обязательно|required|необходимо|must not be empty|введите|заполните/i,
-        );
-        const messageError = screen.queryByText(
-          /обязательно|required|необходимо|must not be empty|введите|заполните/i,
-        );
-        expect(nameError || contactError || messageError).toBeTruthy();
+        // Instead of looking for general text, check for specific error element attributes
+        expect(
+          screen.getByText(
+            /имя обязательно|name is required|обязательно|required/i,
+          ),
+        ).toBeInTheDocument();
+        expect(
+          screen.getByText(
+            /сообщение обязательно|message is required|обязательно|required/i,
+          ),
+        ).toBeInTheDocument();
       },
       { timeout: 15000 },
     );

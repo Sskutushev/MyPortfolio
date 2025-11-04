@@ -12,15 +12,9 @@ describe("Header", () => {
 
   it("renders navigation links on desktop", () => {
     render(<Header />);
-    expect(
-      screen.getByLabelText(/navigate to обо мне section/i),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByLabelText(/navigate to опыт section/i),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByLabelText(/navigate to портфолио section/i),
-    ).toBeInTheDocument();
+    expect(screen.getByLabelText(/обо мне/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/опыт/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/портфолио/i)).toBeInTheDocument();
   });
 
   it("toggles language when language button is clicked", async () => {

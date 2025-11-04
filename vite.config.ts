@@ -73,12 +73,4 @@ export default defineConfig({
       overlay: true,
     },
   },
-
-  // Оптимизация для тестирования
-  test: {
-    environment: "jsdom",
-    setupFiles: "./src/test/setup.ts",
-    globals: true,
-    restoreMocks: true,
-  },
 });
