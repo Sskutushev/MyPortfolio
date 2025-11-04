@@ -64,15 +64,16 @@ export const OptimizedVideo = ({
 
   return (
     <div
+      className="relative overflow-hidden"
       style={{
-        position: "relative",
         width: width ? `${width}px` : "100%",
         height: height ? `${height}px` : "auto",
+        aspectRatio: width && height ? `${width}/${height}` : undefined,
       }}
     >
       <video
         ref={videoRef}
-        className={className}
+        className={`${className} absolute inset-0 w-full h-full`}
         poster={poster}
         loop={loop}
         muted={muted}
@@ -80,7 +81,7 @@ export const OptimizedVideo = ({
         preload="metadata"
         width={width}
         height={height}
-        style={{ width: "100%", height: "100%", objectFit: "contain" }}
+        style={{ objectFit: "contain" }}
         onLoadedData={() => setIsLoaded(true)}
       >
         {lowerCaseSrc.endsWith(".webm") && (
