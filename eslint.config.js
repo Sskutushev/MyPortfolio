@@ -53,6 +53,8 @@ export default tseslint.config(
       'jsx-a11y/heading-has-content': 'error',
       'jsx-a11y/label-has-associated-control': 'error',
       'jsx-a11y/no-autofocus': 'warn',
+      'jsx-a11y/control-has-associated-label': 'error',
+      'jsx-a11y/label-has-for': 'off', // Заменено на более современное правило
       // Отключаем правила, которые могут мешать тестам
       '@typescript-eslint/no-explicit-any': 'off'
     },
