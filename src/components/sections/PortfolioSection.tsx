@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, KeyboardEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -101,18 +101,21 @@ export const PortfolioSection = () => {
             const imageSrc =
               theme === "light" ? project.imageLight : project.imageDark;
             return (
-              <motion.a
+              <motion.div
                 key={project.id}
-                href={`#project-${project.id}`}
                 {...fadeInUp}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setSelectedProject(project.id);
-                }}
+                onClick={() => setSelectedProject(project.id)}
                 className="group cursor-pointer"
                 data-testid="project-card"
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e: KeyboardEvent) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    setSelectedProject(project.id);
+                  }
+                }}
               >
                 <div className="relative h-full rounded-2xl bg-c-bg-primary border border-c-border overflow-hidden transition-all hover:border-c-accent-blue hover:shadow-2xl hover:shadow-c-accent-blue/20">
                   <div className="relative h-48 overflow-hidden bg-c-bg-tertiary">
@@ -155,7 +158,7 @@ export const PortfolioSection = () => {
                     </div>
                   </div>
                 </div>
-              </motion.a>
+              </motion.div>
             );
           })}
         </motion.div>
