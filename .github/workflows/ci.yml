@@ -162,8 +162,6 @@ jobs:
 
       - name: Build project
         run: npm run build
-        env:
-          VITE_RECAPTCHA_SITE_KEY: ${{ secrets.VITE_RECAPTCHA_SITE_KEY }}
 
       - name: Check build size
         run: |
