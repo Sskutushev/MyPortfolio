@@ -37,24 +37,31 @@ export const ContactSection = () => {
   const recaptchaRef = useRef<any>(null);
 
   const onSubmit = async (data: FormData) => {
-    if (!recaptchaToken) {
+    // Проверяем, включен ли reCAPTCHA
+    const isRecaptchaEnabled = !!import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+
+    if (isRecaptchaEnabled && !recaptchaToken) {
       setStatus("error");
       return;
     }
+
     setStatus("loading");
 
     try {
+      const payload = isRecaptchaEnabled ? { ...data, recaptchaToken } : data;
       const response = await fetch("/api/sendMessage", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, recaptchaToken }),
+        body: JSON.stringify(payload),
       });
 
       if (response.ok) {
         setStatus("success");
         reset();
-        recaptchaRef.current?.reset();
-        setRecaptchaToken(null);
+        if (isRecaptchaEnabled) {
+          recaptchaRef.current?.reset();
+          setRecaptchaToken(null);
+        }
         setTimeout(() => setStatus("idle"), 5000);
       } else {
         throw new Error("Failed to send message");
@@ -343,27 +350,35 @@ export const ContactSection = () => {
                 )}
               </div>
 
-              <div aria-label="reCAPTCHA verification">
-                <Suspense
-                  fallback={
-                    <div
-                      className="w-full h-[78px] bg-c-bg-primary rounded-xl animate-pulse"
-                      role="status"
-                      aria-label="Loading reCAPTCHA"
-                    >
-                      <span className="sr-only">Loading reCAPTCHA...</span>
-                    </div>
-                  }
-                >
-                  <ReCAPTCHAComponent
-                    ref={recaptchaRef}
-                    sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                    onChange={setRecaptchaToken}
-                    theme="dark"
-                    aria-label="reCAPTCHA challenge"
-                  />
-                </Suspense>
-              </div>
+              {import.meta.env.VITE_RECAPTCHA_SITE_KEY ? (
+                <div aria-label="reCAPTCHA verification">
+                  <Suspense
+                    fallback={
+                      <div
+                        className="w-full h-[78px] bg-c-bg-primary rounded-xl animate-pulse"
+                        role="status"
+                        aria-label="Loading reCAPTCHA"
+                      >
+                        <span className="sr-only">Loading reCAPTCHA...</span>
+                      </div>
+                    }
+                  >
+                    <ReCAPTCHAComponent
+                      ref={recaptchaRef}
+                      sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                      onChange={setRecaptchaToken}
+                      theme="dark"
+                      aria-label="reCAPTCHA challenge"
+                    />
+                  </Suspense>
+                </div>
+              ) : (
+                <div className="w-full h-[78px] bg-c-bg-primary rounded-xl border border-c-border flex items-center justify-center">
+                  <span className="text-sm text-c-text-secondary/50">
+                    reCAPTCHA disabled
+                  </span>
+                </div>
+              )}
 
               <motion.button
                 type="submit"
