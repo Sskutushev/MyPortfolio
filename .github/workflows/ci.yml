@@ -57,6 +57,10 @@ jobs:
 
       - name: Run tests with coverage
         run: npm run test:coverage
+        env:
+          CI: true
+          VITEST_POOL: threads
+          VITEST_SHARD: 1/1
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
@@ -98,6 +102,10 @@ jobs:
 
       - name: Run Playwright tests
         run: npm run test:e2e
+        env:
+          CI: true
+          PLAYWRIGHT_TEST_BASE_URL: http://localhost:4173
+          TIMEOUT: 60000
 
       - name: Upload Playwright Report
         uses: actions/upload-artifact@v4
