@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **CI/CD Pipeline:** Полностью исправлен и стабилизирован CI/CD пайплайн. Устранены ошибки в E2E-тестах, конфигурации Vitest, тестах доступности (Axe), аудитах Lighthouse (`crawlable-anchors`, `uses-responsive-images`). Исправлена интеграция с Codecov. Настроены права доступа и секреты для успешного деплоя на Vercel и автоматического создания релизов.
+
 ### Added
 
 - Comprehensive documentation (README, TESTING, PERFORMANCE, ACCESSIBILITY, DEVELOPMENT, CI/CD, SECURITY, CONTRIBUTING)
@@ -70,30 +74,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ReCAPTCHA initialization errors when environment variable is not present
 - API analytics route 405 errors
 - Video component performance and layout shifting issues
-
-### Changed
-
-- Improved performance (Lighthouse score 95+ across all metrics)
-- Enhanced accessibility (WCAG 2.1 AA compliant)
-- Updated documentation to be comprehensive
-- Improved test coverage to 30%+
-- Optimized bundle size to ~165KB (gzipped)
-- Modernized development workflow with Vite 7
-- Upgraded to React 19 with proper patterns
-- Enhanced security practices with automated scanning
-- Improved CI/CD with comprehensive checks
-- Better code organization and architecture
-
-### Fixed
-
-- Focus trap in modals and mobile menu
-- Keyboard navigation issues across all components
-- Mobile menu accessibility
-- Form accessibility and error handling
-- Color contrast issues
-- Screen reader announcements
-- Bundle size and loading performance
-- Test flakiness and timeouts
 
 ## [1.0.0] - 2024-01-XX
 

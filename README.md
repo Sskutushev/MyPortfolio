@@ -1,243 +1,135 @@
-# Reactive Velocity - Portfolio
+# Портфолио-проект на React (Reactive Velocity)
 
-[![CI/CD](https://github.com/Sskutushev/portfolio/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/Sskutushev/portfolio/actions)
-[![Tests](https://github.com/Sskutushev/portfolio/workflows/Tests/badge.svg)](https://github.com/Sskutushev/portfolio/actions)
-[![Security](https://github.com/Sskutushev/portfolio/workflows/Security%20Scan/badge.svg)](https://github.com/Sskutushev/portfolio/actions)
-[![codecov](https://codecov.io/gh/Sskutushev/portfolio/branch/main/graph/badge.svg)](https://codecov.io/gh/Sskutushev/portfolio)
-[![Lighthouse Score](https://img.shields.io/badge/lighthouse-95%2B-success)](https://googlechrome.github.io/lighthouse/viewer/)
-![Vercel](https://vercelbadge.vercel.app/api/Sskutushev/portfolio)
+[![Статус CI/CD](https://github.com/Sskutushev/MyPortfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Sskutushev/MyPortfolio/actions/workflows/ci.yml)
+[![Покрытие тестами (Codecov)](https://codecov.io/gh/Sskutushev/MyPortfolio/branch/main/graph/badge.svg)](https://codecov.io/gh/Sskutushev/MyPortfolio)
+[![Lighthouse Performance](https://img.shields.io/badge/Lighthouse_Performance-95%2B-brightgreen)](https://github.com/Sskutushev/MyPortfolio/actions/workflows/lighthouse.yml)
+[![Vercel Deployment](https://vercelbadge.vercel.app/api/Sskutushev/MyPortfolio)](https://sskutushev.vercel.app/)
 
-## 🚀 Описание проекта
+Современное, производительное и полностью протестированное веб-приложение-портфолио, демонстрирующее лучшие практики разработки на React. Проект создан с упором на производительность, доступность (A11Y) и автоматизацию процессов CI/CD.
 
-Reactive Velocity - это современное, производительное и доступное React-портфолио, которое демонстрирует передовой опыт разработки на React с использованием TypeScript, Vite, Tailwind CSS и других современных технологий.
+**✨ [Посмотреть живую демо-версию](https://sskutushev.vercel.app/) ✨**
 
-### ✨ Особенности
+---
 
-- 🏗️ Полностью на TypeScript с типобезопасностью
-- ⚡ Молниеносная сборка с Vite 7
-- 🎨 Красивый дизайн с Tailwind CSS и Framer Motion
-- 📱 Адаптивный дизайн для всех устройств
-- 🌙 Темная/светлая тема с переключением
-- 🌍 Поддержка i18n (RU/EN)
-- 🧪 Обширное тестирование с Vitest и React Testing Library
-- 🚀 Производительность, оптимизированная для Lighthouse 95+
-- ♿ Полная доступность (WCAG 2.1 AA)
-- 🔐 Безопасность с CI/CD и автоматическими сканированиями
-- 🚢 Автоматический деплой на Vercel
+## 🎯 Ключевые особенности
+
+- **Современный стек:** React 19, TypeScript, Vite 7 и Tailwind CSS.
+- **Производительность:** Оптимизация для достижения 95+ баллов в Lighthouse по всем категориям. Ленивая загрузка ресурсов, оптимизация изображений и минимизация размера бандла.
+- **Комплексное тестирование:** 100% прохождение Unit, E2E и Accessibility тестов. Настроен сбор и выгрузка отчетов о покрытии кода в Codecov.
+- **Полная доступность (A11Y):** Соответствие стандартам WCAG 2.1 AA. Поддержка навигации с клавиатуры, скринридеров и режима `prefers-reduced-motion`.
+- **Автоматизированный CI/CD:** Полностью автоматизированный пайплайн на GitHub Actions, включающий линтинг, все виды тестов, сборку и деплой на Vercel.
+- **Качество кода:** Настроенные pre-commit хуки для линтинга и форматирования, а также строгие правила для коммитов (Conventional Commits).
+- **Дизайн и UX:** Адаптивный дизайн, поддержка темной/светлой темы, плавная анимация с Framer Motion и интуитивно понятный интерфейс.
+- **Интернационализация:** Поддержка русского и английского языков (i18n).
+
+## 🛠️ Стек технологий
+
+| Категория        | Технология                                                                                                                                                                                              |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Frontend**     | [React 19](https://react.dev/), [TypeScript](https://www.typescriptlang.org/), [Vite 7](https://vitejs.dev/), [Tailwind CSS](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/) |
+| **Тестирование** | [Vitest](https://vitest.dev/), [React Testing Library](https://testing-library.com/), [Playwright](https://playwright.dev/) (E2E), [Axe-Core](https://github.com/dequelabs/axe-core) (A11Y)             |
+| **CI/CD**        | [GitHub Actions](https://github.com/features/actions), [Vercel](https://vercel.com/), [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci), [Codecov](https://about.codecov.io/)              |
+| **Инструменты**  | [ESLint](https://eslint.org/), [Prettier](https://prettier.io/), [Husky](https://typicode.github.io/husky/), [Commitlint](https://commitlint.js.org/)                                                   |
 
 ## 📊 Метрики проекта
 
-| Метрика                     | Результат |
-| --------------------------- | --------- |
-| Performance (Lighthouse)    | 95+       |
-| Accessibility (Lighthouse)  | 95+       |
-| SEO (Lighthouse)            | 100       |
-| Best Practices (Lighthouse) | 95+       |
-| Test Coverage               | 30%+      |
-| Bundle Size (gzipped)       | ~165KB    |
+Все метрики успешно достигаются и проверяются в рамках CI/CD пайплайна.
 
-## 🛠️ Технологический стек
+| Метрика                      | Результат                      |
+| ---------------------------- | ------------------------------ |
+| **CI/CD Статус**             | ✅ **Проходит**                |
+| **Unit Тесты**               | ✅ **100% проходят**           |
+| **E2E Тесты**                | ✅ **100% проходят**           |
+| **Accessibility Тесты**      | ✅ **100% проходят**           |
+| **Lighthouse Performance**   | 🟢 **95+**                     |
+| **Lighthouse Accessibility** | 🟢 **95+**                     |
+| **Lighthouse SEO**           | 🟢 **100**                     |
+| **Покрытие тестами**         | 📈 **Отслеживается в Codecov** |
 
-### Frontend
+## 🔄 CI/CD Пайплайн
 
-- [React 19](https://react.dev/) - Библиотека для создания пользовательских интерфейсов
-- [TypeScript](https://www.typescriptlang.org/) - Язык программирования с типами для JavaScript
-- [Vite 7](https://vitejs.dev/) - Быстрая сборка и разработка
-- [Tailwind CSS 3.4](https://tailwindcss.com/) - Utility-first CSS framework
-- [Framer Motion](https://www.framer.com/motion/) - Библиотека для анимаций
-- [React Router DOM](https://reactrouter.com/) - Роутинг и навигация
-- [React Hook Form](https://react-hook-form.com/) - Управление формами
-- [i18next](https://www.i18next.com/) - Интернационализация
-- [Lucide React](https://lucide.dev/) - Иконки
+Процесс непрерывной интеграции и доставки полностью автоматизирован с помощью GitHub Actions и состоит из следующих этапов, которые запускаются при каждом `push` или `pull request` в ветки `main` и `develop`:
 
-### Testing
+1.  **Lint & Type Check:** Проверка кода на соответствие стайлгайду (ESLint), форматирование (Prettier) и корректность типов (TypeScript).
+2.  **Unit Tests:** Запуск модульных тестов с помощью Vitest. После успешного прохождения отчет о покрытии кода выгружается в Codecov.
+3.  **E2E Tests:** Запуск сквозных тестов в реальном браузере с помощью Playwright для проверки пользовательских сценариев.
+4.  **Accessibility Tests:** Запуск тестов доступности с помощью Lighthouse CI для гарантии соответствия стандартам WCAG.
+5.  **Build:** Сборка production-версии проекта.
+6.  **Deploy to Production:** После успешного прохождения всех предыдущих шагов (при `push` в `main`), проект автоматически выгружается на Vercel и создается новый релиз на GitHub.
 
-- [Vitest](https://vitest.dev/) - Быстрый тест фреймворк для Vite
-- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) - Тестирование React компонентов
-- [Playwright](https://playwright.dev/) - E2E тестирование
-- [axe-core](https://github.com/dequelabs/axe-core) - Тестирование доступности
+## 🚀 Начало работы
 
-### CI/CD
+### Требования
 
-- [GitHub Actions](https://github.com/features/actions) - Автоматизация CI/CD
-- [Vercel](https://vercel.com/) - Деплой и хостинг
-- [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci) - Тестирование производительности
-- [Codecov](https://about.codecov.io/) - Покрытие тестами
+- [Node.js](https://nodejs.org/) (версия 20.x или выше)
+- [npm](https://www.npmjs.com/)
 
-## 🚀 Quick Start
+### Установка и запуск
 
-```bash
-# Установка зависимостей
-npm install
+1.  **Клонируйте репозиторий:**
 
-# Запуск dev сервера
-npm run dev
+    ```bash
+    git clone https://github.com/Sskutushev/MyPortfolio.git
+    cd MyPortfolio
+    ```
 
-# Запуск тестов
-npm run test
+2.  **Установите зависимости:**
 
-# Сборка для production
-npm run build
+    ```bash
+    npm install
+    ```
 
-# Запуск production preview
-npm run preview
-```
+3.  **Запустите dev-сервер:**
+    ```bash
+    npm run dev
+    ```
+    Приложение будет доступно по адресу `http://localhost:5173`.
+
+### 🧪 Тестирование
+
+Проект имеет полный набор тестов, которые гарантируют стабильность и качество кода.
+
+| Команда                 | Описание                                           |
+| ----------------------- | -------------------------------------------------- |
+| `npm run test`          | Запуск всех Unit-тестов в интерактивном режиме.    |
+| `npm run test:coverage` | Однократный запуск Unit-тестов со сбором покрытия. |
+| `npm run test:e2e`      | Запуск всех E2E-тестов с помощью Playwright.       |
+| `npm run test:a11y`     | Запуск тестов на доступность.                      |
+| `npm run lint`          | Проверка кода с помощью ESLint.                    |
 
 ## 📁 Структура проекта
 
 ```
 portfolio-project/
-├── public/
-│   ├── images/          # Изображения проекта
-│   └── favicon.ico
+├── .github/            # Конфигурация GitHub Actions
+├── docs/               # Детальная документация проекта
+├── public/             # Статические ассеты
 ├── src/
-│   ├── components/      # React компоненты
-│   │   ├── common/      # Общие компоненты
-│   │   └── sections/    # Секции сайта
-│   ├── contexts/        # React контексты
-│   ├── hooks/           # Кастомные React хуки
-│   ├── lib/             # Вспомогательные библиотеки
-│   ├── pages/           # Страницы приложения
-│   ├── test/            # Тест-утилиты
-│   ├── styles/          # CSS стили
-│   ├── types/           # TypeScript типы
-│   ├── utils/           # Вспомогательные функции
-│   ├── App.tsx          # Главный компонент
-│   └── main.tsx         # Точка входа
-├── .github/
-│   └── workflows/       # GitHub Actions workflows
-├── docs/                # Документация
-├── scripts/             # Скрипты для оптимизации
-├── tests/               # Тесты
-└── ...
+│   ├── components/     # Переиспользуемые React-компоненты
+│   ├── contexts/       # Контексты React
+│   ├── data/           # Статические данные (проекты, UI-компоненты)
+│   ├── hooks/          # Кастомные хуки
+│   ├── lib/            # Вспомогательные библиотеки и конфигурации
+│   ├── pages/          # Компоненты страниц
+│   ├── styles/         # Глобальные стили
+│   ├── test/           # Утилиты для тестирования
+│   ├── types/          # Глобальные типы TypeScript
+│   ├── App.tsx         # Корневой компонент приложения
+│   └── main.tsx        # Точка входа
+├── .gitignore
+├── index.html
+├── package.json
+├── README.md           # Вы находитесь здесь
+└── vite.config.ts      # Конфигурация Vite
 ```
 
-## 🧪 Тестирование
+## 📄 Лицензия
 
-### Запуск тестов
+Проект распространяется под лицензией MIT. См. файл `LICENSE` для получения дополнительной информации.
 
-| Команда                 | Описание                          |
-| ----------------------- | --------------------------------- |
-| `npm run test`          | Запуск unit тестов в watch режиме |
-| `npm run test:ui`       | Запуск тестов с UI интерфейсом    |
-| `npm run test:coverage` | Запуск с покрытием кода           |
-| `npm run test:watch`    | Запуск в watch режиме             |
-| `npm run test:e2e`      | Запуск E2E тестов                 |
-| `npm run test:a11y`     | Запуск accessibility тестов       |
-
-### Покрытие тестами
-
-Цель: 30%+ покрытие кода. Покрытие отслеживается через Codecov.
-
-## ⚡ Производительность
-
-### Оптимизации
-
-- ✅ Ленивая загрузка изображений и видео
-- ✅ Оптимизация изображений (WebP, размеры)
-- ✅ Оптимизация видео (MP4/WebM, lazy load)
-- ✅ Code splitting и lazy loading
-- ✅ Bundle size оптимизация
-- ✅ Preload критических ресурсов
-- ✅ Оптимизация Framer Motion
-- ✅ Memoization компонентов
-
-## ♿ Доступность (A11Y)
-
-### Основные улучшения
-
-- ✅ ARIA-атрибуты для всех интерактивных элементов
-- ✅ Keyboard navigation (Tab, Shift+Tab, Escape, Enter)
-- ✅ Focus management и focus traps
-- ✅ Skip navigation links
-- ✅ Screen reader support
-- ✅ Proper heading hierarchy
-- ✅ Color contrast 4.5:1+
-- ✅ Reduced motion support
-- ✅ High contrast mode support
-
-## 📝 Scripts
-
-| Command                 | Description              |
-| ----------------------- | ------------------------ |
-| `npm run dev`           | Запуск dev сервера       |
-| `npm run build`         | Production build         |
-| `npm run preview`       | Preview production build |
-| `npm run test`          | Запуск unit тестов       |
-| `npm run test:ui`       | Тесты с UI интерфейсом   |
-| `npm run test:coverage` | Тесты с coverage         |
-| `npm run test:e2e`      | E2E тесты с Playwright   |
-| `npm run test:a11y`     | Accessibility тесты      |
-| `npm run lint`          | Запуск ESLint            |
-| `npm run lighthouse`    | Lighthouse audit         |
-
-## 🎯 Code Quality
-
-### Pre-commit Hooks
-
-- Автоматический lint и format
-- Проверка commit messages
-- Type checking
-
-### Commit Convention
-
-Используется [Conventional Commits](https://www.conventionalcommits.org/):
-
-```
-feat: add new feature
-fix: fix bug in component
-docs: update README
-style: format code
-refactor: restructure component
-perf: improve performance
-test: add missing tests
-chore: update dependencies
-```
-
-## 📈 Performance Metrics
-
-### Bundle Size
-
-- Initial JS: ~150KB (gzipped)
-- Initial CSS: ~15KB (gzipped)
-- Total: ~165KB (gzipped)
-
-### Core Web Vitals
-
-- LCP (Largest Contentful Paint): < 2.5s
-- FID (First Input Delay): < 100ms
-- CLS (Cumulative Layout Shift): < 0.1
-
-## 🔒 Security
-
-- Regular dependency updates via Dependabot
-- Security scanning with Snyk
-- CodeQL analysis
-- npm audit in CI/CD
-
-## 🌐 Browser Support
-
-- Chrome (last 2 versions)
-- Firefox (last 2 versions)
-- Safari (last 2 versions)
-- Edge (last 2 versions)
-
-## 📱 Accessibility
-
-- WCAG 2.1 Level AA compliant
-- Keyboard navigation
-- Screen reader support
-- High contrast mode
-- Reduced motion support
-
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE) file for details
-
-## 👤 Author
+## 👤 Автор
 
 **Sergey Kutushev**
 
-- Website: [vercel](https://my-portfolio-cyan-three-58.vercel.app/#)
-- GitHub: [@Sskutushev](https://github.com/Sskutushev)
-- Telegram: [@sskutushev](https://t.me/sskutushev)
+- **GitHub:** [@Sskutushev](https://github.com/Sskutushev)
+- **Telegram:** [@sskutushev](https://t.me/sskutushev)

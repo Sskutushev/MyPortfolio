@@ -1,97 +1,23 @@
-# GitHub Secrets Configuration
+# Конфигурация GitHub Secrets
 
-## Required Secrets
+Для корректной работы CI/CD пайплайна в настройках репозитория GitHub должны быть добавлены следующие секреты.
 
-В настройках репозитория GitHub добавьте следующие secrets:
+## Инструкция по добавлению
 
-## Vercel Secrets
+1.  Перейдите в настройки вашего репозитория на GitHub.
+2.  В меню слева выберите `Settings` → `Secrets and variables` → `Actions`.
+3.  Нажмите `New repository secret` для каждого секрета из списка ниже.
 
-```
-VERCEL_TOKEN=your_vercel_token
-VERCEL_ORG_ID=your_org_id
-VERCEL_PROJECT_ID=your_project_id
-```
+---
 
-## Telegram Notifications
+## Обязательные секреты
 
-```
-TELEGRAM_BOT_TOKEN=your_bot_token
-TELEGRAM_CHAT_ID=your_chat_id
-```
+### Vercel
 
-## reCAPTCHA
+Эти секреты необходимы для автоматического деплоя проекта на платформу Vercel.
 
-```
-VITE_RECAPTCHA_SITE_KEY=your_site_key
-RECAPTCHA_SECRET_KEY=your_secret_key
-```
+| Secret | Описание | Где найти - `VERCEL_TOKEN` | Токен доступа для авторизации в Vercel. | В личном кабинете Vercel: `Settings` → `Tokens` → `Create`. - `VERCEL_ORG_ID` | ID вашей организации или персонального аккаунта в Vercel. | В личном кабинете Vercel: `Settings` → `Your ID`. - `VERCEL_PROJECT_ID` | ID вашего проекта в Vercel. | В дашборде проекта Vercel: `Settings` → `General` → `Project ID`. -
 
-## Lighthouse CI (Optional)
+### Инструменты
 
-```
-LHCI_GITHUB_APP_TOKEN=your_lhci_token
-```
-
-## Snyk (Security Scanning)
-
-```
-SNYK_TOKEN=your_snyk_token
-```
-
-## Codecov (Coverage Reports)
-
-```
-CODECOV_TOKEN=your_codecov_token
-```
-
-## How to Configure
-
-1. Перейдите в настройки репозитория на GitHub
-2. Выберите "Settings" → "Secrets and variables" → "Actions"
-3. Нажмите "New repository secret"
-4. Добавьте каждый secret по отдельности
-
-## Secret Values
-
-### Vercel Token
-
-1. Зайдите в Vercel Dashboard
-2. Перейдите в Settings → Tokens
-3. Создайте новый token с нужными permissions
-
-### Telegram Bot Token
-
-1. Создайте бота через @BotFather в Telegram
-2. Получите token после создания бота
-3. ВАЖНО: Этот токен используется ТОЛЬКО для уведомлений о деплое, НЕ для получения сообщений из формы обратной связи
-
-### Telegram Chat ID
-
-1. Напишите своему боту любое сообщение
-2. Перейдите по ссылке: `https://api.telegram.org/bot<BOT_TOKEN>/getUpdates`
-3. Найдите chat_id в ответе
-
-### reCAPTCHA Keys
-
-1. Зайдите в Google reCAPTCHA Admin Console
-2. Создайте новый сайт
-3. Получите site key и secret key
-
-## Environment Variables
-
-Некоторые secrets используются как environment variables:
-
-```bash
-# В Vercel Environment Variables
-VITE_RECAPTCHA_SITE_KEY=@vite_recaptcha_site_key
-```
-
-## Testing Secrets
-
-Проверьте, что все secrets настроены правильно:
-
-```bash
-# В GitHub Actions workflow
-env:
-  VITE_RECAPTCHA_SITE_KEY: ${{ secrets.VITE_RECAPTCHA_SITE_KEY }}
-```
+| Secret | Описание - `CODECOV_TOKEN` | Токен для загрузки отчетов о покрытии кода в Codecov. - `LHCI_GITHUB_APP_TOKEN` | Токен для публикации отчетов Lighthouse CI в Pull Requests. -
