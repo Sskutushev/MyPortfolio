@@ -1,4 +1,3 @@
-
 {
   "nav": {
     "about": "Обо мне",
@@ -9,7 +8,8 @@
   },
   "hero": {
     "subtitle": "Frontend Architect. Строю быстрые, компонентно-ориентированные и масштабируемые web-решения на React, Vue и Vanilla JS.",
-    "cta": "Начать Сеанс"
+    "cta": "Начать сеанс",
+    "resume": "Резюме"
   },
   "about": {
     "title": "The Architect's Blueprint",

@@ -62,24 +62,35 @@ export const HeroSection = () => {
               {t("hero.subtitle")}
             </p>
 
-            <ScrollLink to="contact" smooth duration={500}>
-              <motion.button
+            <div className="flex flex-wrap gap-4 relative z-20 overflow-visible -ml-4 -mr-4 pl-4 pr-4">
+              <ScrollLink to="contact" smooth duration={500}>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative px-8 py-4 rounded-xl bg-gradient-primary text-white font-semibold overflow-visible min-h-[56px]"
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    {t("hero.cta")}
+                    <ArrowRight className="group-hover:translate-x-1 transition" />
+                  </span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-accent"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.button>
+              </ScrollLink>
+              <motion.a
+                href="/Кутушев Сергей Сергеевич.pdf"
+                download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative px-8 py-4 rounded-xl bg-gradient-primary text-white font-semibold overflow-hidden"
+                className="px-8 py-3 rounded-xl border-2 border-c-accent-blue font-semibold text-c-accent-blue hover:bg-c-accent-blue/10 transition-colors min-h-[48px] flex items-center justify-center overflow-visible dark:hover:bg-c-bg-secondary light:hover:bg-c-bg-secondary light:border-c-accent-teal light:text-c-accent-teal light:hover:bg-c-accent-teal/10"
               >
-                <span className="relative z-10 flex items-center gap-2">
-                  {t("hero.cta")}
-                  <ArrowRight className="group-hover:translate-x-1 transition" />
-                </span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-accent"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: 0 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.button>
-            </ScrollLink>
+                {t("hero.resume")}
+              </motion.a>
+            </div>
           </motion.div>
 
           {/* Animated Video */}
