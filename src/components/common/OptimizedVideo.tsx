@@ -23,6 +23,7 @@ export const OptimizedVideo = ({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isInView, setIsInView] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const isPlayingRef = useRef(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,6 +36,7 @@ export const OptimizedVideo = ({
         } else if (!entry.isIntersecting && videoRef.current) {
           // Приостановить видео когда оно вне viewport
           videoRef.current.pause();
+          isPlayingRef.current = false;
         }
       },
       {
@@ -51,9 +53,47 @@ export const OptimizedVideo = ({
   }, []);
 
   useEffect(() => {
-    if (isInView && autoPlay && videoRef.current && isLoaded) {
-      videoRef.current.play().catch(console.error);
+    const video = videoRef.current;
+
+    // Функция для безопасного воспроизведения видео
+    const safePlay = async () => {
+      if (!video || !isInView || !autoPlay || !isLoaded || isPlayingRef.current)
+        return;
+
+      try {
+        await video.play();
+        isPlayingRef.current = true;
+      } catch (error) {
+        // Обработка ошибки, включая AbortError, если play был прерван
+        if ((error as Error).name !== "AbortError") {
+          console.error("Video play error:", error);
+        }
+        isPlayingRef.current = false;
+      }
+    };
+
+    // Функция для безопасной паузы видео
+    const safePause = () => {
+      if (video && isPlayingRef.current) {
+        try {
+          video.pause();
+          isPlayingRef.current = false;
+        } catch (error) {
+          console.error("Video pause error:", error);
+        }
+      }
+    };
+
+    if (isInView && autoPlay && isLoaded) {
+      safePlay();
+    } else {
+      safePause();
     }
+
+    // Очистка при размонтировании
+    return () => {
+      safePause();
+    };
   }, [isInView, autoPlay, isLoaded]);
 
   const lowerCaseSrc = src.toLowerCase();
@@ -68,6 +108,15 @@ export const OptimizedVideo = ({
       playsInline={playsInline}
       preload="none"
       onLoadedData={() => setIsLoaded(true)}
+      onPlay={() => {
+        isPlayingRef.current = true;
+      }}
+      onPause={() => {
+        isPlayingRef.current = false;
+      }}
+      onEnded={() => {
+        isPlayingRef.current = false;
+      }}
     >
       {lowerCaseSrc.endsWith(".webm") && <source src={src} type="video/webm" />}
       {lowerCaseSrc.endsWith(".mp4") && <source src={src} type="video/mp4" />}
