@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 // Create placeholder images for the portfolio project
 const createImagePlaceholder = (width, height, color, text) => {
@@ -11,7 +11,7 @@ const createImagePlaceholder = (width, height, color, text) => {
 };
 
 // Create placeholder images directory if it doesn't exist
-const imagesDir = path.join(__dirname, '../public/images');
+const imagesDir = path.join(process.cwd(), 'public', 'images');
 if (!fs.existsSync(imagesDir)) {
   fs.mkdirSync(imagesDir, { recursive: true });
 }
