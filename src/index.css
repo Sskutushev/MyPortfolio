@@ -125,6 +125,7 @@ a:hover {
   --accent-teal: #14b8a6;
   --accent-green: #10b981;
   --accent-emerald: #059669;
+  --accent-custom-resume: #11b989;
 
   --gradient-primary: linear-gradient(135deg, #14b8a6 0%, #10b981 100%);
   --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #059669 100%);

@@ -77,7 +77,7 @@ export const Header = () => {
                   to={id}
                   smooth
                   duration={500}
-                  className="cursor-pointer hover:text-c-accent-blue transition focus:outline-none focus:ring-2 focus:ring-c-accent-blue focus:ring-offset-2 rounded"
+                  className="text-sm whitespace-nowrap cursor-pointer hover:text-c-accent-blue transition focus:outline-none focus:ring-2 focus:ring-c-accent-blue focus:ring-offset-2 rounded"
                   aria-label={`${label}`}
                   title={label}
                   tabIndex={0}

@@ -12,7 +12,7 @@ export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative flex items-center overflow-hidden pt-24 md:pt-0 md:min-h-screen"
     >
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-c-bg-primary via-c-bg-secondary to-c-bg-primary">
@@ -23,12 +23,12 @@ export const HeroSection = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 pt-20">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <motion.div
             {...fadeInUp}
-            className="w-full max-w-full overflow-hidden"
+            className="w-full max-w-full overflow-visible"
           >
             {/* CLI Command with Typewriter Effect */}
             <div className="mb-6 p-4 rounded-xl bg-c-bg-tertiary border border-c-border font-mono text-sm">
@@ -67,7 +67,7 @@ export const HeroSection = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group relative px-8 py-4 rounded-xl bg-gradient-primary text-white font-semibold overflow-visible min-h-[56px]"
+                  className="group relative px-8 py-4 rounded-xl bg-gradient-primary text-white font-semibold overflow-hidden min-h-[56px]"
                 >
                   <span className="relative z-10 flex items-center gap-2">
                     {t("hero.cta")}
@@ -86,7 +86,7 @@ export const HeroSection = () => {
                 download
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 rounded-xl border-2 border-c-accent-blue font-semibold text-c-accent-blue hover:bg-c-accent-blue/10 transition-colors min-h-[48px] flex items-center justify-center overflow-visible dark:hover:bg-c-bg-secondary light:hover:bg-c-bg-secondary light:border-c-accent-teal light:text-c-accent-teal light:hover:bg-c-accent-teal/10"
+                className="px-8 py-3 rounded-xl border-2 font-semibold transition-colors min-h-[48px] flex items-center justify-center overflow-visible dark:border-c-accent-blue dark:text-c-accent-blue dark:hover:bg-c-accent-blue/10 light:border-c-accent-custom-resume light:text-c-accent-custom-resume light:hover:bg-c-accent-custom-resume/10"
               >
                 {t("hero.resume")}
               </motion.a>

@@ -22,6 +22,7 @@ export default {
           teal: 'var(--accent-teal)',
           green: 'var(--accent-green)',
           emerald: 'var(--accent-emerald)',
+          'custom-resume': 'var(--accent-custom-resume)',
         },
       },
       backgroundImage: {
