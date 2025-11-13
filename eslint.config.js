@@ -10,6 +10,7 @@ export default tseslint.config(
     files: ['src/**/*.{ts,tsx}', 'e2e/**/*.{ts,tsx}', '*.config.{js,mjs,ts}', 'scripts/**/*.{js,ts}'],
     ignores: [
       'dist/**', 
+      'docs/**',
       'node_modules/**', 
       '*.min.js', 
       'coverage/**', 
