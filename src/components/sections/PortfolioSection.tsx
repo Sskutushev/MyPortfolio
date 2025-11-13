@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Code, ArrowRight, Package, Palette } from "lucide-react";
 import { OptimizedVideo } from "@/components/common/OptimizedVideo";
 import { ProjectModal } from "@/components/common/ProjectModal";
+import { LazyImage } from "@/components/common/LazyImage";
 import { useTheme } from "@/contexts/ThemeContext";
 import { portfolioProjects } from "@/data/projects";
 import { uiComponents } from "@/data/ui-components";
@@ -118,8 +119,8 @@ export const PortfolioSection = () => {
                 }}
               >
                 <div className="relative h-full rounded-2xl bg-c-bg-primary border border-c-border overflow-hidden transition-all hover:border-c-accent-blue hover:shadow-2xl hover:shadow-c-accent-blue/20">
-                  <div className="relative h-48 overflow-hidden bg-c-bg-tertiary">
-                    <img
+                  <div className="relative aspect-video overflow-hidden bg-c-bg-tertiary">
+                    <LazyImage
                       src={imageSrc}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-500"
