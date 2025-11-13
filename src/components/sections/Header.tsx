@@ -57,7 +57,7 @@ export const Header = () => {
         role="banner"
       >
         <nav
-          className="container mx-auto px-4 py-4"
+          className="container mx-auto px-4 py-5"
           role="navigation"
           aria-label="Main navigation"
         >
