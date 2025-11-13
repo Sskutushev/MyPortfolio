@@ -81,28 +81,64 @@ export const portfolioProjects: Project[] = [
   },
   {
     id: 3,
-    title: "AI-Spetsnaz Landing",
-    category: "Landing Page / B2B",
-    tech: "React, TypeScript, Tailwind CSS, Framer Motion, GSAP",
-    imageDark: "/images/project-aispetsnaz.jpg",
-    imageLight: "/images/project-aispetsnaz.jpg",
-    link: "https://ai-spetsnaz1-0.vercel.app/",
+    title: "AIRBRO Business",
+    category: "Full-Stack SaaS / B2B Platform",
+    tech: "React 19, TS, React Query, Prisma, PostgreSQL, Express, Playwright, Vercel, Railway",
+    imageDark: "/images/project-airbro-dark.jpg",
+    imageLight: "/images/project-airbro-light.jpg",
+    link: "https://airbro-production.up.railway.app/",
     flow: {
       input:
-        "Презентационный лендинг для AI-компании в тяжелой промышленности с акцентом на визуальную привлекательность",
+        'Создать "под ключ" production-ready SaaS платформу с нуля. Реализовать full-stack приложение, включающее аутентификацию (JWT + Telegram), прием крипто-платежей (USDT/TON) и полноценный личный кабинет пользователя для управления подписками.',
       process:
-        "React Router для навигации. Framer Motion + GSAP для комплексных анимаций. Tailwind CSS для быстрой стилизации. Модальные окна для детальной информации. Telegram-бот для формы обратной связи.",
+        'Архитектура "Monorepo". Frontend на Vercel (React 19, Vite, React Query, Zod, Framer Motion). Backend на Railway (Node.js, Express, Prisma, PostgreSQL). Бэкенд построен по слоеной архитектуре (Routes → Controllers → Services → Repositories). Настроен полный CI/CD-пайплайн с E2E-тестированием на Playwright.',
       output:
-        "Современный адаптивный лендинг с 10 секциями, плавными анимациями, интерактивными элементами и интегрированной формой связи.",
+        "Масштабируемая, безопасная и полностью документированная SaaS-платформа. Включает многоязычную поддержку (i18n), смену тем, защищенный дашборд и автоматизированный CI/CD. Проект полностью соответствует лучшим практикам безопасности (OWASP).",
     },
     codeHighlight: {
-      title: "Advanced Animation Pattern",
-      code: "// src/lib/motionPresets.ts\nexport const motionPresets = {\n  fadeInUp: {\n    initial: { opacity: 0, y: 60 },\n    whileInView: { opacity: 1, y: 0 },\n    viewport: { once: true },\n    transition: { duration: 0.6, ease: 'easeOut' }\n  },\n  \n  staggerContainer: {\n    initial: {},\n    whileInView: { transition: { staggerChildren: 0.1 } }\n  },\n  \n  scaleIn: {\n    initial: { opacity: 0, scale: 0.8 },\n    whileInView: { opacity: 1, scale: 1 },\n    transition: { duration: 0.5 }\n  }\n};\n\n// Usage\n<motion.div {...motionPresets.fadeInUp}>\n  <h2>Animated Content</h2>\n</motion.div>",
+      title: "Automated CI/CD Pipeline (Backend Testing)",
+      code: `// .github/workflows/ci.yml
+  test-backend:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: airbro_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: cd backend && npm ci
+      
+      - name: Run migrations
+        run: cd backend && npm run prisma:migrate
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/airbro_test
+      
+      - name: Run tests
+        run: cd backend && npm test -- --run --coverage
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/airbro_test
+          JWT_SECRET: test_secret_key_for_ci_pipeline`,
     },
     metrics: {
-      label: "Performance",
-      value: "95+",
-      description: "Lighthouse Score (Performance + Accessibility)",
+      label: "Готовность",
+      value: "Production-Ready",
+      description: "CI/CD, Tests, Docs",
     },
   },
   {
