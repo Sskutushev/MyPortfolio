@@ -74,7 +74,7 @@ export const AdvantagesSection = () => {
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {[
-            { label: "Опыт", value: "1.5+ год" },
+            { label: "Опыт", value: "1.5+ года" },
             { label: "Проектов", value: "15+" },
             { label: "Технологий", value: "20+" },
             { label: "Код-ревью", value: "100+" },
