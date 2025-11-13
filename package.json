@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "eslint src/ api/ e2e/ *.config.{js,ts} scripts/",
     "preview": "vite preview",
     "test": "vitest -c vitest.config.ts",
     "test:ui": "vitest --ui -c vitest.config.ts",
