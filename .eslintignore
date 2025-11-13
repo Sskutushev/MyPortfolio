@@ -1,0 +1,9 @@
+# Ignore build output and deployment directories
+dist/
+docs/
+node_modules/
+build/
+coverage/
+public/
+*.d.ts
+*.min.js
