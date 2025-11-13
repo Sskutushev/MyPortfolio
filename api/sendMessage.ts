@@ -2,6 +2,7 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 const escapeHtml = (unsafe: string): string => {
+  if (!unsafe) return "";
   return unsafe
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -11,34 +12,36 @@ const escapeHtml = (unsafe: string): string => {
 };
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  console.log("[sendMessage] Function started.");
+
   if (req.method !== "POST") {
+    console.log("[sendMessage] Blocked non-POST request.");
     return res.status(405).json({ message: "Only POST requests allowed" });
   }
 
-  const { name, contact, message, recaptchaToken } = req.body;
-
-  // Basic validation: name, contact, and message are always required.
-  if (!name || !contact || !message) {
-    return res
-      .status(400)
-      .json({ message: "Missing required fields: name, contact, or message" });
-  }
-
   try {
-    // 1. Verify reCAPTCHA token if it was provided
-    if (recaptchaToken) {
-      const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
-      if (!recaptchaSecret) {
-        console.error("Missing reCAPTCHA secret key");
-        return res
-          .status(500)
-          .json({
-            message: "Server configuration error: Missing reCAPTCHA secret",
-          });
-      }
+    const { name, contact, message, recaptchaToken } = req.body;
+    console.log("[sendMessage] Received request body.");
 
+    if (!name || !contact || !message) {
+      console.log(
+        "[sendMessage] Missing required fields: name, contact, or message.",
+      );
+      return res
+        .status(400)
+        .json({
+          message: "Missing required fields: name, contact, or message",
+        });
+    }
+    console.log("[sendMessage] Required fields are present.");
+
+    // 1. Verify reCAPTCHA token if it exists
+    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+    if (recaptchaSecret && recaptchaToken) {
+      console.log(
+        "[sendMessage] reCAPTCHA secret is present, verifying token.",
+      );
       const recaptchaUrl = `https://www.google.com/recaptcha/api/siteverify`;
-
       const recaptchaRes = await fetch(recaptchaUrl, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -46,12 +49,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       });
 
       const recaptchaData = await recaptchaRes.json();
-      console.log("reCAPTCHA verification response:", recaptchaData);
 
       if (!recaptchaData.success) {
         console.error(
-          "reCAPTCHA verification failed:",
-          recaptchaData["error-codes"],
+          "[sendMessage] reCAPTCHA verification failed. Response:",
+          recaptchaData,
         );
         return res
           .status(400)
@@ -60,6 +62,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             errorCodes: recaptchaData["error-codes"],
           });
       }
+      console.log("[sendMessage] reCAPTCHA verification successful.");
+    } else {
+      console.log(
+        "[sendMessage] Skipping reCAPTCHA verification (secret or token not provided).",
+      );
     }
 
     // 2. Send message to Telegram
@@ -67,15 +74,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const chatId = process.env.TELEGRAM_CHAT_ID;
 
     if (!botToken || !chatId) {
-      console.error("Missing Telegram bot token or chat ID");
+      console.error(
+        "[sendMessage] Server configuration error: Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID.",
+      );
       return res
         .status(500)
         .json({
           message: "Server configuration error: Missing Telegram credentials",
         });
     }
+    console.log("[sendMessage] Telegram credentials found.");
 
-    // Sanitize user input before including it in the HTML message
     const safeName = escapeHtml(name);
     const safeContact = escapeHtml(contact);
     const safeMessage = escapeHtml(message);
@@ -89,6 +98,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 <pre>${safeMessage}</pre>
     `.trim();
 
+    console.log("[sendMessage] Sending message to Telegram...");
     const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
     const telegramRes = await fetch(telegramUrl, {
       method: "POST",
@@ -101,21 +111,26 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
 
     const telegramResult = await telegramRes.json();
-    console.log("Telegram API Response:", telegramResult);
 
     if (!telegramRes.ok) {
-      console.error("Telegram API Error:", telegramResult);
+      console.error(
+        "[sendMessage] Telegram API Error. Status:",
+        telegramRes.status,
+        "Response:",
+        telegramResult,
+      );
       return res.status(telegramRes.status).json({
         message: "Failed to send message to Telegram",
         error: telegramResult,
       });
     }
 
+    console.log("[sendMessage] Message sent successfully to Telegram.");
     return res
       .status(200)
       .json({ message: "Message sent successfully", result: telegramResult });
   } catch (error) {
-    console.error("Unexpected error:", error);
+    console.error("[sendMessage] Unexpected error in handler:", error);
     return res.status(500).json({
       message: "Internal Server Error",
       error: error instanceof Error ? error.message : "Unknown error",
