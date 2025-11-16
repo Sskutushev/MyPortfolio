@@ -95,11 +95,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-
-      - name: Build project
+      - name: Build project for E2E
         run: npm run build
+        env:
+          VITE_RECAPTCHA_SITE_KEY: ''
 
       - name: Run Playwright tests
         run: npm run test:e2e
