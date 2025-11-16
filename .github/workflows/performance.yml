@@ -76,7 +76,7 @@ jobs:
           lhci autorun --config=lighthouserc-pr.json || true
 
       - name: Comment PR
-        uses: actions/github-script@v6
+        uses: actions/github-script@v8
         with:
           script: |
             const baseSize = ${{ steps.base-size.outputs.size }};
