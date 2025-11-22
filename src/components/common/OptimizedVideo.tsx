@@ -74,7 +74,7 @@ export const OptimizedVideo = ({
       try {
         await video.play();
         isPlayingRef.current = true;
-      } catch (error) {
+      } catch {
         // Ошибки воспроизведения теперь молча игнорируются
         isPlayingRef.current = false;
       }
@@ -86,7 +86,7 @@ export const OptimizedVideo = ({
         try {
           video.pause();
           isPlayingRef.current = false;
-        } catch (error) {
+        } catch {
           // Ошибки паузы теперь молча игнорируются
         }
       }
