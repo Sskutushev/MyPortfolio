@@ -227,5 +227,87 @@
       "success": "Сообщение отправлено! Свяжусь с вами в ближайшее время.",
       "error": "Ошибка отправки. Попробуйте написать напрямую в Telegram."
     }
+  },
+  "projects": {
+    "dexsafe": {
+      "flowInput": "Некастодиальный кошелек с интеллектуальной маршрутизацией транзакций (UPA Engine) для X1 EcoChain",
+      "flowProcess": "React + TypeScript для типобезопасности. Ethers.js для Web3-интеграции. Zustand для управления состоянием. Шифрование приватных ключей через AES-256. Code Splitting для оптимизации.",
+      "flowOutput": "Полнофункциональный MVP с балансом, отправкой/получением, UPA-анализом, геймификацией и DeFi-интеграцией. Безопасное хранение ключей, адаптивный UI.",
+      "codeTitle": "Custom Hook: useWallet (безопасное управление кошельком)",
+      "metrics": {
+        "label": "Безопасность",
+        "description": "Некастодиальность, AES-256 шифрование"
+      }
+    },
+    "ecochain": {
+      "flowInput": "Платформа для создания и управления токенами на X1 EcoChain без знания программирования",
+      "flowProcess": "React + Vite для быстрой разработки. Zustand для state management. i18next для мультиязычности. OpenAPI-документация для API. Mock-сервер для фронтенд-разработки. Storybook для компонентов.",
+      "flowOutput": "Полная платформа с дашбордом, листингом токенов, формой создания, добавлением ликвидности. CI/CD pipeline, тесты, адаптивный дизайн.",
+      "codeTitle": "API Integration Pattern",
+      "metrics": {
+        "label": "Готовность",
+        "description": "Полный UI/UX, готов к Web3-интеграции"
+      }
+    },
+    "airbro": {
+      "flowInput": "Создать production-ready SaaS платформу с нуля. Реализовать full-stack приложение, включающее аутентификацию (JWT + Telegram), прием крипто-платежей (USDT/TON) и полноценный личный кабинет пользователя для управления подписками.",
+      "flowProcess": "Архитектура Monorepo. Frontend на Vercel (React 19, Vite, React Query, Zod, Framer Motion). Backend на Railway (Node.js, Express, Prisma, PostgreSQL). Бэкенд построен по слоеной архитектуре (Routes → Controllers → Services → Repositories). Настроен полный CI/CD-пайплайн с E2E-тестированием на Playwright.",
+      "flowOutput": "Масштабируемая, безопасная и полностью документированная SaaS-платформа. Включает многоязычную поддержку (i18n), смену тем, защищенный дашборд и автоматизированный CI/CD. Проект полностью соответствует лучшим практикам безопасности (OWASP).",
+      "codeTitle": "Automated CI/CD Pipeline (Backend Testing)",
+      "metrics": {
+        "label": "Готовность",
+        "description": "CI/CD, Tests, Docs"
+      }
+    },
+    "dexflow": {
+      "flowInput": "Децентрализованная биржа с социальными функциями для трейдеров. Гибридная платформа, объединяющая торговлю криптовалютой (спот/фьючерсы/опционы) с социальной сетью: лента постов, профили, копи-трейдинг.",
+      "flowProcess": "React + TypeScript для типобезопасности. Tailwind CSS для utility-first стилизации с темизацией через CSS-переменные. Framer Motion для анимаций. React Router для SPA-навигации. Централизованные mock-данные в src/mock/ с единой системой категоризации контента (popular/hot/trending). Разделение компонентов по фичам (exchange/feed/profile/copytrading).",
+      "flowOutput": "Полнофункциональный прототип с 8 страницами: лендинг, торговый интерфейс с графиками, социальная лента (3 категории постов), профили с портфелем, 15 стратегий копи-трейдинга с метриками. Адаптивный дизайн, система тематизации dark/light, готовая структура для Web3-интеграции.",
+      "codeTitle": "Умная категоризация контента (единый источник для 3 лент)",
+      "metrics": {
+        "label": "Функционал",
+        "description": "Полнофункциональный прототип"
+      }
+    },
+    "portfolio": {
+      "flowInput": "Создать портфолио-сайт, который сам по себе является демонстрацией навыков: от архитектуры до доступности.",
+      "flowProcess": "🎨 Уникальные фишки:\n• Полный CI/CD Pipeline Автоматический деплой через GitHub Actions Lighthouse CI для каждого PR Codecov для отслеживания покрытия Автоматическое создание релизов\n\n• 100% Accessibility Клавиатурная навигация со Skip Links Focus Trap в модальных окнах Поддержка prefers-reduced-motion Тестирование с Axe-core и скринридерами\n\n• Performance-first подход LazyImage с Intersection Observer OptimizedVideo с WebM/MP4 fallback Code splitting и tree shaking Critical CSS инлайнинг\n\n• Тестирование на всех уровнях Unit тесты (Vitest + RTL) E2E тесты (Playwright) Accessibility тесты (jest-axe) Visual regression тесты\n\n• Developer Experience Pre-commit hooks с Husky Conventional Commits TypeScript strict mode Централизованная конфигурация анимаций",
+      "flowOutput": "Живой пример best practices: от архитектуры до документации. Каждый компонент протестирован, каждый коммит проверен, каждый деплой автоматизирован. Проект получил бейджи за качество и доступен как open source для изучения.",
+      "codeTitle": "Проект портфолио как демонстрация профессиональных практик",
+      "metrics": {
+        "label": "Performance",
+        "description": "Lighthouse Score (Performance + Accessibility)"
+      }
+    },
+    "landingspace": {
+      "flowInput": "Создать современный лендинг для космического стартапа с акцентом на визуальное восприятие и брендинг.",
+      "flowProcess": "React + TypeScript для типобезопасности. Tailwind CSS для быстрой стилизации. Framer Motion для анимаций. Адаптивная верстка под все устройства. SEO оптимизация. Модальные окна для дополнительной информации.",
+      "flowOutput": "Современный адаптивный лендинг с анимациями, интерактивными элементами, формой контакта и полной поддержкой всех устройств.",
+      "codeTitle": "Space Themed Landing Page",
+      "metrics": {
+        "label": "Performance",
+        "description": "Lighthouse Score"
+      }
+    },
+    "vangogh": {
+      "flowInput": "Создать интерактивную галерею, посвященную Ван Гогу, с возможностью изучения его работ и творческого пути.",
+      "flowProcess": "React + TypeScript для типобезопасности. Tailwind CSS для быстрой стилизации. Framer Motion для плавных анимаций. Адаптивная верстка под все устройства. Реализованы 4 интерактивные галереи: 'Документы', 'Картины', 'Письма', 'Стиль'. Каждая галерея имеет свой функционал: масштабирование картин, навигация между изображениями, модальные окна. Внедрены UI-паттерны: карусель, lightbox, табы, аккордеон.",
+      "flowOutput": "Полнофункциональная галерея с 4 разделами, интерактивными элементами, адаптивным дизайном и возможностью подробного изучения работ и документов Ван Гога.",
+      "codeTitle": "Interactive Art Gallery",
+      "metrics": {
+        "label": "Galleries",
+        "description": "Docs, Paintings, Letters, Style"
+      }
+    },
+    "tot": {
+      "flowInput": "Создать эталонный проект с исчерпывающим планом разработки и полной дизайн-системой.",
+      "flowProcess": "Этот проект — эталон профессионального проектирования. Ключевая фишка — это исчерпывающий Plan.md на 1000+ строк, который служит библией проекта. Он детально описывает 13-этапный план разработки (на 45-65 дней), 3-частную архитектуру (Landing, Auth, Platform) и полную дизайн-систему: от цветов и адаптивной типографики (шрифты TT Travels Next / Open Sans) до брейкпоинтов (1240/576/360px). Стек — Vue 3 + TypeScript + Composition API + Pinia + Vue Router. Для UI выбран Tailwind CSS, что позволяет быстро реализовывать кастомный дизайн. На данный момент реализована HomePage (10 секций), которая точно следует плану: использует BaseButton из components/common, корректно применяет шрифты (font-tt-travels) и классы Tailwind.",
+      "flowOutput": "Полностью функциональная домашняя страница с 10 секциями, следующая всем архитектурным принципам и дизайн-системе, описанной в плане.",
+      "codeTitle": "Professional Project Planning & Architecture",
+      "metrics": {
+        "label": "Project Plan",
+        "description": "Lines in comprehensive Plan.md"
+      }
+    }
   }
 }

@@ -10,6 +10,18 @@ import { ProjectModal } from "@/components/common/ProjectModal";
 import { useTranslation } from "react-i18next";
 import { ymGoal } from "@/lib/metrics";
 
+// Map project IDs to translation keys
+const PROJECT_TRANSLATION_MAP: Record<number, string> = {
+  1: "dexsafe", // DexSafe Wallet Pro
+  2: "ecochain", // EcoChain Token Platform
+  3: "airbro", // AIRBRO Business
+  4: "dexflow", // DexFlow
+  5: "portfolio", // Reactive Velocity Portfolio
+  6: "landingspace", // Landing Space
+  7: "vangogh", // Van Gogh Link
+  8: "tot", // TOT
+};
+
 export const UIComponentsPage = () => {
   const { theme } = useTheme();
   const { t } = useTranslation();
@@ -146,7 +158,23 @@ export const UIComponentsPage = () => {
                     <div className="flex items-center justify-between pt-4 border-t border-c-border">
                       <div>
                         <div className="text-xs text-c-text-tertiary">
-                          {project.metrics.label}
+                          {(() => {
+                            // Check if translation exists for this project
+                            const projectIds = [1, 2, 3, 4, 5, 6, 7, 8];
+                            const projectIdKey = projectIds.includes(project.id)
+                              ? PROJECT_TRANSLATION_MAP[project.id]
+                              : null;
+                            if (
+                              projectIdKey &&
+                              t(`projects.${projectIdKey}.metrics.label`) !==
+                                `projects.${projectIdKey}.metrics.label`
+                            ) {
+                              return t(
+                                `projects.${projectIdKey}.metrics.label`,
+                              );
+                            }
+                            return project.metrics.label;
+                          })()}
                         </div>
                         <div className="text-2xl font-bold text-c-accent-blue">
                           {project.metrics.value}

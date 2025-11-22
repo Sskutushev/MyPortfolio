@@ -227,5 +227,87 @@
       "success": "Message sent! I'll contact you soon.",
       "error": "Sending error. Try writing directly to Telegram."
     }
+  },
+  "projects": {
+    "dexsafe": {
+      "flowInput": "Non-custodial wallet with intelligent transaction routing (UPA Engine) for X1 EcoChain",
+      "flowProcess": "React + TypeScript for type safety. Ethers.js for Web3 integration. Zustand for state management. Private key encryption via AES-256. Code Splitting for optimization.",
+      "flowOutput": "Full-featured MVP with balance, send/receive, UPA analysis, gamification and DeFi integration. Secure key storage, responsive UI.",
+      "codeTitle": "Custom Hook: useWallet (secure wallet management)",
+      "metrics": {
+        "label": "Security",
+        "description": "Non-custodial, AES-256 encryption"
+      }
+    },
+    "ecochain": {
+      "flowInput": "Platform for creating and managing tokens on X1 EcoChain without programming knowledge",
+      "flowProcess": "React + Vite for fast development. Zustand for state management. i18next for multilingual support. OpenAPI documentation for API. Mock server for frontend development. Storybook for components.",
+      "flowOutput": "Complete platform with dashboard, token listings, creation form, liquidity addition. CI/CD pipeline, tests, responsive design.",
+      "codeTitle": "API Integration Pattern",
+      "metrics": {
+        "label": "Readiness",
+        "description": "Full UI/UX, ready for Web3 integration"
+      }
+    },
+    "airbro": {
+      "flowInput": "Create a production-ready SaaS platform from scratch. Implement a full-stack application including authentication (JWT + Telegram), accepting crypto payments (USDT/TON), and a complete user dashboard for subscription management.",
+      "flowProcess": "Monorepo architecture. Frontend on Vercel (React 19, Vite, React Query, Zod, Framer Motion). Backend on Railway (Node.js, Express, Prisma, PostgreSQL). Backend built with layered architecture (Routes → Controllers → Services → Repositories). Complete CI/CD pipeline configured with E2E testing on Playwright.",
+      "flowOutput": "Scalable, secure and fully documented SaaS platform. Includes multilingual support (i18n), theme switching, protected dashboard and automated CI/CD. Project fully complies with security best practices (OWASP).",
+      "codeTitle": "Automated CI/CD Pipeline (Backend Testing)",
+      "metrics": {
+        "label": "Readiness",
+        "description": "CI/CD, Tests, Docs"
+      }
+    },
+    "dexflow": {
+      "flowInput": "Decentralized exchange with social features for traders. Hybrid platform combining cryptocurrency trading (spot/futures/options) with social network: feed, profiles, copy-trading.",
+      "flowProcess": "React + TypeScript for type safety. Tailwind CSS for utility-first styling with theming via CSS variables. Framer Motion for animations. React Router for SPA navigation. Centralized mock data in src/mock/ with unified content categorization system (popular/hot/trending). Component separation by features (exchange/feed/profile/copytrading).",
+      "flowOutput": "Full-featured prototype with 8 pages: landing, trading interface with charts, social feed (3 post categories), profiles with portfolio, 15 copy-trading strategies with metrics. Responsive design, dark/light theme system, ready Web3 integration structure.",
+      "codeTitle": "Smart content categorization (single source for 3 feeds)",
+      "metrics": {
+        "label": "Functionality",
+        "description": "Full-featured prototype"
+      }
+    },
+    "portfolio": {
+      "flowInput": "Create a portfolio site that demonstrates skills from architecture to accessibility.",
+      "flowProcess": "🎨 Unique features:\n• Complete CI/CD Pipeline Automatic deployment via GitHub Actions Lighthouse CI for each PR Codecov for coverage tracking Automatic release creation\n\n• 100% Accessibility Keyboard navigation with Skip Links Focus Trap in modals Support for prefers-reduced-motion Testing with Axe-core and screen readers\n\n• Performance-first approach LazyImage with Intersection Observer OptimizedVideo with WebM/MP4 fallback Code splitting and tree shaking Critical CSS inlining\n\n• Testing at all levels Unit tests (Vitest + RTL) E2E tests (Playwright) Accessibility tests (jest-axe) Visual regression tests\n\n• Developer Experience Pre-commit hooks with Husky Conventional Commits TypeScript strict mode Centralized animation configuration",
+      "flowOutput": "Live example of best practices from architecture to documentation. Every component tested, every commit checked, every deployment automated. Project received quality badges and is available as open source for study.",
+      "codeTitle": "Portfolio project as demonstration of professional practices",
+      "metrics": {
+        "label": "Performance",
+        "description": "Lighthouse Score (Performance + Accessibility)"
+      }
+    },
+    "landingspace": {
+      "flowInput": "Create a modern landing for a space startup with emphasis on visual perception and branding.",
+      "flowProcess": "React + TypeScript for type safety. Tailwind CSS for fast styling. Framer Motion for animations. Responsive layout for all devices. SEO optimization. Modal windows for additional information.",
+      "flowOutput": "Modern responsive landing with animations, interactive elements, contact form and full device support.",
+      "codeTitle": "Space Themed Landing Page",
+      "metrics": {
+        "label": "Performance",
+        "description": "Lighthouse Score"
+      }
+    },
+    "vangogh": {
+      "flowInput": "Create an interactive gallery dedicated to Van Gogh, with the ability to explore his works and creative journey.",
+      "flowProcess": "React + TypeScript for type safety. Tailwind CSS for fast styling. Framer Motion for smooth animations. Responsive layout for all devices. Implemented 4 interactive galleries: 'Documents', 'Paintings', 'Letters', 'Style'. Each gallery has its own functionality: image zoom, navigation between images, modals. Implemented UI patterns: carousel, lightbox, tabs, accordion.",
+      "flowOutput": "Full-featured gallery with 4 sections, interactive elements, responsive design and ability to study works and documents by Van Gogh in detail.",
+      "codeTitle": "Interactive Art Gallery",
+      "metrics": {
+        "label": "Galleries",
+        "description": "Docs, Paintings, Letters, Style"
+      }
+    },
+    "tot": {
+      "flowInput": "Create a reference project with a comprehensive development plan and complete design system.",
+      "flowProcess": "This project is a reference for professional design. The key feature is the comprehensive Plan.md with 1000+ lines, which serves as the project's 'bible'. It details a 13-stage development plan (45-65 days), 3-part architecture (Landing, Auth, Platform) and complete design system: from colors and responsive typography (fonts TT Travels Next / Open Sans) to breakpoints (1240/576/360px). Stack - Vue 3 + TypeScript + Composition API + Pinia + Vue Router. Tailwind CSS was chosen for UI, allowing for rapid custom design implementation. Currently implemented is the 'HomePage' (10 sections) that strictly follows the plan: uses BaseButton from components/common, correctly applies fonts (font-tt-travels) and Tailwind classes.",
+      "flowOutput": "Fully functional homepage with 10 sections, following all architectural principles and design system described in the plan.",
+      "codeTitle": "Professional Project Planning & Architecture",
+      "metrics": {
+        "label": "Project Plan",
+        "description": "Lines in comprehensive Plan.md"
+      }
+    }
   }
 }

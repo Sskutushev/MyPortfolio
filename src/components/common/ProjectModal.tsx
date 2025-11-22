@@ -1,5 +1,4 @@
 // src/components/common/ProjectModal.tsx
-// Trivial change to force Vercel re-evaluation
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ExternalLink, Code } from "lucide-react";
@@ -11,9 +10,28 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
+// Map project IDs to translation keys
+const PROJECT_TRANSLATION_MAP: Record<number, string> = {
+  1: "dexsafe", // DexSafe Wallet Pro
+  2: "ecochain", // EcoChain Token Platform
+  3: "airbro", // AIRBRO Business
+  4: "dexflow", // DexFlow
+  5: "portfolio", // Reactive Velocity Portfolio
+  6: "landingspace", // Landing Space
+  7: "vangogh", // Van Gogh Link
+  8: "tot", // TOT
+};
+
 export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<"flow" | "code">("flow");
+
+  // Check if translation exists for this project
+  const projectIdKey = PROJECT_TRANSLATION_MAP[project.id];
+  const hasTranslation =
+    !!projectIdKey &&
+    t(`projects.${projectIdKey}.flowInput`) !==
+      `projects.${projectIdKey}.flowInput`;
 
   return (
     <Modal isOpen={!!project} onClose={onClose}>
@@ -60,19 +78,31 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
               <h4 className="text-sm font-semibold text-c-accent-blue mb-2">
                 {t("portfolio.input")}
               </h4>
-              <p className="text-c-text-secondary">{project.flow.input}</p>
+              <p className="text-c-text-secondary">
+                {hasTranslation
+                  ? t(`projects.${projectIdKey}.flowInput`)
+                  : project.flow.input}
+              </p>
             </div>
             <div className="p-6 rounded-xl bg-c-bg-secondary border border-c-border">
               <h4 className="text-sm font-semibold text-c-accent-purple mb-2">
                 {t("portfolio.process")}
               </h4>
-              <p className="text-c-text-secondary">{project.flow.process}</p>
+              <p className="text-c-text-secondary">
+                {hasTranslation
+                  ? t(`projects.${projectIdKey}.flowProcess`)
+                  : project.flow.process}
+              </p>
             </div>
             <div className="p-6 rounded-xl bg-c-bg-secondary border border-c-border">
               <h4 className="text-sm font-semibold text-c-accent-green mb-2">
                 {t("portfolio.output")}
               </h4>
-              <p className="text-c-text-secondary">{project.flow.output}</p>
+              <p className="text-c-text-secondary">
+                {hasTranslation
+                  ? t(`projects.${projectIdKey}.flowOutput`)
+                  : project.flow.output}
+              </p>
             </div>
           </div>
         ) : (
@@ -80,7 +110,9 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
             <div className="flex items-center gap-2 mb-4">
               <Code size={24} className="text-c-accent-blue" />
               <h4 className="text-lg font-semibold">
-                {project.codeHighlight.title}
+                {hasTranslation
+                  ? t(`projects.${projectIdKey}.codeTitle`)
+                  : project.codeHighlight.title}
               </h4>
             </div>
             <pre className="block w-full p-6 rounded-xl bg-c-bg-tertiary border border-c-border overflow-x-auto">
