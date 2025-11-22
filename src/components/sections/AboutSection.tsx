@@ -34,7 +34,7 @@ export const AboutSection = () => {
               <OptimizedVideo
                 src="/images/photo-about.mp4"
                 poster="/images/photo-about-poster.jpg"
-                className="w-full h-auto"
+                className="w-full"
               />
             </div>
           </motion.div>

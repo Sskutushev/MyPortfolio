@@ -218,6 +218,7 @@ export const ContactSection = () => {
                     src="/images/Contact.MP4"
                     poster="/images/Contact-poster.jpg"
                     className="w-full h-full object-fill rounded-2xl"
+                    aspectRatio={9 / 19.5} // Aspect ratio for smartphone screen
                   />
 
                   {/* Индикаторы уведомлений */}

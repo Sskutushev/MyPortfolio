@@ -9,6 +9,7 @@ interface OptimizedVideoProps {
   loop?: boolean;
   muted?: boolean;
   playsInline?: boolean;
+  aspectRatio?: number; // Новое свойство для соотношения сторон
 }
 
 export const OptimizedVideo = ({
@@ -19,6 +20,7 @@ export const OptimizedVideo = ({
   loop = true,
   muted = true,
   playsInline = true,
+  aspectRatio = 16 / 9, // Значение по умолчанию 16:9
 }: OptimizedVideoProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isInView, setIsInView] = useState(false);
@@ -49,8 +51,6 @@ export const OptimizedVideo = ({
       {
         threshold: 0.25,
         rootMargin: "50px",
-        // Уменьшаем частоту обновлений для лучшей производительности
-        // passive: true - этот параметр не поддерживается во всех браузерах
       },
     );
 
@@ -75,10 +75,7 @@ export const OptimizedVideo = ({
         await video.play();
         isPlayingRef.current = true;
       } catch (error) {
-        // Обработка ошибки, включая AbortError, если play был прерван
-        if ((error as Error).name !== "AbortError") {
-          console.error("Video play error:", error);
-        }
+        // Ошибки воспроизведения теперь молча игнорируются
         isPlayingRef.current = false;
       }
     };
@@ -90,7 +87,7 @@ export const OptimizedVideo = ({
           video.pause();
           isPlayingRef.current = false;
         } catch (error) {
-          console.error("Video pause error:", error);
+          // Ошибки паузы теперь молча игнорируются
         }
       }
     };
@@ -108,24 +105,24 @@ export const OptimizedVideo = ({
   }, [isInView, autoPlay, isLoaded]);
 
   const lowerCaseSrc = src.toLowerCase();
+  const paddingTop = `${(1 / aspectRatio) * 100}%`; // Динамический расчет padding-top
 
   return (
     <div
       style={{
         position: "relative",
         width: "100%",
+        paddingTop: paddingTop, // Применяем рассчитанный padding-top
       }}
     >
       <video
         ref={videoRef}
-        className={className}
+        className={`${className} absolute top-0 left-0 w-full h-full`}
         poster={poster}
         loop={loop}
         muted={muted}
         playsInline={playsInline}
         preload="none"
-        width="100%"
-        height="auto"
         onLoadedData={() => setIsLoaded(true)}
         onPlay={() => {
           isPlayingRef.current = true;

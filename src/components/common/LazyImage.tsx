@@ -57,8 +57,11 @@ export const LazyImage = ({
       style={{
         width: width ? `${width}px` : "100%",
         height: height ? `${height}px` : undefined,
-        aspectRatio:
-          !width && !height ? calculatedAspectRatio.toString() : undefined,
+        // Используем padding-top trick для предотвращения layout shifts
+        ...(height ? {} : { 
+          position: "relative", 
+          paddingTop: `${100 / calculatedAspectRatio}%` 
+        })
       }}
     >
       <motion.img
@@ -69,15 +72,19 @@ export const LazyImage = ({
         height={height}
         className={className}
         onLoad={() => setIsLoaded(true)}
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: isLoaded ? 1 : 0, scale: isLoaded ? 1 : 0.98 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isLoaded ? 1 : 0 }}
         transition={{ duration: 0.3 }}
         loading="lazy"
         style={{
           display: "block",
+          position: "absolute",
+          top: 0,
+          left: 0,
           width: "100%",
-          height: "100%",
+          height: height ? "100%" : "100%",
           objectFit: "cover",
+          // Убираем анимацию scale для уменьшения CLS
         }}
       />
     </div>
