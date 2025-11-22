@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { OptimizedVideo } from "@/components/common/OptimizedVideo";
 import { fadeInUp, staggerContainer } from "@/lib/motion-config";
+import { ymGoal } from "@/lib/metrics";
 
 const ReCAPTCHAComponent = lazy(() => import("react-google-recaptcha"));
 
@@ -57,6 +58,7 @@ export const ContactSection = () => {
 
       if (response.ok) {
         setStatus("success");
+        ymGoal("form_submit");
         reset();
         if (isRecaptchaEnabled) {
           recaptchaRef.current?.reset();
@@ -138,6 +140,7 @@ export const ContactSection = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 p-4 rounded-xl bg-c-bg-primary border border-c-border hover:border-c-accent-blue transition group"
+              onClick={() => ymGoal("click_telegram")}
             >
               <MessageCircle className="text-c-accent-blue" />
               <div>
@@ -150,6 +153,7 @@ export const ContactSection = () => {
             <a
               href="mailto:Sskutushev@gmail.com"
               className="flex items-center gap-3 p-4 rounded-xl bg-c-bg-primary border border-c-border hover:border-c-accent-blue transition group"
+              onClick={() => ymGoal("click_email")}
             >
               <Mail className="text-c-accent-blue" />
               <div>
@@ -166,6 +170,7 @@ export const ContactSection = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 p-4 rounded-xl bg-c-bg-primary border border-c-border hover:border-c-accent-blue transition group"
+              onClick={() => ymGoal("click_github")}
             >
               <Github className="text-c-accent-blue" />
               <div>

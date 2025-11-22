@@ -7,6 +7,7 @@ import { portfolioProjects } from "@/data/projects";
 import { uiComponents } from "@/data/ui-components";
 import { ProjectModal } from "@/components/common/ProjectModal";
 import { useTranslation } from "react-i18next";
+import { ymGoal } from "@/lib/metrics";
 
 export const PortfolioPage = () => {
   const { theme } = useTheme();
@@ -104,7 +105,10 @@ export const PortfolioPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 + 0.3 }}
                 whileHover={{ y: -10 }}
-                onClick={() => setSelectedProject(project.id)}
+                onClick={() => {
+                  setSelectedProject(project.id);
+                  ymGoal("case_open", { id: project.id });
+                }}
                 className="group cursor-pointer"
               >
                 <div className="relative h-full rounded-2xl bg-c-bg-primary border border-c-border overflow-hidden transition-all hover:border-c-accent-blue hover:shadow-2xl hover:shadow-c-accent-blue/20">

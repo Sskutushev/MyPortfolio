@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Header } from "./components/sections/Header";
 import { HeroSection } from "./components/sections/HeroSection";
@@ -68,6 +68,12 @@ const MainLayout = () => (
 function App() {
   const location = useLocation();
   const isMainPage = location.pathname === "/";
+
+  useEffect(() => {
+    if (typeof window.ym === "function") {
+      window.ym(105459636, "hit", location.pathname + location.search);
+    }
+  }, [location]);
 
   return (
     <div className="min-h-screen bg-c-bg-primary text-c-text-primary">

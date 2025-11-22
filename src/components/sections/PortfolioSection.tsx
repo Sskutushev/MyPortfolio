@@ -10,6 +10,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { portfolioProjects } from "@/data/projects";
 import { uiComponents } from "@/data/ui-components";
 import { fadeInUp, staggerContainer } from "@/lib/motion-config";
+import { ymGoal } from "@/lib/metrics";
 
 export const PortfolioSection = () => {
   const { t } = useTranslation();
@@ -107,7 +108,10 @@ export const PortfolioSection = () => {
                 {...fadeInUp}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                onClick={() => setSelectedProject(project.id)}
+                onClick={() => {
+                  setSelectedProject(project.id);
+                  ymGoal("case_open", { id: project.id });
+                }}
                 className="group cursor-pointer"
                 data-testid="project-card"
                 role="button"
@@ -115,6 +119,7 @@ export const PortfolioSection = () => {
                 onKeyDown={(e: KeyboardEvent) => {
                   if (e.key === "Enter" || e.key === " ") {
                     setSelectedProject(project.id);
+                    ymGoal("case_open", { id: project.id });
                   }
                 }}
               >
@@ -168,6 +173,7 @@ export const PortfolioSection = () => {
           <Link
             to={activeTab === "projects" ? "/portfolio" : "/ui-components"}
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-primary text-white font-semibold hover:scale-105 hover:bg-gradient-accent transition-all"
+            onClick={() => ymGoal("open_portfolio")}
           >
             {activeTab === "projects"
               ? t("portfolio.allProjects", "Смотреть все проекты")
