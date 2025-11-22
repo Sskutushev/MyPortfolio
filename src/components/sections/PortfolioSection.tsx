@@ -140,6 +140,7 @@ export const PortfolioSection = () => {
                     <LazyImage
                       src={imageSrc}
                       alt={project.title}
+                      aspectRatio="16/9"
                       className="w-full h-full object-cover transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-c-bg-primary to-transparent opacity-60" />

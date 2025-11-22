@@ -8,6 +8,7 @@ interface LazyImageProps {
   className?: string;
   width?: number;
   height?: number;
+  aspectRatio?: string; // например "16/9", "4/3", "1/1"
   placeholder?: string;
 }
 
@@ -17,6 +18,7 @@ export const LazyImage = ({
   className = "",
   width,
   height,
+  aspectRatio = "16/9", // По умолчанию соотношение сторон 16:9
   placeholder = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"%3E%3Crect fill="%23f3f4f6" width="400" height="300"/%3E%3C/svg%3E',
 }: LazyImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -43,27 +45,41 @@ export const LazyImage = ({
     return () => observer.disconnect();
   }, []);
 
+  // Расчет соотношения сторон для предотвращения layout shift
+  const [aspectWidth, aspectHeight] = aspectRatio.split("/").map(Number);
+  const calculatedAspectRatio = aspectHeight
+    ? aspectWidth / aspectHeight
+    : 16 / 9;
+
   return (
-    <motion.img
-      ref={imgRef}
-      src={isInView ? src : placeholder}
-      alt={alt}
-      width={width}
-      height={height}
-      className={className}
-      onLoad={() => setIsLoaded(true)}
-      initial={{ opacity: 0, scale: 0.98 }}
-      animate={{ opacity: isLoaded ? 1 : 0, scale: isLoaded ? 1 : 0.98 }}
-      transition={{ duration: 0.3 }}
-      loading="lazy"
+    <div
+      className="relative overflow-hidden"
       style={{
-        display: "block",
         width: width ? `${width}px` : "100%",
-        height: height ? `${height}px` : "auto",
-        objectFit: "cover",
+        height: height ? `${height}px` : undefined,
+        aspectRatio:
+          !width && !height ? calculatedAspectRatio.toString() : undefined,
       }}
-      // Добавляем атрибуты, чтобы предотвратить layout shift
-      sizes={width && height ? `${width}px` : "100vw"}
-    />
+    >
+      <motion.img
+        ref={imgRef}
+        src={isInView ? src : placeholder}
+        alt={alt}
+        width={width}
+        height={height}
+        className={className}
+        onLoad={() => setIsLoaded(true)}
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={{ opacity: isLoaded ? 1 : 0, scale: isLoaded ? 1 : 0.98 }}
+        transition={{ duration: 0.3 }}
+        loading="lazy"
+        style={{
+          display: "block",
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
+    </div>
   );
 };

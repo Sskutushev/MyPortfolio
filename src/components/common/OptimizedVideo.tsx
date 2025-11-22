@@ -110,28 +110,39 @@ export const OptimizedVideo = ({
   const lowerCaseSrc = src.toLowerCase();
 
   return (
-    <video
-      ref={videoRef}
-      className={className}
-      poster={poster}
-      loop={loop}
-      muted={muted}
-      playsInline={playsInline}
-      preload="none"
-      onLoadedData={() => setIsLoaded(true)}
-      onPlay={() => {
-        isPlayingRef.current = true;
-      }}
-      onPause={() => {
-        isPlayingRef.current = false;
-      }}
-      onEnded={() => {
-        isPlayingRef.current = false;
+    <div
+      style={{
+        position: "relative",
+        width: "100%",
       }}
     >
-      {lowerCaseSrc.endsWith(".webm") && <source src={src} type="video/webm" />}
-      {lowerCaseSrc.endsWith(".mp4") && <source src={src} type="video/mp4" />}
-      Your browser does not support the video tag.
-    </video>
+      <video
+        ref={videoRef}
+        className={className}
+        poster={poster}
+        loop={loop}
+        muted={muted}
+        playsInline={playsInline}
+        preload="none"
+        width="100%"
+        height="auto"
+        onLoadedData={() => setIsLoaded(true)}
+        onPlay={() => {
+          isPlayingRef.current = true;
+        }}
+        onPause={() => {
+          isPlayingRef.current = false;
+        }}
+        onEnded={() => {
+          isPlayingRef.current = false;
+        }}
+      >
+        {lowerCaseSrc.endsWith(".webm") && (
+          <source src={src} type="video/webm" />
+        )}
+        {lowerCaseSrc.endsWith(".mp4") && <source src={src} type="video/mp4" />}
+        Your browser does not support the video tag.
+      </video>
+    </div>
   );
 };

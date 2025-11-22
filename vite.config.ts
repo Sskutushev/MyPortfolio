@@ -54,6 +54,9 @@ export default defineConfig({
           "i18n-vendor": ["react-i18next", "i18next"],
           "ui-vendor": ["lucide-react"],
         },
+        // Улучшаем сжатие
+        chunkFileNames: "assets/[name]-[hash].js",
+        entryFileNames: "assets/[name]-[hash].js",
       },
     },
 
@@ -71,6 +74,12 @@ export default defineConfig({
 
     // Максимальная оптимизация
     minify: "esbuild", // Используем esbuild для более быстрой и эффективной минификации
+  },
+
+  // Улучшаем оптимизацию
+  esbuild: {
+    legalComments: "none", // Убираем комментарии для меньшего размера
+    keepNames: false, // Убираем имена функций для лучшей минификации
   },
 
   // Оптимизация dev сервера

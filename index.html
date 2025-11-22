@@ -76,47 +76,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
   
-  <!-- Yandex Metrika (Loaded with proper callback handling) -->
-  <script>
-    // Initialize Yandex Metrika with global callback to safely handle initialization
-    window.yandex_metrika_callbacks = {
-      callback: function() {
-        // Optional: Add any initialization code here that needs to run after Metrika is loaded
-      },
-      notFound: function() {
-        // Optional: Handle case where Metrika fails to load
-      }
-    };
-    
+  <!-- Yandex Metrika (Loaded with minimal features to avoid third-party cookies) -->
+  <script type="text/javascript">
     (function(m,e,t,r,i,k,a){
       m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
       m[i].l=1*new Date();
       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym', 'https://mc.yandex.ru/metrika/watch/105459636');
+    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
 
-    // Initialize after script loads with safe check
-    if (typeof ym === 'function') {
-      ym(105459636, 'init', {
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-        trackHash: true
-      });
-    } else {
-      document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(function() {
-          if (typeof ym === 'function') {
-            ym(105459636, 'init', {
-              clickmap: true,
-              trackLinks: true,
-              accurateTrackBounce: true,
-              trackHash: true
-            });
-          }
-        }, 1000);
-      });
-    }
+    // Initialize Yandex Metrika with ONLY essential features that don't set third-party cookies
+    ym(105459636, 'init', {
+      // Удаляем все функции, которые могут создавать cookies: webvisor, clickmap, ecommerce
+      accurateTrackBounce: true,
+      trackLinks: true,
+      trackHash: true,
+      // Отключаем все функции, которые могут вызывать third-party cookies
+    });
   </script>
   <!-- /Yandex Metrika -->
 </head>
