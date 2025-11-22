@@ -74,10 +74,10 @@ export const AdvantagesSection = () => {
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {[
-            { label: "Опыт", value: "1.5+ года" },
-            { label: "Проектов", value: "15+" },
-            { label: "Технологий", value: "20+" },
-            { label: "Код-ревью", value: "100+" },
+            { label: t("advantages.statLabelExperience"), value: "1.5+ years" },
+            { label: t("advantages.statLabelProjects"), value: "15+" },
+            { label: t("advantages.statLabelTechnologies"), value: "20+" },
+            { label: t("advantages.statLabelCodeReviews"), value: "100+" },
           ].map((stat, i) => (
             <motion.div
               key={i}

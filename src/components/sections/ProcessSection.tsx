@@ -66,23 +66,23 @@ export const ProcessSection = () => {
           {/* Desktop Flow */}
           <div className="hidden md:flex flex-wrap items-center justify-center gap-4 text-center">
             <div className="px-6 py-3 rounded-xl bg-gradient-primary text-white font-semibold">
-              Идея
+              {t("process.flowTitleIdea")}
             </div>
             <div className="text-c-accent-blue">→</div>
             <div className="px-6 py-3 rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">
-              Архитектура
+              {t("process.flowTitleArchitecture")}
             </div>
             <div className="text-c-accent-blue">→</div>
             <div className="px-6 py-3 rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">
-              Разработка
+              {t("process.flowTitleDevelopment")}
             </div>
             <div className="text-c-accent-blue">→</div>
             <div className="px-6 py-3 rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">
-              Тестирование
+              {t("process.flowTitleTesting")}
             </div>
             <div className="text-c-accent-blue">→</div>
             <div className="px-6 py-3 rounded-xl bg-gradient-primary text-white font-semibold">
-              Релиз
+              {t("process.flowTitleRelease")}
             </div>
           </div>
 
@@ -90,24 +90,24 @@ export const ProcessSection = () => {
           <div className="flex flex-col items-center gap-4 md:hidden">
             <div className="flex items-center gap-2">
               <div className="px-4 py-2 text-sm rounded-xl bg-gradient-primary text-white font-semibold">
-                Идея
+                {t("process.flowTitleIdea")}
               </div>
               <div className="text-c-accent-blue">→</div>
               <div className="px-4 py-2 text-sm rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">
-                Архитектура
+                {t("process.flowTitleArchitecture")}
               </div>
             </div>
             <div className="flex items-center gap-2">
               <div className="px-4 py-2 text-sm rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">
-                Разработка
+                {t("process.flowTitleDevelopment")}
               </div>
               <div className="text-c-accent-blue">→</div>
               <div className="px-4 py-2 text-sm rounded-xl bg-c-bg-tertiary border border-c-border font-semibold">
-                Тестирование
+                {t("process.flowTitleTesting")}
               </div>
             </div>
             <div className="px-6 py-3 rounded-xl bg-gradient-primary text-white font-semibold">
-              Релиз
+              {t("process.flowTitleRelease")}
             </div>
           </div>
         </motion.div>

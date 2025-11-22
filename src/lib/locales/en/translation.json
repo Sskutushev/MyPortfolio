@@ -31,11 +31,17 @@
     }
   },
   "experience": {
-    "title": "My Experience: Deep Dive",
+    "title": "My experience: Deep Dive",
     "workExperience": {
       "title": "Work Experience",
       "description": "1 year in frontend development. Implemented projects from presentation landing pages to complex Web3 applications (wallets, DeFi platforms, token generators). Worked with e-commerce integrations, SPA applications, and Telegram Mini Apps."
     },
+    "approachTitle": "My experience and approach to work",
+    "philosophyTitle": "My philosophy — I am a practitioner",
+    "approachDescription1": "Over the past year, I have actively worked on freelancing and implemented various projects: from presentation landing pages to complex Web3 applications (DeFi, crypto wallets) and Telegram Mini Apps.",
+    "philosophyDescription1": "I may not remember a term from a textbook, but I always understand how and why code works. I don't start coding until I have thought through the architecture of the future project. This is my way of immediately laying a reliable foundation and avoiding problems in the future.",
+    "philosophyDescription2": "I am (in a good sense) meticulous and pedantic. I genuinely love clean, understandable code that is easy to maintain. I don't deliver work until I personally am 100% sure that everything is tested and works like a clock.",
+    "philosophyDescription3": "Although my focus is frontend, I understand how the backend works (worked with Next.js and Node.js), which helps me see the entire project picture as a whole. I continue to practice every day to make my work faster and better.",
     "stack": {
       "title": "Specialization",
       "categories": {
@@ -75,7 +81,7 @@
     }
   },
   "portfolio": {
-    "title": "Code Manifest: Selected Solutions",
+    "title": "Code manifest: Selected Solutions",
     "subtitle": "Completed projects demonstrating my development approach",
     "input": "INPUT → Task",
     "process": "PROCESS → Stack and Implementation",
@@ -88,12 +94,14 @@
     "allComponents": "View All Components"
   },
   "stack": {
-    "title": "Technology Matrix: Stack for Specific Tasks",
+    "title": "Technology matrix: Stack for Specific Tasks",
     "subtitle": "Technology choice depends on project requirements",
+    "useCasesLabel": "Use Cases:",
+    "toolsLabel": "Tools:",
     "stacks": {
       "react": {
         "name": "React",
-        "icon": "⚛️",
+        "icon": "/images/react.png",
         "description": "For dynamic, state-heavy SPAs and full-featured solutions with Next.js. My main ecosystem.",
         "useCases": [
           "Complex dashboards with real-time data",
@@ -106,7 +114,7 @@
       },
       "vue": {
         "name": "Vue",
-        "icon": "💚",
+        "icon": "/images/Vue.png",
         "description": "For structured, progressive frameworks and rapid development. Strong in Composition API and Pinia.",
         "useCases": [
           "Corporate dashboards",
@@ -118,7 +126,7 @@
       },
       "vanilla": {
         "name": "Vanilla Stack",
-        "icon": "🎯",
+        "icon": "/images/vanila.png",
         "description": "HTML5 + CSS3 + JavaScript. For performance-critical landing pages, Web Components, or projects where lightweight is key to success.",
         "useCases": [
           "High-performance landing pages",
@@ -131,7 +139,7 @@
     }
   },
   "process": {
-    "title": "From Idea to Release: My Process",
+    "title": "From idea to Release: My Process",
     "steps": {
       "0": {
         "number": "01",
@@ -153,7 +161,12 @@
         "title": "QA and Deploy",
         "description": "Full responsiveness (mobile-first), cross-browser compatibility, testing (Vitest, Cypress). SEO optimization, Web Vitals. Setting up CI/CD, deployment to Vercel/Netlify, documentation."
       }
-    }
+    },
+    "flowTitleIdea": "Idea",
+    "flowTitleArchitecture": "Architecture",
+    "flowTitleDevelopment": "Development",
+    "flowTitleTesting": "Testing",
+    "flowTitleRelease": "Release"
   },
   "advantages": {
     "title": "Why we'll work well together? Your benefits.",
@@ -174,7 +187,11 @@
         "title": "Modern & Fast",
         "description": "Expertise in Vite, React, and Tailwind means your project will be created with maximum development speed and runtime performance. Load optimization, Code Splitting, Web Vitals."
       }
-    }
+    },
+    "statLabelExperience": "Experience",
+    "statLabelProjects": "Projects",
+    "statLabelTechnologies": "Technologies",
+    "statLabelCodeReviews": "Code Reviews"
   },
   "contact": {
     "title": "Deploy & Connect",

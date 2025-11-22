@@ -48,7 +48,7 @@ export const StackSection = () => {
                 {/* Use Cases */}
                 <div className="mb-6">
                   <h4 className="text-sm font-semibold text-c-accent-purple mb-3">
-                    Use Cases:
+                    {t("stack.useCasesLabel")}
                   </h4>
                   <ul className="space-y-2">
                     {[0, 1, 2, 3].map((i) => (
@@ -69,7 +69,7 @@ export const StackSection = () => {
                 {/* Tools */}
                 <div className="pt-6 border-t border-c-border">
                   <h4 className="text-xs font-semibold text-c-text-tertiary mb-2">
-                    Инструменты:
+                    {t("stack.toolsLabel")}
                   </h4>
                   <p className="text-sm text-c-text-secondary">
                     {t(`stack.stacks.${stack}.tools`)}
