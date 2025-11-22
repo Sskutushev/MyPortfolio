@@ -65,6 +65,9 @@ export default defineConfig({
 
     // Оптимизация для лучшей производительности
     cssCodeSplit: true,
+
+    // Уменьшаем работу в main thread
+    target: "es2022",
   },
 
   // Оптимизация dev сервера
@@ -72,5 +75,19 @@ export default defineConfig({
     hmr: {
       overlay: true,
     },
+  },
+
+  // Оптимизация для лучшего FCP и LCP
+  optimizeDeps: {
+    include: [
+      "react",
+      "react-dom",
+      "react-router-dom",
+      "framer-motion",
+      "react-hook-form",
+      "react-i18next",
+      "i18next",
+      "lucide-react",
+    ],
   },
 });

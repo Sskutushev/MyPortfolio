@@ -69,10 +69,16 @@ function App() {
   const location = useLocation();
   const isMainPage = location.pathname === "/";
 
+  // Оптимизируем вызов метрики, чтобы уменьшить работу в main thread
   useEffect(() => {
-    if (typeof window.ym === "function") {
-      window.ym(105459636, "hit", location.pathname + location.search);
-    }
+    // Используем setTimeout чтобы дать приоритет рендерингу
+    const timeoutId = setTimeout(() => {
+      if (typeof window !== "undefined" && typeof window.ym === "function") {
+        window.ym(105459636, "hit", location.pathname + location.search);
+      }
+    }, 0);
+
+    return () => clearTimeout(timeoutId);
   }, [location]);
 
   return (
