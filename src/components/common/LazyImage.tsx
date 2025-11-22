@@ -52,10 +52,16 @@ export const LazyImage = ({
       height={height}
       className={className}
       onLoad={() => setIsLoaded(true)}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: isLoaded ? 1 : 0 }}
+      initial={{ opacity: 0, scale: 0.98 }}
+      animate={{ opacity: isLoaded ? 1 : 0, scale: isLoaded ? 1 : 0.98 }}
       transition={{ duration: 0.3 }}
       loading="lazy"
+      style={{
+        display: "block",
+        width: width ? `${width}px` : "100%",
+        height: height ? `${height}px` : "auto",
+        objectFit: "cover",
+      }}
     />
   );
 };

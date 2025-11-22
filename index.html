@@ -42,10 +42,9 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
   
-  <!-- Preload critical font -->
+  <!-- Preconnect to font CDN -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   
   <!-- Critical inline styles -->
   <style>
@@ -73,26 +72,32 @@
     }
   </style>
   
-  <!-- Yandex Metrika (Loaded asynchronously to avoid third-party cookies issues where possible) -->
-  <script async type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=105459636', 'ym');
-
-    // Initialize Yandex Metrika without features that might set third-party cookies
+  <!-- Load font asynchronously -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+  
+  <!-- Yandex Metrika (Loaded with defer to avoid blocking and minimal cookie impact) -->
+  <script defer type="text/javascript">
+    // Load Yandex Metrika after page load to avoid third-party cookies during critical render
     window.addEventListener('load', function() {
-      if (typeof ym === 'function') {
-        ym(105459636, 'init', {
-          clickmap:true,
-          trackLinks:true,
-          accurateTrackBounce:true,
-          trackHash:true,
-          // Removing webvisor and ecommerce which might cause third-party cookies
-        });
-      }
+      setTimeout(function() {
+        // Create script element for Yandex Metrika
+        var metrikaScript = document.createElement('script');
+        metrikaScript.type = 'text/javascript';
+        metrikaScript.async = true;
+        metrikaScript.src = 'https://mc.yandex.ru/metrika/tag.js?id=105459636';
+        metrikaScript.onload = function() {
+          // Initialize with minimal features to reduce cookie usage
+          ym(105459636, 'init', {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            trackHash: true
+          });
+        };
+        
+        document.head.appendChild(metrikaScript);
+      }, 1000); // Delay loading to reduce impact on performance metrics
     });
   </script>
   <!-- /Yandex Metrika -->

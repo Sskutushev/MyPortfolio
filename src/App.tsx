@@ -71,12 +71,12 @@ function App() {
 
   // Оптимизируем вызов метрики, чтобы уменьшить работу в main thread
   useEffect(() => {
-    // Используем setTimeout чтобы дать приоритет рендерингу
+    // Отложим вызов метрики на 2 секунды после перехода по маршруту, чтобы дать приоритет рендерингу
     const timeoutId = setTimeout(() => {
       if (typeof window !== "undefined" && typeof window.ym === "function") {
         window.ym(105459636, "hit", location.pathname + location.search);
       }
-    }, 0);
+    }, 2000);
 
     return () => clearTimeout(timeoutId);
   }, [location]);

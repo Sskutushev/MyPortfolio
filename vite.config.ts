@@ -66,8 +66,11 @@ export default defineConfig({
     // Оптимизация для лучшей производительности
     cssCodeSplit: true,
 
-    // Уменьшаем работу в main thread
+    // Современные возможности JavaScript
     target: "es2022",
+
+    // Максимальная оптимизация
+    minify: "esbuild", // Используем esbuild для более быстрой и эффективной минификации
   },
 
   // Оптимизация dev сервера
@@ -89,5 +92,10 @@ export default defineConfig({
       "i18next",
       "lucide-react",
     ],
+  },
+
+  // Улучшаем загрузку ресурсов
+  ssr: {
+    noExternal: ["framer-motion"], // Убедимся, что framer-motion корректно обрабатывается
   },
 });
