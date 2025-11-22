@@ -62,6 +62,8 @@ export const LazyImage = ({
         height: height ? `${height}px` : "auto",
         objectFit: "cover",
       }}
+      // Добавляем атрибуты, чтобы предотвратить layout shift
+      sizes={width && height ? `${width}px` : "100vw"}
     />
   );
 };

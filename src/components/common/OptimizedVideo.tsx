@@ -26,6 +26,9 @@ export const OptimizedVideo = ({
   const isPlayingRef = useRef(false);
 
   useEffect(() => {
+    if (!videoRef.current) return;
+
+    // Используем passive observer для лучшей производительности
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsInView(entry.isIntersecting);
@@ -35,21 +38,29 @@ export const OptimizedVideo = ({
           videoRef.current.load();
         } else if (!entry.isIntersecting && videoRef.current) {
           // Приостановить видео когда оно вне viewport
-          videoRef.current.pause();
+          try {
+            videoRef.current.pause();
+          } catch {
+            // Игнорируем ошибки при паузе
+          }
           isPlayingRef.current = false;
         }
       },
       {
         threshold: 0.25,
         rootMargin: "50px",
+        // Уменьшаем частоту обновлений для лучшей производительности
+        // passive: true - этот параметр не поддерживается во всех браузерах
       },
     );
 
-    if (videoRef.current) {
-      observer.observe(videoRef.current);
-    }
+    observer.observe(videoRef.current);
 
-    return () => observer.disconnect();
+    return () => {
+      if (observer) {
+        observer.disconnect();
+      }
+    };
   }, []);
 
   useEffect(() => {

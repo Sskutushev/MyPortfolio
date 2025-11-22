@@ -74,7 +74,11 @@ function App() {
     // Отложим вызов метрики на 2 секунды после перехода по маршруту, чтобы дать приоритет рендерингу
     const timeoutId = setTimeout(() => {
       if (typeof window !== "undefined" && typeof window.ym === "function") {
-        window.ym(105459636, "hit", location.pathname + location.search);
+        try {
+          window.ym(105459636, "hit", location.pathname + location.search);
+        } catch (error) {
+          console.warn("Yandex Metrika tracking error:", error);
+        }
       }
     }, 2000);
 
