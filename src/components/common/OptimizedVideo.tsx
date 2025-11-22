@@ -118,6 +118,7 @@ export const OptimizedVideo = ({
       <video
         ref={videoRef}
         className={`${className} absolute top-0 left-0 w-full h-full`}
+        style={{ objectFit: "cover" }}
         poster={poster}
         loop={loop}
         muted={muted}
