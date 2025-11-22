@@ -58,10 +58,12 @@ export const LazyImage = ({
         width: width ? `${width}px` : "100%",
         height: height ? `${height}px` : undefined,
         // Используем padding-top trick для предотвращения layout shifts
-        ...(height ? {} : { 
-          position: "relative", 
-          paddingTop: `${100 / calculatedAspectRatio}%` 
-        })
+        ...(height
+          ? {}
+          : {
+              position: "relative",
+              paddingTop: `${100 / calculatedAspectRatio}%`,
+            }),
       }}
     >
       <motion.img
