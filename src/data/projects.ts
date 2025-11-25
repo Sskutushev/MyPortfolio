@@ -28,55 +28,55 @@ export interface Project {
 // Portfolio projects data
 export const portfolioProjects: Project[] = [
   {
-    id: 1,
-    title: "DexSafe Wallet Pro",
-    category: "Web3 / Telegram Mini App",
-    tech: "React, TypeScript, Ethers.js, Zustand, Framer Motion",
-    imageDark: "/images/project-dexsafe.jpg",
-    imageLight: "/images/project-dexsafe.jpg", // Placeholder, to be updated
-    link: "https://presentation-site-landing.vercel.app/",
+    id: 8,
+    title: "TOT",
+    category: "Landing / Platform",
+    tech: "Vue 3, TypeScript, Pinia, Tailwind CSS",
+    imageDark: "/images/project-tot.jpg",
+    imageLight: "/images/project-tot.jpg",
+    link: "https://sskutushev.github.io/TOT-Test/",
     flow: {
       input:
-        "Некастодиальный кошелек с интеллектуальной маршрутизацией транзакций (UPA Engine) для X1 EcoChain",
+        "Создать эталонный проект с исчерпывающим планом разработки и полной дизайн-системой.",
       process:
-        "React + TypeScript для типобезопасности. Ethers.js для Web3-интеграции. Zustand для управления состоянием. Шифрование приватных ключей через AES-256. Code Splitting для оптимизации.",
+        'Этот проект — эталон профессионального проектирования. Ключевая "фишка" — это исчерпывающий Plan.md на 1000+ строк, который служит "библией" проекта. Он детально описывает 13-этапный план разработки (на 45-65 дней), 3-частную архитектуру (Landing, Auth, Platform) и полную дизайн-систему: от цветов и адаптивной типографики (шрифты TT Travels Next / Open Sans) до брейкпоинтов (1240/576/360px). Стек — Vue 3 + TypeScript + Composition API + Pinia + Vue Router. Для UI выбран Tailwind CSS, что позволяет быстро реализовывать кастомный дизайн. На данный момент реализована "HomePage" (10 секций), которая точно следует плану: использует BaseButton из components/common, корректно применяет шрифты (font-tt-travels) и классы Tailwind.',
       output:
-        "Полнофункциональный MVP с балансом, отправкой/получением, UPA-анализом, геймификацией и DeFi-интеграцией. Безопасное хранение ключей, адаптивный UI.",
+        "Полностью функциональная домашняя страница с 10 секциями, следующая всем архитектурным принципам и дизайн-системе, описанной в плане.",
     },
     codeHighlight: {
-      title: "Custom Hook: useWallet (безопасное управление кошельком)",
-      code: "// src/hooks/useWallet.ts\nimport { create } from 'zustand';\nimport { Wallet } from 'ethers';\nimport { secureStorage } from '@/lib/security/secureStorage';\n\ninterface WalletStore {\n  address: string | null;\n  isLocked: boolean;\n  createWallet: (password: string) => Promise<void>;\n  unlockWallet: (password: string) => Promise<void>;\n  lockWallet: () => void;\n}\n\nexport const useWallet = create<WalletStore>((set) => ({\n  address: null,\n  isLocked: true,\n  \n  createWallet: async (password) => {\n    const wallet = Wallet.createRandom();\n    await secureStorage.setItem(\n      'encrypted_wallet',\n      await wallet.encrypt(password)\n    );\n    set({ address: wallet.address, isLocked: false });\n  },\n  \n  unlockWallet: async (password) => {\n    const encrypted = await secureStorage.getItem('encrypted_wallet');\n    const wallet = await Wallet.fromEncryptedJson(encrypted, password);\n    set({ address: wallet.address, isLocked: false });\n  },\n  \n  lockWallet: () => set({ isLocked: true }),\n}));",
+      title: "Professional Project Planning & Architecture",
+      code: "// Example of professional project architecture\n// src/components/common/BaseButton.vue\n<template>\n  <button \n    class=\"base-button\"\n    :class=\"[sizeClass, variantClass, { 'is-loading': loading }]\"\n    :disabled=\"disabled || loading\"\n  >\n    <span v-if=\"!loading\" class=\"button-text\">\n      <slot />\n    </span>\n    <span v-else class=\"button-spinner\">\n      <!-- Loading spinner -->\n    </span>\n  </button>\n</template>\n\n<script setup lang=\"ts\">\nimport type { PropType } from 'vue';\n\ntype ButtonSize = 'sm' | 'md' | 'lg';\ntype ButtonVariant = 'primary' | 'secondary' | 'outline';\n\ninterface Props {\n  size?: ButtonSize;\n  variant?: ButtonVariant;\n  disabled?: boolean;\n  loading?: boolean;\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  size: 'md',\n  variant: 'primary',\n  disabled: false,\n  loading: false,\n});\n\nconst sizeClass = computed(() => {\n  switch (props.size) {\n    case 'sm': return 'px-3 py-1.5 text-sm';\n    case 'lg': return 'px-6 py-3 text-lg';\n    default: return 'px-4 py-2';\n  }\n});\n\nconst variantClass = computed(() => {\n  switch (props.variant) {\n    case 'primary': return 'bg-blue-600 text-white hover:bg-blue-700';\n    case 'secondary': return 'bg-gray-200 text-gray-800 hover:bg-gray-300';\n    case 'outline': return 'border border-blue-600 text-blue-600 hover:bg-blue-50';\n    default: return '';\n  }\n});\n</script>\n\n<style scoped>\n.base-button {\n  @apply font-medium rounded-lg transition-colors duration-200;\n  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;\n  @apply disabled:opacity-50 disabled:cursor-not-allowed;\n}\n</style>",
     },
     metrics: {
-      label: "Безопасность",
-      value: "100%",
-      description: "Некастодиальность, AES-256 шифрование",
+      label: "Project Plan",
+      value: "1000+",
+      description: "Lines in comprehensive Plan.md",
     },
   },
   {
-    id: 2,
-    title: "EcoChain Token Platform",
-    category: "Web3 / DeFi",
-    tech: "React, TypeScript, Vite, Zustand, i18next",
-    imageDark: "/images/project-ecochain.jpg",
-    imageLight: "/images/project-ecochain-light.jpg",
-    link: "https://1-xecochain.vercel.app/",
+    id: 4,
+    title: "DexFlow",
+    category: "Web3 / SocialFi / DEX",
+    tech: "React, TypeScript, Tailwind CSS, Framer Motion, React Router",
+    imageDark: "/images/Dexdark.jpg",
+    imageLight: "/images/dexwhite.jpg",
+    link: "https://sskutushev.github.io/DexFlow",
     flow: {
       input:
-        "Платформа для создания и управления токенами на X1 EcoChain без знания программирования",
+        "Децентрализованная биржа с социальными функциями для трейдеров. Гибридная платформа, объединяющая торговлю криптовалютой (спот/фьючерсы/опционы) с социальной сетью: лента постов, профили, копи-трейдинг.",
       process:
-        "React + Vite для быстрой разработки. Zustand для state management. i18next для мультиязычности. OpenAPI-документация для API. Mock-сервер для фронтенд-разработки. Storybook для компонентов.",
+        "React + TypeScript для типобезопасности. Tailwind CSS для utility-first стилизации с темизацией через CSS-переменные. Framer Motion для анимаций. React Router для SPA-навигации. Централизованные mock-данные в src/mock/ с единой системой категоризации контента (popular/hot/trending). Разделение компонентов по фичам (exchange/feed/profile/copytrading).",
       output:
-        "Полная платформа с дашбордом, листингом токенов, формой создания, добавлением ликвидности. CI/CD pipeline, тесты, адаптивный дизайн.",
+        "Полнофункциональный прототип с 8 страницами: лендинг, торговый интерфейс с графиками, социальная лента (3 категории постов), профили с портфелем, 15 стратегий копи-трейдинга с метриками. Адаптивный дизайн, система тематизации dark/light, готовая структура для Web3-интеграции.",
     },
     codeHighlight: {
-      title: "API Integration Pattern",
-      code: "// src/lib/api/client.ts\nimport axios from 'axios';\n\nconst apiClient = axios.create({\n  baseURL: import.meta.env.VITE_API_URL,\n  timeout: 10000,\n});\n\nexport const tokenAPI = {\n  getTokens: () => apiClient.get('/tokens'),\n  \n  createToken: (data: CreateTokenDTO) => \n    apiClient.post('/tokens', data),\n  \n  addLiquidity: (id: string, data: LiquidityDTO) =>\n    apiClient.post(`/tokens/${id}/liquidity`, data),\n};\n\n// Usage in component\nconst { data, isLoading } = useQuery({\n  queryKey: ['tokens'],\n  queryFn: tokenAPI.getTokens,\n});",
+      title: "Умная категоризация контента (единый источник для 3 лент)",
+      code: "// src/mock/mock-api.js\nconst mockPosts = [\n  {\n    id: 1, \n    type: 'popular',\n    author: { name: 'CryptoBull', address: '0x123...abc' },\n    timestamp: '2 часа назад',\n    content: 'BTC готовится к новому рывку! 🚀',\n    likes: 125, \n    views: 1200,\n  },\n  {\n    id: 4, \n    type: 'hot',\n    author: { name: 'Blockchain_Dev', address: '0xabc...jkl' },\n    timestamp: '30 минут назад',\n    content: 'Развернул новый смарт-контракт на Polygon.',\n    likes: 50, \n    views: 300,\n  },\n  {\n    id: 6, \n    type: 'trending',\n    author: { name: 'Web3_Innovator', address: '0xfgh...pqr' },\n    timestamp: '10 минут назад',\n    content: 'Обсуждаем будущее DAO.',\n    likes: 20, \n    views: 150,\n  },\n];\n\nexport const getPosts = (type = 'popular') => {\n  if (type === 'all') return mockPosts;\n  return mockPosts.filter(post => post.type === type);\n};\n\n// Использование\nconst FeedPage = () => {\n  const [activeTab, setActiveTab] = useState('popular');\n  const posts = getPosts(activeTab); // Автоматическая фильтрация!\n  \n  return posts.map(post => <PostCard key={post.id} {...post} />);\n};",
     },
     metrics: {
-      label: "Готовность",
-      value: "90%",
-      description: "Полный UI/UX, готов к Web3-интеграции",
+      label: "Функционал",
+      value: "8 страниц",
+      description: "Полнофункциональный прототип",
     },
   },
   {
@@ -113,22 +113,22 @@ export const portfolioProjects: Project[] = [
           --health-retries 5
         ports:
           - 5432:5432
-    
+
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-      
+
       - name: Install dependencies
         run: cd backend && npm ci
-      
+
       - name: Run migrations
         run: cd backend && npm run prisma:migrate
         env:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/airbro_test
-      
+
       - name: Run tests
         run: cd backend && npm test -- --run --coverage
         env:
@@ -139,32 +139,6 @@ export const portfolioProjects: Project[] = [
       label: "Готовность",
       value: "Production-Ready",
       description: "CI/CD, Tests, Docs",
-    },
-  },
-  {
-    id: 4,
-    title: "DexFlow",
-    category: "Web3 / SocialFi / DEX",
-    tech: "React, TypeScript, Tailwind CSS, Framer Motion, React Router",
-    imageDark: "/images/Dexdark.jpg",
-    imageLight: "/images/dexwhite.jpg",
-    link: "https://sskutushev.github.io/DexFlow",
-    flow: {
-      input:
-        "Децентрализованная биржа с социальными функциями для трейдеров. Гибридная платформа, объединяющая торговлю криптовалютой (спот/фьючерсы/опционы) с социальной сетью: лента постов, профили, копи-трейдинг.",
-      process:
-        "React + TypeScript для типобезопасности. Tailwind CSS для utility-first стилизации с темизацией через CSS-переменные. Framer Motion для анимаций. React Router для SPA-навигации. Централизованные mock-данные в src/mock/ с единой системой категоризации контента (popular/hot/trending). Разделение компонентов по фичам (exchange/feed/profile/copytrading).",
-      output:
-        "Полнофункциональный прототип с 8 страницами: лендинг, торговый интерфейс с графиками, социальная лента (3 категории постов), профили с портфелем, 15 стратегий копи-трейдинга с метриками. Адаптивный дизайн, система тематизации dark/light, готовая структура для Web3-интеграции.",
-    },
-    codeHighlight: {
-      title: "Умная категоризация контента (единый источник для 3 лент)",
-      code: "// src/mock/mock-api.js\nconst mockPosts = [\n  {\n    id: 1, \n    type: 'popular',\n    author: { name: 'CryptoBull', address: '0x123...abc' },\n    timestamp: '2 часа назад',\n    content: 'BTC готовится к новому рывку! 🚀',\n    likes: 125, \n    views: 1200,\n  },\n  {\n    id: 4, \n    type: 'hot',\n    author: { name: 'Blockchain_Dev', address: '0xabc...jkl' },\n    timestamp: '30 минут назад',\n    content: 'Развернул новый смарт-контракт на Polygon.',\n    likes: 50, \n    views: 300,\n  },\n  {\n    id: 6, \n    type: 'trending',\n    author: { name: 'Web3_Innovator', address: '0xfgh...pqr' },\n    timestamp: '10 минут назад',\n    content: 'Обсуждаем будущее DAO.',\n    likes: 20, \n    views: 150,\n  },\n];\n\nexport const getPosts = (type = 'popular') => {\n  if (type === 'all') return mockPosts;\n  return mockPosts.filter(post => post.type === type);\n};\n\n// Использование\nconst FeedPage = () => {\n  const [activeTab, setActiveTab] = useState('popular');\n  const posts = getPosts(activeTab); // Автоматическая фильтрация!\n  \n  return posts.map(post => <PostCard key={post.id} {...post} />);\n};",
-    },
-    metrics: {
-      label: "Функционал",
-      value: "8 страниц",
-      description: "Полнофункциональный прототип",
     },
   },
   {
@@ -246,29 +220,55 @@ export const portfolioProjects: Project[] = [
     },
   },
   {
-    id: 8,
-    title: "TOT",
-    category: "Landing / Platform",
-    tech: "Vue 3, TypeScript, Pinia, Tailwind CSS",
-    imageDark: "/images/project-tot.jpg",
-    imageLight: "/images/project-tot.jpg",
-    link: "https://sskutushev.github.io/TOT-Test/",
+    id: 1,
+    title: "DexSafe Wallet Pro",
+    category: "Web3 / Telegram Mini App",
+    tech: "React, TypeScript, Ethers.js, Zustand, Framer Motion",
+    imageDark: "/images/project-dexsafe.jpg",
+    imageLight: "/images/project-dexsafe.jpg", // Placeholder, to be updated
+    link: "https://presentation-site-landing.vercel.app/",
     flow: {
       input:
-        "Создать эталонный проект с исчерпывающим планом разработки и полной дизайн-системой.",
+        "Некастодиальный кошелек с интеллектуальной маршрутизацией транзакций (UPA Engine) для X1 EcoChain",
       process:
-        'Этот проект — эталон профессионального проектирования. Ключевая "фишка" — это исчерпывающий Plan.md на 1000+ строк, который служит "библией" проекта. Он детально описывает 13-этапный план разработки (на 45-65 дней), 3-частную архитектуру (Landing, Auth, Platform) и полную дизайн-систему: от цветов и адаптивной типографики (шрифты TT Travels Next / Open Sans) до брейкпоинтов (1240/576/360px). Стек — Vue 3 + TypeScript + Composition API + Pinia + Vue Router. Для UI выбран Tailwind CSS, что позволяет быстро реализовывать кастомный дизайн. На данный момент реализована "HomePage" (10 секций), которая точно следует плану: использует BaseButton из components/common, корректно применяет шрифты (font-tt-travels) и классы Tailwind.',
+        "React + TypeScript для типобезопасности. Ethers.js для Web3-интеграции. Zustand для управления состоянием. Шифрование приватных ключей через AES-256. Code Splitting для оптимизации.",
       output:
-        "Полностью функциональная домашняя страница с 10 секциями, следующая всем архитектурным принципам и дизайн-системе, описанной в плане.",
+        "Полнофункциональный MVP с балансом, отправкой/получением, UPA-анализом, геймификацией и DeFi-интеграцией. Безопасное хранение ключей, адаптивный UI.",
     },
     codeHighlight: {
-      title: "Professional Project Planning & Architecture",
-      code: "// Example of professional project architecture\n// src/components/common/BaseButton.vue\n<template>\n  <button \n    class=\"base-button\"\n    :class=\"[sizeClass, variantClass, { 'is-loading': loading }]\"\n    :disabled=\"disabled || loading\"\n  >\n    <span v-if=\"!loading\" class=\"button-text\">\n      <slot />\n    </span>\n    <span v-else class=\"button-spinner\">\n      <!-- Loading spinner -->\n    </span>\n  </button>\n</template>\n\n<script setup lang=\"ts\">\nimport type { PropType } from 'vue';\n\ntype ButtonSize = 'sm' | 'md' | 'lg';\ntype ButtonVariant = 'primary' | 'secondary' | 'outline';\n\ninterface Props {\n  size?: ButtonSize;\n  variant?: ButtonVariant;\n  disabled?: boolean;\n  loading?: boolean;\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  size: 'md',\n  variant: 'primary',\n  disabled: false,\n  loading: false,\n});\n\nconst sizeClass = computed(() => {\n  switch (props.size) {\n    case 'sm': return 'px-3 py-1.5 text-sm';\n    case 'lg': return 'px-6 py-3 text-lg';\n    default: return 'px-4 py-2';\n  }\n});\n\nconst variantClass = computed(() => {\n  switch (props.variant) {\n    case 'primary': return 'bg-blue-600 text-white hover:bg-blue-700';\n    case 'secondary': return 'bg-gray-200 text-gray-800 hover:bg-gray-300';\n    case 'outline': return 'border border-blue-600 text-blue-600 hover:bg-blue-50';\n    default: return '';\n  }\n});\n</script>\n\n<style scoped>\n.base-button {\n  @apply font-medium rounded-lg transition-colors duration-200;\n  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;\n  @apply disabled:opacity-50 disabled:cursor-not-allowed;\n}\n</style>",
+      title: "Custom Hook: useWallet (безопасное управление кошельком)",
+      code: "// src/hooks/useWallet.ts\nimport { create } from 'zustand';\nimport { Wallet } from 'ethers';\nimport { secureStorage } from '@/lib/security/secureStorage';\n\ninterface WalletStore {\n  address: string | null;\n  isLocked: boolean;\n  createWallet: (password: string) => Promise<void>;\n  unlockWallet: (password: string) => Promise<void>;\n  lockWallet: () => void;\n}\n\nexport const useWallet = create<WalletStore>((set) => ({\n  address: null,\n  isLocked: true,\n  \n  createWallet: async (password) => {\n    const wallet = Wallet.createRandom();\n    await secureStorage.setItem(\n      'encrypted_wallet',\n      await wallet.encrypt(password)\n    );\n    set({ address: wallet.address, isLocked: false });\n  },\n  \n  unlockWallet: async (password) => {\n    const encrypted = await secureStorage.getItem('encrypted_wallet');\n    const wallet = await Wallet.fromEncryptedJson(encrypted, password);\n    set({ address: wallet.address, isLocked: false });\n  },\n  \n  lockWallet: () => set({ isLocked: true }),\n}));",
     },
     metrics: {
-      label: "Project Plan",
-      value: "1000+",
-      description: "Lines in comprehensive Plan.md",
+      label: "Безопасность",
+      value: "100%",
+      description: "Некастодиальность, AES-256 шифрование",
+    },
+  },
+  {
+    id: 2,
+    title: "EcoChain Token Platform",
+    category: "Web3 / DeFi",
+    tech: "React, TypeScript, Vite, Zustand, i18next",
+    imageDark: "/images/project-ecochain.jpg",
+    imageLight: "/images/project-ecochain-light.jpg",
+    link: "https://1-xecochain.vercel.app/",
+    flow: {
+      input:
+        "Платформа для создания и управления токенами на X1 EcoChain без знания программирования",
+      process:
+        "React + Vite для быстрой разработки. Zustand для state management. i18next для мультиязычности. OpenAPI-документация для API. Mock-сервер для фронтенд-разработки. Storybook для компонентов.",
+      output:
+        "Полная платформа с дашбордом, листингом токенов, формой создания, добавлением ликвидности. CI/CD pipeline, тесты, адаптивный дизайн.",
+    },
+    codeHighlight: {
+      title: "API Integration Pattern",
+      code: "// src/lib/api/client.ts\nimport axios from 'axios';\n\nconst apiClient = axios.create({\n  baseURL: import.meta.env.VITE_API_URL,\n  timeout: 10000,\n});\n\nexport const tokenAPI = {\n  getTokens: () => apiClient.get('/tokens'),\n  \n  createToken: (data: CreateTokenDTO) => \n    apiClient.post('/tokens', data),\n  \n  addLiquidity: (id: string, data: LiquidityDTO) =>\n    apiClient.post(`/tokens/${id}/liquidity`, data),\n};\n\n// Usage in component\nconst { data, isLoading } = useQuery({\n  queryKey: ['tokens'],\n  queryFn: tokenAPI.getTokens,\n});",
+    },
+    metrics: {
+      label: "Готовность",
+      value: "90%",
+      description: "Полный UI/UX, готов к Web3-интеграции",
     },
   },
 ];
