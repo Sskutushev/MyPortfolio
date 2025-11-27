@@ -2,8 +2,10 @@
 import { motion, HTMLMotionProps } from "framer-motion";
 import { ReactNode } from "react";
 
-interface ButtonProps
-  extends Omit<HTMLMotionProps<"button">, "onAnimationStart"> {
+interface ButtonProps extends Omit<
+  HTMLMotionProps<"button">,
+  "onAnimationStart"
+> {
   variant?: "primary" | "secondary" | "ghost";
   children: ReactNode;
 }
