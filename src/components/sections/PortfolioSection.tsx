@@ -33,7 +33,10 @@ export const PortfolioSection = () => {
   );
 
   // Определяем, какие проекты отображать в зависимости от выбранной вкладки
-  const projects = activeTab === "projects" ? portfolioProjects : uiComponents;
+  const projects =
+    activeTab === "projects"
+      ? portfolioProjects.filter((project) => ![1, 2].includes(project.id))
+      : uiComponents;
   const title =
     activeTab === "projects"
       ? t("portfolio.title", "Code manifest: избранные решения")
