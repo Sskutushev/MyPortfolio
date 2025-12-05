@@ -1,7 +1,7 @@
 import { useState, KeyboardEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Code, ArrowRight, Package, Palette } from "lucide-react";
 import { OptimizedVideo } from "@/components/common/OptimizedVideo";
 import { ProjectModal } from "@/components/common/ProjectModal";
@@ -16,26 +16,32 @@ import { ymGoal } from "@/lib/metrics";
 const PROJECT_TRANSLATION_MAP: Record<number, string> = {
   1: "dexsafe", // DexSafe Wallet Pro
   2: "ecochain", // EcoChain Token Platform
-  3: "airbro", // AIRBRO Business
+  3: "airbro", // AIBRO Business
   4: "dexflow", // DexFlow
   5: "portfolio", // Reactive Velocity Portfolio
   6: "landingspace", // Landing Space
   7: "vangogh", // Van Gogh Link
   8: "tot", // TOT
+  9: "lumi", // Lumi
+  10: "course", // Course Catalog
 };
 
 export const PortfolioSection = () => {
   const { t } = useTranslation();
   const { theme } = useTheme();
+  const location = useLocation();
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState<"projects" | "components">(
     "projects",
   );
 
-  // Определяем, какие проекты отображать в зависимости от выбранной вкладки
+  // На главной странице показываем только Lumi, DexFlow и AIBRO (id=9, 4, 3)
+  // На странице портфолио показываем все проекты (кроме 1 и 2)
   const projects =
     activeTab === "projects"
-      ? portfolioProjects.filter((project) => ![1, 2].includes(project.id))
+      ? location.pathname === "/"
+        ? portfolioProjects.filter((project) => [9, 4, 3].includes(project.id))
+        : portfolioProjects.filter((project) => ![1, 2].includes(project.id))
       : uiComponents;
   const title =
     activeTab === "projects"

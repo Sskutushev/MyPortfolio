@@ -28,6 +28,58 @@ export interface Project {
 // Portfolio projects data
 export const portfolioProjects: Project[] = [
   {
+    id: 10,
+    title: "Courses Catalog: Production-Ready Frontend",
+    category: "Test Assignment / Catalog",
+    tech: "Vanilla JS / ES6, BEM / SCSS / Fluid Grid, WCAG 2.1 AA, Jest Coverage (>70%), GitHub Actions, Docker / Nginx",
+    imageDark: "/images/Course.jpg",
+    imageLight: "/images/Course.jpg",
+    link: "https://test-kozyrev.vercel.app/",
+    flow: {
+      input:
+        'Мне было дано стандартное ТЗ: сверстать и "оживить" каталог курсов (поиск, фильтры, пагинация) на чистом стеке HTML/SCSS/Vanilla JS. Моя цель была превратить его из тестового задания в архитектурно надежный и готовый к продакшену проект.',
+      process:
+        "Frontend Architecture: Реализовал всю логику в виде чистого ES6-класса CourseCatalog с четким разделением ответственности (BEM-методология для стилей, cacheDOM, render, handleEvent для логики). Это обеспечивает чистый, тестируемый код.\n\nПроизводительность и UI: Добился Sub-50KB размера ассетов. Интегрировал Live Search с Debounce (300ms) и пагинацию с плавным появлением (CSS-каскадная анимация) для оптимального UX.\n\nДоступность (A11y): Полное соответствие WCAG 2.1 Level AA (ARIA, фокус-менеджмент, семантический HTML), что является критическим требованием для современных систем.\n\nТестирование: Настроил Jest с покрытием >70% (Unit, E2E), гарантируя надежность всей бизнес-логики (фильтрация, поиск, пагинация).\n\nDevOps & Deployment: Внедрил GitHub Actions CI/CD для автоматического запуска линтеров/тестов и сборки. Проект контейнеризирован в Docker с Nginx для безопасного и оптимизированного развертывания.",
+      output:
+        "Я создал Production-Ready каталог с идеальным Lighthouse Score, надежной Vanilla JS архитектурой и полной автоматизацией. Этот проект демонстрирует, что я могу самостоятельно взять на себя ответственность за полный цикл разработки: от pixel-perfect верстки и архитектуры до тестирования, оптимизации и развертывания.",
+    },
+    codeHighlight: {
+      title: "Чистая Архитектура (Class-Based Vanilla JS)",
+      code: "// script.js\n/**\n * Класс CourseCatalog: инкапсулирует всю логику приложения,\n * имитируя компонентный подход без использования фреймворков.\n */\nclass CourseCatalog {\n    // Начальное состояние\n    constructor() {\n        this.courses = coursesData;\n        this.filteredCourses = [...this.courses];\n        this.itemsToShow = 9;\n        this.searchQuery = '';\n        this.activeCategory = 'all';\n        this.debounceTimeout = null;\n\n        this.init(); // Запуск инициализации\n    }\n\n    /**\n     * Кэширование DOM-элементов:\n     * Запрос к DOM происходит только один раз при инициализации.\n     * Это повышает производительность и чистоту кода.\n     */\n    cacheDOM() {\n        this.coursesGrid = document.getElementById('coursesGrid');\n        this.loadMoreButton = document.getElementById('loadMoreButton');\n        this.tabButtons = document.querySelectorAll('.tabs__item[data-category]');\n        this.searchInput = document.getElementById('searchInput');\n        this.courseCountElement = document.getElementById('courseCount');\n    }\n\n    /**\n     * Настройка обработчиков событий:\n     * Отдельный метод для привязки всех событий.\n     * Включает дебаунс для поискового ввода.\n     */\n    bindEvents() {\n        // Debounce для поискового ввода\n        this.searchInput.addEventListener('input', (e) => {\n            clearTimeout(this.debounceTimeout);\n            this.debounceTimeout = setTimeout(() => {\n                this.handleSearch(this.sanitizeInput(e.target.value));\n            }, 300); // 300ms Debounce\n        });\n\n        // Клик по вкладкам\n        this.tabButtons.forEach(button => {\n            button.addEventListener('click', () => {\n                this.handleFilter(button.dataset.category);\n            });\n        });\n\n        // Кнопка \"Загрузить ещё\"\n        this.loadMoreButton.addEventListener('click', this.handleLoadMore.bind(this));\n    }\n\n    /**\n     * Основной метод для применения фильтрации и поиска.\n     */\n    filterCourses() {\n        let result = this.courses.filter(course => {\n            // 1. Фильтрация по категории\n            const categoryMatch = this.activeCategory === 'all' || course.category === this.activeCategory;\n\n            // 2. Поиск по названию\n            const searchMatch = course.title.toLowerCase().includes(this.searchQuery.toLowerCase());\n\n            return categoryMatch && searchMatch;\n        });\n\n        this.filteredCourses = result;\n        this.itemsToShow = 9; // Сброс пагинации при каждом изменении фильтра/поиска\n        this.renderCourses();\n    }\n\n    // ... прочие методы (renderCourses, updateCounts, handleLoadMore, sanitizeInput)\n}",
+    },
+    metrics: {
+      label: "Production-Ready",
+      value: "Clean Architecture",
+      description: "Vanilla JS Class, WCAG AA, CI/CD, Docker",
+    },
+  },
+  {
+    id: 9,
+    title: "Lumi — High-Performance Task Manager",
+    category: "PWA / Task Management",
+    tech: "React 18 / TS, TanStack Query, Optimistic UI, PWA / Offline, Supabase RLS",
+    imageDark: "/images/Lumi-black.jpg",
+    imageLight: "/images/Lumi.jpg",
+    link: "https://lumi-orcin.vercel.app/",
+    flow: {
+      input:
+        "Я решил сделать свой, собственный Task Manager (Lumi). Я не хотел компромиссов: он должен быть быстрым, работать оффлайн и быть максимально защищенным (проект сделан мной, от и до).",
+      process:
+        "Архитектура и Стек: Чистый React 18, TypeScript, Vite. Бэкенд и Realtime полностью на Supabase.\n\nСкорость (Performance): Я добился мгновенного отклика (Optimistic UI) и включил PWA с умным кэшированием (NetworkFirst для API).\n\nБезопасность (Security): Настроил Row Level Security (RLS) в PostgreSQL, чтобы гарантировать, что каждый пользователь видит только свои данные. Вся входящая data строго валидируется на клиенте через Zod.\n\nНадежность: Все ошибки отслеживаются в реальном времени через Sentry. Конфигурация Vercel включает необходимые Security Headers (X-XSS-Protection, X-Frame-Options).\n\nDevOps: Внедрил Husky и Commitlint для принудительного соблюдения конвенции коммитов.",
+      output:
+        "Я создал полноценное PWA-приложение, которое работает как нативное. Это высокопроизводительный продукт с защищенным API-слоем и возможностью оффлайн-работы, полностью спроектированный и реализованный мною в одиночку.",
+    },
+    codeHighlight: {
+      title: "Optimistic Update с Rollback",
+      code: "// src/hooks/mutations/useCreateTask.ts\n// Обеспечивает мгновенное обновление UI до получения ответа от сервера (Optimistic UI)\n// и автоматический откат (Rollback) при ошибке, чтобы UI не врал пользователю.\n\nimport { useMutation, useQueryClient } from '@tanstack/react-query';\nimport { tasksAPI } from '../../lib/api/tasks.api';\nimport { Task, TaskInput } from '../../types/api.types';\n\nexport const useCreateTask = () => {\n  const queryClient = useQueryClient();\n  const tasksKey = ['tasks']; // Ключ кэша для списка задач\n\n  return useMutation({\n    mutationFn: (newTask: TaskInput) => tasksAPI.create(newTask),\n\n    // 1. onMutate: Срабатывает перед вызовом API (начало Optimistic Update)\n    onMutate: async (newTask) => {\n      await queryClient.cancelQueries({ queryKey: tasksKey }); // Блокируем фоновый рефетчинг\n\n      const previousTasks = queryClient.getQueryData(tasksKey); // Сохраняем \"снэпшот\" данных\n\n      // Оптимистическое обновление: добавляем временную задачу в UI\n      const optimisticTask: Task = {\n        ...newTask,\n        id: 'optimistic-id-' + Date.now(), // Генерируем временный ID\n        is_completed: false,\n        created_at: new Date().toISOString(),\n      };\n\n      queryClient.setQueryData<Task[]>(tasksKey, (oldTasks = []) => [\n        optimisticTask,\n        ...oldTasks,\n      ]);\n\n      return { previousTasks }; // Передаем снэпшот для отката\n    },\n\n    // 2. onError: Срабатывает при ошибке API\n    onError: (err, newTask, context) => {\n      // Откат (Rollback): возвращаем предыдущие данные в кэш\n      if (context?.previousTasks) {\n        queryClient.setQueryData(tasksKey, context.previousTasks);\n      }\n      // Логирование и оповещение Sentry\n      console.error('Task creation failed, rolled back:', err);\n    },\n\n    // 3. onSettled: Вызывается всегда (успех или ошибка)\n    onSettled: () => {\n      // Инициируем фоновый рефетчинг для синхронизации с Supabase\n      queryClient.invalidateQueries({ queryKey: tasksKey });\n    },\n  });\n};",
+    },
+    metrics: {
+      label: "Performance",
+      value: "Optimistic UI",
+      description: "Мгновенный отклик с Rollback при ошибках",
+    },
+  },
+  {
     id: 8,
     title: "TOT",
     category: "Landing / Platform",
@@ -81,7 +133,7 @@ export const portfolioProjects: Project[] = [
   },
   {
     id: 3,
-    title: "AIRBRO Business",
+    title: "AIBRO Business",
     category: "Full-Stack SaaS / B2B Platform",
     tech: "React 19, TS, React Query, Prisma, PostgreSQL, Express, Playwright, Vercel, Railway",
     imageDark: "/images/project-airbro-dark.jpg",

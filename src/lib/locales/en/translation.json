@@ -88,8 +88,8 @@
     "output": "OUTPUT → Result",
     "processTab": "The Flow",
     "codeTab": "Code Highlight",
-    "projectsTab": "Commercial Projects",
-    "componentsTab": "UI Components and Interactive Elements",
+    "projectsTab": "Commercial/Pet Projects",
+    "componentsTab": "UI components and interactive elements",
     "allProjects": "View All Projects",
     "allComponents": "View All Components"
   },
@@ -229,6 +229,26 @@
     }
   },
   "projects": {
+    "course": {
+      "flowInput": "I was given a standard specification: to create and make a course catalog (search, filters, pagination) using a pure HTML/SCSS/Vanilla JS stack. My goal was to transform it from a test task into an architecturally sound and production-ready project.",
+      "flowProcess": "Frontend Architecture: Implemented all logic as a pure ES6 CourseCatalog class with clear separation of responsibilities (BEM methodology for styles, cacheDOM, render, handleEvent for logic). This ensures clean, testable code.\n\nPerformance and UI: Achieved Sub-50KB asset size. Integrated Live Search with Debounce (300ms) and pagination with smooth appearance (CSS-cascade animation) for optimal UX.\n\nAccessibility (A11y): Full compliance with WCAG 2.1 Level AA (ARIA, focus management, semantic HTML), which is a critical requirement for modern systems.\n\nTesting: Configured Jest with >70% coverage (Unit, E2E), ensuring reliability of all business logic (filtering, search, pagination).\n\nDevOps & Deployment: Implemented GitHub Actions CI/CD for automatic execution of linters/tests and build. Project is containerized in Docker with Nginx for secure and optimized deployment.",
+      "flowOutput": "I created a Production-Ready catalog with an ideal Lighthouse Score, a reliable Vanilla JS architecture, and full automation. This project demonstrates that I can independently take responsibility for the entire development cycle: from pixel-perfect layout and architecture to testing, optimization, and deployment.",
+      "codeTitle": "Clean Architecture (Class-Based Vanilla JS)",
+      "metrics": {
+        "label": "Production-Ready",
+        "description": "Vanilla JS Class, WCAG AA, CI/CD, Docker"
+      }
+    },
+    "lumi": {
+      "flowInput": "I decided to create my own Task Manager (Lumi). I didn't want any compromises: it should be fast, work offline, and be maximally secure (project made by me, from start to finish).",
+      "flowProcess": "Architecture and Stack: Pure React 18, TypeScript, Vite. Backend and Realtime fully on Supabase.\n\nPerformance: I achieved instant response (Optimistic UI) and implemented PWA with smart caching (NetworkFirst for API).\n\nSecurity: Configured Row Level Security (RLS) in PostgreSQL to ensure each user sees only their data. All incoming data is strictly validated on the client through Zod.\n\nReliability: All errors are tracked in real time via Sentry. Vercel configuration includes necessary Security Headers (X-XSS-Protection, X-Frame-Options).\n\nDevOps: Implemented Husky and Commitlint for enforced commit convention.",
+      "flowOutput": "I created a full-featured PWA application that works like native. This is a high-performance product with a secure API layer and offline capability, completely designed and implemented by me alone.",
+      "codeTitle": "Optimistic Update with Rollback",
+      "metrics": {
+        "label": "Performance",
+        "description": "Instant response with Rollback on errors"
+      }
+    },
     "dexsafe": {
       "flowInput": "Non-custodial wallet with intelligent transaction routing (UPA Engine) for X1 EcoChain",
       "flowProcess": "React + TypeScript for type safety. Ethers.js for Web3 integration. Zustand for state management. Private key encryption via AES-256. Code Splitting for optimization.",
