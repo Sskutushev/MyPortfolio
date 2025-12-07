@@ -20,6 +20,7 @@ const PROJECT_TRANSLATION_MAP: Record<number, string> = {
   6: "landingspace", // Landing Space
   7: "vangogh", // Van Gogh Link
   8: "tot", // TOT
+  11: "yokai", // Yokai Threat Matrix
 };
 
 export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {

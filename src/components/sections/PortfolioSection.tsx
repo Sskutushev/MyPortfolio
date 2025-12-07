@@ -24,6 +24,7 @@ const PROJECT_TRANSLATION_MAP: Record<number, string> = {
   8: "tot", // TOT
   9: "lumi", // Lumi
   10: "course", // Course Catalog
+  11: "yokai", // Yokai Threat Matrix
 };
 
 export const PortfolioSection = () => {
@@ -180,9 +181,10 @@ export const PortfolioSection = () => {
                         <div className="text-xs text-c-text-tertiary">
                           {(() => {
                             // Check if translation exists for this project
-                            const projectIdKey = [
-                              1, 2, 3, 4, 5, 6, 7, 8,
-                            ].includes(project.id)
+                            const projectIds = [
+                              1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
+                            ];
+                            const projectIdKey = projectIds.includes(project.id)
                               ? PROJECT_TRANSLATION_MAP[project.id]
                               : null;
                             if (

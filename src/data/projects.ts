@@ -28,6 +28,32 @@ export interface Project {
 // Portfolio projects data
 export const portfolioProjects: Project[] = [
   {
+    id: 11,
+    title: "Yokai Threat Matrix — Real-Time Monitoring SPA",
+    category: "PWA / Real-Time Dashboard",
+    tech: "Next.js 14 App Router, Feature-Sliced Design, TanStack Query, SSE, Optimistic UI, Zod Validation, Docker",
+    imageDark: "/images/yokai.jpg",
+    imageLight: "/images/yokai.jpg",
+    link: "https://y-kai-threat-matrix-ytm.vercel.app/monitoring",
+    flow: {
+      input:
+        'Разработать SPA-дашборд для мониторинга духовных аномалий (ёкаев) в реальном времени. Операторы должны видеть всплески энергии и отправлять "отряды зачистки". Требования: строгий Feature-Sliced Design, SSE для live updates, оптимистичные обновления с 30% вероятностью ошибки, Docker deployment.',
+      process:
+        "Архитектура: Строгий Feature-Sliced Design с изолированными layers (app/pages/widgets/features/entities/shared). Каждый slice независим — новые фичи добавляются без рефакторинга.\n\nReal-Time: Server-Sent Events вместо WebSocket для однонаправленного потока. Каждые 5 секунд случайный yokai меняет threat level. Интеграция с React Query cache — UI обновляется мгновенно без re-fetching.\n\nState Management: TanStack Query с Optimistic Updates. UI меняется до ответа сервера, при ошибке (30% вероятность) автоматический rollback. Паттерн из Trello/Linear.\n\nType Safety: TypeScript strict mode + Zod для runtime-валидации всех API входов/выходов. Schemas документируют контракты и защищают от невалидных данных.\n\nTesting & CI/CD: Test Pyramid (Jest + Playwright), 67% coverage. GitHub Actions pipeline: lint → test → build → e2e. Husky hooks для commitlint и lint-staged.\n\nDevOps: Docker Compose для one-command deployment. Nginx для production-ready serving.",
+      output:
+        "Production-ready дашборд с real-time SSE, надежной архитектурой FSD, автоматизированным тестированием и полным CI/CD циклом. Проект демонстрирует понимание enterprise-паттернов: от optimistic updates до deployment automation. Сверх нормы: Полное тестовое покрытие (unit/integration/e2e), CI/CD pipeline с quality gates, Архитектурная документация (docs/), Git hooks для code quality.",
+    },
+    codeHighlight: {
+      title: "Optimistic Updates с Rollback",
+      code: "// features/capture-anomaly/model/use-capture.ts\nuseMutation({\n  // 🎯 UI обновляется мгновенно\n  onMutate: async (anomalyId) => {\n    await queryClient.cancelQueries(['anomalies']);\n    const previous = queryClient.getQueryData(['anomalies']);\n\n    queryClient.setQueryData(['anomalies'], (old) =>\n      old?.map(a => a.id === anomalyId\n        ? {...a, status: 'captured'}\n        : a\n      )\n    );\n\n    return { previous };\n  },\n\n  // 🔄 Автоматический откат при ошибке (30%)\n  onError: (_err, _id, context) => {\n    queryClient.setQueryData(['anomalies'], context?.previous);\n    toast.error('Yokai escaped!');\n  }\n});\n// Паттерн из Trello/Linear: Мгновенный feedback пользователю, автоматический rollback без дополнительной логики.",
+    },
+    metrics: {
+      label: "Performance",
+      value: "Real-Time SSE",
+      description: "Server-Sent Events, Optimistic UI",
+    },
+  },
+  {
     id: 10,
     title: "Courses Catalog: Production-Ready Frontend",
     category: "Test Assignment / Catalog",

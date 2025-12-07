@@ -328,6 +328,16 @@
         "label": "Project Plan",
         "description": "Lines in comprehensive Plan.md"
       }
+    },
+    "yokai": {
+      "flowInput": "Develop a SPA dashboard for real-time monitoring of spiritual anomalies (yokai). Operators should see energy spikes and send \"cleaning squads\". Requirements: strict Feature-Sliced Design, SSE for live updates, optimistic updates with 30% error probability, Docker deployment.",
+      "flowProcess": "Architecture: Strict Feature-Sliced Design with isolated layers (app/pages/widgets/features/entities/shared). Each slice is independent — new features can be added without refactoring.\n\nReal-Time: Server-Sent Events instead of WebSocket for one-way stream. Every 5 seconds a random yokai changes threat level. Integration with React Query cache — UI updates instantly without re-fetching.\n\nState Management: TanStack Query with Optimistic Updates. UI changes before server response, automatic rollback on error (30% probability). Pattern from Trello/Linear.\n\nType Safety: TypeScript strict mode + Zod for runtime validation of all API inputs/outputs. Schemas document contracts and protect against invalid data.\n\nTesting & CI/CD: Test Pyramid (Jest + Playwright), 67% coverage. GitHub Actions pipeline: lint → test → build → e2e. Husky hooks for commitlint and lint-staged.\n\nDevOps: Docker Compose for one-command deployment. Nginx for production-ready serving.",
+      "flowOutput": "Production-ready dashboard with real-time SSE, reliable FSD architecture, automated testing and complete CI/CD cycle. The project demonstrates understanding of enterprise patterns: from optimistic updates to deployment automation. Above and beyond: Full test coverage (unit/integration/e2e), CI/CD pipeline with quality gates, Architecture documentation (docs/), Git hooks for code quality.",
+      "codeTitle": "Optimistic Updates with Rollback",
+      "metrics": {
+        "label": "Performance",
+        "description": "Real-Time SSE, Optimistic UI"
+      }
     }
   }
 }

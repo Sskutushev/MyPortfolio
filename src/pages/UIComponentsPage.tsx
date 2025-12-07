@@ -20,6 +20,7 @@ const PROJECT_TRANSLATION_MAP: Record<number, string> = {
   6: "landingspace", // Landing Space
   7: "vangogh", // Van Gogh Link
   8: "tot", // TOT
+  11: "yokai", // Yokai Threat Matrix
 };
 
 export const UIComponentsPage = () => {
@@ -160,7 +161,7 @@ export const UIComponentsPage = () => {
                         <div className="text-xs text-c-text-tertiary">
                           {(() => {
                             // Check if translation exists for this project
-                            const projectIds = [1, 2, 3, 4, 5, 6, 7, 8];
+                            const projectIds = [1, 2, 3, 4, 5, 6, 7, 8, 11];
                             const projectIdKey = projectIds.includes(project.id)
                               ? PROJECT_TRANSLATION_MAP[project.id]
                               : null;
