@@ -36,13 +36,13 @@ export const PortfolioSection = () => {
     "projects",
   );
 
-  // На главной странице показываем только Lumi, DexFlow и AIBRO (id=9, 4, 3)
-  // На странице портфолио показываем все проекты (кроме 1 и 2)
+  // На главной странице показываем только Lumi, EcoChain и AIBRO (id=9, 2, 3)
+  // На странице портфолио показываем все проекты
   const projects =
     activeTab === "projects"
       ? location.pathname === "/"
-        ? portfolioProjects.filter((project) => [9, 4, 3].includes(project.id))
-        : portfolioProjects.filter((project) => ![1, 2].includes(project.id))
+        ? portfolioProjects.filter((project) => [9, 2, 3].includes(project.id))
+        : portfolioProjects
       : uiComponents;
   const title =
     activeTab === "projects"
