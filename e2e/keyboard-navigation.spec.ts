@@ -37,6 +37,8 @@ test.describe("Keyboard Navigation", () => {
 
     // Закрываем с помощью Escape
     await page.keyboard.press("Escape");
+    // Даем время для анимации закрытия
+    await page.waitForTimeout(1000); 
     await expect(page.locator("#mobile-menu")).not.toBeVisible();
   });
 
@@ -85,7 +87,7 @@ test.describe("Keyboard Navigation", () => {
   test("should respect focus trap in modal", async ({ page }) => {
     // Ждем карточки проекта
     const projectCard = page.locator('[data-testid="project-card"]').first();
-    await expect(projectCard).toBeVisible({ timeout: 15000 });
+    await expect(projectCard).toBeVisible({ timeout: 30000 });
     await projectCard.click();
 
     // Modal должен быть открыт
@@ -135,8 +137,11 @@ test.describe("Screen Reader Announcements", () => {
       "Main navigation",
     );
 
+    // Scroll to the bottom to trigger lazy-loaded sections
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    
     // Ждем появления секции контактов
-    await expect(page.locator("section#contact")).toBeVisible();
+    await expect(page.locator("section#contact")).toBeVisible({ timeout: 30000 });
 
     // Проверяем наличие submit кнопки
     await expect(

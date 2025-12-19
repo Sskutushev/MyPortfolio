@@ -45,33 +45,16 @@ export const LazyImage = ({
     return () => observer.disconnect();
   }, []);
 
-  // Расчет соотношения сторон для предотвращения layout shift
-  const [aspectWidth, aspectHeight] = aspectRatio.split("/").map(Number);
-  const calculatedAspectRatio = aspectHeight
-    ? aspectWidth / aspectHeight
-    : 16 / 9;
+  // No need for aspect ratio calculation here, as the parent will control it.
 
   return (
     <div
-      className="relative overflow-hidden"
-      style={{
-        width: width ? `${width}px` : "100%",
-        height: height ? `${height}px` : undefined,
-        // Используем padding-top trick для предотвращения layout shifts
-        ...(height
-          ? {}
-          : {
-              position: "relative",
-              paddingTop: `${100 / calculatedAspectRatio}%`,
-            }),
-      }}
+      className="relative overflow-hidden w-full h-full"
     >
       <motion.img
         ref={imgRef}
         src={isInView ? src : placeholder}
         alt={alt}
-        width={width}
-        height={height}
         className={className}
         onLoad={() => setIsLoaded(true)}
         initial={{ opacity: 0 }}
@@ -79,14 +62,12 @@ export const LazyImage = ({
         transition={{ duration: 0.3 }}
         loading="lazy"
         style={{
-          display: "block",
-          position: "absolute",
+          position: 'absolute',
           top: 0,
           left: 0,
-          width: "100%",
-          height: height ? "100%" : "100%",
-          objectFit: "cover",
-          // Убираем анимацию scale для уменьшения CLS
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
         }}
       />
     </div>

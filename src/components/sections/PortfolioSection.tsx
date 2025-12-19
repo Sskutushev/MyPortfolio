@@ -52,7 +52,7 @@ export const PortfolioSection = () => {
   return (
     <section
       id="portfolio"
-      className="py-24 bg-c-bg-secondary relative overflow-hidden"
+      className="section-with-matrix py-24 bg-c-bg-secondary relative overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-accent opacity-10 blur-3xl" />
 
@@ -132,14 +132,12 @@ export const PortfolioSection = () => {
                 }}
               >
                 <div className="relative h-full rounded-2xl bg-c-bg-primary border border-c-border overflow-hidden transition-all hover:border-c-accent-blue hover:shadow-2xl hover:shadow-c-accent-blue/20">
-                  <div className="relative aspect-video sm:aspect-[4/3] md:aspect-video overflow-hidden bg-c-bg-tertiary max-h-48">
+                <div className="relative aspect-video sm:aspect-[4/3] md:aspect-video overflow-hidden bg-c-bg-tertiary">
                     <LazyImage
                       src={imageSrc}
                       alt={project.title}
-                      width={400}
-                      height={225}
                       aspectRatio="16/9"
-                      className="w-full h-full object-cover transition-transform duration-500"
+                      className="transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-c-bg-primary to-transparent opacity-60" />
                     <motion.div

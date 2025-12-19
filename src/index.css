@@ -88,6 +88,31 @@ a:hover {
 @tailwind components;
 @tailwind utilities;
 
+/* ===== MATRIX BACKGROUND SUPPORT ===== */
+.section-with-matrix {
+  position: relative;
+  /* Aggressively remove any background color from Tailwind classes */
+  background: none !important; 
+}
+
+.light .section-with-matrix {
+  /* No special styles needed for light mode if blur is removed */
+}
+
+/* Полупрозрачный overlay для читаемости */
+.section-with-matrix::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--bg-primary);
+  opacity: 0;
+  z-index: -1;
+}
+
+.light .section-with-matrix::before {
+  opacity: 0;
+}
+
 /* ===== ROOT VARIABLES ===== */
 :root {
   /* Dark Theme (Default) */

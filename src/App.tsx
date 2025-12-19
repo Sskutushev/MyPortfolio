@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Header } from "./components/sections/Header";
 import { HeroSection } from "./components/sections/HeroSection";
+import { MatrixBackground } from "./components/effects/MatrixBackground";
 
 // Lazy load all sections except the hero section
 const AboutSection = lazy(() =>
@@ -86,7 +87,9 @@ function App() {
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-c-bg-primary text-c-text-primary">
+    <div className="relative z-1 min-h-screen text-c-text-primary">
+      {/* Matrix background effect */}
+      <MatrixBackground />
       {isMainPage && <Header />}
       <Suspense fallback={null}>
         <Routes>

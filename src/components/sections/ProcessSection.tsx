@@ -9,20 +9,8 @@ export const ProcessSection = () => {
   return (
     <section
       id="process"
-      className="py-24 bg-c-bg-secondary relative overflow-hidden"
+      className="section-with-matrix py-24 bg-c-bg-secondary relative overflow-hidden"
     >
-      {/* Background Grid */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="h-full w-full"
-          style={{
-            backgroundImage:
-              "linear-gradient(var(--border-default) 1px, transparent 1px), linear-gradient(90deg, var(--border-default) 1px, transparent 1px)",
-            backgroundSize: "50px 50px",
-          }}
-        />
-      </div>
-
       <div className="container mx-auto px-4 relative z-10">
         <motion.div {...fadeInUp} className="relative z-10 text-center mb-16">
           <h2 className="pb-2 text-4xl md:text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent">

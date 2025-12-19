@@ -12,17 +12,8 @@ export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative flex items-center overflow-hidden pt-24 md:pt-0 md:min-h-screen"
+      className="section-with-matrix relative flex items-center overflow-hidden pt-24 md:pt-0 md:min-h-screen"
     >
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-c-bg-primary via-c-bg-secondary to-c-bg-primary">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-accent opacity-20 blur-3xl animate-float" />
-        <div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-glow opacity-20 blur-3xl animate-float"
-          style={{ animationDelay: "2s" }}
-        />
-      </div>
-
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text Content */}

@@ -78,13 +78,9 @@ export const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="py-24 bg-c-bg-secondary relative overflow-hidden"
+      className="section-with-matrix py-24 bg-c-bg-secondary relative overflow-hidden"
       aria-labelledby="contact-heading"
     >
-      <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-accent opacity-20 blur-3xl animate-pulse-glow" />
-      </div>
-
       <div className="container mx-auto px-4 relative z-10">
         <motion.div {...fadeInUp} className="relative z-10 text-center mb-16">
           <h2

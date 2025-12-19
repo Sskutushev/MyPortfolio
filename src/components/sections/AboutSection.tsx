@@ -15,7 +15,7 @@ export const AboutSection = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="about" className="py-24 bg-c-bg-secondary">
+    <section id="about" className="section-with-matrix py-24 bg-c-bg-secondary">
       <div className="container mx-auto px-4">
         <motion.div {...fadeInUp} className="relative z-10 text-center mb-16">
           <h2 className="pb-2 text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
