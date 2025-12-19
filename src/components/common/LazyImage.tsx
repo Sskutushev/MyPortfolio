@@ -6,9 +6,6 @@ interface LazyImageProps {
   src: string;
   alt: string;
   className?: string;
-  width?: number;
-  height?: number;
-  aspectRatio?: string; // например "16/9", "4/3", "1/1"
   placeholder?: string;
 }
 
@@ -16,9 +13,6 @@ export const LazyImage = ({
   src,
   alt,
   className = "",
-  width,
-  height,
-  aspectRatio = "16/9", // По умолчанию соотношение сторон 16:9
   placeholder = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"%3E%3Crect fill="%23f3f4f6" width="400" height="300"/%3E%3C/svg%3E',
 }: LazyImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -48,9 +42,7 @@ export const LazyImage = ({
   // No need for aspect ratio calculation here, as the parent will control it.
 
   return (
-    <div
-      className="relative overflow-hidden w-full h-full"
-    >
+    <div className="relative overflow-hidden w-full h-full">
       <motion.img
         ref={imgRef}
         src={isInView ? src : placeholder}
@@ -62,12 +54,12 @@ export const LazyImage = ({
         transition={{ duration: 0.3 }}
         loading="lazy"
         style={{
-          position: 'absolute',
+          position: "absolute",
           top: 0,
           left: 0,
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
         }}
       />
     </div>
