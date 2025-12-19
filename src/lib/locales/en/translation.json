@@ -100,22 +100,23 @@
     "toolsLabel": "Tools:",
     "stacks": {
       "react": {
-        "name": "React",
+        "name": "React (Main)",
         "icon": "/images/react.png",
-        "description": "For dynamic, state-heavy SPAs and full-featured solutions with Next.js. My main ecosystem.",
+        "description": "My main ecosystem for creating complex, high-load SPA and server solutions with Next.js. Designing interfaces with focus on component reuse and clean state management",
         "useCases": [
           "Complex dashboards with real-time data",
           "E-commerce platforms",
           "Web3 applications (wallets, DeFi)",
           "Telegram Mini Apps",
-          "SSR applications (Next.js)"
+          "SSR applications (Next.js)",
+          "Fintech services and payment gateways"
         ],
         "tools": "React 18, Redux Toolkit, Zustand, TanStack Query, Next.js, Framer Motion"
       },
       "vue": {
         "name": "Vue",
         "icon": "/images/Vue.png",
-        "description": "For structured, progressive frameworks and rapid development. Strong in Composition API and Pinia.",
+        "description": "Used for projects where high development speed and clear structure are important. Deeply skilled in Composition API and Pinia for creating flexible and extensible applications",
         "useCases": [
           "Corporate dashboards",
           "CRM and ERP systems",
@@ -127,7 +128,7 @@
       "vanilla": {
         "name": "Vanilla Stack",
         "icon": "/images/vanila.png",
-        "description": "HTML5 + CSS3 + JavaScript. For performance-critical landing pages, Web Components, or projects where lightweight is key to success.",
+        "description": "When every kilobyte matters. Developing lightweight widgets, embeddable modules and high-performance landing pages without framework overhead. Maximum control over DOM and Web APIs",
         "useCases": [
           "High-performance landing pages",
           "Lightweight widgets and embeddable elements",
