@@ -7,26 +7,26 @@
     "contact": "Контакты"
   },
   "hero": {
-    "subtitle": "Frontend Architect. Строю быстрые, компонентно-ориентированные и масштабируемые web-решения на React, Vue и Vanilla JS.",
+    "subtitle": "Строю производительные веб-интерфейсы на React и TypeScript. Объединяю 10-летний опыт в финтех с современным стеком для создания надежных и масштабируемых продуктов.",
     "cta": "Написать мне",
     "resume": "Резюме"
   },
   "about": {
-    "title": "The Architect's Blueprint",
-    "subtitle": "Кто я и что предлагаю",
-    "description": "Я не просто кодер — я Архитектор Решений. Моя работа — превращать дизайн в живой, отзывчивый и производительный продукт. Фокусируюсь на компонентной архитектуре (CDD), чистом управлении состоянием и создании идеального UX. За последний год в frontend-разработке реализовал проекты от лендингов до Web3-кошельков, всегда придерживаясь принципов чистого кода и масштабируемости.",
+    "title": "Обо мне",
+    "subtitle": "Инженерный подход к интерфейсам",
+    "description": "Я фокусируюсь на создании продуктов, которые легко поддерживать и развивать. Мой путь в разработке начался с автоматизации сложных торговых систем в финтехе, что научило меня ответственности за архитектуру и чистоту данных. Сейчас я переношу этот опыт во фронтенд, создавая решения от PWA до Web3-сервисов.",
     "points": {
       "flexibility": {
-        "title": "Гибкость Стека",
-        "description": "React, Vue, Vanilla JS — выбираю правильный инструмент под задачу, а не ограничиваюсь одним фреймворком."
+        "title": "Проверенный стек",
+        "description": "Выбираю инструменты под задачу (React/Vue/Node.js), обеспечивая гибкость и долгосрочную поддержку."
       },
       "performance": {
-        "title": "Скорость и Производительность",
-        "description": "Vite для мгновенной сборки, Code Splitting для оптимизации загрузки, Web Vitals как ориентир качества."
+        "title": "Производительность",
+        "description": "Оптимизирую Web Vitals и использую Vite для быстрой сборки и мгновенного отклика интерфейса"
       },
       "scalability": {
-        "title": "Чистый Код и Масштабируемость",
-        "description": "TypeScript, модульная архитектура, тесты (Vitest), документация и понятные коммиты — залог долгосрочной поддержки."
+        "title": "Культура качества",
+        "description": "Пишу тесты (Vitest, RTL) и внедряю CI/CD, чтобы продукт оставался стабильным при каждом релизе."
       }
     }
   },
@@ -36,25 +36,25 @@
       "title": "Опыт Работы",
       "description": "1 год в frontend-разработке. Реализовал проекты от презентационных лендингов до сложных Web3-приложений (кошельки, DeFi-платформы, токен-генераторы). Работал с e-commerce интеграциями, SPA-приложениями и Telegram Mini Apps."
     },
-    "approachTitle": "Мой опыт и подход к работе",
-    "philosophyTitle": "Моя философия — я практик",
-    "approachDescription1": "За последний год я активно работал на фрилансе и реализовал самые разные проекты: от презентационных лендингов до сложных Web3-приложений (DeFi, крипто-кошельки) и Telegram Mini Apps.",
-    "philosophyDescription1": "Я могу не вспомнить термин из учебника, но я всегда понимаю, как и почему код работает. Я не начну писать код, пока не продумаю архитектуру будущего проекта. Это мой способ сразу заложить надежный фундамент и избежать проблем в будущем.",
-    "philosophyDescription2": "Я (в хорошем смысле) дотошный и педантичный. Я искренне люблю чистый, понятный код, который легко поддерживать. Я не сдаю работу, пока лично не буду уверен на 100%, что всё протестировано и работает как часы.",
-    "philosophyDescription3": "Хотя мой фокус — фронтенд, я понимаю, как устроен бэкенд (работал с Next.js и Node.js), что помогает мне видеть всю картину проекта целиком. Я каждый день продолжаю практиковаться, чтобы делать свою работу быстрее и качественнее.",
+    "approachTitle": "Опыт, основанный на практике",
+    "approachDescription1": "За последние 4 года я прошел путь от разработки алго-ботов на Python до создания сложных интерфейсов на React. Моя философия проста: сначала архитектура, потом код. Я глубоко погружаюсь в логику бэкенда (Node.js/Express) и API, чтобы фронтенд был не просто «красивой картинкой», а полноценной частью системы.",
+    "philosophyTitle": "Мои принципы в разработке",
+    "philosophyDescription1": "Фокус на качестве. Чистота кода — это не эстетика, а экономия.",
+    "philosophyDescription2": "Ответственность за результат. Дотошность в деталях.",
+    "philosophyDescription3": "Технологический кругозор. Инженерный подход.",
     "stack": {
       "title": "Специализация",
       "categories": {
         "react": {
-          "name": "React Экосистема",
-          "items": "React 18+ (Hooks, Context), Redux Toolkit, Zustand, TanStack Query, React Hook Form, Framer Motion"
+          "name": "React-экосистема",
+          "items": "TypeScript, Redux Toolkit, Zustand, React Query, Framer Motion"
         },
         "vue": {
-          "name": "Vue Экосистема",
-          "items": "Vue 3, Composition API, Pinia, Vuex, Vue Router"
+          "name": "Vue-экосистема",
+          "items": "Vue 3, Composition API, Pinia"
         },
         "ssr": {
-          "name": "SSR/SSG (базово)",
+          "name": "SSR/SSG",
           "items": "Next.js (App Router, API Routes), Nuxt.js"
         },
         "styling": {
@@ -67,15 +67,15 @@
         },
         "web3": {
           "name": "Web3 и Blockchain",
-          "items": "Ethers.js, Web3 интеграции, смарт-контракты (базово), кошельки"
+          "items": "Ethers.js, Web3 интеграции, смарт-контракты, кошельки"
         },
         "backend": {
-          "name": "Backend (базово)",
-          "items": "Node.js, Express, REST API, работа с базами данных (SQL), Docker, CI/CD"
+          "name": "Full-stack и DB",
+          "items": "Node.js, Express, работа с облачными БД (PostgreSQL через Supabase/Neon/Railway)"
         },
         "testing": {
-          "name": "Тестирование",
-          "items": "Vitest, React Testing Library, Cypress, Jest"
+          "name": "DevOps и QA",
+          "items": "Docker, CI/CD (GitHub Actions), тестирование (Vitest, RTL)"
         }
       }
     }
@@ -89,7 +89,7 @@
     "processTab": "The Flow",
     "codeTab": "Code Highlight",
     "projectsTab": "Коммерческие/Pet проекты",
-    "componentsTab": "UI-компоненты и интерактивные элементы",
+    "componentsTab": "UI-компоненты",
     "allProjects": "Смотреть все проекты",
     "allComponents": "Смотреть все компоненты"
   },
@@ -143,23 +143,23 @@
     "steps": {
       "0": {
         "number": "01",
-        "title": "Архитектура и Дизайн",
-        "description": "Работаю по макетам Figma/Sketch или предлагаю собственные дизайн-решения. Продумываю компонентную архитектуру, data flow и логику взаимодействий. Определяю оптимальный стек под задачу."
+        "title": "Проектирование",
+        "description": "Анализ требований, выбор стека и проектирование компонентной архитектуры (CDD)."
       },
       "1": {
         "number": "02",
         "title": "Разработка",
-        "description": "Быстрое и чистое кодирование с использованием современных инструментов (Vite, TypeScript). Модульная структура, переиспользуемые компоненты, понятные коммиты. Code Splitting для оптимизации."
+        "description": "Написание чистого кода на TypeScript с модульной структурой и разделением ответственности."
       },
       "2": {
         "number": "03",
-        "title": "AI-Ускорение",
-        "description": "Использую AI-ассистентов для ускорения рутинных задач (boilerplate, тесты, документация) под полным личным контролем. AI — инструмент, но архитектурные решения всегда принимаю сам."
+        "title": "AI-оптимизация",
+        "description": "Ускоряю рутину (документирование, тесты) с помощью AI, чтобы больше времени уделять сложной логике."
       },
       "3": {
         "number": "04",
-        "title": "QA и Деплой",
-        "description": "Полный адаптив (mobile-first), кроссбраузерность, тестирование (Vitest, Cypress). SEO-оптимизация, Web Vitals. Настройка CI/CD, деплой на Vercel/Netlify, документация."
+        "title": "Стабильность",
+        "description": "Обязательное тестирование, проверка адаптивности и настройка CI/CD для бесшовного деплоя."
       }
     },
     "flowTitleIdea": "Идея",
@@ -169,29 +169,29 @@
     "flowTitleRelease": "Релиз"
   },
   "advantages": {
-    "title": "Почему мы сработаемся? Ваши выгоды.",
+    "title": "Почему я? Ваши выгоды.",
     "subtitle": "Ключевые преимущества работы со мной",
     "items": {
       "0": {
-        "code": "// Multi-Stack Versatility",
-        "title": "Гибкость Стека",
-        "description": "Свободно владею React, Vue и Vanilla JS. Выбираю правильный инструмент под задачу, а не ограничиваюсь одним фреймворком. Это позволяет создавать оптимальные решения для каждого проекта."
+        "code": "// Speed without quality loss",
+        "title": "Скорость без потери качества",
+        "description": "Использование современных инструментов сборки и AI-ассистентов сокращает Time-to-Market."
       },
       "1": {
-        "code": "// AI-Optimized Delivery",
-        "title": "AI-Ускоренная Разработка",
-        "description": "Сокращение сроков разработки за счет интеллектуального применения AI-инструментов. Скорость без потери качества — рутина автоматизирована, я фокусируюсь на архитектуре и бизнес-логике."
+        "code": "// Fullstack understanding",
+        "title": "Фулстек-понимание",
+        "description": "Я не просто «рисую кнопки», а понимаю, как данные проходят от базы до экрана пользователя."
       },
       "2": {
-        "code": "// Modern & Fast",
-        "title": "Современность и Скорость",
-        "description": "Экспертиза в Vite, React и Tailwind означает, что ваш проект будет создан с максимальной скоростью разработки и производительностью в runtime. Оптимизация загрузки, Code Splitting, Web Vitals."
+        "code": "// 10+ years in fintech",
+        "title": "10+ лет в финтех",
+        "description": "Мой бэкграунд позволяет мне говорить на одном языке и с бизнесом, и с разработчиками бэкенда."
       }
     },
-    "statLabelExperience": "Опыт",
-    "statLabelProjects": "Проектов",
-    "statLabelTechnologies": "Технологий",
-    "statLabelCodeReviews": "Код-ревью"
+    "statLabelExperience": "в разработке интерфейсов",
+    "statLabelProjects": "общего опыта в финтех",
+    "statLabelTechnologies": "освоенных технологий",
+    "statLabelCodeReviews": "проведенных код-ревью"
   },
   "contact": {
     "title": "Deploy & Connect",
@@ -337,6 +337,16 @@
       "metrics": {
         "label": "Performance",
         "description": "Real-Time SSE, Optimistic UI"
+      }
+    },
+    "moviecatalog": {
+      "flowInput": "Разработать SPA-каталог фильмов с поиском по названию, фильтрацией по категориям и детальным просмотром. Требования: адаптивная верстка, семантическая разметка, обработка ошибок, оптимизация производительности, анимации. Тестовое задание для позиции Junior Frontend Developer.",
+      "flowProcess": "Архитектура: Feature-based структура с разделением на layers (components/features/entities/shared). React 18 + TypeScript для type safety, React Router для навигации между страницами.\n\nUI/UX: Tailwind CSS для utility-first подхода, Framer Motion для плавных анимаций карточек и модальных окон. Реализована темная/светлая тема с переключателем и сохранением в localStorage.\n\nState & Performance:\n- Debounced search (300ms) через custom hook для оптимизации запросов\n- Lazy loading изображений с loading=\"lazy\"\n- Code splitting через React.lazy для детальной страницы\n- Pagination с \"Load More\" вместо бесконечного скролла\n\nType Safety: TypeScript strict mode + типизация всех props и state. Интерфейсы для Movie, FilterCategory, Theme.\n\nTesting & Quality:\n- Vitest + React Testing Library\n- 87% test coverage (unit + integration тесты)\n- Тесты для всех компонентов и hooks\n- ESLint + TypeScript для code quality",
+      "flowOutput": "Production-ready каталог фильмов с адаптивным дизайном, темной темой, поиском с debounce, категориальной фильтрацией и детальными страницами. Проект демонстрирует понимание React ecosystem, оптимизации производительности и best practices тестирования.\n\nСверх нормы (+50%):\n- Модальное окно с деталями фильма\n- Детальная страница с роутингом\n- Dark/Light theme switcher\n- 87% test coverage (требования не было)\n- Skeleton loaders для UX\n- Scroll to top button",
+      "codeTitle": "Debounced Search Hook",
+      "metrics": {
+        "label": "Performance",
+        "description": "Debounced Search, Theme Switcher, Adaptive Layout"
       }
     }
   }

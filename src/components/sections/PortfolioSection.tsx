@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { Code, ArrowRight, Package, Palette } from "lucide-react";
-import { OptimizedVideo } from "@/components/common/OptimizedVideo";
 import { ProjectModal } from "@/components/common/ProjectModal";
 import { LazyImage } from "@/components/common/LazyImage";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -25,6 +24,7 @@ const PROJECT_TRANSLATION_MAP: Record<number, string> = {
   9: "lumi", // Lumi
   10: "course", // Course Catalog
   11: "yokai", // Yokai Threat Matrix
+  12: "moviecatalog", // MovieCatalog - Adaptive Cinema SPA
 };
 
 export const PortfolioSection = () => {
@@ -42,7 +42,7 @@ export const PortfolioSection = () => {
     activeTab === "projects"
       ? location.pathname === "/"
         ? portfolioProjects.filter((project) => [9, 2, 3].includes(project.id))
-        : portfolioProjects
+        : [...portfolioProjects].reverse()
       : uiComponents;
   const title =
     activeTab === "projects"
@@ -55,21 +55,6 @@ export const PortfolioSection = () => {
       className="py-24 bg-c-bg-secondary relative overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-accent opacity-10 blur-3xl" />
-
-      <motion.div
-        {...fadeInUp}
-        transition={{ delay: 0.2 }} // Adjust delay as needed
-        className="absolute top-1/3 right-8 w-1/4 max-w-xs hidden xl:block"
-      >
-        <div className="relative rounded-3xl overflow-hidden border-2 border-c-accent-blue/30 shadow-2xl m-8">
-          <OptimizedVideo
-            src="/images/photo-project.mp4"
-            poster="/images/photo-project-poster.jpg"
-            className="w-full h-auto"
-          />
-          <div className="absolute inset-0 bg-gradient-to-tr from-c-accent-blue/20 to-transparent" />
-        </div>
-      </motion.div>
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div {...fadeInUp} className="relative z-10 mb-16 text-center">
@@ -87,31 +72,32 @@ export const PortfolioSection = () => {
 
           {/* Вкладки */}
           <div className="mt-12 flex justify-center">
-            <div className="inline-flex p-1 bg-c-bg-tertiary rounded-xl border border-c-border">
+            <div className="flex flex-col sm:flex-row p-1 bg-c-bg-tertiary rounded-xl border border-c-border w-full max-w-xs sm:max-w-lg">
               <button
                 onClick={() => setActiveTab("projects")}
-                className={`px-6 py-3 rounded-lg font-semibold transition-all flex items-center gap-2 ${
+                className={`px-4 py-3 rounded-lg font-semibold transition-all flex items-center gap-2 ${
                   activeTab === "projects"
                     ? "bg-gradient-primary text-white shadow-lg"
                     : "text-c-text-secondary hover:text-c-text-primary"
                 }`}
               >
                 <Package size={18} />
-                {t("portfolio.projectsTab", "Коммерческие проекты")}
+                <span className="text-sm sm:text-base">
+                  {t("portfolio.projectsTab", "Коммерческие проекты")}
+                </span>
               </button>
               <button
                 onClick={() => setActiveTab("components")}
-                className={`px-6 py-3 rounded-lg font-semibold transition-all flex items-center gap-2 ${
+                className={`px-4 py-3 rounded-lg font-semibold transition-all flex items-center gap-2 mt-2 sm:mt-0 sm:ml-2 ${
                   activeTab === "components"
                     ? "bg-gradient-primary text-white shadow-lg"
                     : "text-c-text-secondary hover:text-c-text-primary"
                 }`}
               >
                 <Palette size={18} />
-                {t(
-                  "portfolio.componentsTab",
-                  "UI-Компоненты и Интерактивные Элементы",
-                )}
+                <span className="text-sm sm:text-base">
+                  {t("portfolio.componentsTab", "UI-Компоненты")}
+                </span>
               </button>
             </div>
           </div>
@@ -119,7 +105,7 @@ export const PortfolioSection = () => {
 
         <motion.div
           {...staggerContainer}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
           {projects.slice(0, 3).map((project, index) => {
             const imageSrc =
@@ -146,7 +132,7 @@ export const PortfolioSection = () => {
                 }}
               >
                 <div className="relative h-full rounded-2xl bg-c-bg-primary border border-c-border overflow-hidden transition-all hover:border-c-accent-blue hover:shadow-2xl hover:shadow-c-accent-blue/20">
-                  <div className="relative aspect-video overflow-hidden bg-c-bg-tertiary">
+                  <div className="relative aspect-video sm:aspect-[4/3] md:aspect-video overflow-hidden bg-c-bg-tertiary max-h-48">
                     <LazyImage
                       src={imageSrc}
                       alt={project.title}
@@ -157,32 +143,35 @@ export const PortfolioSection = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-c-bg-primary to-transparent opacity-60" />
                     <motion.div
-                      className="absolute top-4 right-4 p-2 rounded-full bg-c-bg-primary/80 backdrop-blur-sm"
+                      className="absolute top-2 right-2 sm:top-4 sm:right-4 p-2 rounded-full bg-c-bg-primary/80 backdrop-blur-sm"
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.5 }}
                     >
-                      <Code size={20} className="text-c-accent-blue" />
+                      <Code
+                        size={16}
+                        className="sm:size-5 text-c-accent-blue"
+                      />
                     </motion.div>
                   </div>
-                  <div className="p-6">
-                    <div className="mb-3">
-                      <span className="text-xs px-3 py-1 rounded-full bg-gradient-primary text-white font-semibold">
+                  <div className="p-4 sm:p-6">
+                    <div className="mb-2 sm:mb-3">
+                      <span className="text-[10px] sm:text-xs px-2 sm:px-3 py-1 rounded-full bg-gradient-primary text-white font-semibold">
                         {project.category}
                       </span>
                     </div>
-                    <h3 className="text-2xl font-bold mb-2 group-hover:text-c-accent-blue transition">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2 group-hover:text-c-accent-blue transition">
                       {project.title}
                     </h3>
-                    <p className="text-sm text-c-text-secondary mb-4">
+                    <p className="text-xs sm:text-sm text-c-text-secondary mb-3 sm:mb-4">
                       {project.tech}
                     </p>
-                    <div className="flex items-center justify-between pt-4 border-t border-c-border">
+                    <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-c-border">
                       <div>
-                        <div className="text-xs text-c-text-tertiary">
+                        <div className="text-[10px] sm:text-xs text-c-text-tertiary">
                           {(() => {
                             // Check if translation exists for this project
                             const projectIds = [
-                              1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
+                              1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
                             ];
                             const projectIdKey = projectIds.includes(project.id)
                               ? PROJECT_TRANSLATION_MAP[project.id]
@@ -199,11 +188,14 @@ export const PortfolioSection = () => {
                             return project.metrics.label;
                           })()}
                         </div>
-                        <div className="text-2xl font-bold text-c-accent-blue">
+                        <div className="text-lg sm:text-xl md:text-2xl font-bold text-c-accent-blue">
                           {project.metrics.value}
                         </div>
                       </div>
-                      <ArrowRight className="text-c-accent-blue group-hover:translate-x-2 transition" />
+                      <ArrowRight
+                        size={16}
+                        className="text-c-accent-blue group-hover:translate-x-2 transition"
+                      />
                     </div>
                   </div>
                 </div>
@@ -216,7 +208,11 @@ export const PortfolioSection = () => {
           <Link
             to={activeTab === "projects" ? "/portfolio" : "/ui-components"}
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-primary text-white font-semibold hover:scale-105 hover:bg-gradient-accent transition-all"
-            onClick={() => ymGoal("open_portfolio")}
+            onClick={() => {
+              ymGoal("open_portfolio");
+              // Ensure we scroll to top when navigating
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
           >
             {activeTab === "projects"
               ? t("portfolio.allProjects", "Смотреть все проекты")

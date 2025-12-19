@@ -55,7 +55,7 @@ export const HeroSection = () => {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
-              Frontend Architect
+              Frontend-developer
             </h1>
 
             <p className="text-lg md:text-xl text-c-text-secondary mb-8 leading-relaxed">

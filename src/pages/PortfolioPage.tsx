@@ -1,5 +1,5 @@
 // src/pages/PortfolioPage.tsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Code, Package, Palette } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -19,7 +19,10 @@ const PROJECT_TRANSLATION_MAP: Record<number, string> = {
   6: "landingspace", // Landing Space
   7: "vangogh", // Van Gogh Link
   8: "tot", // TOT
+  9: "lumi", // Lumi
+  10: "course", // Course Catalog
   11: "yokai", // Yokai Threat Matrix
+  12: "moviecatalog", // MovieCatalog - Adaptive Cinema SPA
 };
 
 export const PortfolioPage = () => {
@@ -30,8 +33,14 @@ export const PortfolioPage = () => {
     "projects",
   );
 
+  // Scroll to top when component mounts or when activeTab changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [activeTab]);
+
   // Определяем, какие проекты отображать в зависимости от выбранной вкладки
-  const projects = activeTab === "projects" ? portfolioProjects : uiComponents;
+  const projects =
+    activeTab === "projects" ? [...portfolioProjects].reverse() : uiComponents;
   const title =
     activeTab === "projects"
       ? t("portfolio.title", "Code manifest: избранные решения")
@@ -76,38 +85,39 @@ export const PortfolioPage = () => {
 
           {/* Вкладки */}
           <div className="mt-12 flex justify-center">
-            <div className="inline-flex p-1 bg-c-bg-tertiary rounded-xl border border-c-border">
+            <div className="flex flex-col sm:flex-row p-1 bg-c-bg-tertiary rounded-xl border border-c-border w-full max-w-xs sm:max-w-lg">
               <button
                 onClick={() => setActiveTab("projects")}
-                className={`px-6 py-3 rounded-lg font-semibold transition-all flex items-center gap-2 ${
+                className={`px-4 py-3 rounded-lg font-semibold transition-all flex items-center gap-2 ${
                   activeTab === "projects"
                     ? "bg-gradient-primary text-white shadow-lg"
                     : "text-c-text-secondary hover:text-c-text-primary"
                 }`}
               >
                 <Package size={18} />
-                {t("portfolio.projectsTab", "Коммерческие проекты")}
+                <span className="text-sm sm:text-base">
+                  {t("portfolio.projectsTab", "Коммерческие проекты")}
+                </span>
               </button>
               <button
                 onClick={() => setActiveTab("components")}
-                className={`px-6 py-3 rounded-lg font-semibold transition-all flex items-center gap-2 ${
+                className={`px-4 py-3 rounded-lg font-semibold transition-all flex items-center gap-2 mt-2 sm:mt-0 sm:ml-2 ${
                   activeTab === "components"
                     ? "bg-gradient-primary text-white shadow-lg"
                     : "text-c-text-secondary hover:text-c-text-primary"
                 }`}
               >
                 <Palette size={18} />
-                {t(
-                  "portfolio.componentsTab",
-                  "UI-Компоненты и Интерактивные Элементы",
-                )}
+                <span className="text-sm sm:text-base">
+                  {t("portfolio.componentsTab", "UI-Компоненты")}
+                </span>
               </button>
             </div>
           </div>
         </motion.div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => {
             const imageSrc =
               theme === "light" ? project.imageLight : project.imageDark;
@@ -125,7 +135,7 @@ export const PortfolioPage = () => {
                 className="group cursor-pointer"
               >
                 <div className="relative h-full rounded-2xl bg-c-bg-primary border border-c-border overflow-hidden transition-all hover:border-c-accent-blue hover:shadow-2xl hover:shadow-c-accent-blue/20">
-                  <div className="relative h-48 overflow-hidden bg-c-bg-tertiary">
+                  <div className="relative aspect-video sm:aspect-[4/3] md:aspect-video overflow-hidden bg-c-bg-tertiary max-h-48">
                     <img
                       src={imageSrc}
                       alt={project.title}
@@ -133,31 +143,36 @@ export const PortfolioPage = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-c-bg-primary to-transparent opacity-60" />
                     <motion.div
-                      className="absolute top-4 right-4 p-2 rounded-full bg-c-bg-primary/80 backdrop-blur-sm"
+                      className="absolute top-2 right-2 sm:top-4 sm:right-4 p-2 rounded-full bg-c-bg-primary/80 backdrop-blur-sm"
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.5 }}
                     >
-                      <Code size={20} className="text-c-accent-blue" />
+                      <Code
+                        size={16}
+                        className="sm:size-5 text-c-accent-blue"
+                      />
                     </motion.div>
                   </div>
-                  <div className="p-6">
-                    <div className="mb-3">
-                      <span className="text-xs px-3 py-1 rounded-full bg-gradient-primary text-white font-semibold">
+                  <div className="p-4 sm:p-6">
+                    <div className="mb-2 sm:mb-3">
+                      <span className="text-[10px] sm:text-xs px-2 sm:px-3 py-1 rounded-full bg-gradient-primary text-white font-semibold">
                         {project.category}
                       </span>
                     </div>
-                    <h3 className="text-2xl font-bold mb-2 group-hover:text-c-accent-blue transition">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2 group-hover:text-c-accent-blue transition">
                       {project.title}
                     </h3>
-                    <p className="text-sm text-c-text-secondary mb-4">
+                    <p className="text-xs sm:text-sm text-c-text-secondary mb-3 sm:mb-4">
                       {project.tech}
                     </p>
-                    <div className="flex items-center justify-between pt-4 border-t border-c-border">
+                    <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-c-border">
                       <div>
-                        <div className="text-xs text-c-text-tertiary">
+                        <div className="text-[10px] sm:text-xs text-c-text-tertiary">
                           {(() => {
                             // Check if translation exists for this project
-                            const projectIds = [1, 2, 3, 4, 5, 6, 7, 8];
+                            const projectIds = [
+                              1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                            ];
                             const projectIdKey = projectIds.includes(project.id)
                               ? PROJECT_TRANSLATION_MAP[project.id]
                               : null;
@@ -173,7 +188,7 @@ export const PortfolioPage = () => {
                             return project.metrics.label;
                           })()}
                         </div>
-                        <div className="text-2xl font-bold text-c-accent-blue">
+                        <div className="text-lg sm:text-xl md:text-2xl font-bold text-c-accent-blue">
                           {project.metrics.value}
                         </div>
                       </div>

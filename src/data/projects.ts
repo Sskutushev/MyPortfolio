@@ -349,4 +349,30 @@ export const portfolioProjects: Project[] = [
       description: "Полный UI/UX, готов к Web3-интеграции",
     },
   },
+  {
+    id: 12,
+    title: "🎬 MovieCatalog — Adaptive Cinema SPA",
+    category: "React SPA / Movie Discovery",
+    tech: "React 18, TypeScript, Tailwind CSS, Framer Motion, React Router, Vitest, 87% Test Coverage",
+    imageDark: "/images/Cinemadark.jpg",
+    imageLight: "/images/cinemawhite.jpg",
+    link: "https://effective-mobile.vercel.app/",
+    flow: {
+      input:
+        "Разработать SPA-каталог фильмов с поиском по названию, фильтрацией по категориям и детальным просмотром. Требования: адаптивная верстка, семантическая разметка, обработка ошибок, оптимизация производительности, анимации. Тестовое задание для позиции Junior Frontend Developer.",
+      process:
+        'Архитектура: Feature-based структура с разделением на layers (components/features/entities/shared). React 18 + TypeScript для type safety, React Router для навигации между страницами.\n\nUI/UX: Tailwind CSS для utility-first подхода, Framer Motion для плавных анимаций карточек и модальных окон. Реализована темная/светлая тема с переключателем и сохранением в localStorage.\n\nState & Performance:\n- Debounced search (300ms) через custom hook для оптимизации запросов\n- Lazy loading изображений с loading="lazy"\n- Code splitting через React.lazy для детальной страницы\n- Pagination с "Load More" вместо бесконечного скролла\n\nType Safety: TypeScript strict mode + типизация всех props и state. Интерфейсы для Movie, FilterCategory, Theme.\n\nTesting & Quality:\n- Vitest + React Testing Library\n- 87% test coverage (unit + integration тесты)\n- Тесты для всех компонентов и hooks\n- ESLint + TypeScript для code quality',
+      output:
+        "Production-ready каталог фильмов с адаптивным дизайном, темной темой, поиском с debounce, категориальной фильтрацией и детальными страницами. Проект демонстрирует понимание React ecosystem, оптимизации производительности и best practices тестирования.\n\nСверх нормы (+50%):\n- Модальное окно с деталями фильма\n- Детальная страница с роутингом\n- Dark/Light theme switcher\n- 87% test coverage (требования не было)\n- Skeleton loaders для UX\n- Scroll to top button",
+    },
+    codeHighlight: {
+      title: "Debounced Search Hook",
+      code: "// hooks/useDebounce.ts\nexport function useDebounce<T>(value: T, delay: number): T {\n  const [debouncedValue, setDebouncedValue] = useState<T>(value);\n\n  useEffect(() => {\n    const handler = setTimeout(() => {\n      setDebouncedValue(value);\n    }, delay);\n\n    return () => clearTimeout(handler);\n  }, [value, delay]);\n\n  return debouncedValue;\n}\n\n// components/features/SearchBar/SearchBar.tsx\nexport const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {\n  const [query, setQuery] = useState('');\n  const debouncedQuery = useDebounce(query, 300);\n\n  useEffect(() => {\n    onSearch(debouncedQuery);\n  }, [debouncedQuery, onSearch]);\n\n  return (/* ... */);\n};\n// Оптимизация: Поиск срабатывает только через 300мс после прекращения ввода, снижая нагрузку на фильтрацию в 10+ раз.",
+    },
+    metrics: {
+      label: "Performance",
+      value: "87% Test Coverage",
+      description: "Debounced Search, Theme Switcher, Adaptive Layout",
+    },
+  },
 ];

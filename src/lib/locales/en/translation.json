@@ -7,26 +7,26 @@
     "contact": "Contact"
   },
   "hero": {
-    "subtitle": "Frontend Architect. Building fast, component-based and scalable web solutions with React, Vue, and Vanilla JS.",
+    "subtitle": "Building performant web interfaces with React and TypeScript. Combining 10 years of fintech experience with modern tech stack to create reliable and scalable products.",
     "cta": "Start session",
     "resume": "Resume"
   },
   "about": {
-    "title": "The Architect's Blueprint",
-    "subtitle": "Who I am and what I offer",
-    "description": "I'm not just a coder — I'm a Solution Architect. My work is transforming design into living, responsive, and performant products. Focus on component architecture (CDD), clean state management, and creating the perfect UX. In one year of frontend development, I have implemented projects from landing pages to Web3 wallets, always following principles of clean code and scalability.",
+    "title": "About Me",
+    "subtitle": "Engineering approach to interfaces",
+    "description": "I focus on creating products that are easy to maintain and develop. My development journey started with automating complex trading systems in fintech, which taught me responsibility for architecture and data cleanliness. Now I'm transferring this experience to the frontend, creating solutions from PWA to Web3 services.",
     "points": {
       "flexibility": {
-        "title": "Stack Flexibility",
-        "description": "React, Vue, Vanilla JS — choosing the right tool for the task, not limiting myself to one framework."
+        "title": "Proven Stack",
+        "description": "Choose tools for the task (React/Vue/Node.js), ensuring flexibility and long-term support."
       },
       "performance": {
-        "title": "Speed and Performance",
-        "description": "Vite for instant builds, Code Splitting for load optimization, Web Vitals as a quality benchmark."
+        "title": "Performance",
+        "description": "Optimize Web Vitals and use Vite for fast builds and instant interface response"
       },
       "scalability": {
-        "title": "Clean Code and Scalability",
-        "description": "TypeScript, modular architecture, tests (Vitest), documentation, and clear commits — the key to long-term support."
+        "title": "Quality Culture",
+        "description": "Write tests (Vitest, RTL) and implement CI/CD to keep the product stable with every release."
       }
     }
   },
@@ -36,22 +36,22 @@
       "title": "Work Experience",
       "description": "1 year in frontend development. Implemented projects from presentation landing pages to complex Web3 applications (wallets, DeFi platforms, token generators). Worked with e-commerce integrations, SPA applications, and Telegram Mini Apps."
     },
-    "approachTitle": "My experience and approach to work",
-    "philosophyTitle": "My philosophy — I am a practitioner",
-    "approachDescription1": "Over the past year, I have actively worked on freelancing and implemented various projects: from presentation landing pages to complex Web3 applications (DeFi, crypto wallets) and Telegram Mini Apps.",
-    "philosophyDescription1": "I may not remember a term from a textbook, but I always understand how and why code works. I don't start coding until I have thought through the architecture of the future project. This is my way of immediately laying a reliable foundation and avoiding problems in the future.",
-    "philosophyDescription2": "I am (in a good sense) meticulous and pedantic. I genuinely love clean, understandable code that is easy to maintain. I don't deliver work until I personally am 100% sure that everything is tested and works like a clock.",
-    "philosophyDescription3": "Although my focus is frontend, I understand how the backend works (worked with Next.js and Node.js), which helps me see the entire project picture as a whole. I continue to practice every day to make my work faster and better.",
+    "approachTitle": "Experience Based on Practice",
+    "approachDescription1": "Over the last 4 years, I've made the journey from developing algo-bots in Python to creating complex interfaces in React. My philosophy is simple: architecture first, then code. I dive deep into backend logic (Node.js/Express) and API to ensure the frontend is not just a 'pretty picture' but a full part of the system.",
+    "philosophyTitle": "My Development Principles",
+    "philosophyDescription1": "Focus on quality. Code cleanliness is not aesthetics, it's an economy.",
+    "philosophyDescription2": "Responsibility for the result. Attention to detail.",
+    "philosophyDescription3": "Technological perspective. Engineering approach.",
     "stack": {
       "title": "Specialization",
       "categories": {
         "react": {
           "name": "React Ecosystem",
-          "items": "React 18+ (Hooks, Context), Redux Toolkit, Zustand, TanStack Query, React Hook Form, Framer Motion"
+          "items": "TypeScript, Redux Toolkit, Zustand, React Query, Framer Motion"
         },
         "vue": {
           "name": "Vue Ecosystem",
-          "items": "Vue 3, Composition API, Pinia, Vuex, Vue Router"
+          "items": "Vue 3, Composition API, Pinia"
         },
         "ssr": {
           "name": "SSR/SSG",
@@ -59,7 +59,7 @@
         },
         "styling": {
           "name": "Styling",
-          "items": "Tailwind CSS (expert), Styled Components, SCSS, CSS Modules, responsive design"
+          "items": "Tailwind CSS, Styled Components, SCSS, CSS Modules, responsive design"
         },
         "build": {
           "name": "Build and Tools",
@@ -67,15 +67,15 @@
         },
         "web3": {
           "name": "Web3 and Blockchain",
-          "items": "Ethers.js, Web3 integrations, smart contracts (basic), wallets"
+          "items": "Ethers.js, Web3 integrations, smart contracts, wallets"
         },
         "backend": {
-          "name": "Backend (basic)",
-          "items": "Node.js, Express, REST API, database work (SQL), Docker, CI/CD"
+          "name": "Full-stack and DB",
+          "items": "Node.js, Express, working with cloud DBs (PostgreSQL via Supabase/Neon/Railway)"
         },
         "testing": {
-          "name": "Testing",
-          "items": "Vitest, React Testing Library, Cypress, Jest"
+          "name": "DevOps and QA",
+          "items": "Docker, CI/CD (GitHub Actions), testing (Vitest, RTL)"
         }
       }
     }
@@ -89,7 +89,7 @@
     "processTab": "The Flow",
     "codeTab": "Code Highlight",
     "projectsTab": "Commercial/Pet Projects",
-    "componentsTab": "UI components and interactive elements",
+    "componentsTab": "UI components",
     "allProjects": "View All Projects",
     "allComponents": "View All Components"
   },
@@ -143,23 +143,23 @@
     "steps": {
       "0": {
         "number": "01",
-        "title": "Architecture and Design",
-        "description": "Working from Figma/Sketch mockups or proposing my own design solutions. Planning component architecture, data flow, and interaction logic. Determining the optimal stack for the task."
+        "title": "Design",
+        "description": "Requirements analysis, stack selection and component architecture design (CDD)."
       },
       "1": {
         "number": "02",
         "title": "Development",
-        "description": "Fast and clean coding using modern tools (Vite, TypeScript). Modular structure, reusable components, clear commits. Code Splitting for optimization."
+        "description": "Writing clean code in TypeScript with modular structure and separation of responsibilities."
       },
       "2": {
         "number": "03",
-        "title": "AI Acceleration",
-        "description": "Using AI assistants to speed up routine tasks (boilerplate, testing, documentation) under full personal control. AI is a tool, but architectural decisions are always made by me."
+        "title": "AI Optimization",
+        "description": "Speeding up routine tasks (documentation, tests) with AI to spend more time on complex logic."
       },
       "3": {
         "number": "04",
-        "title": "QA and Deploy",
-        "description": "Full responsiveness (mobile-first), cross-browser compatibility, testing (Vitest, Cypress). SEO optimization, Web Vitals. Setting up CI/CD, deployment to Vercel/Netlify, documentation."
+        "title": "Stability",
+        "description": "Mandatory testing, responsive checking and CI/CD setup for seamless deployment."
       }
     },
     "flowTitleIdea": "Idea",
@@ -169,29 +169,29 @@
     "flowTitleRelease": "Release"
   },
   "advantages": {
-    "title": "Why we'll work well together? Your benefits.",
+    "title": "Why I? Your benefits.",
     "subtitle": "Key advantages of working with me",
     "items": {
       "0": {
-        "code": "// Multi-Stack Versatility",
-        "title": "Stack Flexibility",
-        "description": "I'm fluent in React, Vue, and Vanilla JS. I choose the right tool for the job, not limiting myself to one framework. This allows creating optimal solutions for each project."
+        "code": "// Speed without quality loss",
+        "title": "Speed without quality loss",
+        "description": "Using modern build tools and AI assistants reduces Time-to-Market."
       },
       "1": {
-        "code": "// AI-Optimized Delivery",
-        "title": "AI-Accelerated Development",
-        "description": "Reducing development time through intelligent application of AI tools. Speed without sacrificing quality — routine is automated, I focus on architecture and business logic."
+        "code": "// Fullstack understanding",
+        "title": "Fullstack understanding",
+        "description": "I don't just 'draw buttons', I understand how data flows from the database to the user's screen."
       },
       "2": {
-        "code": "// Modern & Fast",
-        "title": "Modern & Fast",
-        "description": "Expertise in Vite, React, and Tailwind means your project will be created with maximum development speed and runtime performance. Load optimization, Code Splitting, Web Vitals."
+        "code": "// 10+ years in fintech",
+        "title": "10+ years in fintech",
+        "description": "My background allows me to speak the same language with both business and backend developers."
       }
     },
-    "statLabelExperience": "Experience",
-    "statLabelProjects": "Projects",
-    "statLabelTechnologies": "Technologies",
-    "statLabelCodeReviews": "Code Reviews"
+    "statLabelExperience": "in interface development",
+    "statLabelProjects": "of total experience in fintech",
+    "statLabelTechnologies": "mastered technologies",
+    "statLabelCodeReviews": "conducted code reviews"
   },
   "contact": {
     "title": "Deploy & Connect",
@@ -337,6 +337,16 @@
       "metrics": {
         "label": "Performance",
         "description": "Real-Time SSE, Optimistic UI"
+      }
+    },
+    "moviecatalog": {
+      "flowInput": "Develop a movie catalog SPA with search by title, category filtering, and detailed viewing. Requirements: responsive layout, semantic markup, error handling, performance optimization, animations. A test assignment for a Junior Frontend Developer position.",
+      "flowProcess": "Architecture: Feature-based structure with division into layers (components/features/entities/shared). React 18 + TypeScript for type safety, React Router for navigation between pages.\n\nUI/UX: Tailwind CSS for utility-first approach, Framer Motion for smooth animations of cards and modal windows. Implemented dark/light theme with toggle and localStorage persistence.\n\nState & Performance:\n- Debounced search (300ms) through custom hook for query optimization\n- Lazy loading of images with loading=\"lazy\"\n- Code splitting via React.lazy for detailed page\n- Pagination with \"Load More\" instead of infinite scroll\n\nType Safety: TypeScript strict mode + typing of all props and state. Interfaces for Movie, FilterCategory, Theme.\n\nTesting & Quality:\n- Vitest + React Testing Library\n- 87% test coverage (unit + integration tests)\n- Tests for all components and hooks\n- ESLint + TypeScript for code quality",
+      "flowOutput": "Production-ready movie catalog with responsive design, dark theme, debounced search, categorical filtering and detailed pages. The project demonstrates understanding of React ecosystem, performance optimization and best practices for testing.\n\nAbove and beyond (+50%):\n- Modal window with movie details\n- Detailed page with routing\n- Dark/Light theme switcher\n- 87% test coverage (was not required)\n- Skeleton loaders for UX\n- Scroll to top button",
+      "codeTitle": "Debounced Search Hook",
+      "metrics": {
+        "label": "Performance",
+        "description": "Debounced Search, Theme Switcher, Adaptive Layout"
       }
     }
   }
