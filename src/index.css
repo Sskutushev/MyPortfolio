@@ -92,7 +92,7 @@ a:hover {
 .section-with-matrix {
   position: relative;
   /* Aggressively remove any background color from Tailwind classes */
-  background: none !important; 
+  background: none !important;
 }
 
 .light .section-with-matrix {
@@ -101,7 +101,7 @@ a:hover {
 
 /* Полупрозрачный overlay для читаемости */
 .section-with-matrix::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: var(--bg-primary);

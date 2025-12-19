@@ -132,11 +132,10 @@ export const PortfolioSection = () => {
                 }}
               >
                 <div className="relative h-full rounded-2xl bg-c-bg-primary border border-c-border overflow-hidden transition-all hover:border-c-accent-blue hover:shadow-2xl hover:shadow-c-accent-blue/20">
-                <div className="relative aspect-video sm:aspect-[4/3] md:aspect-video overflow-hidden bg-c-bg-tertiary">
+                  <div className="relative aspect-video sm:aspect-[4/3] md:aspect-video overflow-hidden bg-c-bg-tertiary">
                     <LazyImage
                       src={imageSrc}
                       alt={project.title}
-                      aspectRatio="16/9"
                       className="transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-c-bg-primary to-transparent opacity-60" />

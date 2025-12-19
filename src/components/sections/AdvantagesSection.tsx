@@ -10,7 +10,10 @@ export const AdvantagesSection = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="advantages" className="section-with-matrix py-24 bg-c-bg-primary">
+    <section
+      id="advantages"
+      className="section-with-matrix py-24 bg-c-bg-primary"
+    >
       <div className="container mx-auto px-4">
         <motion.div {...fadeInUp} className="relative z-10 text-center mb-16">
           <h2 className="pb-2 text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
