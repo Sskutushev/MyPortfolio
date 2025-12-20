@@ -74,6 +74,12 @@ export default defineConfig({
 
     // Максимальная оптимизация
     minify: "esbuild", // Используем esbuild для более быстрой и эффективной минификации
+
+    // Добавляем оптимизации для улучшения FCP и LCP
+    modulePreload: {
+      polyfill: false,
+    },
+    cssMinify: "esbuild",
   },
 
   // Улучшаем оптимизацию
@@ -86,6 +92,11 @@ export default defineConfig({
   server: {
     hmr: {
       overlay: true,
+    },
+    // Увеличиваем размер файла для HMR
+    watch: {
+      usePolling: true,
+      interval: 1000,
     },
   },
 
@@ -101,10 +112,19 @@ export default defineConfig({
       "i18next",
       "lucide-react",
     ],
+    // Указываем зависимости для предварительной загрузки
+    force: true,
   },
 
   // Улучшаем загрузку ресурсов
   ssr: {
     noExternal: ["framer-motion"], // Убедимся, что framer-motion корректно обрабатывается
+  },
+
+  // Добавляем оптимизации для улучшения производительности
+  preview: {
+    port: 4173,
+    host: true,
+    strictPort: true,
   },
 });
