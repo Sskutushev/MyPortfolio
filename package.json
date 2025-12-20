@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:github": "cross-env DEPLOY_PLATFORM=github_pages tsc -b && vite build",
     "lint": "eslint src/ api/ e2e/ *.config.{js,ts} scripts/",
     "preview": "vite preview",
     "test": "vitest -c vitest.config.ts",
@@ -61,6 +62,7 @@
     "@vueuse/core": "^14.0.0",
     "autoprefixer": "^10.4.21",
     "axe-playwright": "^2.2.2",
+    "cross-env": "^10.1.0",
     "eslint": "^9.36.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react-hooks": "^5.2.0",

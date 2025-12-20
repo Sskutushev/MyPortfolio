@@ -43,8 +43,8 @@ export default defineConfig({
     },
   },
 
-  // Base URL for deployment - use relative path for GitHub Pages
-  base: "/MyPortfolio/",
+  // Base URL for deployment - use different paths for dev and prod
+  base: process.env.DEPLOY_PLATFORM === "github_pages" ? "/MyPortfolio/" : "/",
 
   build: {
     // Оптимизация бандла
