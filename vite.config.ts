@@ -61,11 +61,14 @@ export default defineConfig({
         chunkFileNames: "assets/[name]-[hash].js",
         entryFileNames: "assets/[name]-[hash].js",
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name.endsWith(".css")) {
+          if (assetInfo.name && assetInfo.name.endsWith(".css")) {
             return "assets/[name]-[hash].[ext]";
           }
           // Помещаем изображения в отдельную директорию
-          if (assetInfo.name.match(/\.(png|jpe?g|gif|svg|webp)$/)) {
+          if (
+            assetInfo.name &&
+            assetInfo.name.match(/\.(png|jpe?g|gif|svg|webp)$/)
+          ) {
             return "images/[name]-[hash].[ext]";
           }
           return "assets/[name]-[hash].[ext]";

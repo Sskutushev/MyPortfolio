@@ -59,7 +59,10 @@ export const observeLayoutShifts = () => {
             if (cls > 0.1) {
               console.warn("High CLS detected:", cls);
               // Only log to console in development to prevent performance impact in production
-              if (process.env.NODE_ENV === "development") {
+              if (
+                typeof window !== "undefined" &&
+                window.location.hostname === "localhost"
+              ) {
                 console.table({
                   cumulativeLayoutShift: cls,
                   description:
