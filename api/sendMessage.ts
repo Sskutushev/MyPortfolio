@@ -1,4 +1,5 @@
-import type { Handler } from "@netlify/functions";
+// api/sendMessage.ts
+import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 const escapeHtml = (unsafe: string): string => {
   if (!unsafe) return "";
@@ -10,39 +11,25 @@ const escapeHtml = (unsafe: string): string => {
     .replace(/'/g, "&#039;");
 };
 
-export const handler: Handler = async (event) => {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   console.log("[sendMessage] Function started.");
 
-  if (event.httpMethod !== "POST") {
+  if (req.method !== "POST") {
     console.log("[sendMessage] Blocked non-POST request.");
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ message: "Only POST requests allowed" }),
-    };
+    return res.status(405).json({ message: "Only POST requests allowed" });
   }
 
   try {
-    if (!event.body) {
-      console.log("[sendMessage] Request body is empty.");
-      return {
-        statusCode: 400,
-        body: JSON.stringify({ message: "Request body is empty" }),
-      };
-    }
-
-    const { name, contact, message, recaptchaToken } = JSON.parse(event.body);
+    const { name, contact, message, recaptchaToken } = req.body;
     console.log("[sendMessage] Received request body.");
 
     if (!name || !contact || !message) {
       console.log(
         "[sendMessage] Missing required fields: name, contact, or message.",
       );
-      return {
-        statusCode: 400,
-        body: JSON.stringify({
-          message: "Missing required fields: name, contact, or message",
-        }),
-      };
+      return res.status(400).json({
+        message: "Missing required fields: name, contact, or message",
+      });
     }
     console.log("[sendMessage] Required fields are present.");
 
@@ -56,9 +43,7 @@ export const handler: Handler = async (event) => {
       const recaptchaRes = await fetch(recaptchaUrl, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `secret=${encodeURIComponent(
-          recaptchaSecret,
-        )}&response=${encodeURIComponent(recaptchaToken)}`,
+        body: `secret=${encodeURIComponent(recaptchaSecret)}&response=${encodeURIComponent(recaptchaToken)}`,
       });
 
       const recaptchaData = await recaptchaRes.json();
@@ -68,13 +53,10 @@ export const handler: Handler = async (event) => {
           "[sendMessage] reCAPTCHA verification failed. Response:",
           recaptchaData,
         );
-        return {
-          statusCode: 400,
-          body: JSON.stringify({
-            message: "reCAPTCHA verification failed",
-            errorCodes: recaptchaData["error-codes"],
-          }),
-        };
+        return res.status(400).json({
+          message: "reCAPTCHA verification failed",
+          errorCodes: recaptchaData["error-codes"],
+        });
       }
       console.log("[sendMessage] reCAPTCHA verification successful.");
     } else {
@@ -91,12 +73,9 @@ export const handler: Handler = async (event) => {
       console.error(
         "[sendMessage] Server configuration error: Missing TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID.",
       );
-      return {
-        statusCode: 500,
-        body: JSON.stringify({
-          message: "Server configuration error: Missing Telegram credentials",
-        }),
-      };
+      return res.status(500).json({
+        message: "Server configuration error: Missing Telegram credentials",
+      });
     }
     console.log("[sendMessage] Telegram credentials found.");
 
@@ -134,31 +113,21 @@ export const handler: Handler = async (event) => {
         "Response:",
         telegramResult,
       );
-      return {
-        statusCode: telegramRes.status,
-        body: JSON.stringify({
-          message: "Failed to send message to Telegram",
-          error: telegramResult,
-        }),
-      };
+      return res.status(telegramRes.status).json({
+        message: "Failed to send message to Telegram",
+        error: telegramResult,
+      });
     }
 
     console.log("[sendMessage] Message sent successfully to Telegram.");
-    return {
-      statusCode: 200,
-      body: JSON.stringify({
-        message: "Message sent successfully",
-        result: telegramResult,
-      }),
-    };
+    return res
+      .status(200)
+      .json({ message: "Message sent successfully", result: telegramResult });
   } catch (error) {
     console.error("[sendMessage] Unexpected error in handler:", error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({
-        message: "Internal Server Error",
-        error: error instanceof Error ? error.message : "Unknown error",
-      }),
-    };
+    return res.status(500).json({
+      message: "Internal Server Error",
+      error: error instanceof Error ? error.message : "Unknown error",
+    });
   }
-};
+}
