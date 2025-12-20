@@ -93,7 +93,6 @@ export const HeroSection = () => {
             <div className="relative rounded-3xl overflow-hidden border-2 border-c-accent-blue/30 shadow-2xl">
               <OptimizedVideo
                 src="/images/photo-hero.mp4"
-                poster="/images/photo-hero-poster.jpg"
                 className="w-full h-auto"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-c-accent-blue/20 to-transparent" />

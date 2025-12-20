@@ -212,7 +212,6 @@ export const ContactSection = () => {
                 <div className="relative rounded-2xl overflow-hidden bg-black">
                   <OptimizedVideo
                     src="/images/Contact.MP4"
-                    poster="/images/Contact-poster.jpg"
                     className="w-full h-full rounded-2xl"
                     aspectRatio={9 / 19.5} // Aspect ratio for smartphone screen
                   />

@@ -33,8 +33,8 @@ export const AboutSection = () => {
             <div className="relative rounded-2xl overflow-hidden border border-c-border shadow-xl">
               <OptimizedVideo
                 src="/images/photo-about.mp4"
-                poster="/images/photo-about-poster.jpg"
-                className="w-full"
+                className="w-full h-full object-cover"
+                aspectRatio={1}
               />
             </div>
           </motion.div>
