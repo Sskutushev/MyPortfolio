@@ -32,6 +32,7 @@ export const StackSection = () => {
                     src={t(`stack.stacks.${stack}.icon`)}
                     alt={stack}
                     className="w-full h-full object-contain"
+                    loading="lazy"
                   />
                 </div>
 
