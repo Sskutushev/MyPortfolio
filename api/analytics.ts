@@ -5,12 +5,22 @@ export default function handler(
   request: VercelRequest,
   response: VercelResponse,
 ) {
-  if (request.method === "POST") {
-    // Обработка метрик производительности
-    const metric = request.body;
+  // Enable CORS
+  response.setHeader("Access-Control-Allow-Origin", "*");
+  response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  response.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-    // В продакшене можно отправлять в Google Analytics или другую систему аналитики
+  // Handle preflight requests
+  if (request.method === "OPTIONS") {
+    return response.status(200).end();
+  }
+
+  if (request.method === "POST") {
     try {
+      // Обработка метрик производительности
+      const metric = request.body;
+
+      // В продакшене можно отправлять в Google Analytics или другую систему аналитики
       if (process.env.NODE_ENV === "production") {
         // Здесь можно отправить метрику в Google Analytics или другую аналитическую систему
         console.log("Web Vitals metric:", JSON.stringify(metric));
@@ -22,9 +32,9 @@ export default function handler(
       return response.status(200).json({ success: true });
     } catch (error) {
       console.error("Analytics processing error:", error);
-      return response.status(500).json({
+      return response.status(200).json({
         success: false,
-        error: "Internal server error during analytics processing",
+        error: "Analytics processing error, but request handled gracefully",
       });
     }
   } else {

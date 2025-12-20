@@ -43,8 +43,8 @@ export default defineConfig({
     },
   },
 
-  // Base URL for deployment
-  base: "./", // Changed from default to relative path for Vercel
+  // Base URL for deployment - use relative path for Vercel
+  base: "./",
 
   build: {
     // Оптимизация бандла
@@ -57,9 +57,19 @@ export default defineConfig({
           "i18n-vendor": ["react-i18next", "i18next"],
           "ui-vendor": ["lucide-react"],
         },
-        // Улучшаем сжатие
+        // Улучшаем сжатие и делаем chunk имена стабильными
         chunkFileNames: "assets/[name]-[hash].js",
         entryFileNames: "assets/[name]-[hash].js",
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name.endsWith(".css")) {
+            return "assets/[name]-[hash].[ext]";
+          }
+          // Помещаем изображения в отдельную директорию
+          if (assetInfo.name.match(/\.(png|jpe?g|gif|svg|webp)$/)) {
+            return "images/[name]-[hash].[ext]";
+          }
+          return "assets/[name]-[hash].[ext]";
+        },
       },
     },
 

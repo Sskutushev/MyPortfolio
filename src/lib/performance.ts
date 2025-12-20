@@ -3,18 +3,23 @@
 // Функция для отправки метрик в аналитику
 export const sendToAnalytics = (metric: any) => {
   // В production можно отправлять в Google Analytics, Vercel Analytics и т.д.
-  if (typeof window !== "undefined" && navigator.sendBeacon) {
+  if (typeof window !== "undefined") {
     const body = JSON.stringify(metric);
     const url = "/api/analytics";
 
     // Используем `navigator.sendBeacon()` если доступен
     if (navigator.sendBeacon) {
-      navigator.sendBeacon(url, body);
+      try {
+        navigator.sendBeacon(url, body);
+      } catch (err) {
+        // Игнорируем ошибки отправки метрик, они не критичны для работы приложения
+        console.debug("Failed to send analytics via beacon:", err);
+      }
     } else {
       // В случае отсутствия sendBeacon, делаем обычный fetch, но без выброса ошибки
       fetch(url, { body, method: "POST", keepalive: true }).catch((err) => {
         // Игнорируем ошибки отправки метрик, они не критичны для работы приложения
-        console.debug("Failed to send analytics:", err);
+        console.debug("Failed to send analytics via fetch:", err);
       });
     }
   } else {
@@ -53,6 +58,14 @@ export const observeLayoutShifts = () => {
             cls += entry.value;
             if (cls > 0.1) {
               console.warn("High CLS detected:", cls);
+              // Only log to console in development to prevent performance impact in production
+              if (process.env.NODE_ENV === "development") {
+                console.table({
+                  cumulativeLayoutShift: cls,
+                  description:
+                    "Consider adding explicit dimensions to images and reserving space for content",
+                });
+              }
             }
           }
         }
