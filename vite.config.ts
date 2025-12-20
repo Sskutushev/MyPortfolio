@@ -43,8 +43,8 @@ export default defineConfig({
     },
   },
 
-  // Base URL for deployment - use absolute path for Vercel
-  base: "/",
+  // Base URL for deployment - use relative path for GitHub Pages
+  base: "/MyPortfolio/",
 
   build: {
     // Оптимизация бандла
