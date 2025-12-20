@@ -71,8 +71,11 @@ test.describe("Keyboard Navigation", () => {
     await page.locator("section#contact").scrollIntoViewIfNeeded();
     await page.waitForTimeout(1000); // Даем время для анимации скролла
 
-    // Ждем поля имени и фокусируемся на нем
-    const nameInput = page.getByLabel(/name|имя/i).first();
+    // Ждем поля имени и фокусируемся на нем, используя более конкретный селектор
+    const nameInput = page
+      .locator("section#contact")
+      .getByLabel(/name|имя/i)
+      .first();
     await expect(nameInput).toBeVisible();
     await nameInput.focus();
     await page.keyboard.type("John Doe");
@@ -164,11 +167,21 @@ test.describe("Screen Reader Announcements", () => {
     await page.locator("section#contact").scrollIntoViewIfNeeded();
     await page.waitForTimeout(1000);
 
-    // Находим поля формы
-    const nameInput = page.getByLabel(/name|имя/i).first();
-    const contactInput = page.getByLabel(/email|telegram|контакт/i).first();
-    const messageInput = page.getByLabel(/message|описание|сообщение/i).first();
+    // Находим поля формы, используя более конкретные селекторы внутри секции контактов
+    const nameInput = page
+      .locator("section#contact")
+      .getByLabel(/name|имя/i)
+      .first();
+    const contactInput = page
+      .locator("section#contact")
+      .getByLabel(/email|telegram/i)
+      .first();
+    const messageInput = page
+      .locator("section#contact")
+      .getByLabel(/message|описание|сообщение/i)
+      .first();
     const submitButton = page
+      .locator("section#contact")
       .getByRole("button", { name: /Start Project|Начать Проект/i })
       .first();
 
