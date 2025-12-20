@@ -1,0 +1,371 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+    - link "Skip to main content" [ref=e4] [cursor=pointer]:
+        - /url: "#main-content"
+    - banner [ref=e5]:
+        - navigation "Main navigation" [ref=e6]:
+            - generic [ref=e7]:
+                - heading "Sskutushev - Homepage" [level=1] [ref=e8]:
+                    - link "Sskutushev - Homepage" [ref=e9] [cursor=pointer]:
+                        - /url: /
+                        - text: Sskutushev
+                - generic [ref=e10]:
+                    - generic "Обо мне" [ref=e11] [cursor=pointer]
+                    - generic "Опыт" [ref=e12] [cursor=pointer]
+                    - generic "Портфолио" [ref=e13] [cursor=pointer]
+                    - generic "Стек" [ref=e14] [cursor=pointer]
+                    - generic "Контакты" [ref=e15] [cursor=pointer]
+                    - link "Visit GitHub profile (opens in new tab)" [ref=e16] [cursor=pointer]:
+                        - /url: https://github.com/Sskutushev
+                        - img [ref=e17]
+                    - 'button "Switch language to English. Current: RU" [ref=e20] [cursor=pointer]': RU
+                    - button "Switch to light theme" [ref=e21] [cursor=pointer]:
+                        - img [ref=e22]
+    - main [ref=e28]:
+        - generic [ref=e31]:
+            - generic [ref=e32]:
+                - generic [ref=e33]:
+                    - generic [ref=e34]: "> npm create vite@latest portfolio -- --template react-ts"
+                    - generic [ref=e35]: "status: Ready for Development."
+                - heading "Frontend-developer" [level=1] [ref=e36]
+                - paragraph [ref=e37]: Строю производительные веб-интерфейсы на React и TypeScript. Объединяю 10-летний опыт в финтех с современным стеком для создания надежных и масштабируемых продуктов.
+                - generic [ref=e38]:
+                    - button "Написать мне" [ref=e40] [cursor=pointer]:
+                        - generic [ref=e41]:
+                            - text: Написать мне
+                            - img [ref=e42]
+                    - link "Резюме" [ref=e45] [cursor=pointer]:
+                        - /url: /Кутушев Сергей Сергеевич.pdf
+            - generic [ref=e49]: Your browser does not support the video tag.
+        - generic [ref=e52]:
+            - generic [ref=e53]:
+                - heading "Обо мне" [level=2] [ref=e54]
+                - paragraph [ref=e55]: Инженерный подход к интерфейсам
+            - generic [ref=e56]:
+                - generic [ref=e60]: Your browser does not support the video tag.
+                - generic [ref=e61]:
+                    - paragraph [ref=e62]: Я фокусируюсь на создании продуктов, которые легко поддерживать и развивать. Мой путь в разработке начался с автоматизации сложных торговых систем в финтехе, что научило меня ответственности за архитектуру и чистоту данных. Сейчас я переношу этот опыт во фронтенд, создавая решения от PWA до Web3-сервисов.
+                    - generic [ref=e63]:
+                        - generic [ref=e64]:
+                            - img [ref=e66]
+                            - generic [ref=e70]:
+                                - heading "Проверенный стек" [level=3] [ref=e71]
+                                - paragraph [ref=e72]: Выбираю инструменты под задачу (React/Vue/Node.js), обеспечивая гибкость и долгосрочную поддержку.
+                        - generic [ref=e73]:
+                            - img [ref=e75]
+                            - generic [ref=e77]:
+                                - heading "Производительность" [level=3] [ref=e78]
+                                - paragraph [ref=e79]: Оптимизирую Web Vitals и использую Vite для быстрой сборки и мгновенного отклика интерфейса
+                        - generic [ref=e80]:
+                            - img [ref=e82]
+                            - generic [ref=e86]:
+                                - heading "Культура качества" [level=3] [ref=e87]
+                                - paragraph [ref=e88]: Пишу тесты (Vitest, RTL) и внедряю CI/CD, чтобы продукт оставался стабильным при каждом релизе.
+        - generic [ref=e90]:
+            - 'heading "Мой опыт: глубокое погружение" [level=2] [ref=e92]'
+            - generic [ref=e93]:
+                - generic [ref=e94]:
+                    - heading "Опыт, основанный на практике" [level=3] [ref=e95]
+                    - paragraph [ref=e96]: "За последние 4 года я прошел путь от разработки алго-ботов на Python до создания сложных интерфейсов на React. Моя философия проста: сначала архитектура, потом код. Я глубоко погружаюсь в логику бэкенда (Node.js/Express) и API, чтобы фронтенд был не просто «красивой картинкой», а полноценной частью системы."
+                    - heading "Мои принципы в разработке" [level=3] [ref=e97]
+                    - generic [ref=e98]:
+                        - paragraph [ref=e99]: Фокус на качестве. Чистота кода — это не эстетика, а экономия.
+                        - paragraph [ref=e100]: Ответственность за результат. Дотошность в деталях.
+                        - paragraph [ref=e101]: Технологический кругозор. Инженерный подход.
+                - generic [ref=e102]:
+                    - heading "Специализация" [level=3] [ref=e103]
+                    - generic [ref=e104]:
+                        - generic [ref=e105]:
+                            - heading "React-экосистема" [level=4] [ref=e106]
+                            - paragraph [ref=e107]: TypeScript, Redux Toolkit, Zustand, React Query, Framer Motion
+                        - generic [ref=e108]:
+                            - heading "Vue-экосистема" [level=4] [ref=e109]
+                            - paragraph [ref=e110]: Vue 3, Composition API, Pinia
+                        - generic [ref=e111]:
+                            - heading "SSR/SSG" [level=4] [ref=e112]
+                            - paragraph [ref=e113]: Next.js (App Router, API Routes), Nuxt.js
+                        - generic [ref=e114]:
+                            - heading "Стилизация" [level=4] [ref=e115]
+                            - paragraph [ref=e116]: Tailwind CSS, Styled Components, SCSS, CSS Modules, адаптивный дизайн
+                        - generic [ref=e117]:
+                            - heading "Сборка и Инструменты" [level=4] [ref=e118]
+                            - paragraph [ref=e119]: Vite (предпочтительно), Webpack, TypeScript, ESLint, Prettier
+                        - generic [ref=e120]:
+                            - heading "Web3 и Blockchain" [level=4] [ref=e121]
+                            - paragraph [ref=e122]: Ethers.js, Web3 интеграции, смарт-контракты, кошельки
+                        - generic [ref=e123]:
+                            - heading "Full-stack и DB" [level=4] [ref=e124]
+                            - paragraph [ref=e125]: Node.js, Express, работа с облачными БД (PostgreSQL через Supabase/Neon/Railway)
+                        - generic [ref=e126]:
+                            - heading "DevOps и QA" [level=4] [ref=e127]
+                            - paragraph [ref=e128]: Docker, CI/CD (GitHub Actions), тестирование (Vitest, RTL)
+        - generic [ref=e131]:
+            - generic [ref=e132]:
+                - 'heading "Code manifest: избранные решения" [level=2] [ref=e133]'
+                - paragraph [ref=e134]: Реализованные проекты, демонстрирующие мой подход к разработке
+                - generic [ref=e136]:
+                    - button "Коммерческие/Pet проекты" [ref=e137] [cursor=pointer]:
+                        - img [ref=e138]
+                        - generic [ref=e142]: Коммерческие/Pet проекты
+                    - button "UI-компоненты" [ref=e143] [cursor=pointer]:
+                        - img [ref=e144]
+                        - generic [ref=e150]: UI-компоненты
+            - generic [ref=e151]:
+                - button "Lumi — High-Performance Task Manager PWA / Task Management Lumi — High-Performance Task Manager React 18 / TS, TanStack Query, Optimistic UI, PWA / Offline, Supabase RLS Performance Optimistic UI" [ref=e152] [cursor=pointer]:
+                    - generic [ref=e153]:
+                        - generic [ref=e154]:
+                            - img "Lumi — High-Performance Task Manager" [ref=e156]
+                            - img [ref=e159]
+                        - generic [ref=e162]:
+                            - generic [ref=e163]: PWA / Task Management
+                            - heading "Lumi — High-Performance Task Manager" [level=3] [ref=e164]
+                            - paragraph [ref=e165]: React 18 / TS, TanStack Query, Optimistic UI, PWA / Offline, Supabase RLS
+                            - generic [ref=e166]:
+                                - generic [ref=e167]:
+                                    - generic [ref=e168]: Performance
+                                    - generic [ref=e169]: Optimistic UI
+                                - img [ref=e170]
+                - button "AIBRO Business Full-Stack SaaS / B2B Platform AIBRO Business React 19, TS, React Query, Prisma, PostgreSQL, Express, Playwright, Vercel, Railway Готовность Production-Ready" [ref=e172] [cursor=pointer]:
+                    - generic [ref=e173]:
+                        - generic [ref=e174]:
+                            - img "AIBRO Business" [ref=e176]
+                            - img [ref=e179]
+                        - generic [ref=e182]:
+                            - generic [ref=e183]: Full-Stack SaaS / B2B Platform
+                            - heading "AIBRO Business" [level=3] [ref=e184]
+                            - paragraph [ref=e185]: React 19, TS, React Query, Prisma, PostgreSQL, Express, Playwright, Vercel, Railway
+                            - generic [ref=e186]:
+                                - generic [ref=e187]:
+                                    - generic [ref=e188]: Готовность
+                                    - generic [ref=e189]: Production-Ready
+                                - img [ref=e190]
+                - button "EcoChain Token Platform Web3 / DeFi EcoChain Token Platform React, TypeScript, Vite, Zustand, i18next Готовность 90%" [ref=e192] [cursor=pointer]:
+                    - generic [ref=e193]:
+                        - generic [ref=e194]:
+                            - img "EcoChain Token Platform" [ref=e196]
+                            - img [ref=e199]
+                        - generic [ref=e202]:
+                            - generic [ref=e203]: Web3 / DeFi
+                            - heading "EcoChain Token Platform" [level=3] [ref=e204]
+                            - paragraph [ref=e205]: React, TypeScript, Vite, Zustand, i18next
+                            - generic [ref=e206]:
+                                - generic [ref=e207]:
+                                    - generic [ref=e208]: Готовность
+                                    - generic [ref=e209]: 90%
+                                - img [ref=e210]
+            - link "Смотреть все проекты" [ref=e213] [cursor=pointer]:
+                - /url: /portfolio
+        - generic [ref=e215]:
+            - generic [ref=e216]:
+                - 'heading "Матрица технологий: стек под конкретные задачи" [level=2] [ref=e217]'
+                - paragraph [ref=e218]: Выбор технологий зависит от требований проекта
+            - generic [ref=e219]:
+                - generic [ref=e221]:
+                    - img "react" [ref=e223]
+                    - heading "React (Основная)" [level=3] [ref=e224]
+                    - paragraph [ref=e225]: Моя основная экосистема для создания сложных, высоконагруженных SPA и серверных решений на Next.js. Проектирую интерфейсы с упором на переиспользование компонентов и чистое управление состоянием
+                    - generic [ref=e226]:
+                        - heading "Use Cases:" [level=4] [ref=e227]
+                        - list [ref=e228]:
+                            - listitem [ref=e229]:
+                                - img [ref=e230]
+                                - generic [ref=e232]: Сложные дашборды с real-time данными
+                            - listitem [ref=e233]:
+                                - img [ref=e234]
+                                - generic [ref=e236]: E-commerce платформы
+                            - listitem [ref=e237]:
+                                - img [ref=e238]
+                                - generic [ref=e240]: Web3 приложения (кошельки, DeFi)
+                            - listitem [ref=e241]:
+                                - img [ref=e242]
+                                - generic [ref=e244]: Telegram Mini Apps
+                    - generic [ref=e245]:
+                        - heading "Инструменты:" [level=4] [ref=e246]
+                        - paragraph [ref=e247]: React 18, Redux Toolkit, Zustand, TanStack Query, Next.js, Framer Motion
+                - generic [ref=e249]:
+                    - img "vue" [ref=e251]
+                    - heading "Vue" [level=3] [ref=e252]
+                    - paragraph [ref=e253]: Использую для проектов, где важна высокая скорость разработки и четкая структура. Глубоко владею Composition API и Pinia для создания гибких и расширяемых приложений
+                    - generic [ref=e254]:
+                        - heading "Use Cases:" [level=4] [ref=e255]
+                        - list [ref=e256]:
+                            - listitem [ref=e257]:
+                                - img [ref=e258]
+                                - generic [ref=e260]: Корпоративные панели управления
+                            - listitem [ref=e261]:
+                                - img [ref=e262]
+                                - generic [ref=e264]: CRM и ERP системы
+                            - listitem [ref=e265]:
+                                - img [ref=e266]
+                                - generic [ref=e268]: Прогрессивные веб-приложения (PWA)
+                            - listitem [ref=e269]:
+                                - img [ref=e270]
+                                - generic [ref=e272]: SSR с Nuxt.js
+                    - generic [ref=e273]:
+                        - heading "Инструменты:" [level=4] [ref=e274]
+                        - paragraph [ref=e275]: Vue 3, Composition API, Pinia, Vue Router, Nuxt.js
+                - generic [ref=e277]:
+                    - img "vanilla" [ref=e279]
+                    - heading "Vanilla Stack" [level=3] [ref=e280]
+                    - paragraph [ref=e281]: Когда каждый килобайт на счету. Разрабатываю легковесные виджеты, встраиваемые модули и высокопроизводительные лендинги без оверхеда фреймворков. Максимальный контроль над DOM и Web APIs
+                    - generic [ref=e282]:
+                        - heading "Use Cases:" [level=4] [ref=e283]
+                        - list [ref=e284]:
+                            - listitem [ref=e285]:
+                                - img [ref=e286]
+                                - generic [ref=e288]: Высокопроизводительные лендинги
+                            - listitem [ref=e289]:
+                                - img [ref=e290]
+                                - generic [ref=e292]: Легковесные виджеты и встраиваемые элементы
+                            - listitem [ref=e293]:
+                                - img [ref=e294]
+                                - generic [ref=e296]: Web Components для переиспользования
+                            - listitem [ref=e297]:
+                                - img [ref=e298]
+                                - generic [ref=e300]: Проекты с жесткими требованиями к размеру бандла
+                    - generic [ref=e301]:
+                        - heading "Инструменты:" [level=4] [ref=e302]
+                        - paragraph [ref=e303]: ES6+, Web APIs, CSS Grid/Flexbox, CSS Variables, GSAP
+        - generic [ref=e305]:
+            - 'heading "От идеи до релиза: мой процесс" [level=2] [ref=e307]'
+            - generic [ref=e308]:
+                - generic [ref=e310]:
+                    - generic [ref=e311]: "01"
+                    - generic [ref=e312]:
+                        - heading "Проектирование" [level=3] [ref=e313]
+                        - paragraph [ref=e314]: Анализ требований, выбор стека и проектирование компонентной архитектуры (CDD).
+                - generic [ref=e316]:
+                    - generic [ref=e317]: "02"
+                    - generic [ref=e318]:
+                        - heading "Разработка" [level=3] [ref=e319]
+                        - paragraph [ref=e320]: Написание чистого кода на TypeScript с модульной структурой и разделением ответственности.
+                - generic [ref=e322]:
+                    - generic [ref=e323]: "03"
+                    - generic [ref=e324]:
+                        - heading "AI-оптимизация" [level=3] [ref=e325]
+                        - paragraph [ref=e326]: Ускоряю рутину (документирование, тесты) с помощью AI, чтобы больше времени уделять сложной логике.
+                - generic [ref=e328]:
+                    - generic [ref=e329]: "04"
+                    - generic [ref=e330]:
+                        - heading "Стабильность" [level=3] [ref=e331]
+                        - paragraph [ref=e332]: Обязательное тестирование, проверка адаптивности и настройка CI/CD для бесшовного деплоя.
+            - generic [ref=e334]:
+                - generic [ref=e335]: Идея
+                - generic [ref=e336]: →
+                - generic [ref=e337]: Архитектура
+                - generic [ref=e338]: →
+                - generic [ref=e339]: Разработка
+                - generic [ref=e340]: →
+                - generic [ref=e341]: Тестирование
+                - generic [ref=e342]: →
+                - generic [ref=e343]: Релиз
+        - generic [ref=e345]:
+            - generic [ref=e346]:
+                - heading "Почему я? Ваши выгоды." [level=2] [ref=e347]
+                - paragraph [ref=e348]: Ключевые преимущества работы со мной
+            - generic [ref=e349]:
+                - generic [ref=e351]:
+                    - generic [ref=e352]: // Speed without quality loss
+                    - img [ref=e354]
+                    - heading "Скорость без потери качества" [level=3] [ref=e358]
+                    - paragraph [ref=e359]: Использование современных инструментов сборки и AI-ассистентов сокращает Time-to-Market.
+                    - generic [ref=e363]: "status: active"
+                - generic [ref=e365]:
+                    - generic [ref=e366]: // Fullstack understanding
+                    - img [ref=e368]
+                    - heading "Фулстек-понимание" [level=3] [ref=e370]
+                    - paragraph [ref=e371]: Я не просто «рисую кнопки», а понимаю, как данные проходят от базы до экрана пользователя.
+                    - generic [ref=e375]: "status: active"
+                - generic [ref=e377]:
+                    - generic [ref=e378]: // 10+ years in fintech
+                    - img [ref=e380]
+                    - heading "10+ лет в финтех" [level=3] [ref=e385]
+                    - paragraph [ref=e386]: Мой бэкграунд позволяет мне говорить на одном языке и с бизнесом, и с разработчиками бэкенда.
+                    - generic [ref=e390]: "status: active"
+            - generic [ref=e391]:
+                - generic [ref=e392]:
+                    - generic [ref=e393]: 4+ years
+                    - generic [ref=e394]: в разработке интерфейсов
+                - generic [ref=e395]:
+                    - generic [ref=e396]: 10 лет
+                    - generic [ref=e397]: общего опыта в финтех
+                - generic [ref=e398]:
+                    - generic [ref=e399]: 20+
+                    - generic [ref=e400]: освоенных технологий
+                - generic [ref=e401]:
+                    - generic [ref=e402]: 100+
+                    - generic [ref=e403]: проведенных код-ревью
+        - region "Deploy & Connect" [ref=e404]:
+            - generic [ref=e405]:
+                - generic [ref=e406]:
+                    - heading "Deploy & Connect" [level=2] [ref=e407]
+                    - paragraph [ref=e408]: Начнем работу
+                - generic [ref=e409]:
+                    - generic "Contact information" [ref=e410]:
+                        - heading "Контактная информация" [level=3] [ref=e411]
+                        - generic [ref=e412]:
+                            - generic [ref=e413]:
+                                - img [ref=e414]
+                                - generic [ref=e416]: const telegram = '@sskutushev';
+                            - generic [ref=e417]:
+                                - img [ref=e418]
+                                - generic [ref=e421]: const email = 'Sskutushev@gmail.com';
+                        - link "Telegram @sskutushev" [ref=e422] [cursor=pointer]:
+                            - /url: https://t.me/sskutushev
+                            - img [ref=e423]
+                            - generic [ref=e425]:
+                                - generic [ref=e426]: Telegram
+                                - generic [ref=e427]: "@sskutushev"
+                        - link "Email Sskutushev@gmail.com" [ref=e428] [cursor=pointer]:
+                            - /url: mailto:Sskutushev@gmail.com
+                            - img [ref=e429]
+                            - generic [ref=e432]:
+                                - generic [ref=e433]: Email
+                                - generic [ref=e434]: Sskutushev@gmail.com
+                        - link "GitHub github.com/Sskutushev" [ref=e435] [cursor=pointer]:
+                            - /url: https://github.com/Sskutushev
+                            - img [ref=e436]
+                            - generic [ref=e439]:
+                                - generic [ref=e440]: GitHub
+                                - generic [ref=e441]: github.com/Sskutushev
+                        - generic [ref=e443]:
+                            - img [ref=e444]
+                            - generic [ref=e446]:
+                                - heading "Мгновенный ответ" [level=4] [ref=e447]
+                                - paragraph [ref=e448]: Ваша заявка будет отправлена в мой Telegram-бот для оперативного ответа.
+                    - generic "Contact form demonstration video" [ref=e449]:
+                        - generic [ref=e450]:
+                            - generic [ref=e456]: Your browser does not support the video tag.
+                            - generic [ref=e461]: Демонстрация отправки сообщения
+                    - form "Deploy & Connect" [ref=e463]:
+                        - generic [ref=e464]:
+                            - generic [ref=e465]: Ваше имя*
+                            - textbox "Ваше имя(required)" [ref=e466]:
+                                - /placeholder: Иван Иванов
+                        - generic [ref=e467]:
+                            - generic [ref=e468]: Email или Telegram*
+                            - textbox "Email или Telegram(required)" [ref=e469]:
+                                - /placeholder: "@username или email@example.com"
+                        - generic [ref=e470]:
+                            - generic [ref=e471]: Описание проекта*
+                            - textbox "Описание проекта(required)" [ref=e472]:
+                                - /placeholder: Расскажите о вашем проекте...
+                        - generic "reCAPTCHA verification" [ref=e473]:
+                            - generic "reCAPTCHA challenge" [ref=e474]:
+                                - iframe [ref=e478]:
+                                    - generic [ref=f1e2]:
+                                        - generic [ref=f1e6]: "ERROR for site owner: Invalid site key"
+                                        - generic [ref=f1e7]:
+                                            - generic [ref=f1e10]: reCAPTCHA
+                                            - generic [ref=f1e11]:
+                                                - link "Privacy" [ref=f1e12] [cursor=pointer]:
+                                                    - /url: https://www.google.com/intl/en/policies/privacy/
+                                                - text: "-"
+                                                - link "Terms" [ref=f1e13] [cursor=pointer]:
+                                                    - /url: https://www.google.com/intl/en/policies/terms/
+                        - button "Начать Проект" [disabled] [ref=e479]:
+                            - generic [ref=e480]: Начать Проект
+                            - img [ref=e481]
+```

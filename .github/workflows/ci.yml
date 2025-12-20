@@ -115,7 +115,7 @@ jobs:
         run: npm run test:e2e
         env:
           CI: true
-          PLAYWRIGHT_TEST_BASE_URL: http://localhost:4173
+          PLAYWRIGHT_TEST_BASE_URL: http://localhost:5173
           TIMEOUT: 60000
 
       - name: Upload Playwright Report

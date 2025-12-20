@@ -38,7 +38,7 @@ test.describe("Keyboard Navigation", () => {
     // Закрываем с помощью Escape
     await page.keyboard.press("Escape");
     // Даем время для анимации закрытия
-    await page.waitForTimeout(1000); 
+    await page.waitForTimeout(1000);
     await expect(page.locator("#mobile-menu")).not.toBeVisible();
   });
 
@@ -139,9 +139,11 @@ test.describe("Screen Reader Announcements", () => {
 
     // Scroll to the bottom to trigger lazy-loaded sections
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
-    
+
     // Ждем появления секции контактов
-    await expect(page.locator("section#contact")).toBeVisible({ timeout: 30000 });
+    await expect(page.locator("section#contact")).toBeVisible({
+      timeout: 30000,
+    });
 
     // Проверяем наличие submit кнопки
     await expect(
@@ -155,15 +157,38 @@ test.describe("Screen Reader Announcements", () => {
     await page.goto("/#contact");
     await page.waitForLoadState("networkidle");
 
-    // Ждем кнопку отправки и кликаем (попытка отправки пустой формы)
+    // Ждем секцию контактов
+    await expect(page.locator("section#contact")).toBeVisible();
+
+    // Скроллим к форме
+    await page.locator("section#contact").scrollIntoViewIfNeeded();
+    await page.waitForTimeout(1000);
+
+    // Находим поля формы
+    const nameInput = page.getByLabel(/name|имя/i).first();
+    const contactInput = page.getByLabel(/email|telegram|контакт/i).first();
+    const messageInput = page.getByLabel(/message|описание|сообщение/i).first();
     const submitButton = page
       .getByRole("button", { name: /Start Project|Начать Проект/i })
       .first();
-    await expect(submitButton).toBeVisible();
-    await page.waitForTimeout(1000);
+
+    // Заполняем поля, чтобы кнопка стала активной
+    await nameInput.fill("Test Name");
+    await contactInput.fill("test@example.com");
+    await messageInput.fill("Test message");
+
+    // Убеждаемся, что кнопка активна
+    await expect(submitButton).toBeEnabled();
+
+    // Очищаем поля, чтобы вызвать ошибки валидации
+    await nameInput.fill("");
+    await contactInput.fill("");
+    await messageInput.fill("");
+
+    // Кликаем кнопку отправки с пустыми полями
     await submitButton.click();
 
-    // Проверяем наличие сообщений об ошибках - используем query для избежания ошибки ожидания
+    // Проверяем наличие сообщений об ошибках
     const alerts = page.locator('[role="alert"]');
     await expect(alerts).toHaveCount(3); // ожидаем 3 сообщения об ошибках (для имени, контакта и сообщения)
   });
