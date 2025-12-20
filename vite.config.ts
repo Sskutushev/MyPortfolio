@@ -43,6 +43,9 @@ export default defineConfig({
     },
   },
 
+  // Base URL for deployment
+  base: "./", // Changed from default to relative path for Vercel
+
   build: {
     // Оптимизация бандла
     rollupOptions: {
