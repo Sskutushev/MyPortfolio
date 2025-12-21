@@ -1,10 +1,4 @@
-import React, {
-  useRef,
-  useEffect,
-  useCallback,
-  useMemo,
-  useState,
-} from "react";
+import React, { useRef, useEffect, useCallback, useMemo } from "react";
 import { useTheme } from "@/contexts/ThemeContext"; // Import useTheme
 
 interface MatrixBackgroundProps {
@@ -41,8 +35,8 @@ export const MatrixBackground: React.FC<MatrixBackgroundProps> = ({
   const animationFrameId = useRef<number | undefined>(undefined);
   const lastTime = useRef<number>(0);
   const resizeTimeout = useRef<number | undefined>(undefined);
-  const drops = useRef<number[]>([]); // To store the y-position of each drop
-  const [scrollY, setScrollY] = useState(0);
+  const drops = useRef<Array<{ y: number; xOffset: number }>>([]); // To store the y-position and xOffset of each drop
+  const scrollY = useRef(0); // Use ref to prevent re-renders on scroll
 
   const config = useMemo(
     () => ({
@@ -85,12 +79,17 @@ export const MatrixBackground: React.FC<MatrixBackgroundProps> = ({
     ctx.font = `${config.fontSize}px ${config.fontFamily}`;
     ctx.textBaseline = "top";
 
-    const isMobile = window.innerWidth < 768;
-    const actualColumnWidth = isMobile
-      ? config.columnWidth * 2
-      : config.columnWidth;
+    // Use consistent column width across devices, or adjust as needed
+    const actualColumnWidth = config.columnWidth;
     const columnCount = Math.floor(canvas.width / actualColumnWidth);
-    drops.current = Array(columnCount).fill(0); // Initialize drops at y=0 for each column
+
+    // Center the animation horizontally if there's leftover space
+    const xOffset = (canvas.width % actualColumnWidth) / 2;
+
+    // Initialize drops at y=0 for each column, storing xOffset for drawing
+    drops.current = Array(columnCount)
+      .fill(0)
+      .map((_, i) => ({ y: 0, xOffset: xOffset + i * actualColumnWidth }));
   }, [config.fontSize, config.fontFamily, config.columnWidth]);
 
   const draw = useCallback(() => {
@@ -106,16 +105,12 @@ export const MatrixBackground: React.FC<MatrixBackgroundProps> = ({
     ctx.fillStyle = background;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    const isMobile = window.innerWidth < 768;
-    const actualColumnWidth = isMobile
-      ? config.columnWidth * 2
-      : config.columnWidth;
-
     ctx.font = `${config.fontSize}px ${config.fontFamily}`;
 
     for (let i = 0; i < drops.current.length; i++) {
-      const x = i * actualColumnWidth;
-      const y = drops.current[i];
+      const drop = drops.current[i];
+      const x = drop.xOffset;
+      const y = drop.y;
 
       const char = characters[Math.floor(Math.random() * characters.length)];
 
@@ -125,12 +120,12 @@ export const MatrixBackground: React.FC<MatrixBackgroundProps> = ({
       ctx.fillText(char, x, y);
 
       // Move the drop down
-      const adjustedSpeed = 1 + scrollY * 0.001; // Parallax effect
-      drops.current[i] += config.fontSize * adjustedSpeed;
+      const adjustedSpeed = 1 + scrollY.current * 0.001; // Parallax effect
+      drop.y += config.fontSize * adjustedSpeed;
 
       // Reset drop to top if it goes off screen (or randomly)
-      if (drops.current[i] * 1.5 > canvas.height && Math.random() > 0.975) {
-        drops.current[i] = 0;
+      if (drop.y * 1.5 > canvas.height && Math.random() > 0.975) {
+        drop.y = 0;
       }
     }
   }, [
@@ -140,7 +135,6 @@ export const MatrixBackground: React.FC<MatrixBackgroundProps> = ({
     config.fontFamily,
     getThemeColors,
     theme,
-    scrollY,
   ]);
 
   const animate = useCallback(
@@ -189,7 +183,7 @@ export const MatrixBackground: React.FC<MatrixBackgroundProps> = ({
 
     // Scroll handler for parallax
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      scrollY.current = window.scrollY;
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
 
