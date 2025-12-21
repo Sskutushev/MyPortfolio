@@ -1,11 +1,26 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Mail, MessageSquare, Github } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/lib/motion-config";
 import { ymGoal } from "@/lib/metrics";
+import { useState } from "react"; // Import useState
 
 export const ContactSection = () => {
   const { t } = useTranslation();
+  const [copied, setCopied] = useState(false); // State for copy feedback
+
+  const handleCopyClick = async () => {
+    const emailAddress = "Sskutushev@gmail.com"; // Define email address here
+    try {
+      await navigator.clipboard.writeText(emailAddress);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000); // Reset copied state after 2 seconds
+      ymGoal("copy_email"); // Track copy event
+    } catch (err) {
+      console.error("Failed to copy email:", err);
+      // Optionally, provide user feedback that copying failed
+    }
+  };
 
   return (
     <section
@@ -78,10 +93,9 @@ export const ContactSection = () => {
                 <div className="text-sm text-c-text-secondary">@sskutushev</div>
               </div>
             </a>
-            <a
-              href="mailto:Sskutushev@gmail.com"
-              className="flex items-center gap-3 p-4 rounded-xl bg-c-bg-primary border border-c-border hover:border-c-accent-blue transition group"
-              onClick={() => ymGoal("click_email")}
+            <button // Changed from <a> to <button>
+              className="flex items-center gap-3 p-4 rounded-xl bg-c-bg-primary border border-c-border hover:border-c-accent-blue transition group relative w-full text-left" // Added w-full text-left for consistent styling
+              onClick={handleCopyClick} // onClick handler directly calls copy logic
             >
               <Mail className="text-c-accent-blue" />
               <div>
@@ -91,8 +105,20 @@ export const ContactSection = () => {
                 <div className="text-sm text-c-text-secondary">
                   Sskutushev@gmail.com
                 </div>
+                <AnimatePresence>
+                  {copied && (
+                    <motion.span
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="absolute -top-8 left-1/2 -translate-x-1/2 bg-c-accent-blue text-white text-xs px-2 py-1 rounded-md shadow-lg whitespace-nowrap z-50"
+                    >
+                      Email copied!
+                    </motion.span>
+                  )}
+                </AnimatePresence>
               </div>
-            </a>
+            </button>
             <a
               href="https://github.com/Sskutushev"
               target="_blank"
