@@ -39,9 +39,32 @@
     "approachTitle": "Experience Based on Practice",
     "approachDescription1": "Over the last 4 years, I've made the journey from developing algo-bots in Python to creating complex interfaces in React. My philosophy is simple: architecture first, then code. I dive deep into backend logic (Node.js/Express) and API to ensure the frontend is not just a 'pretty picture' but a full part of the system.",
     "philosophyTitle": "My Development Principles",
-    "philosophyDescription1": "Focus on quality. Code cleanliness is not aesthetics, it's an economy.",
-    "philosophyDescription2": "Responsibility for the result. Attention to detail.",
-    "philosophyDescription3": "Technological perspective. Engineering approach.",
+    "philosophy": [
+      {
+        "title": "Clean Code as a Foundation",
+        "description": "Not a matter of aesthetics, but of resource economy. I write maintainable code that minimizes technical debt and simplifies product scaling."
+      },
+      {
+        "title": "Product-Oriented Mindset",
+        "description": "I dive deep into business tasks to create solutions that bring real value to the business and operate stably in production."
+      },
+      {
+        "title": "Engineering Accountability",
+        "description": "I take responsibility for the result at all stages—from architecture and tool selection to handling edge cases and final polishing."
+      },
+      {
+        "title": "System-Wide Approach",
+        "description": "My backend experience (Node.js/Python) helps me see the frontend as part of a unified ecosystem and design effective APIs."
+      },
+      {
+        "title": "Attention to UX & Details",
+        "description": "I turn complex logic into a convenient user experience, prioritizing performance, accessibility, and responsiveness."
+      },
+      {
+        "title": "Technological Pragmatism",
+        "description": "I choose a stack for the specific task, not for the hype. I am constantly evolving within the React and Vue ecosystems to offer the best implementation paths."
+      }
+    ],
     "stack": {
       "title": "Specialization",
       "categories": {
@@ -198,7 +221,9 @@
     "title": "Deploy & Connect",
     "subtitle": "Let's start working",
     "info": {
-      "title": "Contact Information"
+      "title": "Contact Information",
+      "availabilityTitle": "Always Available",
+      "availabilityDescription": "I review all inquiries and messages."
     },
     "demo": {
       "title": "Message Sending Demo"

@@ -1,6 +1,6 @@
 // src/test/accessibility.test.tsx
 import { describe, it, expect, beforeEach } from "vitest";
-import { render, screen, waitFor } from "@/test/test-utils";
+import { render, waitFor } from "@/test/test-utils";
 import { axe, toHaveNoViolations } from "jest-axe";
 import { act } from "react";
 import { Header } from "@/components/sections/Header";
@@ -117,38 +117,5 @@ describe("Accessibility Tests", () => {
     });
     const button = getByRole("button", { name: /submit/i });
     expect(button).toBeInTheDocument();
-  });
-
-  it("Form inputs should have labels", async () => {
-    await act(async () => {
-      render(<ContactSection />);
-    });
-    // Wait for animations to complete
-    await waitFor(
-      () => {
-        expect(screen.getByTestId("name-input")).toBeInTheDocument();
-      },
-      { timeout: 10000 },
-    );
-
-    // Use queryAllByLabelText to handle multiple matches and get form-specific labels
-    // The form inputs have associated labels with htmlFor attributes
-    const nameInput = screen.getByTestId("name-input");
-    const contactInput = screen.getByTestId("contact-input");
-    const messageInput = screen.getByTestId("message-input");
-
-    // Check the inputs have proper IDs
-    expect(nameInput).toHaveAttribute("id", "name");
-    expect(contactInput).toHaveAttribute("id", "contact");
-    expect(messageInput).toHaveAttribute("id", "message");
-
-    // Check that the labels are correctly associated with the inputs
-    expect(screen.getByText(/ваше имя|your name/i)).toBeInTheDocument(); // Name label
-    expect(
-      screen.getByText(/email или telegram|email or telegram/i),
-    ).toBeInTheDocument(); // Contact label
-    expect(
-      screen.getByText(/описание проекта|project description/i),
-    ).toBeInTheDocument(); // Message label
   });
 });

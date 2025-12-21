@@ -1,10 +1,11 @@
 import React, {
   useRef,
   useEffect,
-  useState,
   useCallback,
   useMemo,
+  useState,
 } from "react";
+import { useTheme } from "@/contexts/ThemeContext"; // Import useTheme
 
 interface MatrixBackgroundProps {
   className?: string;
@@ -36,7 +37,7 @@ export const MatrixBackground: React.FC<MatrixBackgroundProps> = ({
   className,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const { theme } = useTheme(); // Use the theme from context
   const animationFrameId = useRef<number | undefined>(undefined);
   const lastTime = useRef<number>(0);
   const resizeTimeout = useRef<number | undefined>(undefined);
@@ -64,7 +65,7 @@ export const MatrixBackground: React.FC<MatrixBackgroundProps> = ({
       };
     } else {
       return {
-        background: "rgba(255, 255, 255, 0.15)", // trail effect
+        background: "#F9FAFB", // Use a solid light color (bg-secondary) to prevent dark artifacts
         symbolColor: "#14b8a6", // turquoise
         glitchColor: "#5eead4", // brighter turquoise
       };
@@ -120,7 +121,7 @@ export const MatrixBackground: React.FC<MatrixBackgroundProps> = ({
 
       ctx.fillStyle =
         Math.random() < config.glitchProbability ? glitchColor : symbolColor;
-      ctx.globalAlpha = theme === "dark" ? 0.8 : Math.random() * 0.1 + 0.15;
+      ctx.globalAlpha = theme === "dark" ? 0.8 : 0.4; // Increased alpha for light theme
       ctx.fillText(char, x, y);
 
       // Move the drop down
@@ -168,16 +169,6 @@ export const MatrixBackground: React.FC<MatrixBackgroundProps> = ({
     // Initialize canvas
     reinitCanvas();
 
-    // Theme observer
-    const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains("dark");
-      setTheme(isDark ? "dark" : "light");
-    });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
     // Start animation
     const startAnimation = () => {
       if (animationFrameId.current) {
@@ -219,7 +210,6 @@ export const MatrixBackground: React.FC<MatrixBackgroundProps> = ({
       if (animationFrameId.current) {
         cancelAnimationFrame(animationFrameId.current);
       }
-      observer.disconnect();
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("visibilitychange", handleVisibilityChange);

@@ -114,9 +114,11 @@ export const ContactSection = () => {
               <div className="flex items-start gap-3">
                 <MessageSquare className="text-c-accent-blue flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="font-semibold mb-2">Всегда на связи</h4>
+                  <h4 className="font-semibold mb-2">
+                    {t("contact.info.availabilityTitle")}
+                  </h4>
                   <p className="text-sm text-c-text-secondary">
-                    Рассматриваю все заявки и сообщения.
+                    {t("contact.info.availabilityDescription")}
                   </p>
                 </div>
               </div>

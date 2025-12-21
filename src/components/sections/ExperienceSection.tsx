@@ -33,10 +33,23 @@ export const ExperienceSection = () => {
             <h3 className="text-2xl font-bold mb-4 text-c-accent-purple">
               {t("experience.philosophyTitle")}
             </h3>
-            <div className="space-y-4 text-c-text-secondary leading-relaxed">
-              <p>{t("experience.philosophyDescription1")}</p>
-              <p>{t("experience.philosophyDescription2")}</p>
-              <p>{t("experience.philosophyDescription3")}</p>
+            <div className="space-y-6 text-c-text-secondary leading-relaxed">
+              {(
+                t("experience.philosophy", {
+                  returnObjects: true,
+                }) as Array<{ title: string; description: string }>
+              ).map((principle, index) => (
+                <motion.div
+                  key={index}
+                  {...fadeInUp}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <h4 className="font-semibold text-c-text-primary mb-1">
+                    {principle.title}
+                  </h4>
+                  <p className="text-sm">{principle.description}</p>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 
