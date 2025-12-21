@@ -53,12 +53,7 @@ export const UIComponentsPage = () => {
     <div className="min-h-screen bg-c-bg-primary text-c-text-primary py-12 px-4">
       <div className="container mx-auto">
         {/* Back Button */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mb-12"
-        >
+        <div className="mb-12">
           <Link
             to="/#portfolio"
             className="inline-flex items-center gap-2 text-c-accent-blue font-semibold group"
@@ -66,15 +61,10 @@ export const UIComponentsPage = () => {
             <ArrowLeft className="transition-transform group-hover:-translate-x-1" />
             <span>Назад к портфолио</span>
           </Link>
-        </motion.div>
+        </div>
 
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
             {title}
           </h1>
@@ -118,7 +108,7 @@ export const UIComponentsPage = () => {
               </button>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">

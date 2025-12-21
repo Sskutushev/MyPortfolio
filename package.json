@@ -2,6 +2,7 @@
   "name": "portfolio-project",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://Sskutushev.github.io/MyPortfolio",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -23,7 +24,7 @@
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:headed": "playwright test --headed",
     "test:e2e:local": "playwright test",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build:github",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {

@@ -23,6 +23,17 @@
   <meta name="twitter:title" content="Sskutushev - Frontend Architect" />
   <meta name="twitter:description" content="Frontend разработчик специализирующийся на React, TypeScript и современных web-технологиях" />
   <meta name="twitter:image" content="/og-image.jpg" />
+
+  <!-- GitHub Pages SPA Redirect -->
+  <script>
+    (function() {
+      const redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect != location.href) {
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/images/Favicon.svg" />
