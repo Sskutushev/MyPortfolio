@@ -23,7 +23,8 @@ const PROJECT_TRANSLATION_MAP: Record<number, string> = {
   9: "lumi", // Lumi
   10: "course", // Course Catalog
   11: "yokai", // Yokai Threat Matrix
-  12: "moviecatalog", // MovieCatalog - Adaptive Cinema SPA
+  12: "rkn", // RKN Simulator — Satirical Slot Machine Game
+  13: "moviecatalog", // MovieCatalog - Adaptive Cinema SPA
 };
 
 export const PortfolioPage = () => {
@@ -48,17 +49,18 @@ export const PortfolioPage = () => {
       : t("portfolio.componentsTab", "UI-Компоненты и Интерактивные Элементы");
 
   return (
-    <div className="min-h-screen bg-c-bg-primary text-c-text-primary py-12 px-4">
+    <div className="min-h-screen bg-transparent text-c-text-primary py-12 px-4">
       <div className="container mx-auto">
         {/* Back Button */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
+          className="mb-8 p-4 rounded-xl bg-c-bg-primary/60 backdrop-blur-sm"
         >
           <a
             href="/#portfolio"
-            className="inline-flex items-center gap-2 text-c-accent-blue font-semibold mb-12 group"
+            className="inline-flex items-center gap-2 text-c-accent-blue font-semibold group"
           >
             <ArrowLeft className="transition-transform group-hover:-translate-x-1" />
             <span>Назад к сайту</span>
@@ -70,7 +72,7 @@ export const PortfolioPage = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="text-center mb-16"
+          className="text-center mb-16 p-6 rounded-2xl bg-c-bg-primary/80 backdrop-blur-sm"
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
             {title}
@@ -172,7 +174,7 @@ export const PortfolioPage = () => {
                           {(() => {
                             // Check if translation exists for this project
                             const projectIds = [
-                              1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                              1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
                             ];
                             const projectIdKey = projectIds.includes(project.id)
                               ? PROJECT_TRANSLATION_MAP[project.id]
@@ -206,7 +208,7 @@ export const PortfolioPage = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="text-center mt-16"
+          className="text-center mt-16 p-6 rounded-2xl bg-c-bg-primary/80 backdrop-blur-sm"
         >
           <a
             href="/#portfolio"

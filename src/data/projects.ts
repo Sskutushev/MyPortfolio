@@ -350,7 +350,7 @@ export const portfolioProjects: Project[] = [
     },
   },
   {
-    id: 12,
+    id: 13,
     title: "🎬 MovieCatalog — Adaptive Cinema SPA",
     category: "React SPA / Movie Discovery",
     tech: "React 18, TypeScript, Tailwind CSS, Framer Motion, React Router, Vitest, 87% Test Coverage",
@@ -373,6 +373,32 @@ export const portfolioProjects: Project[] = [
       label: "Performance",
       value: "87% Test Coverage",
       description: "Debounced Search, Theme Switcher, Adaptive Layout",
+    },
+  },
+  {
+    id: 12,
+    title: "🎰 RKN Simulator — Satirical Slot Machine Game",
+    category: "Telegram Mini App / Gamification",
+    tech: "React 18, TypeScript, Tailwind CSS, Framer Motion, Telegram WebApp API",
+    imageDark: "/images/slotmachine.png",
+    imageLight: "/images/slotmachine.png",
+    link: "https://t.me/RKNsimulator_bot",
+    flow: {
+      input:
+        "Создать юмористическое веб-приложение в формате слот-машины для практики реализации сложной анимации барабана розыгрыша. Цель: отработать механику бесконечной прокрутки, точное позиционирование победителя, интеграцию с Telegram Mini App API и создание engaging user experience с micro-interactions.",
+      process:
+        'Архитектура: React 18 + TypeScript с Context API для глобального состояния (баланс, решения). Интеграция с Telegram WebApp API для нативного UX (haptic feedback, safe area, fullscreen, CloudStorage).\n\nАнимационная система:\n- Framer Motion для плавной механики барабана\n- Автоматическая прокрутка в режиме ожидания (1.5s интервал)\n- Точный расчет финальной позиции: 3 полных оборота + winner offset\n- Кастомная easing-функция [0.12, 0, 0.39, 0] для реалистичного замедления\n- 30x повторение массива сервисов для бесконечной ленты\n\nUI/UX Особенности:\n- Gradient animated background (розовый → оранжевый)\n- 3D-эффекты с трансформациями и тенями\n- Центральная рамка-индикатор с подсветкой победителя\n- Плавающие декоративные элементы (✨)\n- Adaptive layout с учетом Safe Area Insets (вырезы iPhone)\n\nPersistence Layer:\n- Dual-storage: Telegram CloudStorage (primary) + localStorage (fallback)\n- Синхронизация баланса звёзд и истории решений\n- Система ежедневных наград с таймером\n\nИгровая механика:\n- 36 популярных сервисов (Google, YouTube, Netflix, etc.)\n- 3 типа "решений": Ban 🚫, Slow 🐌, Limit 🔒\n- 50+ уникальных саркастических комментариев\n- Экономика: 100 стартовых звёзд, 2 звезды за спин, +10 за daily reward',
+      output:
+        "Production-ready Telegram Mini App с плавной анимацией барабана, haptic feedback, автоматической прокруткой и dual-storage persistence. Проект демонстрирует глубокое понимание Framer Motion, точных математических расчетов для анимаций, интеграции с Telegram API и создания engaging gamification experience.",
+    },
+    codeHighlight: {
+      title: "Carousel Animation Logic",
+      code: "// components/Carousel.tsx\nconst Carousel = ({ isSpinning, winner, onComplete }: Props) => {\n  const controls = useAnimation();\n  const ITEM_HEIGHT = 180;\n  const GAP = 20;\n  const STEP = ITEM_HEIGHT + GAP;\n\n  // Повторяем сервисы 30x для бесконечной ленты\n  const repeatedServices = useMemo(() => {\n    const result = [];\n    for (let i = 0; i < 30; i++) {\n      result.push(...SERVICES);\n    }\n    return result;\n  }, []);\n\n  useEffect(() => {\n    if (isSpinning && winner) {\n      const winnerIndex = SERVICES.findIndex(s => s.id === winner.id);\n\n      // 3 полных круга + позиция победителя\n      const fullRoundDistance = SERVICES.length * STEP;\n      const roundsDistance = 3 * fullRoundDistance;\n      const winnerPositionDistance = winnerIndex * STEP;\n      const centerOffset = 300; // Центрирование\n\n      const finalPosition = startPosition - roundsDistance\n                           - winnerPositionDistance + centerOffset;\n\n      controls.start({ y: finalPosition }, {\n        duration: 6,\n        ease: [0.12, 0, 0.39, 0] // Резкий старт → плавное торможение\n      }).then(onComplete);\n    }\n  }, [isSpinning, winner]);\n\n  return (/* JSX */);\n};\n// Математика победы: Точный расчет дистанции для 3 оборотов + остановка на winner с учетом центрирования.",
+    },
+    metrics: {
+      label: "Performance",
+      value: "Auto-scroll Carousel",
+      description: "Haptic Feedback, CloudStorage Sync",
     },
   },
 ];

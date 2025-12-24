@@ -88,7 +88,7 @@ function App() {
 
   return (
     <div className="relative z-1 min-h-screen text-c-text-primary">
-      {/* Matrix background effect */}
+      {/* Matrix background effect - always present but with appropriate z-index */}
       <MatrixBackground />
       {isMainPage && <Header />}
       <Suspense fallback={null}>

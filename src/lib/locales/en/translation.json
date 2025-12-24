@@ -374,6 +374,16 @@
         "label": "Performance",
         "description": "Debounced Search, Theme Switcher, Adaptive Layout"
       }
+    },
+    "rkn": {
+      "flowInput": "Create a humorous web application in the form of a slot machine to practice implementing complex animation of the draw drum. Goal: to work out the mechanics of infinite scrolling, precise winner positioning, integration with Telegram Mini App API and creating engaging user experience with micro-interactions.",
+      "flowProcess": "Architecture: React 18 + TypeScript with Context API for global state (balance, decisions). Integration with Telegram WebApp API for native UX (haptic feedback, safe area, fullscreen, CloudStorage).\n\nAnimation system:\n- Framer Motion for smooth drum mechanics\n- Automatic scrolling in idle mode (1.5s interval)\n- Precise final position calculation: 3 full rotations + winner offset\n- Custom easing function [0.12, 0, 0.39, 0] for realistic deceleration\n- 30x repetition of services array for infinite tape\n\nUI/UX Features:\n- Gradient animated background (pink → orange)\n- 3D effects with transforms and shadows\n- Central frame indicator with winner highlight\n- Floating decorative elements (✨)\n- Adaptive layout considering Safe Area Insets (iPhone notches)\n\nPersistence Layer:\n- Dual-storage: Telegram CloudStorage (primary) + localStorage (fallback)\n- Synchronization of star balance and decision history\n- Daily reward system with timer\n\nGame mechanics:\n- 36 popular services (Google, YouTube, Netflix, etc.)\n- 3 types of \"decisions\": Ban 🚫, Slow 🐌, Limit 🔒\n- 50+ unique sarcastic comments\n- Economy: 100 starting stars, 2 stars per spin, +10 for daily reward",
+      "flowOutput": "Production-ready Telegram Mini App with smooth drum animation, haptic feedback, automatic scrolling and dual-storage persistence. The project demonstrates deep understanding of Framer Motion, precise mathematical calculations for animations, Telegram API integration and creating engaging gamification experience.",
+      "codeTitle": "Carousel Animation Logic",
+      "metrics": {
+        "label": "Performance",
+        "description": "Auto-scroll Carousel, Haptic Feedback, CloudStorage Sync"
+      }
     }
   }
 }
