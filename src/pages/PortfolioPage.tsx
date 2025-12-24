@@ -23,8 +23,10 @@ const PROJECT_TRANSLATION_MAP: Record<number, string> = {
   9: "lumi", // Lumi
   10: "course", // Course Catalog
   11: "yokai", // Yokai Threat Matrix
-  12: "rkn", // RKN Simulator — Satirical Slot Machine Game
-  13: "moviecatalog", // MovieCatalog - Adaptive Cinema SPA
+  12: "moviecatalog", // MovieCatalog - Adaptive Cinema SPA
+  13: "rkn", // RKN Simulator — Satirical Slot Machine Game
+  14: "moviecatalog", // MovieCatalog - Adaptive Cinema SPA
+  15: "rkn", // RKN Simulator — Satirical Slot Machine Game
 };
 
 export const PortfolioPage = () => {
@@ -174,7 +176,7 @@ export const PortfolioPage = () => {
                           {(() => {
                             // Check if translation exists for this project
                             const projectIds = [
-                              1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+                              1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
                             ];
                             const projectIdKey = projectIds.includes(project.id)
                               ? PROJECT_TRANSLATION_MAP[project.id]
