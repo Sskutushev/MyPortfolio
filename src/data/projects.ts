@@ -28,8 +28,34 @@ export interface Project {
 // Portfolio projects data
 export const portfolioProjects: Project[] = [
   {
+    id: 16,
+    title: "NFT Marketplace — Modern DeFi Trading Platform",
+    category: "Test Assignment / E-commerce",
+    tech: "Next.js 14, TypeScript, Redux Toolkit, GSAP, Swiper.js, PWA",
+    imageDark: "/images/nft-market.jpg",
+    imageLight: "/images/nft-market.jpg",
+    link: "https://github.com/Sskutushev/nft-marketplace",
+    flow: {
+      input:
+        "Разработать production-ready NFT marketplace с адаптивной версткой по Figma-дизайну (Desktop 1440 / Tablet 1024 / Mobile 375). Интегрировать CoinGecko API для получения NFT данных, реализовать сложную карусель с таймерами, генерацию случайных ставок и создать engaging user experience с плавными GSAP-анимациями.",
+      process:
+        "Архитектура: Next.js 14 App Router + TypeScript strict mode с Redux Toolkit для глобального состояния. Модульная структура (components, hooks, services, store, utils) с полным разделением ответственности по Clean Architecture принципам.\n\nАнимационная система:\n- GSAP Timeline для hero-секции (stagger animations, ease curves)\n- Canvas API для particle background (60 FPS, adaptive particle count)\n- requestAnimationFrame для счетчиков с cubic ease-out easing\n- Framer Motion паттерны для micro-interactions\n- Intersection Observer для lazy-loading анимаций\n\nUI/UX Особенности:\n- Pixel-perfect верстка с точностью до 1px по Figma\n- SCSS Modules + Variables + Mixins для масштабируемости\n- Адаптивные breakpoints: 1920px / 1440px / 1024px / 375px\n- Sticky header с backdrop-filter blur эффектом\n- Mobile burger menu с плавной трансформацией\n- Hover states с активными зонами и transitions\n\nReal-time Features:\n- WebSocket integration (coincap.io) для live price updates\n- Auto-reconnection с exponential backoff (5 attempts, 3s delay)\n- Fallback механизм: каждые 5 секунд если WS недоступен\n- Live badge индикатор на NFT карточках\n- Countdown таймеры с обновлением каждую секунд\n\nData Layer:\n- CoinGecko API + fallback на mock данные (10 NFT)\n- Redux async thunks для асинхронных операций\n- Случайная генерация: bid (0.5-5 ETH), endTime (+1-24h), images (5 вариантов)\n- Сортировка NFT по текущей ставке (desc)\n- Error boundaries для graceful error handling\n\nPerformance Optimizations:\n- React.memo на NFTCard с custom comparison\n- useMemo для сортировки массива NFT\n- useCallback для event handlers\n- Canvas optimization: 30 particles (mobile) vs 50 (desktop)\n- Performance Monitor для dev mode (frame time tracking)\n- Bundle Analyzer для size optimization\n\nPWA Implementation:\n- next-pwa с Service Workers для offline support\n- Web App Manifest (standalone mode, theme color)\n- Installable на mobile и desktop\n- Caching strategy для assets и API responses\n\nTesting & Quality:\n- Jest + React Testing Library для unit тестов\n- Playwright для E2E тестирования (carousel navigation, mobile menu, timers)\n- TypeScript strict mode с полной типизацией\n- ESLint + Prettier для code quality\n- Coverage для критичных компонентов\n\nDevOps:\n- Docker multi-stage build (deps → builder → runner)\n- docker-compose с healthcheck\n- Оптимизированный размер образа через alpine + standalone\n- Environment variables для production/development",
+      output:
+        "Production-ready NFT marketplace с pixel-perfect дизайном, real-time WebSocket updates, 60 FPS анимациями и full PWA support. Проект демонстрирует глубокое понимание современного frontend стека, Clean Architecture принципов, performance optimization техник и создания engaging user experience.\n\nКлючевые достижения:\n- Pixel-perfect верстка (95% точность по Figma комментариям)\n- GSAP Timeline анимации с точным timing\n- WebSocket real-time updates с fallback стратегией\n- Canvas Particles background (60 FPS на всех устройствах)\n- PWA с offline support и installability\n- Unit + E2E тесты для критичных flow\n- Docker production-ready deployment\n- TypeScript strict mode (0 any types в core logic)\n- Performance optimizations (memo, useMemo, requestAnimationFrame)\n- Engaging UX с micro-interactions и countdown таймерами",
+    },
+    codeHighlight: {
+      title: "GSAP Timeline Hero Animation",
+      code: "// components/Hero/HeroSection.tsx\nuseEffect(() => {\n  if (!isVisible) return;\n\n  const isMobile = window.innerWidth <= 900;\n  const config = { ease: 'power3.out', duration: 0.8 };\n\n  const tl = gsap.timeline({ defaults: config });\n\n  // Последовательная анимация элементов\n  tl.fromTo(headline, { opacity: 0, y: 50 }, { opacity: 1, y: 0 })\n    .fromTo(subheadline, { opacity: 0, y: 30 },\n            { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')\n    .fromTo(buttonGroup, { opacity: 0, y: 30 },\n            { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')\n    .fromTo([image1, image2], { x: 100, opacity: 0 },\n            { x: 0, opacity: 1, stagger: 0.1 }, '-=0.6')\n    .fromTo(image3, { opacity: 0 },\n            { opacity: 1, duration: 0.6 }, '-=0.2');\n\n  // Cleanup will-change после анимации\n  tl.eventCallback('onComplete', () => {\n    mainRef.current?.classList.add(styles.animated);\n  });\n\n  return () => tl.kill();\n}, [isVisible]);\n// Плавная последовательность: Текст → Кнопки → Изображения с stagger эффектом и оптимизацией will-change.",
+    },
+    metrics: {
+      label: "Performance",
+      value: "Pixel-Perfect Design",
+      description: "Real-time WebSocket, 60 FPS Animations",
+    },
+  },
+  {
     id: 14,
-    title: "🎬 MovieCatalog — Adaptive Cinema SPA",
+    title: "MovieCatalog — Adaptive Cinema SPA",
     category: "React SPA / Movie Discovery",
     tech: "React 18, TypeScript, Tailwind CSS, Framer Motion, React Router, Vitest, 87% Test Coverage",
     imageDark: "/images/Cinemadark.jpg",
@@ -55,7 +81,7 @@ export const portfolioProjects: Project[] = [
   },
   {
     id: 15,
-    title: "🎰 RKN Simulator — Satirical Slot Machine Game",
+    title: "RKN Simulator — Satirical Slot Machine Game",
     category: "Telegram Mini App / Gamification",
     tech: "React 18, TypeScript, Tailwind CSS, Framer Motion, Telegram WebApp API",
     imageDark: "/images/slotmachine.png",
