@@ -215,7 +215,11 @@
     "statLabelExperience": "in interface development",
     "statLabelProjects": "of total experience in fintech",
     "statLabelTechnologies": "mastered technologies",
-    "statLabelCodeReviews": "conducted code reviews"
+    "statLabelCodeReviews": "conducted code reviews",
+    "statValueExperience": "4+ years",
+    "statValueProjects": "10 years",
+    "statValueTechnologies": "20+",
+    "statValueCodeReviews": "100+"
   },
   "contact": {
     "title": "Deploy & Connect",

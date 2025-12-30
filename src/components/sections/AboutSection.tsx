@@ -44,9 +44,12 @@ export const AboutSection = () => {
             {...fadeInUp}
             transition={{ delay: 0.2 }} // Keep specific delay
           >
-            <p className="text-lg text-c-text-secondary mb-8 leading-relaxed">
-              {t("about.description")}
-            </p>
+            {/* Glassmorphism container for the description text */}
+            <div className="p-6 rounded-2xl bg-c-bg-primary/10 backdrop-blur-xl border border-c-border/20 shadow-xl mb-8">
+              <p className="text-lg text-c-text-secondary leading-relaxed">
+                {t("about.description")}
+              </p>
+            </div>
 
             {/* Key Points */}
             <div className="space-y-6">

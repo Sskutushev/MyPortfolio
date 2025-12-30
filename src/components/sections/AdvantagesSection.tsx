@@ -1,18 +1,48 @@
 // src/components/sections/AdvantagesSection.tsx
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Zap, Layers, Rocket } from "lucide-react";
 import { fadeInUp, staggerContainer } from "@/lib/motion-config";
+import { useAnimatedCounter } from "@/hooks/useAnimatedCounter";
+import { useRef } from "react";
 
 const icons = [Layers, Zap, Rocket];
 
 export const AdvantagesSection = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  // Extract numeric values for counters - only animate when in view
+  const yearsCount = useAnimatedCounter({ to: 4, trigger: isInView });
+  const projectsCount = useAnimatedCounter({ to: 10, trigger: isInView });
+  const technologiesCount = useAnimatedCounter({ to: 20, trigger: isInView });
+  const codeReviewsCount = useAnimatedCounter({ to: 100, trigger: isInView });
+
+  // Format the animated values based on locale
+  const isRussian = i18n.language === "ru";
+
+  // For years - "4+ years" in English, "4+ года" in Russian
+  const formattedYears = isRussian
+    ? `${yearsCount}+ года`
+    : `${yearsCount}+ years`;
+
+  // For projects - "10 years" in English, "10 лет" in Russian
+  const formattedProjects = isRussian
+    ? `${projectsCount} лет`
+    : `${projectsCount} years`;
+
+  // For technologies - same in both languages
+  const formattedTechnologies = `${technologiesCount}+`;
+
+  // For code reviews - same in both languages
+  const formattedCodeReviews = `${codeReviewsCount}+`;
 
   return (
     <section
       id="advantages"
       className="section-with-matrix py-24 bg-c-bg-primary"
+      ref={ref}
     >
       <div className="container mx-auto px-4">
         <motion.div {...fadeInUp} className="relative z-10 text-center mb-16">
@@ -77,10 +107,22 @@ export const AdvantagesSection = () => {
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {[
-            { label: t("advantages.statLabelExperience"), value: "4+ years" },
-            { label: t("advantages.statLabelProjects"), value: "10 лет" },
-            { label: t("advantages.statLabelTechnologies"), value: "20+" },
-            { label: t("advantages.statLabelCodeReviews"), value: "100+" },
+            {
+              label: t("advantages.statLabelExperience"),
+              value: formattedYears,
+            },
+            {
+              label: t("advantages.statLabelProjects"),
+              value: formattedProjects,
+            },
+            {
+              label: t("advantages.statLabelTechnologies"),
+              value: formattedTechnologies,
+            },
+            {
+              label: t("advantages.statLabelCodeReviews"),
+              value: formattedCodeReviews,
+            },
           ].map((stat, i) => (
             <motion.div
               key={i}

@@ -45,15 +45,21 @@ export const HeroSection = () => {
               </motion.div>
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
-              Frontend-developer
-            </h1>
+            {/* Glassmorphism container for the title */}
+            <div className="mb-1 p-4 rounded-2xl bg-c-bg-primary/10 backdrop-blur-xl border border-c-border/20 shadow-xl inline-block">
+              <h1 className="text-4xl md:text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent whitespace-nowrap">
+                Frontend-developer
+              </h1>
+            </div>
 
-            <p className="text-lg md:text-xl text-c-text-secondary mb-8 leading-relaxed">
-              {t("hero.subtitle")}
-            </p>
+            {/* Glassmorphism container for the subtitle */}
+            <div className="p-4 rounded-2xl bg-c-bg-primary/10 backdrop-blur-xl border border-c-border/20 shadow-xl block mt-3.5">
+              <p className="text-lg md:text-xl text-c-text-secondary leading-relaxed">
+                {t("hero.subtitle")}
+              </p>
+            </div>
 
-            <div className="flex flex-wrap gap-4 relative z-20 overflow-visible -ml-4 -mr-4 pl-4 pr-4">
+            <div className="flex flex-wrap gap-4 relative z-20 overflow-visible -ml-4 -mr-4 pl-4 pr-4 mt-3.5">
               <ScrollLink to="contact" smooth duration={500}>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
