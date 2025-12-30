@@ -45,12 +45,9 @@ export const HeroSection = () => {
               </motion.div>
             </div>
 
-            {/* Glassmorphism container for the title */}
-            <div className="mb-1 p-4 rounded-2xl bg-c-bg-primary/10 backdrop-blur-xl border border-c-border/20 shadow-xl inline-block">
-              <h1 className="text-4xl md:text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent whitespace-nowrap">
-                Frontend-developer
-              </h1>
-            </div>
+            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent hero-title-responsive mb-1">
+              Frontend-developer
+            </h1>
 
             {/* Glassmorphism container for the subtitle */}
             <div className="p-4 rounded-2xl bg-c-bg-primary/10 backdrop-blur-xl border border-c-border/20 shadow-xl block mt-3.5">

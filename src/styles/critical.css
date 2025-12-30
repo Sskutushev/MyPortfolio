@@ -55,3 +55,13 @@ header,
     opacity: 0.8;
   }
 }
+
+/* Responsive text sizing for hero title */
+.hero-title-responsive {
+  font-size: clamp(1.5rem, 4vw, 3.75rem);
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
