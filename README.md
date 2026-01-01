@@ -1,135 +1,187 @@
-# Портфолио-проект на React (Reactive Velocity)
+# Reactive Velocity Portfolio
 
-[![Статус CI/CD](https://github.com/Sskutushev/MyPortfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Sskutushev/MyPortfolio/actions/workflows/ci.yml)
-[![Покрытие тестами (Codecov)](https://codecov.io/gh/Sskutushev/MyPortfolio/branch/main/graph/badge.svg)](https://codecov.io/gh/Sskutushev/MyPortfolio)
-[![Lighthouse Performance](https://img.shields.io/badge/Lighthouse_Performance-95%2B-brightgreen)](https://github.com/Sskutushev/MyPortfolio/actions/workflows/lighthouse.yml)
-[![Vercel Deployment](https://vercelbadge.vercel.app/api/Sskutushev/MyPortfolio)](https://sskutushev.vercel.app/)
+This is a modern, production-ready portfolio website that demonstrates advanced React development practices. The project showcases professional work experience, projects, and technical skills with a focus on performance, accessibility, and user experience.
 
-Современное, производительное и полностью протестированное веб-приложение-портфолио, демонстрирующее лучшие практики разработки на React. Проект создан с упором на производительность, доступность (A11Y) и автоматизацию процессов CI/CD.
+## Project Overview
 
-**✨ [Посмотреть живую демо-версию](https://sskutushev.vercel.app/) ✨**
+The portfolio is built using modern web technologies and follows industry best practices for performance, accessibility, and maintainability. It includes comprehensive testing, CI/CD pipeline, and real-time performance monitoring.
 
----
+### Key Features
 
-## 🎯 Ключевые особенности
+- **Modern Tech Stack**: React 19, TypeScript, Vite 7, Tailwind CSS
+- **Performance Optimized**: 95+ Lighthouse scores across all categories
+- **Full Accessibility**: WCAG 2.1 AA compliance with keyboard navigation
+- **Internationalization**: Support for Russian and English languages
+- **Comprehensive Testing**: Unit, E2E, and accessibility tests with 100% pass rate
+- **CI/CD Pipeline**: Automated testing, building, and deployment
+- **Real-time Monitoring**: Web Vitals tracking and performance metrics
 
-- **Современный стек:** React 19, TypeScript, Vite 7 и Tailwind CSS.
-- **Производительность:** Оптимизация для достижения 95+ баллов в Lighthouse по всем категориям. Ленивая загрузка ресурсов, оптимизация изображений и минимизация размера бандла.
-- **Комплексное тестирование:** 100% прохождение Unit, E2E и Accessibility тестов. Настроен сбор и выгрузка отчетов о покрытии кода в Codecov.
-- **Полная доступность (A11Y):** Соответствие стандартам WCAG 2.1 AA. Поддержка навигации с клавиатуры, скринридеров и режима `prefers-reduced-motion`.
-- **Автоматизированный CI/CD:** Полностью автоматизированный пайплайн на GitHub Actions, включающий линтинг, все виды тестов, сборку и деплой на Vercel.
-- **Качество кода:** Настроенные pre-commit хуки для линтинга и форматирования, а также строгие правила для коммитов (Conventional Commits).
-- **Дизайн и UX:** Адаптивный дизайн, поддержка темной/светлой темы, плавная анимация с Framer Motion и интуитивно понятный интерфейс.
-- **Интернационализация:** Поддержка русского и английского языков (i18n).
+## Architecture
 
-## 🛠️ Стек технологий
-
-| Категория        | Технология                                                                                                                                                                                              |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Frontend**     | [React 19](https://react.dev/), [TypeScript](https://www.typescriptlang.org/), [Vite 7](https://vitejs.dev/), [Tailwind CSS](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/) |
-| **Тестирование** | [Vitest](https://vitest.dev/), [React Testing Library](https://testing-library.com/), [Playwright](https://playwright.dev/) (E2E), [Axe-Core](https://github.com/dequelabs/axe-core) (A11Y)             |
-| **CI/CD**        | [GitHub Actions](https://github.com/features/actions), [Vercel](https://vercel.com/), [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci), [Codecov](https://about.codecov.io/)              |
-| **Инструменты**  | [ESLint](https://eslint.org/), [Prettier](https://prettier.io/), [Husky](https://typicode.github.io/husky/), [Commitlint](https://commitlint.js.org/)                                                   |
-
-## 📊 Метрики проекта
-
-Все метрики успешно достигаются и проверяются в рамках CI/CD пайплайна.
-
-| Метрика                      | Результат                      |
-| ---------------------------- | ------------------------------ |
-| **CI/CD Статус**             | ✅ **Проходит**                |
-| **Unit Тесты**               | ✅ **100% проходят**           |
-| **E2E Тесты**                | ✅ **100% проходят**           |
-| **Accessibility Тесты**      | ✅ **100% проходят**           |
-| **Lighthouse Performance**   | 🟢 **95+**                     |
-| **Lighthouse Accessibility** | 🟢 **95+**                     |
-| **Lighthouse SEO**           | 🟢 **100**                     |
-| **Покрытие тестами**         | 📈 **Отслеживается в Codecov** |
-
-## 🔄 CI/CD Пайплайн
-
-Процесс непрерывной интеграции и доставки полностью автоматизирован с помощью GitHub Actions и состоит из следующих этапов, которые запускаются при каждом `push` или `pull request` в ветки `main` и `develop`:
-
-1.  **Lint & Type Check:** Проверка кода на соответствие стайлгайду (ESLint), форматирование (Prettier) и корректность типов (TypeScript).
-2.  **Unit Tests:** Запуск модульных тестов с помощью Vitest. После успешного прохождения отчет о покрытии кода выгружается в Codecov.
-3.  **E2E Tests:** Запуск сквозных тестов в реальном браузере с помощью Playwright для проверки пользовательских сценариев.
-4.  **Accessibility Tests:** Запуск тестов доступности с помощью Lighthouse CI для гарантии соответствия стандартам WCAG.
-5.  **Build:** Сборка production-версии проекта.
-6.  **Deploy to Production:** После успешного прохождения всех предыдущих шагов (при `push` в `main`), проект автоматически выгружается на Vercel и создается новый релиз на GitHub.
-
-## 🚀 Начало работы
-
-### Требования
-
-- [Node.js](https://nodejs.org/) (версия 20.x или выше)
-- [npm](https://www.npmjs.com/)
-
-### Установка и запуск
-
-1.  **Клонируйте репозиторий:**
-
-    ```bash
-    git clone https://github.com/Sskutushev/MyPortfolio.git
-    cd MyPortfolio
-    ```
-
-2.  **Установите зависимости:**
-
-    ```bash
-    npm install
-    ```
-
-3.  **Запустите dev-сервер:**
-    ```bash
-    npm run dev
-    ```
-    Приложение будет доступно по адресу `http://localhost:5173`.
-
-### 🧪 Тестирование
-
-Проект имеет полный набор тестов, которые гарантируют стабильность и качество кода.
-
-| Команда                 | Описание                                           |
-| ----------------------- | -------------------------------------------------- |
-| `npm run test`          | Запуск всех Unit-тестов в интерактивном режиме.    |
-| `npm run test:coverage` | Однократный запуск Unit-тестов со сбором покрытия. |
-| `npm run test:e2e`      | Запуск всех E2E-тестов с помощью Playwright.       |
-| `npm run test:a11y`     | Запуск тестов на доступность.                      |
-| `npm run lint`          | Проверка кода с помощью ESLint.                    |
-
-## 📁 Структура проекта
+The project follows a modular architecture with clear separation of concerns:
 
 ```
-portfolio-project/
-├── .github/            # Конфигурация GitHub Actions
-├── docs/               # Детальная документация проекта
-├── public/             # Статические ассеты
-├── src/
-│   ├── components/     # Переиспользуемые React-компоненты
-│   ├── contexts/       # Контексты React
-│   ├── data/           # Статические данные (проекты, UI-компоненты)
-│   ├── hooks/          # Кастомные хуки
-│   ├── lib/            # Вспомогательные библиотеки и конфигурации
-│   ├── pages/          # Компоненты страниц
-│   ├── styles/         # Глобальные стили
-│   ├── test/           # Утилиты для тестирования
-│   ├── types/          # Глобальные типы TypeScript
-│   ├── App.tsx         # Корневой компонент приложения
-│   └── main.tsx        # Точка входа
-├── .gitignore
-├── index.html
-├── package.json
-├── README.md           # Вы находитесь здесь
-└── vite.config.ts      # Конфигурация Vite
+src/
+├── components/     # Reusable UI components organized by feature
+├── contexts/       # React context providers for state management
+├── data/           # Static data for projects and UI components
+├── hooks/          # Custom React hooks for common functionality
+├── lib/            # Utilities, configuration, and third-party integrations
+├── pages/          # Route-level components
+├── styles/         # Global styles and design system
+├── test/           # Testing utilities and helpers
+└── types/          # TypeScript type definitions
 ```
 
-## 📄 Лицензия
+### Tech Stack
 
-Проект распространяется под лицензией MIT. См. файл `LICENSE` для получения дополнительной информации.
+- **Frontend**: React 19, TypeScript, Vite 7
+- **Styling**: Tailwind CSS with custom design system
+- **Animations**: Framer Motion for smooth transitions
+- **Routing**: React Router for navigation
+- **State Management**: React Context API
+- **Internationalization**: i18next for multi-language support
+- **Testing**: Vitest, React Testing Library, Playwright
+- **Accessibility**: axe-core for automated testing
+- **Performance**: Web Vitals monitoring
 
-## 👤 Автор
+## Performance Optimizations
 
-**Sergey Kutushev**
+The application implements several performance strategies:
 
-- **GitHub:** [@Sskutushev](https://github.com/Sskutushev)
-- **Telegram:** [@sskutushev](https://t.me/sskutushev)
+- **Code Splitting**: Route-level and component-level code splitting
+- **Image Optimization**: Lazy loading with WebP/MP4 fallbacks
+- **Bundle Optimization**: Manual chunk splitting and tree shaking
+- **Compression**: Gzip and Brotli compression
+- **Caching**: Smart caching strategies for API requests
+- **Intersection Observer**: For performance monitoring and lazy loading
+
+## Accessibility Features
+
+The portfolio meets WCAG 2.1 AA standards:
+
+- Keyboard navigation with skip links
+- Proper ARIA attributes and semantic HTML
+- Focus management in modals and menus
+- Reduced motion support for motion-sensitive users
+- Screen reader compatibility
+
+## Internationalization
+
+The application supports multiple languages:
+
+- Russian and English language support
+- Dynamic language switching
+- Content translation stored in JSON files
+- Locale persistence in localStorage
+
+## Development Setup
+
+### Prerequisites
+
+- Node.js (version 20.x or higher)
+- npm package manager
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Sskutushev/MyPortfolio.git
+cd MyPortfolio
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
+
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+### Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Create production build
+- `npm run preview` - Preview production build locally
+- `npm run test` - Run unit tests in watch mode
+- `npm run test:coverage` - Run unit tests with coverage
+- `npm run test:e2e` - Run end-to-end tests
+- `npm run test:a11y` - Run accessibility tests
+- `npm run lint` - Run ESLint checks
+
+## Testing Strategy
+
+The project implements a comprehensive testing approach:
+
+- **Unit Tests**: Vitest with React Testing Library for component testing
+- **E2E Tests**: Playwright for full user journey testing
+- **Accessibility Tests**: axe-core integration for automated a11y testing
+- **Code Coverage**: Continuous monitoring with Codecov integration
+
+## Deployment
+
+The application is deployed on Vercel with:
+
+- Automatic deployments on every push to main branch
+- Preview deployments for pull requests
+- Performance monitoring integration
+- Custom domain configuration
+
+## Browser Support
+
+The portfolio supports modern browsers including:
+
+- Chrome, Firefox, Safari, Edge (latest versions)
+- Mobile browsers on iOS and Android
+- Progressive Web App (PWA) capabilities
+
+## Project Data Structure
+
+Portfolio content is organized in TypeScript files:
+
+- `projects.ts` - Contains detailed project information with code examples
+- `ui-components.ts` - UI component showcase data
+- Translation files in `src/lib/locales/` for i18n support
+
+Each project includes:
+
+- Title, category, and technology stack
+- Project flow description (input, process, output)
+- Code highlights and performance metrics
+- Links to live demos and source code
+
+## Custom Hooks
+
+The project includes several reusable custom hooks:
+
+- `useTheme` - Theme switching with localStorage persistence
+- `useFocusTrap` - Keyboard navigation in modal dialogs
+- `useSkipNavigation` - Accessibility navigation helpers
+- `useDebounce` - Optimized search functionality
+
+## Performance Monitoring
+
+Built-in performance tracking includes:
+
+- Core Web Vitals (CLS, FCP, INP, LCP, TTFB)
+- Long task detection and reporting
+- Layout shift monitoring
+- Analytics integration with beacon API
+
+## Security Considerations
+
+- Input validation and sanitization
+- Secure API communication
+- Proper error handling without information disclosure
+- Content Security Policy implementation
+
+## Contributing
+
+This is a personal portfolio project, but feel free to explore the code and learn from the implementation patterns used throughout the application.
