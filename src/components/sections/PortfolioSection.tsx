@@ -13,8 +13,6 @@ import { ymGoal } from "@/lib/metrics";
 
 // Map project IDs to translation keys
 const PROJECT_TRANSLATION_MAP: Record<number, string> = {
-  1: "dexsafe", // DexSafe Wallet Pro
-  2: "ecochain", // EcoChain Token Platform
   3: "airbro", // AIBRO Business
   4: "dexflow", // DexFlow
   5: "portfolio", // Reactive Velocity Portfolio
@@ -25,6 +23,7 @@ const PROJECT_TRANSLATION_MAP: Record<number, string> = {
   10: "course", // Course Catalog
   11: "yokai", // Yokai Threat Matrix
   12: "moviecatalog", // MovieCatalog - Adaptive Cinema SPA
+  16: "nftmarketplace", // NFT Marketplace — Modern DeFi Trading Platform
 };
 
 export const PortfolioSection = () => {
@@ -36,12 +35,12 @@ export const PortfolioSection = () => {
     "projects",
   );
 
-  // На главной странице показываем только Lumi, EcoChain и AIBRO (id=9, 2, 3)
+  // На главной странице показываем NFT Marketplace, Lumi и AIBRO (id=16, 9, 3)
   // На странице портфолио показываем все проекты
   const projects =
     activeTab === "projects"
       ? location.pathname === "/"
-        ? portfolioProjects.filter((project) => [9, 2, 3].includes(project.id))
+        ? portfolioProjects.filter((project) => [16, 9, 3].includes(project.id))
         : [...portfolioProjects].reverse()
       : uiComponents;
   const title =
@@ -168,7 +167,7 @@ export const PortfolioSection = () => {
                           {(() => {
                             // Check if translation exists for this project
                             const projectIds = [
-                              1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                              3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 16,
                             ];
                             const projectIdKey = projectIds.includes(project.id)
                               ? PROJECT_TRANSLATION_MAP[project.id]
