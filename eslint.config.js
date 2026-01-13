@@ -6,14 +6,14 @@ import tseslint from 'typescript-eslint'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 
 export default tseslint.config(
-  { 
+  {
     files: ['src/**/*.{ts,tsx}', 'e2e/**/*.{ts,tsx}', '*.config.{js,mjs,ts}', 'scripts/**/*.{js,ts}'],
     ignores: [
-      'dist/**', 
+      'dist/**',
       'docs/**',
-      'node_modules/**', 
-      '*.min.js', 
-      'coverage/**', 
+      'node_modules/**',
+      '*.min.js',
+      'coverage/**',
       'build/**',
       'src/test/setup.ts',
       'src/__mocks__/**',
@@ -22,7 +22,11 @@ export default tseslint.config(
       // Явно исключаем сгенерированные файлы
       'dist/**/*',
       'src/**/*.js',  // Исключаем JS файлы в src, кроме случаев когда TypeScript не может их обработать
-    ] 
+      // Исключаем файлы отчетов и тестов
+      'playwright-report/**',
+      'test-results/**',
+      '**/*.md',
+    ]
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,

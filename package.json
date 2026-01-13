@@ -2,7 +2,7 @@
   "name": "portfolio-project",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://Sskutushev.github.io/MyPortfolio",
+  "homepage": "https://noname.github.io/MyPortfolio",
   "type": "module",
   "scripts": {
     "dev": "vite",

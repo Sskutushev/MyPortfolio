@@ -87,7 +87,7 @@ The application supports multiple languages:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/Sskutushev/MyPortfolio.git
+git clone https://github.com/noname/MyPortfolio.git
 cd MyPortfolio
 ```
 

@@ -7,10 +7,10 @@
     - banner [ref=e5]:
         - navigation "Main navigation" [ref=e6]:
             - generic [ref=e7]:
-                - heading "Sskutushev - Homepage" [level=1] [ref=e8]:
-                    - link "Sskutushev - Homepage" [ref=e9] [cursor=pointer]:
+                - heading "Noname - Homepage" [level=1] [ref=e8]:
+                    - link "Noname - Homepage" [ref=e9] [cursor=pointer]:
                         - /url: /
-                        - text: Sskutushev
+                        - text: Noname
                 - generic [ref=e10]:
                     - generic "Обо мне" [ref=e11] [cursor=pointer]
                     - generic "Опыт" [ref=e12] [cursor=pointer]
@@ -18,7 +18,7 @@
                     - generic "Стек" [ref=e14] [cursor=pointer]
                     - generic "Контакты" [ref=e15] [cursor=pointer]
                     - link "Visit GitHub profile (opens in new tab)" [ref=e16] [cursor=pointer]:
-                        - /url: https://github.com/Sskutushev
+                        - /url: https://github.com/noname
                         - img [ref=e17]
                     - 'button "Switch language to English. Current: RU" [ref=e20] [cursor=pointer]': RU
                     - button "Switch to light theme" [ref=e21] [cursor=pointer]:
@@ -308,28 +308,28 @@
                         - generic [ref=e412]:
                             - generic [ref=e413]:
                                 - img [ref=e414]
-                                - generic [ref=e416]: const telegram = '@sskutushev';
+                                - generic [ref=e416]: const telegram = '@noname';
                             - generic [ref=e417]:
                                 - img [ref=e418]
-                                - generic [ref=e421]: const email = 'Sskutushev@gmail.com';
-                        - link "Telegram @sskutushev" [ref=e422] [cursor=pointer]:
-                            - /url: https://t.me/sskutushev
+                                - generic [ref=e421]: const email = 'noname@gmail.com';
+                        - link "Telegram @noname" [ref=e422] [cursor=pointer]:
+                            - /url: https://t.me/noname
                             - img [ref=e423]
                             - generic [ref=e425]:
                                 - generic [ref=e426]: Telegram
-                                - generic [ref=e427]: "@sskutushev"
-                        - link "Email Sskutushev@gmail.com" [ref=e428] [cursor=pointer]:
-                            - /url: mailto:Sskutushev@gmail.com
+                                - generic [ref=e427]: "@noname"
+                        - link "Email noname@gmail.com" [ref=e428] [cursor=pointer]:
+                            - /url: mailto:noname@gmail.com
                             - img [ref=e429]
                             - generic [ref=e432]:
                                 - generic [ref=e433]: Email
-                                - generic [ref=e434]: Sskutushev@gmail.com
-                        - link "GitHub github.com/Sskutushev" [ref=e435] [cursor=pointer]:
-                            - /url: https://github.com/Sskutushev
+                                - generic [ref=e434]: noname@gmail.com
+                        - link "GitHub github.com/noname" [ref=e435] [cursor=pointer]:
+                            - /url: https://github.com/noname
                             - img [ref=e436]
                             - generic [ref=e439]:
                                 - generic [ref=e440]: GitHub
-                                - generic [ref=e441]: github.com/Sskutushev
+                                - generic [ref=e441]: github.com/noname
                         - generic [ref=e443]:
                             - img [ref=e444]
                             - generic [ref=e446]:

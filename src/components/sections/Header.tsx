@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon, Github } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useTranslation } from "react-i18next";
 import { useFocusTrap } from "@/hooks/useFocusTrap";
@@ -64,8 +64,8 @@ export const Header = () => {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center justify-between">
             <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              <a href="/" aria-label="Sskutushev - Homepage">
-                Sskutushev
+              <a href="/" aria-label="Noname - Homepage">
+                Noname
               </a>
             </h1>
 
@@ -87,15 +87,6 @@ export const Header = () => {
               ))}
 
               {/* Action Buttons */}
-              <a
-                href="https://github.com/Sskutushev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-c-accent-blue transition focus:outline-none focus:ring-2 focus:ring-c-accent-blue focus:ring-offset-2 rounded"
-                aria-label="Visit GitHub profile (opens in new tab)"
-              >
-                <Github size={20} aria-hidden="true" />
-              </a>
 
               <button
                 onClick={toggleLanguage}
@@ -136,22 +127,12 @@ export const Header = () => {
             </button>
 
             <h1 className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              <a href="/" aria-label="Sskutushev - Homepage">
-                Sskutushev
+              <a href="/" aria-label="Noname - Homepage">
+                Noname
               </a>
             </h1>
 
             <div className="flex items-center gap-2">
-              <a
-                href="https://github.com/Sskutushev"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit GitHub profile (opens in new tab)"
-                className="focus:outline-none focus:ring-2 focus:ring-c-accent-blue rounded"
-              >
-                <Github size={20} aria-hidden="true" />
-              </a>
-
               <button
                 onClick={toggleLanguage}
                 className="px-2 py-1 text-sm rounded border border-c-border focus:outline-none focus:ring-2 focus:ring-c-accent-blue"

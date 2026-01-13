@@ -1,7 +1,7 @@
 // src/components/common/ProjectModal.tsx
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { ExternalLink, Code, Github } from "lucide-react";
+import { Code } from "lucide-react";
 import { Modal } from "@/components/common/Modal";
 import { Project } from "@/data/projects";
 
@@ -29,26 +29,6 @@ const PROJECT_TRANSLATION_MAP: Record<number, string> = {
   15: "rkn", // RKN Simulator
 };
 
-// Map project IDs to GitHub links
-const PROJECT_GITHUB_MAP: Record<number, string> = {
-  1: "https://github.com/Sskutushev/Presentation-site-landing", // DexSafe Wallet Pro
-  2: "https://github.com/Sskutushev/1Xecochain", // EcoChain Token Platform
-  3: "https://github.com/Sskutushev/AIRBRO", // AIRBRO Business
-  4: "https://github.com/Sskutushev/DexFlow", // DexFlow
-  5: "https://github.com/Sskutushev/MyPortfolio", // Reactive Velocity Portfolio
-  6: "https://github.com/Sskutushev/Landing-space", // Landing Space
-  7: "https://github.com/Sskutushev/VAN_Gogh_Link", // Van Gogh Link
-  8: "https://github.com/Sskutushev/TOT-Test", // TOT
-  9: "https://github.com/Sskutushev/Lumi", // Lumi
-  10: "https://github.com/Sskutushev/Test-Kozyrev", // Course Catalog
-  11: "https://github.com/Sskutushev/Yokai-Threat-Matrix-YTM", // Yokai Threat Matrix
-  12: "https://github.com/Sskutushev/effective-mobile", // MovieCatalog
-  13: "https://github.com/Sskutushev/RKN_simulator", // RKN Simulator
-  14: "https://github.com/Sskutushev/effective-mobile", // MovieCatalog
-  15: "https://github.com/Sskutushev/RKN_simulator", // RKN Simulator
-  16: "https://github.com/Sskutushev/nft-marketplace", // NFT Marketplace
-};
-
 export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<"flow" | "code">("flow");
@@ -60,43 +40,12 @@ export const ProjectModal = ({ project, onClose }: ProjectModalProps) => {
     t(`projects.${projectIdKey}.flowInput`) !==
       `projects.${projectIdKey}.flowInput`;
 
-  // Get GitHub link for this project
-  const githubLink = PROJECT_GITHUB_MAP[project.id];
-
   return (
     <Modal isOpen={!!project} onClose={onClose}>
       <div className="sticky top-0 z-10 p-6 border-b border-c-border bg-c-bg-primary/95 backdrop-blur-sm">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <h3 className="text-3xl font-bold mb-2">{project.title}</h3>
-            <div className="flex gap-2">
-              {githubLink && (
-                <a
-                  href={githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-c-accent-blue hover:underline"
-                  aria-label="Visit GitHub repository"
-                >
-                  <Github size={24} />
-                </a>
-              )}
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-c-accent-blue hover:underline"
-                  aria-label="Visit project website"
-                >
-                  {project.link.includes("github.com") ? (
-                    <ExternalLink size={24} />
-                  ) : (
-                    <ExternalLink size={24} />
-                  )}
-                </a>
-              )}
-            </div>
           </div>
           <button
             onClick={onClose}

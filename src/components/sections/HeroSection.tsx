@@ -75,15 +75,6 @@ export const HeroSection = () => {
                   />
                 </motion.button>
               </ScrollLink>
-              <motion.a
-                href="/Кутушев Сергей Сергеевич.pdf"
-                download
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 rounded-xl border-2 font-semibold transition-colors min-h-[48px] flex items-center justify-center overflow-visible dark:border-c-accent-blue dark:text-c-accent-blue dark:hover:bg-c-accent-blue/10 light:border-c-accent-custom-resume light:text-c-accent-custom-resume light:hover:bg-c-accent-custom-resume/10"
-              >
-                {t("hero.resume")}
-              </motion.a>
             </div>
           </motion.div>
 

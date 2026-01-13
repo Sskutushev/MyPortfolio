@@ -7,7 +7,7 @@ import { Header } from "./Header";
 describe("Header", () => {
   it("renders logo text", () => {
     render(<Header />);
-    expect(screen.getAllByText("Sskutushev")[0]).toBeInTheDocument();
+    expect(screen.getAllByText("Noname")[0]).toBeInTheDocument();
   });
 
   it("renders navigation links on desktop", () => {
